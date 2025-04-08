@@ -42,37 +42,49 @@ document.addEventListener('DOMContentLoaded', function() {
         const activeNavItem = document.querySelector(`.sidebar .nav-links li a[href="#${sectionId}"]`);
         if (activeNavItem) {
             activeNavItem.parentElement.classList.add('active');
-            // console.log(`Active section: ${sectionId}`);
         }
     }
     
-    // 6. Handle click events on nav links
-    navItems.forEach(item => {
-        const link = item.querySelector('a');
-        if (link) {
-            link.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId && targetId.startsWith('#')) {
-                    e.preventDefault();
+    // Simplified and fixed navigation functionality
+    const navLinks = document.querySelectorAll('.sidebar .nav-links li a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the target section id from href attribute
+            const targetId = this.getAttribute('href');
+            
+            if (targetId && targetId.startsWith('#')) {
+                // Find the target section
+                const targetSection = document.getElementById(targetId.substring(1));
+                
+                if (targetSection) {
+                    console.log("Navigating to section:", targetId);
                     
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        isScrolling = true;
-                        navItems.forEach(el => el.classList.remove('active'));
-                        item.classList.add('active');
-                        window.scrollTo({
-                            top: targetSection.offsetTop - 50,
-                            behavior: 'smooth'
-                        });
-                        setTimeout(() => {
-                            isScrolling = false;
-                            currentSection = targetId.substring(1);
-                        }, 1000);
-                    }
+                    // Update active state
+                    document.querySelectorAll('.sidebar .nav-links li').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.parentElement.classList.add('active');
+                    
+                    // Scroll to the section
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Alternative scroll method if scrollIntoView doesn't work well
+                    /*
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                    */
+                } else {
+                    console.error("Target section not found:", targetId);
                 }
-            });
-        }
+            }
+        });
     });
+    
     const initialSection = window.location.hash || '#home';
     updateActiveTab(initialSection.substring(1));
 });
