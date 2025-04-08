@@ -487,6 +487,198 @@ html {
     scrollbar-color: transparent transparent;
 }
 
+/* Events Section Styling */
+.events-section {
+    padding: 80px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.events-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.event-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 380px; /* Reduced from 600px */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px; /* Reduced from 250px */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover img {
+    transform: scale(1.05);
+}
+
+.event-content {
+    padding: 15px; /* Reduced from 20px */
+    gap: 20px;
+}
+
+.event-date {
+    background: #4361ee;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80px;
+    height: fit-content;
+}
+
+.event-date .date {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.event-date .month {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-details h3 {
+    font-size: 1.3rem; /* Reduced from 1.5rem */
+    color: #333;
+    margin-bottom: 10px; /* Reduced from 15px */
+}
+
+.event-time, .event-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.event-description {
+    font-size: 0.9rem; /* Added to reduce text size */
+    color: #666;
+    margin: 10px 0; /* Reduced from 15px */
+    line-height: 1.6;
+}
+
+.event-btn {
+    background: transparent;
+    color: #4361ee;
+    border: 2px solid #4361ee;
+    padding: 6px 16px; /* Reduced from 8px 20px */
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem; /* Added to reduce button text size */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.event-btn:hover {
+    background: #4361ee;
+    color: white;
+}
+
+/* Event type badges */
+.event-type {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.technical .event-type {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: #4361ee;
+}
+
+.non-technical .event-type {
+    background-color: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+}
+
+.technical .event-btn {
+    border-color: #4361ee;
+    color: #4361ee;
+}
+
+.non-technical .event-btn {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+.technical .event-btn:hover {
+    background: #4361ee;
+    color: white;
+}
+
+.non-technical .event-btn:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .events-section {
+        padding: 60px 20px;
+    }
+
+    .event-card img {
+        height: 180px; /* Reduced from 200px */
+    }
+
+    .event-content {
+        flex-direction: column;
+        padding: 12px; /* Reduced from 15px */
+    }
+
+    .event-date {
+        padding: 10px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .event-date .date {
+        font-size: 1.5rem;
+        margin-right: 5px;
+    }
+
+    .event-details {
+        padding: 15px 0;
+    }
+
+    .event-details h3 {
+        font-size: 1.3rem;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
@@ -680,6 +872,38 @@ html {
         width: 60%;
         height: 4px;
         border-radius: 0 0 2px 2px;
+    }
+
+    .event-card {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .event-card img {
+        height: 180px; /* Reduced from 200px */
+    }
+
+    .event-content {
+        flex-direction: column;
+    }
+
+    .event-date {
+        flex-direction: row;
+        gap: 10px;
+        padding: 15px;
+        min-width: 100%;
+    }
+
+    .event-date .date {
+        font-size: 2rem;
+    }
+
+    .event-details {
+        padding: 20px;
+    }
+
+    .events-section {
+        padding: 60px 20px;
     }
 }
 
