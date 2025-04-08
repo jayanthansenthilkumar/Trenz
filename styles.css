@@ -160,6 +160,139 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Content Area Styles */
+.content-area {
+    flex: 1;
+    margin-left: 80px; /* Match sidebar width */
+    width: calc(100% - 80px);
+    transition: all 0.3s ease;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 15px;
+}
+
+.primary-btn, .secondary-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: #4361ee;
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: #3a56d4;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #4361ee;
+    border: 1px solid #4361ee;
+}
+
+.secondary-btn:hover {
+    background-color: rgba(67, 97, 238, 0.1);
+}
+
+/* Hero Image as Pinned Notice */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 20px; /* Space for the pin */
+}
+
+.hero-image .notice-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: rotate(2deg);
+    border: 1px solid #e0e0e0;
+    position: relative;
+    max-width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.hero-image .notice-content:hover {
+    transform: rotate(0deg);
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 4px;
+    display: block;
+}
+
+.hero-image .pin {
+    width: 20px;
+    height: 20px;
+    background-color: #ff5252;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image .pin:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
@@ -246,5 +379,96 @@ body {
     .sidebar.active .toggle-btn {
         top: 10px;
         right: 20px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+        min-height: 500px; /* Increased height for mobile view */
+    }
+    
+    .hero-content {
+        order: 1;
+    }
+    
+    .hero-image {
+        order: 0;
+        margin-bottom: 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .sidebar .nav-links li a {
+        height: 65px; /* Increased height for better touch targets */
+        padding: 15px 20px; /* More padding for better spacing */
+    }
+    
+    .sidebar .nav-links li {
+        margin-bottom: 10px; /* Add some space between nav items */
+    }
+    
+    .icon {
+        font-size: 24px; /* Slightly larger icons for mobile */
+    }
+    
+    .link-name {
+        font-size: 18px; /* Slightly larger text for mobile */
+    }
+
+    .content-area {
+        margin-left: 0;
+        width: 100%;
+        margin-bottom: 70px; /* Space for bottom navbar */
+    }
+
+    .hero-image .notice-content {
+        transform: rotate(1deg); /* Less rotation on mobile */
+    }
+}
+
+/* Responsive design - Laptop and larger screens */
+@media screen and (min-width: 1024px) {
+    .hero-section {
+        min-height: 600px;
+        padding: 80px 60px;
+        align-items: center;
+    }
+    
+    .hero-content {
+        padding-right: 40px;
+        max-width: 50%;
+    }
+    
+    .hero-image {
+        max-width: 50%;
+    }
+    
+    .hero-image img {
+        max-height: 450px;
+        object-fit: contain;
+    }
+}
+
+/* Responsive design - Tablet */
+@media screen and (max-width: 1023px) {
+    .hero-section {
+        padding: 40px 20px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
 }
