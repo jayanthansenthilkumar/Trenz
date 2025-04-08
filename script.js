@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.querySelector('.hero-section');
     if (!heroSection.id) heroSection.id = 'home';
     const navItems = document.querySelectorAll('.sidebar .nav-links li');
-    const sections = Array.from(document.querySelectorAll('#home, #about'));
+    const sections = Array.from(document.querySelectorAll('#home, #about','#patron'));
     let currentSection = '';
     let isScrolling = false;
     const observer = new IntersectionObserver((entries) => {
@@ -51,8 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Get the target section id from href attribute
             const targetId = this.getAttribute('href');
             
             if (targetId && targetId.startsWith('#')) {
@@ -61,23 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (targetSection) {
                     console.log("Navigating to section:", targetId);
-                    
-                    // Update active state
                     document.querySelectorAll('.sidebar .nav-links li').forEach(item => {
                         item.classList.remove('active');
                     });
                     this.parentElement.classList.add('active');
-                    
-                    // Scroll to the section
                     targetSection.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Alternative scroll method if scrollIntoView doesn't work well
-                    /*
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 50,
-                        behavior: 'smooth'
-                    });
-                    */
                 } else {
                     console.error("Target section not found:", targetId);
                 }
