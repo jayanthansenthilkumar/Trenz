@@ -3,6 +3,18 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: scroll; /* Allow vertical scrolling */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 }
 
 body {
@@ -10,16 +22,21 @@ body {
     color: #333;
 }
 
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
 .container {
     display: flex;
     height: 100vh;
     width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling in container */
 }
 
 /* Sidebar Styles */
 .sidebar {
     position: fixed;
-    height: 40vh;
+    height: 50vh;
     width: 80px;
     background: #212529;
     color: #fff;
@@ -28,7 +45,7 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     left: 0;
-    top: 32vh;
+    top: 25vh;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
@@ -141,6 +158,32 @@ body {
     justify-content: center;
 }
 
+/* Active tab styling */
+.sidebar .nav-links li.active {
+    background: rgba(67, 97, 238, 0.25); /* Increased opacity for better visibility */
+    position: relative; /* Added for indicator */
+}
+
+.sidebar .nav-links li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 4px;
+    background-color: #4361ee;
+    border-radius: 0 2px 2px 0;
+}
+
+.sidebar .nav-links li.active a {
+    color: white;
+}
+
+.sidebar .nav-links li.active .icon {
+    color: #4361ee; /* Primary color for the icon */
+}
+
 .sidebar .toggle-btn {
     position: absolute;
     top: 12px;
@@ -166,6 +209,8 @@ body {
     margin-left: 80px; /* Match sidebar width */
     width: calc(100% - 80px);
     transition: all 0.3s ease;
+    position: relative; /* Added for particles positioning */
+    z-index: 1; /* Ensure content is above particles */
 }
 
 /* Hero Section Styles */
@@ -177,6 +222,25 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     gap: 30px;
+    position: relative;
+    z-index: 1; /* Ensure content is above particles */
+}
+
+/* Particles.js container - Modified to cover entire page */
+#particles-js {
+    position: fixed; /* Changed from absolute to fixed */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure hero content appears above particles */
+.hero-content, .hero-image {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content {
@@ -243,14 +307,14 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-top: 20px; /* Space for the pin */
+    padding-top: 30px; /* Increased space for the pin */
 }
 
 .hero-image .notice-content {
     background-color: #fff;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Larger radius */
+    padding: 1px; /* Increased padding */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow */
     transform: rotate(2deg);
     border: 1px solid #e0e0e0;
     position: relative;
@@ -264,21 +328,22 @@ body {
 
 .hero-image img {
     max-width: 100%;
-    border-radius: 4px;
+    border-radius: 6px; /* Increased radius */
     display: block;
+    height: auto; /* Maintain aspect ratio */
 }
 
 .hero-image .pin {
-    width: 20px;
-    height: 20px;
+    width: 30px; /* Increased pin size */
+    height: 30px;
     background-color: #ff5252;
     border-radius: 50%;
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
 
 .hero-image .pin:before {
@@ -286,11 +351,140 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 8px;
-    height: 8px;
+    width: 12px; /* Increased highlight size */
+    height: 12px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* Section Header Styling */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.section-divider {
+    height: 4px;
+    width: 60px;
+    background: #4361ee;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* About Section Styling */
+.about-section {
+    padding: 80px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row; /* Changed back to row from column */
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.about-text {
+    flex: 1; /* Changed back to flex: 1 from width: 100% */
+    text-align: left; /* Changed back to left alignment */
+    max-width: none; /* Removed max-width constraint */
+    margin: 0; /* Removed auto margin */
+}
+
+.about-image {
+    flex: 1; /* Changed back to flex: 1 from width: 100% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0; /* Removed extra top margin */
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.about-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #4361ee;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.about-image img {
+    width: 350px; /* Fixed width */
+    height: 350px; /* Fixed height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%; /* Creates circular shape */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    border: 8px solid #fff; /* White border around the circle */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Custom Scrollbar Styling - Complete removal */
+::-webkit-scrollbar {
+    width: 0px; /* Changed from 0.5px to 0px to completely hide */
+    height: 0px; /* Changed from 8px to 0px to completely hide */
+    display: none; /* Added to ensure scrollbar is hidden */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+/* Firefox scrollbar styling */
+html {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
 }
 
 /* Responsive Design */
@@ -389,12 +583,13 @@ body {
     }
     
     .hero-content {
-        order: 1;
+        order: 0; /* Changed from 1 to 0 to display first */
+        margin-bottom: 30px; /* Added margin to create space between content and image */
     }
     
     .hero-image {
-        order: 0;
-        margin-bottom: 30px;
+        order: 1; /* Changed from 0 to 1 to display second */
+        margin-bottom: 0; /* Removed margin since it's now at the bottom */
     }
     
     .hero-content h1 {
@@ -435,7 +630,56 @@ body {
     }
 
     .hero-image .notice-content {
-        transform: rotate(1deg); /* Less rotation on mobile */
+        transform: rotate(1deg);
+        padding: 1px; /* Slightly smaller padding for mobile */
+        width: 95%; /* Wider on mobile */
+    }
+    
+    .hero-image .pin {
+        width: 25px; /* Slightly smaller pin on mobile */
+        height: 25px;
+    }
+
+    .about-content {
+        flex-direction: column; /* Changed from column-reverse to column */
+        gap: 30px;
+    }
+    
+    .about-text, .about-image {
+        width: 100%;
+    }
+    
+    .about-section {
+        padding: 60px 20px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .about-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .about-stats {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .about-image img {
+        width: 280px; /* Smaller fixed width for mobile */
+        height: 280px; /* Smaller fixed height for mobile */
+        border-width: 6px; /* Thinner border for mobile */
+    }
+
+    /* Mobile active tab styling */
+    .sidebar .nav-links li.active::before {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 4px;
+        border-radius: 0 0 2px 2px;
     }
 }
 
@@ -457,18 +701,45 @@ body {
     }
     
     .hero-image img {
-        max-height: 450px;
+        max-height: 500px; /* Increased max height */
         object-fit: contain;
     }
-}
-
-/* Responsive design - Tablet */
-@media screen and (max-width: 1023px) {
-    .hero-section {
-        padding: 40px 20px;
+    
+    /* Simplified notice styling */
+    .hero-image .notice-content {
+        max-width: 85%;
+        padding: 1px;
+        transform: rotate(2deg);
     }
     
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .hero-image .notice-content:hover {
+        transform: rotate(0deg);
+    }
+    
+    .hero-image .pin {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .hero-image .pin:before {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* About section styling for larger screens */
+    .about-section {
+        min-height: 600px; /* Set minimum height for laptop view */
+        padding: 100px 60px; /* Increase padding to make section taller */
+    }
+    
+    .about-content {
+        gap: 80px; /* Increase gap between text and image */
+        margin-top: 50px; /* More space after section header */
+    }
+    
+    .about-image img {
+        width: 400px; /* Larger image for desktop */
+        height: 400px;
+        border-width: 10px; /* Thicker border for larger screens */
     }
 }

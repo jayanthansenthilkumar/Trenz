@@ -3,44 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trenz</title>
+    <title>Trendz</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">            
             <ul class="nav-links">
-                <li>
-                    <a href="#">
+                <li class="active">
+                    <a href="#home">
                         <i class="ri-home-5-fill icon"></i>
                         <span class="link-name">Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="ri-compass-3-fill icon"></i>
-                        <span class="link-name">Explore</span>
+                    <a href="#about">
+                        <i class="ri-information-line icon"></i>
+                        <span class="link-name">About</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="ri-notification-3-fill icon"></i>
-                        <span class="link-name">Alerts</span>
+                    <a href="#patrons">
+                        <i class="ri-user-star-line icon"></i>
+                        <span class="link-name">Patrons</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="ri-message-3-fill icon"></i>
-                        <span class="link-name">Messages</span>
+                    <a href="#events">
+                        <i class="ri-calendar-event-line icon"></i>
+                        <span class="link-name">Events</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="ri-user-3-fill icon"></i>
-                        <span class="link-name">Profile</span>
+                    <a href="#gallery">
+                        <i class="ri-gallery-line icon"></i>
+                        <span class="link-name">Gallery</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <i class="ri-contacts-line icon"></i>
+                        <span class="link-name">Contact</span>
                     </a>
                 </li>
             </ul>
@@ -48,9 +53,10 @@
         
         <!-- Content area with hero section -->
         <div class="content-area">
-            <div class="hero-section">
+            <div id="particles-js"></div>
+            <div class="hero-section" id="home">
                 <div class="hero-content">
-                    <h1>Welcome to Trenz</h1>
+                    <h1>Welcome to Trendz</h1>
                     <p>Discover the latest trends and connect with people around the world</p>
                     <div class="hero-cta">
                         <button class="primary-btn">Get Started <i class="ri-arrow-right-line"></i></button>
@@ -60,13 +66,48 @@
                 <div class="hero-image">
                     <div class="pin"></div>
                     <div class="notice-content">
-                        <img src="https://via.placeholder.com/500x400" alt="Trenz Hero Image">
+                        <img src="./assets/images/orlia.jpg" alt="Trendz Hero Image">
                     </div>
                 </div>
             </div>
+            
+            <!-- About Section -->
+            <div class="about-section" id="about">
+                <div class="section-header">
+                    <h2>About Trendz</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Connecting Minds, Creating Future</h3>
+                        <p>The Trendz Symposium is an annual gathering of thought leaders, researchers, and industry professionals dedicated to exploring cutting-edge innovations and emerging trends across disciplines.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Speakers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1000+</span>
+                                <span class="stat-label">Attendees</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">25+</span>
+                                <span class="stat-label">Sessions</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="./assets/images/orlia.jpg" alt="Symposium Participants">
+                    </div>
+                </div>
+            </div>
+            <!-- End About Section -->
+            
         </div>
     </div>
-
+    
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
