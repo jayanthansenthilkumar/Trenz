@@ -12,7 +12,7 @@
     <div class="container">
         <div class="sidebar">            
             <ul class="nav-links">
-                <li class="active">
+                <li>
                     <a href="#home">
                         <i class="ri-home-5-fill icon"></i>
                         <span class="link-name">Home</span>
@@ -22,6 +22,12 @@
                     <a href="#about">
                         <i class="ri-information-line icon"></i>
                         <span class="link-name">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#patrons">
+                        <i class="ri-shield-star-line icon"></i>
+                        <span class="link-name">Patrons</span>
                     </a>
                 </li>
                 <li>
@@ -108,25 +114,19 @@
                         <img src="./assets/images/tech.png" alt="Code Combat Challenge" class="event-card-image">
                         <div class="event-content">
                             <div class="event-details">
-                                <div class="event-type">Technical Event</div>
                                 <h3>Code Combat Challenge</h3>
-                                <p class="event-time"><i class="ri-time-line"></i> 09:00 AM - 05:00 PM</p>
-                                <p class="event-location"><i class="ri-map-pin-line"></i> Main Lab</p>
                                 <p class="event-description">Compete in our flagship coding competition featuring challenging algorithmic problems and real-world scenarios.</p>
-                                <button class="event-btn">Register Now</button>
+                                <a href="techevents.html" class="event-btn">View Events <i class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="event-card non-technical">
-                        <img src="./assets/images/orlia.jpg" alt="Creative Arts Festival" class="event-card-image">
+                        <img src="./assets/images/nontech.png" alt="Creative Arts Festival" class="event-card-image">
                         <div class="event-content">
                             <div class="event-details">
-                                <div class="event-type">Non-Technical Event</div>
-                                <h3>Creative Arts Festival</h3>
-                                <p class="event-time"><i class="ri-time-line"></i> 10:00 AM - 03:00 PM</p>
-                                <p class="event-location"><i class="ri-map-pin-line"></i> Cultural Center</p>
+                                <h3>Creative Arts Festival</h3> 
                                 <p class="event-description">Showcase your artistic talents through photography, painting, and digital art competitions.</p>
-                                <button class="event-btn">Register Now</button>
+                                <a href="nontechevents.html" class="event-btn">View Events <i class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
                     </div>
@@ -140,28 +140,5 @@
     <!-- Particles.js library -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Navbar active state management
-        const sections = document.querySelectorAll('div[id]');
-        const navLinks = document.querySelectorAll('.nav-links li');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - sectionHeight / 3)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(li => {
-                li.classList.remove('active');
-                if (li.querySelector('a').getAttribute('href').slice(1) === current) {
-                    li.classList.add('active');
-                }
-            });
-        });
-    </script>
 </body>
 </html>

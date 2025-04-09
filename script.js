@@ -22,30 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Particles.js not found');
     }
-    const heroSection = document.querySelector('.hero-section');
-    if (!heroSection.id) heroSection.id = 'home';
-    const navItems = document.querySelectorAll('.sidebar .nav-links li');
-    const sections = Array.from(document.querySelectorAll('#home, #about','#patron'));
-    let currentSection = '';
-    let isScrolling = false;
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!isScrolling && entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                currentSection = entry.target.id;
-                updateActiveTab(currentSection);
-            }
-        });
-    }, { threshold: [0.5] });
-    sections.forEach(section => observer.observe(section));
-    function updateActiveTab(sectionId) {
-        navItems.forEach(item => item.classList.remove('active'));
-        const activeNavItem = document.querySelector(`.sidebar .nav-links li a[href="#${sectionId}"]`);
-        if (activeNavItem) {
-            activeNavItem.parentElement.classList.add('active');
-        }
-    }
-    
-    // Simplified and fixed navigation functionality
+
+    // Simplified navigation functionality without active states
     const navLinks = document.querySelectorAll('.sidebar .nav-links li a');
     
     navLinks.forEach(link => {
@@ -54,23 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             
             if (targetId && targetId.startsWith('#')) {
-                // Find the target section
                 const targetSection = document.getElementById(targetId.substring(1));
                 
                 if (targetSection) {
-                    console.log("Navigating to section:", targetId);
-                    document.querySelectorAll('.sidebar .nav-links li').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    this.parentElement.classList.add('active');
                     targetSection.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    console.error("Target section not found:", targetId);
                 }
             }
         });
     });
-    
-    const initialSection = window.location.hash || '#home';
-    updateActiveTab(initialSection.substring(1));
 });
