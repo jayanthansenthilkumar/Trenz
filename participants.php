@@ -323,7 +323,7 @@ $userid = $_SESSION['username'];
                                         <th>Event 1</th>
                                         <th>Event 2</th>
                                         <th>Payment Status</th>
-                                        <th>Action</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -334,23 +334,9 @@ $userid = $_SESSION['username'];
                                         <td>Hackathon</td>
                                         <td>-</td>
                                         <td><span class="status-badge completed">Paid</span></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
-                                        </td>
+                                        
                                     </tr>
-                                    <tr>
-                                        <td>TZ-23202</td>
-                                        <td>Maria Rodriguez</td>
-                                        <td>University of Texas</td>
-                                        <td>Photography Workshop</td>
-                                        <td>Design Thinking</td>
-                                        <td><span class="status-badge pending">Pending</span></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
-                                        </td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
