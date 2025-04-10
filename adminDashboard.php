@@ -67,11 +67,9 @@ $userid = $_SESSION['username'];
                         <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
                         <span><?php echo $userid?></span>
                         <i class="ri-arrow-down-s-line"></i>
-                        
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                
                                 <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
                             </ul>
                         </div>
@@ -85,7 +83,7 @@ $userid = $_SESSION['username'];
                 <div class="welcome-card">
                     <div class="welcome-info">
                         <div class="welcome-text">
-                            <h1>Welcome back, Event Admin!</h1>
+                            <h1>Welcome back, <?php echo $userid?>!</h1>
                             <p><span id="current-date">Today</span> | <span class="welcome-stat">Next event: Tech Conference (in 3 days)</span></p>
                         </div>
                     </div>

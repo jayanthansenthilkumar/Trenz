@@ -1,16 +1,11 @@
 <?php
 include "db.php";
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
-
-
-
 if (isset($_POST['Add_newuser'])) {
     try {
         $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -23,16 +18,13 @@ if (isset($_POST['Add_newuser'])) {
         $events2 = mysqli_real_escape_string($conn, $_POST['event2']);
         $transactiondate = mysqli_real_escape_string($conn, $_POST['transactionDate']);
         $transactionid = mysqli_real_escape_string($conn, $_POST['transactionId']);
-
         // File Upload
         $idcardName = $_FILES['Idcard']['name'];
         $idcardTmp = $_FILES['Idcard']['tmp_name'];
-        move_uploaded_file($idcardTmp, "uploads/" . $idcardName);
-
+        move_uploaded_file($idcardTmp, "idcard/" . $idcardName);
         $paymentProofName = $_FILES['paymentProof']['name'];
         $paymentProofTmp = $_FILES['paymentProof']['tmp_name'];
         move_uploaded_file($paymentProofTmp, "paymentupload/" . $paymentProofName);
-
         $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,events2,idcard,date,transactionid,transactionreceipt) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1', '$events2','$idcardName' ,'$transactiondate', '$transactionid', '$paymentProofName')";
 
         if (mysqli_query($conn, $query)) {
@@ -79,9 +71,6 @@ if (isset($_POST['Add_newuser'])) {
         } else {
             throw new Exception('Query Failed: ' . mysqli_error($conn));
         }
-        
-        
-
         echo json_encode($res);
     } catch (Exception $e) {
         $res = [
