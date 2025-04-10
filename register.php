@@ -154,7 +154,7 @@ include "db.php";
                             </div>
                         </div>
 
-                        
+
 
                         <div class="tab-buttons">
                             <button type="button" class="prev-tab secondary-btn" data-prev="personal-info">
@@ -172,6 +172,7 @@ include "db.php";
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
     <script>
         $(document).on('submit', '#registrationForm', function(e) {
@@ -190,13 +191,42 @@ include "db.php";
                     console.log(res);
 
                     if (res.status == 200) {
-                        alert("Registered Successfully & Mail Sent!");
+                        swal.fire({
+                            title: "Event Registered Successfully!",
+                            text: "Your ID is: " + res.trenzid,
+                            icon: "success",
+                            button: "Okay",
+                        });
+
                         $('#registrationForm')[0].reset();
                     } else if (res.status == 201) {
-                        alert("Registered Successfully but Mail not Sent!");
+                        swal.fire({
+                            title: "Error!",
+                            text: "Registered Successfully but Mail not Sent!",
+                            icon: "error",
+                            button: "Okay",
+                        });
+
                         $('#registrationForm')[0].reset();
-                    } else if (res.status == 500) {
-                        alert("Something Went Wrong! Try Again.");
+                    }
+                    else if (res.status == 400) {
+                        swal.fire({
+                            title: "Error!",
+                            text: "Registration limit for Your Register number",
+                            icon: "error",
+                            button: "Okay",
+                        });
+
+                        $('#registrationForm')[0].reset();
+                    }
+
+                     else if (res.status == 500) {
+                        swal.fire({
+                            title: "Error!",
+                            text: "Something went wrong!",
+                            icon: "error",
+                            button: "Okay",
+                        });
                     }
                 }
             })
