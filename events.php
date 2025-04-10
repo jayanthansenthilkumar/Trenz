@@ -96,8 +96,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-code-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Web Development</h3>
-                                        <p class="stat-number">120 Registered</p>
+                                        <h4>Paper Presentation</h4>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -105,8 +105,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-ai-generate"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Machine Learning</h3>
-                                        <p class="stat-number">75 Registered</p>
+                                        <h4>Project Expo</h4>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -114,8 +114,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-database-2-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Data Science</h3>
-                                        <p class="stat-number">92 Registered</p>
+                                        <h4>Technical Quiz</h4>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -123,8 +123,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-smartphone-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Mobile App Dev</h3>
-                                        <p class="stat-number">68 Registered</p>
+                                        <h4>Coding Challenge</h4>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                             </div>
@@ -139,8 +139,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-palette-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>UI/UX Design</h3>
-                                        <p class="stat-number">45 Registered</p>
+                                        <h3>IPL Auction</h3>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -148,8 +148,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-presentation-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Business Workshop</h3>
-                                        <p class="stat-number">58 Registered</p>
+                                        <h3>Treasure Hunt</h3>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -157,8 +157,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-music-2-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Music Competition</h3>
-                                        <p class="stat-number">72 Registered</p>
+                                        <h3>Lyrical Hunt</h3>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -166,8 +166,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-gallery-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Art Exhibition</h3>
-                                        <p class="stat-number">39 Registered</p>
+                                        <h3>Photography</h3>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -175,8 +175,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-dance-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Dance Competition</h3>
-                                        <p class="stat-number">32 Registered</p>
+                                        <h3>E-Sports</h3>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -184,8 +184,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-projector-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Film Festival</h3>
-                                        <p class="stat-number">48 Registered</p>
+                                        <h3>Poster Making</h3>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -193,8 +193,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-book-open-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Literary Workshop</h3>
-                                        <p class="stat-number">27 Registered</p>
+                                        <h3>Mime</h3>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -202,8 +202,8 @@ $userid = $_SESSION['username'];
                                         <i class="ri-mic-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h3>Public Speaking</h3>
-                                        <p class="stat-number">63 Registered</p>
+                                        <h3>Dance</h3>
+                                        <p class="stat-number"></p>
                                     </div>
                                 </div>
                             </div>

@@ -6,6 +6,10 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 $userid = $_SESSION['username'];
+$sql = "SELECT * FROM events  ";
+$result = mysqli_query($conn, $sql);
+$count = mysqli_num_rows($result);
+$amount=250*$count;
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +104,7 @@ $userid = $_SESSION['username'];
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Registration</h3>
-                            <p class="stat-number">1,842</p>
+                            <p class="stat-number"><?php echo $count?></p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -109,7 +113,7 @@ $userid = $_SESSION['username'];
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Amount</h3>
-                            <p class="stat-number">$42,580</p>
+                            <p class="stat-number"><?php echo $amount?></p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -118,7 +122,7 @@ $userid = $_SESSION['username'];
                         </div>
                         <div class="stat-card-info">
                             <h3>Tech Event Count</h3>
-                            <p class="stat-number">24</p>
+                            <p class="stat-number">4</p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -127,7 +131,7 @@ $userid = $_SESSION['username'];
                         </div>
                         <div class="stat-card-info">
                             <h3>Non-Tech Event Count</h3>
-                            <p class="stat-number">18</p>
+                            <p class="stat-number">8</p>
                         </div>
                     </div>
                 </div>

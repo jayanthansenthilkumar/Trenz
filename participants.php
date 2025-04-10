@@ -10,6 +10,12 @@ $userid = $_SESSION['username'];
 
 $sql = "SELECT * FROM events Where status='0' ";
 $result = mysqli_query($conn, $sql);
+
+$sql1 = "SELECT * FROM events Where status='1' ";
+$result1 = mysqli_query($conn, $sql1);
+
+$sql2 = "SELECT * FROM events Where status='2' ";
+$result2 = mysqli_query($conn, $sql2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -132,6 +138,7 @@ $result = mysqli_query($conn, $sql);
                                 <thead>
                                     <tr>
                                         <th>Trenz ID</th>
+                                        <th>Register Number</th>
                                         <th>Name</th>
                                         <th>College Name</th>
                                         <th>Event 1</th>
@@ -147,6 +154,7 @@ $result = mysqli_query($conn, $sql);
                                     ?>
                                         <tr>
                                             <td><?php echo $row['Trenzid']; ?></td>
+                                            <td><?php echo $row['regno']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
                                             <td><?php echo $row['collegename']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
@@ -154,8 +162,8 @@ $result = mysqli_query($conn, $sql);
                                             <td><button class="payment-btn" data-id="<?php echo $row['Trenzid']; ?>">View Payment</button>
                                             </td>
                                             <td class="action-buttons">
-                                                <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                                <button class="btn-icon reject"><i class="ri-close-line"></i></button>
+                                                <button class="btn-icon accept userapprove" value="<?php echo $row['id']; ?>"><i class="ri-check-line"></i></button>
+                                                <!-- <button class="btn-icon reject"><i class="ri-close-line"></i></button> -->
                                             </td>
                                         </tr>
                                     <?php
@@ -201,22 +209,27 @@ $result = mysqli_query($conn, $sql);
                                         <th>Event 1</th>
                                         <th>Event 2</th>
                                         <th>Payment Status</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>TZ-23078</td>
-                                        <td>Alex Wilson</td>
-                                        <td>Cornell University</td>
-                                        <td>UI/UX Design Masterclass</td>
-                                        <td>-</td>
-                                        <td><span class="status-badge completed">Paid</span></td>
-                                        
-                                    </tr>
-                                   
-                                    
-                                    
+                                    <?php
+                                    $s = 1;
+                                    while ($row = mysqli_fetch_array($result1)) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['Trenzid']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['collegename']; ?></td>
+                                            <td><?php echo $row['events1']; ?></td>
+                                            <td><?php echo $row['events2']; ?></td>
+                                            <td><span class="status-badge completed">Paid</span></td>
+
+                                        </tr>
+                                    <?php
+                                        $s++;
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -259,16 +272,23 @@ $result = mysqli_query($conn, $sql);
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                                    $s = 1;
+                                    while ($row = mysqli_fetch_array($result2)) {
+                                    ?>
                                     <tr>
-                                        <td>TZ-23201</td>
-                                        <td>Kevin Adams</td>
-                                        <td>Boston University</td>
-                                        <td>Hackathon</td>
-                                        <td>-</td>
-                                        <td><span class="status-badge completed">Paid</span></td>
+                                            <td><?php echo $row['Trenzid']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['collegename']; ?></td>
+                                            <td><?php echo $row['events1']; ?></td>
+                                            <td><?php echo $row['events2']; ?></td>
+                                            <td><span class="status-badge completed">Paid</span></td>
 
-                                    </tr>
-
+                                        </tr>
+                                    <?php
+                                        $s++;
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -292,6 +312,14 @@ $result = mysqli_query($conn, $sql);
                             <div class="info-row">
                                 <span class="info-label">Participant Name:</span>
                                 <span class="info-value" id="payment-participant-name"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Participant Email:</span>
+                                <span class="info-value" id="payment-participant-Email"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Participant Phoneno:</span>
+                                <span class="info-value" id="payment-participant-phone"></span>
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Payment Status:</span>
@@ -333,6 +361,7 @@ $result = mysqli_query($conn, $sql);
 
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).on('click', '.payment-btn', function() {
             var participant_id = $(this).data('id'); // Get ID
@@ -342,7 +371,8 @@ $result = mysqli_query($conn, $sql);
                 url: 'backend.php',
                 type: 'GET',
                 data: {
-                    id: participant_id
+                    'get_user': true,
+                    'id': participant_id,
                 },
                 dataType: 'json',
                 success: function(response) {
@@ -352,6 +382,8 @@ $result = mysqli_query($conn, $sql);
                         $('#payment-participant-name').text(response.data.name);
                         $('#payment-transaction').text(response.data.transactionid);
                         $('#payment-date').text(response.data.date);
+                        $('#payment-participant-Email').text(response.data.email);
+                        $('#payment-participant-phone').text(response.data.phoneno);
                         $('#IdImage').attr('src', 'idcard/' + response.data.idcard);
                         $('#PaymentImage').attr('src', 'paymentupload/' + response.data.paymentproof);
                         $('#payment-modal').show();
@@ -361,6 +393,41 @@ $result = mysqli_query($conn, $sql);
                 }
             });
         });
+
+        $(document).on('click', '.userapprove', function(e) {
+            e.preventDefault();
+            var id = $(this).val();
+            console.log(id);
+            if (confirm('Are you sure you want to approve the User ?')) {
+
+                $.ajax({
+                    type: "POST",
+                    url: "backend.php",
+                    data: {
+                        'approve_user': true,
+                        'ids': id
+                    },
+                    success: function(response) {
+                        var res = jQuery.parseJSON(response);
+                        if (res.status == 500) {
+                            alert(res.message);
+                        } else {
+                            Swal.fire({
+                                title: "Success",
+                                text: "User Approved",
+                                icon: "success"
+                            });
+                            
+
+                            $('#registered-table').load(location.href + " #registered-table");
+                            
+                        }
+                    }
+                })
+            }
+
+
+        })
     </script>
 </body>
 

@@ -104,7 +104,7 @@ if (isset($_POST['Add_newuser'])) {
     }
 }
 
-if(isset($_GET['id'])) {
+if(isset($_GET['get_user'])) {
     $id = $_GET['id'];
 
     $query = "SELECT * FROM events WHERE Trenzid='$id'";
@@ -119,12 +119,33 @@ if(isset($_GET['id'])) {
             'transactionid'    => $row['transactionid'],
             'date'      => $row['date'],
             'idcard'           => $row['idcard'],
-            'paymentproof'  => $row['transactionreceipt']
+            'paymentproof'  => $row['transactionreceipt'],
+            'email' => $row['emailid'],
+            'phoneno' => $row['phoneno'],
+            
         ];
 
 
         echo json_encode(['status' => 'success', 'data' => $data]);
     } else {
         echo json_encode(['status' => 'error', 'message' => 'No Record Found']);
+    }
+}
+
+if (isset($_POST['approve_user'])) {
+    $apid = mysqli_real_escape_string($conn, $_POST['ids']);
+    $sql = "UPDATE events SET status ='1' WHERE id='$apid'";
+    $res = mysqli_query($conn, $sql);
+    if ($res) {
+        mysqli_commit($conn);
+        echo json_encode(['status' => 200]);
+    }
+    else {
+        $res = [
+            'status' => 500,
+            'message' => 'Details Not Deleted'
+        ];
+        echo json_encode($res);
+        return;
     }
 }
