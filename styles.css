@@ -1111,6 +1111,30 @@ body.event-page {
     z-index: 1;
 }
 
+/* Standardized Registration Card Styles - Replace conflicting declarations */
+.registration-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    margin: 30px auto;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Override for login section */
+.login-section .registration-card {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
 .login-card {
     background: white;
     border-radius: 12px;
@@ -1143,6 +1167,46 @@ body.event-page {
     margin-bottom: 15px;
 }
 
+/* Fixed input field styling for registration form */
+.input-with-icon {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-with-icon input,
+.select-with-icon select {
+    width: 100%;
+    padding: 14px 45px 14px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.input-with-icon i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: all 0.3s ease;
+}
+
+.input-with-icon input:focus,
+.select-with-icon select:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+    outline: none;
+    background-color: #fff;
+}
+
+.input-with-icon input:focus + i {
+    color: #4361ee;
+}
+
 .login-form .form-group {
     margin-bottom: 12px; /* Further reduced from 16px */
 }
@@ -1153,19 +1217,6 @@ body.event-page {
     font-weight: 500;
     color: #555;
     margin-bottom: 8px;
-}
-
-.input-with-icon {
-    position: relative;
-}
-
-.input-with-icon i {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #aaa;
-    transition: color 0.3s ease;
 }
 
 .input-with-icon input:focus + i {
@@ -1506,19 +1557,29 @@ body.login-page #particles-js {
 }
 
 .form-section-title {
-    font-size: 0.9rem;
-    margin: 10px 0 6px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 10px 0 20px;
+    color: #4361ee;
+    position: relative;
+    text-align: left;
+    width: 100%;
 }
 
 .form-section-title::after {
-    width: 30px;
+    content: '';
+    display: block;
+    width: 50px;
     height: 2px;
-    margin-top: 3px;
+    background-color: #4361ee;
+    margin-top: 5px;
 }
 
 /* Override .form-group for registration form only */
 .registration-card .form-group {
-    margin-bottom: 8px;
+    margin-bottom: 18px;
+    position: relative;
+    width: 100%;
 }
 
 .registration-card .input-with-icon input,
@@ -1638,25 +1699,6 @@ body.login-page #particles-js {
 
 .registration-form {
     max-width: 100%;
-}
-
-.form-section-title {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin: 25px 0 15px;
-    color: #4361ee;
-    position: relative;
-    text-align: left; /* Ensure left alignment */
-    width: 100%; /* Full width for proper alignment */
-}
-
-.form-section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 2px;
-    background-color: #4361ee;
-    margin-top: 5px;
 }
 
 .registration-form label {
@@ -1788,9 +1830,9 @@ body.login-page #particles-js {
 /* Media queries for responsive design */
 @media (max-width: 768px) {
     .login-section .registration-card {
+        padding: 30px 20px;
         max-width: 95%;
-        padding: 30px 20px; /* Adjusted for better mobile spacing */
-        min-height: 620px; /* Increased for mobile but still reasonable */
+        min-height: auto;
     }
     
     .qr-code {
@@ -1799,15 +1841,16 @@ body.login-page #particles-js {
     }
 }
 
-/* Tab Navigation Styles */
+/* Tab Navigation Enhancements */
 .tabs-navigation {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     border-radius: 8px;
     overflow: hidden;
     background-color: #f8f9fa;
     border: 1px solid #e0e0e0;
+    width: 100%;
 }
 
 .tab-btn {
@@ -1909,8 +1952,9 @@ body.login-page #particles-js {
 
 /* Enhanced Form Group and Input Styling */
 .form-group {
-    margin-bottom: 22px;
+    margin-bottom: 18px;
     position: relative;
+    width: 100%;
 }
 
 .form-group label {

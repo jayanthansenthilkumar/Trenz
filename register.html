@@ -3,77 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration - Trenz</title>
+    <title>Registration - Trenz'25</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="login-page">    
     <div id="particles-js"></div>
-    
     <div class="split-login-container">
-        <!-- Brand Section -->
         <div class="brand-section">
             <div class="brand-content">
                 <h1>Trenz'25</h1>
                 <p>Event Registration</p>
             </div>
         </div>
-        
-        <!-- Registration Card Section -->
         <div class="login-section">
             <div class="registration-card">
-                <div class="login-header">
-                    <h2>Register for Events</h2>
-                    <div class="section-divider"></div>
-                </div>
-                
                 <form class="registration-form">
-                    <!-- Tab Navigation -->
                     <div class="tabs-navigation">
                         <button type="button" class="tab-btn active" data-tab="personal-info">
                             <i class="fas fa-user"></i> Personal Info
-                        </button>
-                        <button type="button" class="tab-btn" data-tab="event-selection">
-                            <i class="fas fa-calendar-check"></i> Events
                         </button>
                         <button type="button" class="tab-btn" data-tab="payment-details">
                             <i class="fas fa-credit-card"></i> Payment
                         </button>
                     </div>
-                    
-                    <!-- Tab Content -->
                     <div class="tab-content active" id="personal-info">
                         <h3 class="form-section-title">Personal Information</h3>
-                        
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="name" name="name" placeholder="Full Name" required>
                                 <i class="fas fa-user"></i>
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="email" id="email" name="email" placeholder="Email Address" required>
                                 <i class="fas fa-envelope"></i>
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="regNumber" name="regNumber" placeholder="Register Number" required>
                                 <i class="fas fa-id-card"></i>
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="department" name="department" placeholder="Department" required>
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="college" name="college" placeholder="College Name" required>
@@ -87,19 +68,7 @@
                                 <i class="fas fa-phone"></i>
                             </div>
                         </div>
-                        
-                        <div class="tab-buttons">
-                            <button type="button" class="next-tab primary-btn" data-next="event-selection">
-                                Next <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="tab-content" id="event-selection">
-                        <h3 class="form-section-title">Event Selection</h3>
-                        
                         <div class="form-group">
-                            <label for="event1">Event 1 Selection</label>
                             <div class="select-with-icon">
                                 <select id="event1" name="event1" required>
                                     <option value="">Select Event 1</option>
@@ -113,10 +82,9 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="event2">Event 2 Selection</label>
                             <div class="select-with-icon">
-                                <select id="event2" name="event2">
-                                    <option value="">Select Event 2 (Optional)</option>
+                                <select id="event2" name="event2" required>
+                                    <option value="">Select Event 2</option>
                                     <option value="event1">Coding Challenge</option>
                                     <option value="event2">Web Design</option>
                                     <option value="event3">Tech Quiz</option>
@@ -127,11 +95,8 @@
                         </div>
                         
                         <div class="tab-buttons">
-                            <button type="button" class="prev-tab secondary-btn" data-prev="personal-info">
-                                <i class="fas fa-arrow-left"></i> Previous
-                            </button>
                             <button type="button" class="next-tab primary-btn" data-next="payment-details">
-                                Next <i class="fas fa-arrow-right"></i>
+                                Continue <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
@@ -171,7 +136,7 @@
                         </div>
                         
                         <div class="tab-buttons">
-                            <button type="button" class="prev-tab secondary-btn" data-prev="event-selection">
+                            <button type="button" class="prev-tab secondary-btn" data-prev="personal-info">
                                 <i class="fas fa-arrow-left"></i> Previous
                             </button>
                             <button type="submit" class="login-btn primary-btn">
@@ -185,6 +150,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
