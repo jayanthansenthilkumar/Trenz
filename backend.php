@@ -103,3 +103,28 @@ if (isset($_POST['Add_newuser'])) {
         echo json_encode($res);
     }
 }
+
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $query = "SELECT * FROM events WHERE Trenzid='$id'";
+    $result = mysqli_query($conn, $query);
+
+    if(mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        $data = [
+            'Trenzid'    => $row['Trenzid'],
+            'name'  => $row['name'],
+            'transactionid'    => $row['transactionid'],
+            'date'      => $row['date'],
+            'idcard'           => $row['idcard'],
+            'paymentproof'  => $row['transactionreceipt']
+        ];
+
+
+        echo json_encode(['status' => 'success', 'data' => $data]);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'No Record Found']);
+    }
+}

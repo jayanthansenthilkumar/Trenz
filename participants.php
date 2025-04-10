@@ -6,9 +6,14 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 $userid = $_SESSION['username'];
+
+
+$sql = "SELECT * FROM events Where status='0' ";
+$result = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +25,7 @@ $userid = $_SESSION['username'];
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 </head>
+
 <body class="admin-dashboard">
     <div class="dashboard-container">
         <!-- Sidebar -->
@@ -32,10 +38,10 @@ $userid = $_SESSION['username'];
                 </button>
             </div>
             <div class="sidebar-content">
-            <nav class="sidebar-menu">
+                <nav class="sidebar-menu">
                     <ul>
-                    <li>
-                        <a href="adminDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
+                        <li>
+                            <a href="adminDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="events.php"><i class="ri-calendar-event-line"></i> Events</a>
@@ -70,13 +76,13 @@ $userid = $_SESSION['username'];
                     </button>
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
-                        <span><?php echo $userid?></span>
+                        <span><?php echo $userid ?></span>
                         <i class="ri-arrow-down-s-line"></i>
-                        
+
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                
+
                                 <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
                             </ul>
                         </div>
@@ -89,21 +95,21 @@ $userid = $_SESSION['username'];
                 <!-- Tabbed Section for Participants -->
                 <div class="content-section">
                     <h2>Event Participants</h2>
-                    
+
                     <!-- Tab Navigation -->
                     <div class="tabs-header">
                         <button class="tab-button active" data-tab="registered-tab">Registered Participants</button>
                         <button class="tab-button" data-tab="approved-tab">Approved Participants</button>
                         <button class="tab-button" data-tab="spot-registration-tab">Spot Registration</button>
                     </div>
-                    
+
                     <!-- Tab Content -->
                     <!-- Registered Participants Tab -->
                     <div id="registered-tab" class="tab-content active">
                         <div class="datatable-controls">
                             <div class="datatable-length">
                                 <label>
-                                    Show 
+                                    Show
                                     <select>
                                         <option value="10">10</option>
                                         <option value="25">25</option>
@@ -115,12 +121,12 @@ $userid = $_SESSION['username'];
                             </div>
                             <div class="datatable-filter">
                                 <label>
-                                    Search: 
+                                    Search:
                                     <input type="search" placeholder="Enter keywords...">
                                 </label>
                             </div>
                         </div>
-                        
+
                         <div class="datatable-wrapper">
                             <table class="datatable" id="registered-table">
                                 <thead>
@@ -135,65 +141,39 @@ $userid = $_SESSION['username'];
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>TZ-23001</td>
-                                        <td>John Smith</td>
-                                        <td>MIT College of Engineering</td>
-                                        <td>Web Development Workshop</td>
-                                        <td>Machine Learning Basics</td>
-                                        <td><button class="payment-btn" data-participant="TZ-23001">View Payment</button></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                            <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>TZ-23015</td>
-                                        <td>Emma Johnson</td>
-                                        <td>Stanford University</td>
-                                        <td>Machine Learning Basics</td>
-                                        <td>-</td>
-                                        <td><button class="payment-btn" data-participant="TZ-23015">View Payment</button></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                            <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>TZ-23042</td>
-                                        <td>Michael Brown</td>
-                                        <td>Harvard University</td>
-                                        <td>Cybersecurity Conference</td>
-                                        <td>-</td>
-                                        <td><button class="payment-btn" data-participant="TZ-23042">View Payment</button></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                            <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>TZ-23056</td>
-                                        <td>Sarah Davis</td>
-                                        <td>Princeton University</td>
-                                        <td>Mobile App Development</td>
-                                        <td>-</td>
-                                        <td><button class="payment-btn" data-participant="TZ-23056">View Payment</button></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                            <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    $s = 1;
+                                    while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['Trenzid']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['collegename']; ?></td>
+                                            <td><?php echo $row['events1']; ?></td>
+                                            <td><?php echo $row['events2']; ?></td>
+                                            <td><button class="payment-btn" data-id="<?php echo $row['Trenzid']; ?>">View Payment</button>
+                                            </td>
+                                            <td class="action-buttons">
+                                                <button class="btn-icon accept"><i class="ri-check-line"></i></button>
+                                                <button class="btn-icon reject"><i class="ri-close-line"></i></button>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                        $s++;
+                                    }
+                                    ?>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    
+
                     <!-- Approved Participants Tab -->
                     <div id="approved-tab" class="tab-content">
                         <div class="datatable-controls">
                             <div class="datatable-length">
                                 <label>
-                                    Show 
+                                    Show
                                     <select>
                                         <option value="10">10</option>
                                         <option value="25">25</option>
@@ -205,12 +185,12 @@ $userid = $_SESSION['username'];
                             </div>
                             <div class="datatable-filter">
                                 <label>
-                                    Search: 
+                                    Search:
                                     <input type="search" placeholder="Enter keywords...">
                                 </label>
                             </div>
                         </div>
-                        
+
                         <div class="datatable-wrapper">
                             <table class="datatable" id="approved-table">
                                 <thead>
@@ -221,7 +201,7 @@ $userid = $_SESSION['username'];
                                         <th>Event 1</th>
                                         <th>Event 2</th>
                                         <th>Payment Status</th>
-                                        <th>Action</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -232,70 +212,22 @@ $userid = $_SESSION['username'];
                                         <td>UI/UX Design Masterclass</td>
                                         <td>-</td>
                                         <td><span class="status-badge completed">Paid</span></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
-                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
-                                        </td>
+                                        
                                     </tr>
-                                    <tr>
-                                        <td>TZ-23103</td>
-                                        <td>Jessica Lee</td>
-                                        <td>Yale University</td>
-                                        <td>Cultural Dance Competition</td>
-                                        <td>-</td>
-                                        <td><span class="status-badge completed">Paid</span></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
-                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>TZ-23129</td>
-                                        <td>David Miller</td>
-                                        <td>Columbia University</td>
-                                        <td>Public Speaking Workshop</td>
-                                        <td>-</td>
-                                        <td><span class="status-badge completed">Paid</span></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
-                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>TZ-23145</td>
-                                        <td>Linda Garcia</td>
-                                        <td>University of California</td>
-                                        <td>Business Workshop</td>
-                                        <td>-</td>
-                                        <td><span class="status-badge completed">Paid</span></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
-                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>TZ-23178</td>
-                                        <td>Ryan Thompson</td>
-                                        <td>Duke University</td>
-                                        <td>Art Exhibition</td>
-                                        <td>-</td>
-                                        <td><span class="status-badge completed">Paid</span></td>
-                                        <td class="action-buttons">
-                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
-                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
-                                        </td>
-                                    </tr>
+                                   
+                                    
+                                    
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    
+
                     <!-- Spot Registration Tab -->
                     <div id="spot-registration-tab" class="tab-content">
                         <div class="datatable-controls">
                             <div class="datatable-length">
                                 <label>
-                                    Show 
+                                    Show
                                     <select>
                                         <option value="10">10</option>
                                         <option value="25">25</option>
@@ -307,12 +239,12 @@ $userid = $_SESSION['username'];
                             </div>
                             <div class="datatable-filter">
                                 <label>
-                                    Search: 
+                                    Search:
                                     <input type="search" placeholder="Enter keywords...">
                                 </label>
                             </div>
                         </div>
-                        
+
                         <div class="datatable-wrapper">
                             <table class="datatable" id="spot-registration-table">
                                 <thead>
@@ -323,7 +255,7 @@ $userid = $_SESSION['username'];
                                         <th>Event 1</th>
                                         <th>Event 2</th>
                                         <th>Payment Status</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -334,16 +266,16 @@ $userid = $_SESSION['username'];
                                         <td>Hackathon</td>
                                         <td>-</td>
                                         <td><span class="status-badge completed">Paid</span></td>
-                                        
+
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Payment Details Modal -->
             <div class="modal" id="payment-modal">
                 <div class="modal-content">
@@ -355,11 +287,11 @@ $userid = $_SESSION['username'];
                         <div class="payment-info">
                             <div class="info-row">
                                 <span class="info-label">Participant ID:</span>
-                                <span class="info-value" id="payment-participant-id">TZ-23001</span>
+                                <span class="info-value" id="Id"></span>
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Participant Name:</span>
-                                <span class="info-value" id="payment-participant-name">John Smith</span>
+                                <span class="info-value" id="payment-participant-name"></span>
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Payment Status:</span>
@@ -367,19 +299,24 @@ $userid = $_SESSION['username'];
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Amount:</span>
-                                <span class="info-value" id="payment-amount">$55.00</span>
+                                <span class="info-value" id="payment-amount">$250.00</span>
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Transaction ID:</span>
-                                <span class="info-value" id="payment-transaction">TRX-2023051501</span>
+                                <span class="info-value" id="payment-transaction"></span>
                             </div>
-                            <div class="info-row">
-                                <span class="info-label">Payment Method:</span>
-                                <span class="info-value" id="payment-method">Credit Card</span>
-                            </div>
+
                             <div class="info-row">
                                 <span class="info-label">Payment Date:</span>
-                                <span class="info-value" id="payment-date">May 15, 2023</span>
+                                <span class="info-value" id="payment-date"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">ID card:</span>
+                                <img src="" id="IdImage" alt="" width="150px" height="150px">
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Payment Proof:</span>
+                                <img src="" id="PaymentImage" alt="" width="150px" height="150px">
                             </div>
                         </div>
                     </div>
@@ -389,9 +326,42 @@ $userid = $_SESSION['username'];
                     </div>
                 </div>
             </div>
+
+
         </main>
     </div>
 
+
     <script src="script.js"></script>
+    <script>
+        $(document).on('click', '.payment-btn', function() {
+            var participant_id = $(this).data('id'); // Get ID
+            console.log(participant_id);
+
+            $.ajax({
+                url: 'backend.php',
+                type: 'GET',
+                data: {
+                    id: participant_id
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status == 'success') {
+                        console.log(response.data.Trenzid)
+                        $('#Id').text(response.data.Trenzid);
+                        $('#payment-participant-name').text(response.data.name);
+                        $('#payment-transaction').text(response.data.transactionid);
+                        $('#payment-date').text(response.data.date);
+                        $('#IdImage').attr('src', 'idcard/' + response.data.idcard);
+                        $('#PaymentImage').attr('src', 'paymentupload/' + response.data.paymentproof);
+                        $('#payment-modal').show();
+                    } else {
+                        alert('No Data Found');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
