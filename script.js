@@ -462,6 +462,105 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }
+            
+            if ($("#registered-table").length) {
+                $("#registered-table").DataTable({
+                    responsive: true,
+                    pageLength: 10,
+                    lengthMenu: [5, 10, 25, 50, 100],
+                    language: {
+                        search: "Search:",
+                        lengthMenu: "Show _MENU_ entries",
+                        info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                        paginate: {
+                            first: "First",
+                            last: "Last",
+                            next: "<i class='ri-arrow-right-s-line'></i>",
+                            previous: "<i class='ri-arrow-left-s-line'></i>"
+                        }
+                    },
+                    initComplete: function() {
+                        // Remove the default DataTables controls and use our custom ones
+                        $('.dataTables_length').addClass('hidden');
+                        $('.dataTables_filter').addClass('hidden');
+                        
+                        // Connect our custom controls to DataTables API
+                        $('.datatable-length select').on('change', function() {
+                            $('#registered-table').DataTable().page.len($(this).val()).draw();
+                        });
+                        
+                        $('.datatable-filter input').on('keyup', function() {
+                            $('#registered-table').DataTable().search($(this).val()).draw();
+                        });
+                    }
+                });
+            }
+            
+            if ($("#approved-table").length) {
+                $("#approved-table").DataTable({
+                    responsive: true,
+                    pageLength: 10,
+                    lengthMenu: [5, 10, 25, 50, 100],
+                    language: {
+                        search: "Search:",
+                        lengthMenu: "Show _MENU_ entries",
+                        info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                        paginate: {
+                            first: "First",
+                            last: "Last",
+                            next: "<i class='ri-arrow-right-s-line'></i>",
+                            previous: "<i class='ri-arrow-left-s-line'></i>"
+                        }
+                    },
+                    initComplete: function() {
+                        // Remove the default DataTables controls and use our custom ones
+                        $('.dataTables_length').addClass('hidden');
+                        $('.dataTables_filter').addClass('hidden');
+                        
+                        // Connect our custom controls to DataTables API in approved tab
+                        $('#approved-tab .datatable-length select').on('change', function() {
+                            $('#approved-table').DataTable().page.len($(this).val()).draw();
+                        });
+                        
+                        $('#approved-tab .datatable-filter input').on('keyup', function() {
+                            $('#approved-table').DataTable().search($(this).val()).draw();
+                        });
+                    }
+                });
+            }
+
+            if ($("#spot-registration-table").length) {
+                $("#spot-registration-table").DataTable({
+                    responsive: true,
+                    pageLength: 10,
+                    lengthMenu: [5, 10, 25, 50, 100],
+                    language: {
+                        search: "Search:",
+                        lengthMenu: "Show _MENU_ entries",
+                        info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                        paginate: {
+                            first: "First",
+                            last: "Last",
+                            next: "<i class='ri-arrow-right-s-line'></i>",
+                            previous: "<i class='ri-arrow-left-s-line'></i>"
+                        }
+                    },
+                    initComplete: function() {
+                        // Remove the default DataTables controls and use our custom ones
+                        $('.dataTables_length').addClass('hidden');
+                        $('.dataTables_filter').addClass('hidden');
+                        
+                        // Connect our custom controls to DataTables API in spot registration tab
+                        $('#spot-registration-tab .datatable-length select').on('change', function() {
+                            $('#spot-registration-table').DataTable().page.len($(this).val()).draw();
+                        });
+                        
+                        $('#spot-registration-tab .datatable-filter input').on('keyup', function() {
+                            $('#spot-registration-table').DataTable().search($(this).val()).draw();
+                        });
+                    }
+                });
+            }
         });
     }
 });

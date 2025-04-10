@@ -12,15 +12,12 @@ $userid = $_SESSION['username'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Participants Management - Trenz</title>
+    <title>Trenz'25</title>
     <link rel="stylesheet" href="admin.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-    <!-- jQuery needed for DataTables -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 </head>
 <body class="admin-dashboard">
@@ -38,13 +35,16 @@ $userid = $_SESSION['username'];
             <nav class="sidebar-menu">
                     <ul>
                     <li>
-                            <a href="adminDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
+                        <a href="adminDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="events.php"><i class="ri-calendar-event-line"></i> Events</a>
                         </li>
                         <li class="active">
                             <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
+                        </li>
+                        <li>
+                            <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
                         </li>
                     </ul>
                 </nav>
@@ -86,154 +86,274 @@ $userid = $_SESSION['username'];
 
             <!-- Dashboard Content -->
             <div class="dashboard-content">
-                <!-- Datatable for Participants -->
+                <!-- Tabbed Section for Participants -->
                 <div class="content-section">
-                    <h2>All Event Participants</h2>
-                    <div class="datatable-controls">
-                        <div class="datatable-length">
-                            <label>
-                                Show 
-                                <select>
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                                entries
-                            </label>
+                    <h2>Event Participants</h2>
+                    
+                    <!-- Tab Navigation -->
+                    <div class="tabs-header">
+                        <button class="tab-button active" data-tab="registered-tab">Registered Participants</button>
+                        <button class="tab-button" data-tab="approved-tab">Approved Participants</button>
+                        <button class="tab-button" data-tab="spot-registration-tab">Spot Registration</button>
+                    </div>
+                    
+                    <!-- Tab Content -->
+                    <!-- Registered Participants Tab -->
+                    <div id="registered-tab" class="tab-content active">
+                        <div class="datatable-controls">
+                            <div class="datatable-length">
+                                <label>
+                                    Show 
+                                    <select>
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    entries
+                                </label>
+                            </div>
+                            <div class="datatable-filter">
+                                <label>
+                                    Search: 
+                                    <input type="search" placeholder="Enter keywords...">
+                                </label>
+                            </div>
                         </div>
-                        <div class="datatable-filter">
-                            <label>
-                                Search: 
-                                <input type="search" placeholder="Enter keywords...">
-                            </label>
+                        
+                        <div class="datatable-wrapper">
+                            <table class="datatable" id="registered-table">
+                                <thead>
+                                    <tr>
+                                        <th>Trenz ID</th>
+                                        <th>Name</th>
+                                        <th>College Name</th>
+                                        <th>Event 1</th>
+                                        <th>Event 2</th>
+                                        <th>Payment Details</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>TZ-23001</td>
+                                        <td>John Smith</td>
+                                        <td>MIT College of Engineering</td>
+                                        <td>Web Development Workshop</td>
+                                        <td>Machine Learning Basics</td>
+                                        <td><button class="payment-btn" data-participant="TZ-23001">View Payment</button></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
+                                            <button class="btn-icon reject"><i class="ri-close-line"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>TZ-23015</td>
+                                        <td>Emma Johnson</td>
+                                        <td>Stanford University</td>
+                                        <td>Machine Learning Basics</td>
+                                        <td>-</td>
+                                        <td><button class="payment-btn" data-participant="TZ-23015">View Payment</button></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
+                                            <button class="btn-icon reject"><i class="ri-close-line"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>TZ-23042</td>
+                                        <td>Michael Brown</td>
+                                        <td>Harvard University</td>
+                                        <td>Cybersecurity Conference</td>
+                                        <td>-</td>
+                                        <td><button class="payment-btn" data-participant="TZ-23042">View Payment</button></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
+                                            <button class="btn-icon reject"><i class="ri-close-line"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>TZ-23056</td>
+                                        <td>Sarah Davis</td>
+                                        <td>Princeton University</td>
+                                        <td>Mobile App Development</td>
+                                        <td>-</td>
+                                        <td><button class="payment-btn" data-participant="TZ-23056">View Payment</button></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
+                                            <button class="btn-icon reject"><i class="ri-close-line"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     
-                    <div class="datatable-wrapper">
-                        <table class="datatable" id="participants-table">
-                            <thead>
-                                <tr>
-                                    <th>Trenz ID</th>
-                                    <th>Name</th>
-                                    <th>College Name</th>
-                                    <th>Event 1</th>
-                                    <th>Event 2</th>
-                                    <th>Payment Details</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>TZ-23001</td>
-                                    <td>John Smith</td>
-                                    <td>MIT College of Engineering</td>
-                                    <td>Web Development Workshop</td>
-                                    <td>Machine Learning Basics</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23001">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TZ-23015</td>
-                                    <td>Emma Johnson</td>
-                                    <td>Stanford University</td>
-                                    <td>Machine Learning Basics</td>
-                                    <td>-</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23015">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TZ-23042</td>
-                                    <td>Michael Brown</td>
-                                    <td>Harvard University</td>
-                                    <td>Cybersecurity Conference</td>
-                                    <td>-</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23042">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TZ-23056</td>
-                                    <td>Sarah Davis</td>
-                                    <td>Princeton University</td>
-                                    <td>Mobile App Development</td>
-                                    <td>-</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23056">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TZ-23078</td>
-                                    <td>Alex Wilson</td>
-                                    <td>Cornell University</td>
-                                    <td>UI/UX Design Masterclass</td>
-                                    <td>-</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23078">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TZ-23103</td>
-                                    <td>Jessica Lee</td>
-                                    <td>Yale University</td>
-                                    <td>Cultural Dance Competition</td>
-                                    <td>-</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23103">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TZ-23129</td>
-                                    <td>David Miller</td>
-                                    <td>Columbia University</td>
-                                    <td>Public Speaking Workshop</td>
-                                    <td>-</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23129">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TZ-23145</td>
-                                    <td>Linda Garcia</td>
-                                    <td>University of California</td>
-                                    <td>Business Workshop</td>
-                                    <td>-</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23145">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>TZ-23178</td>
-                                    <td>Ryan Thompson</td>
-                                    <td>Duke University</td>
-                                    <td>Art Exhibition</td>
-                                    <td>-</td>
-                                    <td><button class="payment-btn" data-participant="TZ-23178">View Payment</button></td>
-                                    <td class="action-buttons">
-                                        <button class="btn-icon accept"><i class="ri-check-line"></i></button>
-                                        <button class="btn-icon reject"><i class="ri-close-line"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <!-- Approved Participants Tab -->
+                    <div id="approved-tab" class="tab-content">
+                        <div class="datatable-controls">
+                            <div class="datatable-length">
+                                <label>
+                                    Show 
+                                    <select>
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    entries
+                                </label>
+                            </div>
+                            <div class="datatable-filter">
+                                <label>
+                                    Search: 
+                                    <input type="search" placeholder="Enter keywords...">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="datatable-wrapper">
+                            <table class="datatable" id="approved-table">
+                                <thead>
+                                    <tr>
+                                        <th>Trenz ID</th>
+                                        <th>Name</th>
+                                        <th>College Name</th>
+                                        <th>Event 1</th>
+                                        <th>Event 2</th>
+                                        <th>Payment Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>TZ-23078</td>
+                                        <td>Alex Wilson</td>
+                                        <td>Cornell University</td>
+                                        <td>UI/UX Design Masterclass</td>
+                                        <td>-</td>
+                                        <td><span class="status-badge completed">Paid</span></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
+                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>TZ-23103</td>
+                                        <td>Jessica Lee</td>
+                                        <td>Yale University</td>
+                                        <td>Cultural Dance Competition</td>
+                                        <td>-</td>
+                                        <td><span class="status-badge completed">Paid</span></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
+                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>TZ-23129</td>
+                                        <td>David Miller</td>
+                                        <td>Columbia University</td>
+                                        <td>Public Speaking Workshop</td>
+                                        <td>-</td>
+                                        <td><span class="status-badge completed">Paid</span></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
+                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>TZ-23145</td>
+                                        <td>Linda Garcia</td>
+                                        <td>University of California</td>
+                                        <td>Business Workshop</td>
+                                        <td>-</td>
+                                        <td><span class="status-badge completed">Paid</span></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
+                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>TZ-23178</td>
+                                        <td>Ryan Thompson</td>
+                                        <td>Duke University</td>
+                                        <td>Art Exhibition</td>
+                                        <td>-</td>
+                                        <td><span class="status-badge completed">Paid</span></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
+                                            <button class="btn-icon delete"><i class="ri-delete-bin-line"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Spot Registration Tab -->
+                    <div id="spot-registration-tab" class="tab-content">
+                        <div class="datatable-controls">
+                            <div class="datatable-length">
+                                <label>
+                                    Show 
+                                    <select>
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    entries
+                                </label>
+                            </div>
+                            <div class="datatable-filter">
+                                <label>
+                                    Search: 
+                                    <input type="search" placeholder="Enter keywords...">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="datatable-wrapper">
+                            <table class="datatable" id="spot-registration-table">
+                                <thead>
+                                    <tr>
+                                        <th>Trenz ID</th>
+                                        <th>Name</th>
+                                        <th>College Name</th>
+                                        <th>Event 1</th>
+                                        <th>Event 2</th>
+                                        <th>Payment Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>TZ-23201</td>
+                                        <td>Kevin Adams</td>
+                                        <td>Boston University</td>
+                                        <td>Hackathon</td>
+                                        <td>-</td>
+                                        <td><span class="status-badge completed">Paid</span></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
+                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>TZ-23202</td>
+                                        <td>Maria Rodriguez</td>
+                                        <td>University of Texas</td>
+                                        <td>Photography Workshop</td>
+                                        <td>Design Thinking</td>
+                                        <td><span class="status-badge pending">Pending</span></td>
+                                        <td class="action-buttons">
+                                            <button class="btn-icon accept"><i class="ri-check-line"></i></button>
+                                            <button class="btn-icon view"><i class="ri-eye-line"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

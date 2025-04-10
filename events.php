@@ -40,6 +40,9 @@ $userid = $_SESSION['username'];
                         <li>
                             <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
                         </li>
+                        <li>
+                            <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
