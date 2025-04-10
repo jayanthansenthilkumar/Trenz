@@ -1,3 +1,12 @@
+<?php
+session_start();
+include('db.php'); // Include the database connection file  
+if (!isset($_SESSION['username'])) {
+    header("Location: admin.php");
+    exit();
+}
+$userid = $_SESSION['username'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,16 +29,16 @@
                 </button>
             </div>
             <div class="sidebar-content">
-                <nav class="sidebar-menu">
+            <nav class="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="adminDashboard.html"><i class="ri-dashboard-line"></i> Dashboard</a>
+                            <a href="adminDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
-                        <li class="active">
-                            <a href="#"><i class="ri-calendar-event-line"></i> Events</a>
+                        <li  class="active">
+                            <a href="events.php"><i class="ri-calendar-event-line"></i> Events</a>
                         </li>
                         <li>
-                            <a href="participants.html"><i class="ri-user-star-line"></i> Participants</a>
+                            <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
                         </li>
                     </ul>
                 </nav>
@@ -55,16 +64,14 @@
                     </button>
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
-                        <span>Event Admin</span>
+                        <span><?php echo $userid?></span>
                         <i class="ri-arrow-down-s-line"></i>
                         
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="#profile"><i class="ri-user-line"></i> My Profile</a></li>
-                                <li><a href="#settings"><i class="ri-settings-line"></i> Settings</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#logout"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+                                
+                                <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>

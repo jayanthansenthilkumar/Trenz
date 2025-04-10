@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "db.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +33,7 @@
                     <div class="section-divider"></div>
                 </div>
                 
-                <form class="login-form">
+                <form id="adminLoginForm" method="POST" action="admin.php">
                     <div class="form-group">
                         <!-- <label for="username">Username</label> -->
                         <div class="input-with-icon">
@@ -60,6 +65,35 @@
             </div>
         </div>
     </div>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $query = "SELECT * FROM login WHERE userid = '$username' AND password = '$password'";
+        $result = mysqli_query($conn, $query);
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['username'] = $username;
+            
+            $_SESSION['role'] = $row['role'];
+        
+        if ($_SESSION['role']  == 1) {
+            header("Location: adminDashboard.php");
+        }
+        // else  {
+        //     header("Location: overdashboard.php");
+        // }
+        exit();
+
+        } else {
+            echo "<script>alert('Invalid Username or Password. Please try again.'); window.location.href='coordinator.php';</script>";
+        }
+    } else {
+
+        exit();
+    }
+
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>

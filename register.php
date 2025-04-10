@@ -1,5 +1,12 @@
+<?php
+include "db.php";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body class="login-page">    
+
+<body class="login-page">
     <div id="particles-js"></div>
     <div class="split-login-container">
         <div class="brand-section">
@@ -20,7 +28,7 @@
         </div>
         <div class="login-section">
             <div class="registration-card">
-                <form class="registration-form">
+                <form id="registrationForm" enctype="multipart/form-data">
                     <div class="tabs-navigation">
                         <button type="button" class="tab-btn active" data-tab="personal-info">
                             <i class="fas fa-user"></i> Personal Info
@@ -61,7 +69,7 @@
                                 <i class="fas fa-university"></i>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
@@ -80,7 +88,7 @@
                                 <i class="fas fa-calendar-check"></i>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="select-with-icon">
                                 <select id="event2" name="event2" required>
@@ -93,40 +101,53 @@
                                 <i class="fas fa-calendar-check"></i>
                             </div>
                         </div>
-                        
+                        <div class="form-group">
+                            <label for="Idcard">Upload ID card </label>
+                            <div class="file-upload">
+                                <input type="file" id="Idcard" name="Idcard" required>
+                                <div class="upload-button">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Choose File</span>
+                                </div>
+                                <p class="file-name1">No file chosen</p>
+                            </div>
+                        </div>
+
+
+
                         <div class="tab-buttons">
                             <button type="button" class="next-tab primary-btn" data-next="payment-details">
                                 Continue <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="tab-content" id="payment-details">
                         <h3 class="form-section-title">Payment Details</h3>
-                        
+
                         <div class="qr-code-container">
-                            <img src="qr-code.png" alt="Payment QR Code" class="qr-code">
+                            <img src="" alt="Payment QR Code" class="qr-code">
                             <p>Scan to pay ₹200 for registration</p>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="date" id="transactionDate" name="transactionDate" required>
                                 <i class="fas fa-calendar"></i>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="transactionId" name="transactionId" placeholder="Transaction ID/Reference Number" required>
                                 <i class="fas fa-receipt"></i>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="paymentProof">Upload Payment Screenshot</label>
                             <div class="file-upload">
-                                <input type="file" id="paymentProof" name="paymentProof" accept="image/*" required>
+                                <input type="file" id="paymentProof" name="paymentProof" required>
                                 <div class="upload-button">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                     <span>Choose File</span>
@@ -134,7 +155,9 @@
                                 <p class="file-name">No file chosen</p>
                             </div>
                         </div>
+
                         
+
                         <div class="tab-buttons">
                             <button type="button" class="prev-tab secondary-btn" data-prev="personal-info">
                                 <i class="fas fa-arrow-left"></i> Previous
@@ -152,5 +175,36 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        $(document).on('submit', '#registrationForm', function(e) {
+            e.preventDefault();
+            var Formdata = new FormData(this);
+            Formdata.append("Add_newuser", true);
+
+            $.ajax({
+                url: "backend.php",
+                method: "POST",
+                data: Formdata,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var res = jQuery.parseJSON(response);
+                    console.log(res);
+
+                    if (res.status == 200) {
+                        alert("Registered Successfully & Mail Sent!");
+                        $('#registrationForm')[0].reset();
+                    } else if (res.status == 201) {
+                        alert("Registered Successfully but Mail not Sent!");
+                        $('#registrationForm')[0].reset();
+                    } else if (res.status == 500) {
+                        alert("Something Went Wrong! Try Again.");
+                    }
+                }
+            })
+        });
+    </script>
+
 </body>
+
 </html>

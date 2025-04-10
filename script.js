@@ -64,6 +64,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    const fileInput1 = document.getElementById('Idcard');
+    if (fileInput1) {
+        const fileName = document.querySelector('.file-name1');
+        
+        fileInput1.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                fileName.textContent = this.files[0].name;
+            } else {
+                fileName.textContent = 'No file chosen';
+            }
+        });
+    }
 
     // File upload name display
     const fileInput = document.getElementById('paymentProof');
