@@ -195,6 +195,14 @@ include "db.php";
             e.preventDefault();
             var Formdata = new FormData(this);
             Formdata.append("Add_newuser", true);
+            Swal.fire({
+            title: 'Please Wait...',
+            text: 'Submitting your form',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading()
+            }
+        });
 
             $.ajax({
                 url: "backend.php",
@@ -207,6 +215,7 @@ include "db.php";
                     console.log(res);
 
                     if (res.status == 200) {
+                        Swal.close();
                         swal.fire({
                             title: "Event Registered Successfully!",
                             text: "Your ID is: " + res.trenzid,
@@ -216,6 +225,7 @@ include "db.php";
 
                         $('#registrationForm')[0].reset();
                     } else if (res.status == 201) {
+                        Swal.close();
                         swal.fire({
                             title: "Error!",
                             text: "Registered Successfully but Mail not Sent!",
@@ -226,6 +236,7 @@ include "db.php";
                         $('#registrationForm')[0].reset();
                     }
                     else if (res.status == 400) {
+                        Swal.close();
                         swal.fire({
                             title: "Error!",
                             text: "Registration limit for Your Register number",
@@ -237,6 +248,7 @@ include "db.php";
                     }
 
                      else if (res.status == 500) {
+                        Swal.close();
                         swal.fire({
                             title: "Error!",
                             text: "Something went wrong!",

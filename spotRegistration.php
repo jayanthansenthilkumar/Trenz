@@ -163,6 +163,14 @@ $userid = $_SESSION['username'];
             e.preventDefault();
             var Formdata = new FormData(this);
             Formdata.append("Onspot_newuser", true);
+            Swal.fire({
+            title: 'Please Wait...',
+            text: 'Submitting your form',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading()
+            }
+        });
 
             $.ajax({
                 url: "backend.php",
@@ -175,6 +183,7 @@ $userid = $_SESSION['username'];
                     console.log(res);
 
                     if (res.status == 200) {
+                        Swal.close();
                         swal.fire({
                             title: "Event Registered Successfully!",
                             text: "Your ID is: " + res.trenzid,
@@ -184,6 +193,7 @@ $userid = $_SESSION['username'];
 
                         $('#registrationForm')[0].reset();
                     } else if (res.status == 201) {
+                        Swal.close();
                         swal.fire({
                             title: "Error!",
                             text: "Registered Successfully but Mail not Sent!",
@@ -194,6 +204,7 @@ $userid = $_SESSION['username'];
                         $('#registrationForm')[0].reset();
                     }
                     else if (res.status == 400) {
+                        Swal.close();
                         swal.fire({
                             title: "Error!",
                             text: "Registration limit for Your Register number",
@@ -205,6 +216,7 @@ $userid = $_SESSION['username'];
                     }
 
                      else if (res.status == 500) {
+                        Swal.close();
                         swal.fire({
                             title: "Error!",
                             text: "Something went wrong!",
