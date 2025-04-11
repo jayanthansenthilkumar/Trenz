@@ -103,10 +103,18 @@ $userid = $_SESSION['username'];
                             <div class="select-with-icon">
                                 <select id="event1" name="event1" required>
                                     <option value="">Select Event 1</option>
-                                    <option value="event1">Coding Challenge</option>
-                                    <option value="event2">Web Design</option>
-                                    <option value="event3">Tech Quiz</option>
-                                    <option value="event4">Robotics</option>
+                                    <option value="Paperpresentation">Paper presentation</option>
+                                    <option value="'Project">Project Presentation</option>
+                                    <option value="Technicalquiz">Technical Quiz</option>
+                                    <option value="Codingchallenge">Coding Challenge</option>
+                                    <option value="Dance">Dance</option>
+                                    <option value="IPLauction">IPL Auction</option>
+                                    <option value="Treasurehunt">Treasure Hunt</option>
+                                    <option value="Lyricalhunt">Lyrical Hunt</option>
+                                    <option value="Photography">Photography</option>
+                                    <option value="Esports">E-Sports</option>
+                                    <option value="Postermaking">Poster Making</option>
+                                    <option value="Mime">Mime</option>
                                 </select>
                                 <i class="fas fa-calendar-check"></i>
                             </div>
@@ -116,10 +124,18 @@ $userid = $_SESSION['username'];
                             <div class="select-with-icon">
                                 <select id="event2" name="event2" required>
                                     <option value="">Select Event 2</option>
-                                    <option value="event1">Coding Challenge</option>
-                                    <option value="event2">Web Design</option>
-                                    <option value="event3">Tech Quiz</option>
-                                    <option value="event4">Robotics</option>
+                                    <option value="Paperpresentation">Paper presentation</option>
+                                    <option value="'Project">Project Presentation</option>
+                                    <option value="Technicalquiz">Technical Quiz</option>
+                                    <option value="Codingchallenge">Coding Challenge</option>
+                                    <option value="Dance">Dance</option>
+                                    <option value="IPLauction">IPL Auction</option>
+                                    <option value="Treasurehunt">Treasure Hunt</option>
+                                    <option value="Lyricalhunt">Lyrical Hunt</option>
+                                    <option value="Photography">Photography</option>
+                                    <option value="Esports">E-Sports</option>
+                                    <option value="Postermaking">Poster Making</option>
+                                    <option value="Mime">Mime</option>
                                 </select>
                                 <i class="fas fa-calendar-check"></i>
                             </div>
@@ -140,12 +156,13 @@ $userid = $_SESSION['username'];
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
     <script>
         $(document).on('submit', '#registrationForm', function(e) {
             e.preventDefault();
             var Formdata = new FormData(this);
-            Formdata.append("Add_newuser", true);
+            Formdata.append("Onspot_newuser", true);
 
             $.ajax({
                 url: "backend.php",
@@ -158,13 +175,42 @@ $userid = $_SESSION['username'];
                     console.log(res);
 
                     if (res.status == 200) {
-                        alert("Registered Successfully & Mail Sent!");
+                        swal.fire({
+                            title: "Event Registered Successfully!",
+                            text: "Your ID is: " + res.trenzid,
+                            icon: "success",
+                            button: "Okay",
+                        });
+
                         $('#registrationForm')[0].reset();
                     } else if (res.status == 201) {
-                        alert("Registered Successfully but Mail not Sent!");
+                        swal.fire({
+                            title: "Error!",
+                            text: "Registered Successfully but Mail not Sent!",
+                            icon: "error",
+                            button: "Okay",
+                        });
+
                         $('#registrationForm')[0].reset();
-                    } else if (res.status == 500) {
-                        alert("Something Went Wrong! Try Again.");
+                    }
+                    else if (res.status == 400) {
+                        swal.fire({
+                            title: "Error!",
+                            text: "Registration limit for Your Register number",
+                            icon: "error",
+                            button: "Okay",
+                        });
+
+                        $('#registrationForm')[0].reset();
+                    }
+
+                     else if (res.status == 500) {
+                        swal.fire({
+                            title: "Error!",
+                            text: "Something went wrong!",
+                            icon: "error",
+                            button: "Okay",
+                        });
                     }
                 }
             })
