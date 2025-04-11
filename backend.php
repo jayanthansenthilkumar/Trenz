@@ -161,6 +161,7 @@ if (isset($_POST['Onspot_newuser'])) {
         $events1 = mysqli_real_escape_string($conn, $_POST['event1']);
         $events2 = mysqli_real_escape_string($conn, $_POST['event2']);
         
+        
         $checkQuery = "SELECT COUNT(*) AS total FROM events WHERE regno = '$regNumber'";
         $checkResult = mysqli_query($conn, $checkQuery);
         $row = mysqli_fetch_assoc($checkResult);
@@ -173,7 +174,7 @@ if (isset($_POST['Onspot_newuser'])) {
             echo json_encode($res);
             exit;
         }
-        $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,events2) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1', '$events2')";
+        $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,events2,status) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1', '$events2','2')";
 
         if (mysqli_query($conn, $query)) {
             $last_id = mysqli_insert_id($conn); // Auto Increment ID
