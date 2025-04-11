@@ -78,10 +78,18 @@ include "db.php";
                             <div class="select-with-icon">
                                 <select id="event1" name="event1" required>
                                     <option value="">Select Event 1</option>
-                                    <option value="event1">Coding Challenge</option>
-                                    <option value="event2">Web Design</option>
-                                    <option value="event3">Tech Quiz</option>
-                                    <option value="event4">Robotics</option>
+                                    <option value="Paperpresentation">Paper presentation</option>
+                                    <option value="'Project">Project Presentation</option>
+                                    <option value="Technicalquiz">Technical Quiz</option>
+                                    <option value="Codingchallenge">Coding Challenge</option>
+                                    <option value="Dance">Dance</option>
+                                    <option value="IPLauction">IPL Auction</option>
+                                    <option value="Treasurehunt">Treasure Hunt</option>
+                                    <option value="Lyricalhunt">Lyrical Hunt</option>
+                                    <option value="Photography">Photography</option>
+                                    <option value="Esports">E-Sports</option>
+                                    <option value="Postermaking">Poster Making</option>
+                                    <option value="Mime">Mime</option>
                                 </select>
                                 <i class="fas fa-calendar-check"></i>
                             </div>
@@ -91,10 +99,18 @@ include "db.php";
                             <div class="select-with-icon">
                                 <select id="event2" name="event2" required>
                                     <option value="">Select Event 2</option>
-                                    <option value="event1">Coding Challenge</option>
-                                    <option value="event2">Web Design</option>
-                                    <option value="event3">Tech Quiz</option>
-                                    <option value="event4">Robotics</option>
+                                    <option value="Paperpresentation">Paper presentation</option>
+                                    <option value="'Project">Project Presentation</option>
+                                    <option value="Technicalquiz">Technical Quiz</option>
+                                    <option value="Codingchallenge">Coding Challenge</option>
+                                    <option value="Dance">Dance</option>
+                                    <option value="IPLauction">IPL Auction</option>
+                                    <option value="Treasurehunt">Treasure Hunt</option>
+                                    <option value="Lyricalhunt">Lyrical Hunt</option>
+                                    <option value="Photography">Photography</option>
+                                    <option value="Esports">E-Sports</option>
+                                    <option value="Postermaking">Poster Making</option>
+                                    <option value="Mime">Mime</option>
                                 </select>
                                 <i class="fas fa-calendar-check"></i>
                             </div>

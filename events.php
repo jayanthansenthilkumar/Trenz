@@ -6,6 +6,70 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 $userid = $_SESSION['username'];
+
+$Papercount = 0;
+$Project = 0;
+$Technicalquiz = 0;
+$Codingchallenge = 0;
+$Dance = 0;
+$Iplauction = 0;
+$Treasurehunt = 0;
+$Lyricalhunt = 0;
+$Photography = 0;
+$Sports = 0;
+$Postermaking = 0;
+$Mime = 0;
+
+$sql = "SELECT * FROM events";
+$result = mysqli_query($conn, $sql);
+
+while($row = mysqli_fetch_assoc($result)){
+    
+    $events = [$row['events1'], $row['events2']];  // Add more if you have
+    
+    foreach($events as $event){
+        switch($event){
+            case 'Paperpresentation':
+                $Papercount++;
+                break;
+            case 'Project':
+                $Project++;
+                break;
+            case 'Technicalquiz':
+                $Technicalquiz++;
+                break;
+            case 'Codingchallenge':
+                $Codingchallenge++;
+                break;
+            case 'Dance':
+                $Dance++;
+                break;
+            case 'IPLauction':
+                $Iplauction++;
+                break;
+            case 'Treasurehunt':
+                $Treasurehunt++;
+                break;
+            case 'Lyricalhunt':
+                $Lyricalhunt++;
+                break;
+            case 'Photography':
+                $Photography++;
+                break;
+            case 'Esports':
+                $Sports++;
+                break;
+            case 'Postermaking':
+                $Postermaking++;
+                break;
+            case 'Mime':
+                $Mime++;
+                break;
+        }
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +161,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>Paper Presentation</h4>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Papercount?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -106,7 +170,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>Project Expo</h4>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Project?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -115,7 +179,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>Technical Quiz</h4>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Technicalquiz ?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -124,7 +188,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>Coding Challenge</h4>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Codingchallenge ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +204,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h3>IPL Auction</h3>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Iplauction ?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -149,7 +213,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h3>Treasure Hunt</h3>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Treasurehunt ?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -158,7 +222,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h3>Lyrical Hunt</h3>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Lyricalhunt ?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -167,7 +231,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h3>Photography</h3>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Photography ?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -176,7 +240,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h3>E-Sports</h3>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Sports ?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -185,7 +249,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h3>Poster Making</h3>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Postermaking ?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -194,7 +258,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h3>Mime</h3>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Mime ?></p>
                                     </div>
                                 </div>
                                 <div class="stat-card">
@@ -203,7 +267,7 @@ $userid = $_SESSION['username'];
                                     </div>
                                     <div class="stat-card-info">
                                         <h3>Dance</h3>
-                                        <p class="stat-number"></p>
+                                        <p class="stat-number"><?php echo $Dance ?></p>
                                     </div>
                                 </div>
                             </div>
