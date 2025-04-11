@@ -59,12 +59,12 @@ if (isset($_POST['Add_newuser'])) {
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'tssakthi02@gmail.com'; // Your Gmail
-                $mail->Password   = 'zkajpocfnuznirci'; // Gmail App Password
+                $mail->Username   = ''; // Your Gmail
+                $mail->Password   = ''; // Gmail App Password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
 
-                $mail->setFrom('tssakthi02@gmail.com', 'Event Team');
+                $mail->setFrom('@gmail.com', 'Event Team');
                 $mail->addAddress($email); // Send mail to registered user
 
                 $mail->isHTML(true);
@@ -193,12 +193,12 @@ if (isset($_POST['Onspot_newuser'])) {
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'tssakthi02@gmail.com'; // Your Gmail
-                $mail->Password   = 'zkajpocfnuznirci'; // Gmail App Password
+                $mail->Username   = ''; // Your Gmail
+                $mail->Password   = ''; // Gmail App Password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
 
-                $mail->setFrom('tssakthi02@gmail.com', 'Event Team');
+                $mail->setFrom('@gmail.com', 'Event Team');
                 $mail->addAddress($email); // Send mail to registered user
 
                 $mail->isHTML(true);
