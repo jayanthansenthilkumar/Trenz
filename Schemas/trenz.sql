@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2025 at 02:04 PM
+-- Generation Time: Apr 11, 2025 at 06:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,11 +38,11 @@ CREATE TABLE `events` (
   `phoneno` varchar(255) NOT NULL,
   `events1` varchar(255) NOT NULL,
   `events2` varchar(255) NOT NULL,
-  `idcard` varchar(255) NOT NULL,
-  `date` date NOT NULL,
-  `transactionid` varchar(255) NOT NULL,
-  `transactionreceipt` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL
+  `idcard` varchar(255) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `transactionid` varchar(255) DEFAULT NULL,
+  `transactionreceipt` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -89,7 +89,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `login`
