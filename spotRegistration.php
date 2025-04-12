@@ -55,11 +55,11 @@ $userid = $_SESSION['username'];
                 <form id="registrationForm" enctype="multipart/form-data">
                     <div class="tabs-navigation">
                         <button type="button" class="tab-btn active" data-tab="personal-info">
-                            <i class="fas fa-user"></i> Personal Info
+                            <i class="fas fa-user"></i> Spot Registration
                         </button>
                     </div>
                     <div class="tab-content active" id="personal-info">
-                        <h3 class="form-section-title">Personal Information</h3>
+                        <h3 class="form-section-title">Trenz'25 Spot Registration</h3>
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="name" name="name" placeholder="Full Name" required>
@@ -102,7 +102,7 @@ $userid = $_SESSION['username'];
                                 <select id="event1" name="event1" required>
                                     <option value="">Select Event 1</option>
                                     <option value="Paperpresentation">Paper presentation</option>
-                                    <option value="'Project">Project Presentation</option>
+                                    <option value="Project">Project Presentation</option>
                                     <option value="Technicalquiz">Technical Quiz</option>
                                     <option value="Codingchallenge">Coding Challenge</option>
                                     <option value="Dance">Dance</option>
@@ -123,7 +123,7 @@ $userid = $_SESSION['username'];
                                 <select id="event2" name="event2" required>
                                     <option value="">Select Event 2</option>
                                     <option value="Paperpresentation">Paper presentation</option>
-                                    <option value="'Project">Project Presentation</option>
+                                    <option value="Project">Project Presentation</option>
                                     <option value="Technicalquiz">Technical Quiz</option>
                                     <option value="Codingchallenge">Coding Challenge</option>
                                     <option value="Dance">Dance</option>
