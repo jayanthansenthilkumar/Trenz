@@ -9,7 +9,6 @@ $userid = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,7 +57,6 @@ $userid = $_SESSION['username'];
                         <button type="button" class="tab-btn active" data-tab="personal-info">
                             <i class="fas fa-user"></i> Personal Info
                         </button>
-
                     </div>
                     <div class="tab-content active" id="personal-info">
                         <h3 class="form-section-title">Personal Information</h3>
@@ -140,10 +138,7 @@ $userid = $_SESSION['username'];
                                 <i class="fas fa-calendar-check"></i>
                             </div>
                         </div>
-
-
                         <div class="tab-buttons">
-
                             <button type="submit" class="login-btn primary-btn">
                                 <i class="fas fa-check-circle"></i> Complete Registration
                             </button>
@@ -153,7 +148,6 @@ $userid = $_SESSION['username'];
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -171,7 +165,6 @@ $userid = $_SESSION['username'];
                 Swal.showLoading()
             }
         });
-
             $.ajax({
                 url: "backend.php",
                 method: "POST",
@@ -228,7 +221,5 @@ $userid = $_SESSION['username'];
             })
         });
     </script>
-
 </body>
-
 </html>

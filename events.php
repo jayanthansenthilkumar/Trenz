@@ -121,10 +121,6 @@ while($row = mysqli_fetch_assoc($result)){
                     <input type="text" placeholder="Search events, participants...">
                 </div>
                 <div class="header-actions">
-                    <button class="notification-btn">
-                        <i class="ri-notification-3-line"></i>
-                        <span class="badge">3</span>
-                    </button>
                     <button class="message-btn">
                         <i class="ri-mail-line"></i>
                         <span class="badge">5</span>

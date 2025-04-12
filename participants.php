@@ -7,9 +7,10 @@ if (!isset($_SESSION['username'])) {
 }
 $userid = $_SESSION['username'];
 
-
 $sql = "SELECT * FROM events Where status='0' ";
 $result = mysqli_query($conn, $sql);
+$count = mysqli_num_rows($result);
+
 
 $sql1 = "SELECT * FROM events Where status='1' ";
 $result1 = mysqli_query($conn, $sql1);
@@ -72,23 +73,17 @@ $result2 = mysqli_query($conn, $sql2);
                     <input type="text" placeholder="Search participants, events...">
                 </div>
                 <div class="header-actions">
-                    <button class="notification-btn">
-                        <i class="ri-notification-3-line"></i>
-                        <span class="badge">3</span>
-                    </button>
                     <button class="message-btn">
                         <i class="ri-mail-line"></i>
-                        <span class="badge">5</span>
+                        <span class="badge"><?php echo $count?></span>
                     </button>
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
                         <span><?php echo $userid ?></span>
                         <i class="ri-arrow-down-s-line"></i>
-
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-
                                 <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
                             </ul>
                         </div>
@@ -101,15 +96,12 @@ $result2 = mysqli_query($conn, $sql2);
                 <!-- Tabbed Section for Participants -->
                 <div class="content-section">
                     <h2>Event Participants</h2>
-
                     <!-- Tab Navigation -->
                     <div class="tabs-header">
                         <button class="tab-button active" data-tab="registered-tab">Registered Participants</button>
                         <button class="tab-button" data-tab="approved-tab">Approved Participants</button>
                         <button class="tab-button" data-tab="spot-registration-tab">Spot Registration</button>
                     </div>
-
-                    <!-- Tab Content -->
                     <!-- Registered Participants Tab -->
                     <div id="registered-tab" class="tab-content active">
                         <div class="datatable-controls">
@@ -132,7 +124,6 @@ $result2 = mysqli_query($conn, $sql2);
                                 </label>
                             </div>
                         </div>
-
                         <div class="datatable-wrapper">
                             <table class="datatable" id="registered-table">
                                 <thead>
@@ -170,12 +161,10 @@ $result2 = mysqli_query($conn, $sql2);
                                         $s++;
                                     }
                                     ?>
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
                     <!-- Approved Participants Tab -->
                     <div id="approved-tab" class="tab-content">
                         <div class="datatable-controls">

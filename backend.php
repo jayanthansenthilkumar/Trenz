@@ -53,18 +53,18 @@ if (isset($_POST['Add_newuser'])) {
             mysqli_query($conn, $updateQuery);
 
             // Mail Send
-            $mail = new PHPMailer(true);
+            $mail = new PHPMailer(true);    
 
             try {
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = ''; // Your Gmail
-                $mail->Password   = ''; // Gmail App Password
+                $mail->Username   = 'trenz2k25@gmail.com'; // Your Gmail
+                $mail->Password   = 'ikoximjgvynasved'; // Gmail App Password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
 
-                $mail->setFrom('@gmail.com', 'Event Team');
+                $mail->setFrom('trenz2k25@gmail.com', 'Trenz2k25');
                 $mail->addAddress($email); // Send mail to registered user
 
                 $mail->isHTML(true);
@@ -114,14 +114,14 @@ if(isset($_GET['get_user'])) {
         $row = mysqli_fetch_assoc($result);
 
         $data = [
-            'Trenzid'    => $row['Trenzid'],
-            'name'  => $row['name'],
-            'transactionid'    => $row['transactionid'],
-            'date'      => $row['date'],
-            'idcard'           => $row['idcard'],
-            'paymentproof'  => $row['transactionreceipt'],
-            'email' => $row['emailid'],
-            'phoneno' => $row['phoneno'],
+            'Trenzid'=> $row['Trenzid'],
+            'name'=> $row['name'],
+            'transactionid'=> $row['transactionid'],
+            'date'=> $row['date'],
+            'idcard'=> $row['idcard'],
+            'paymentproof'=> $row['transactionreceipt'],
+            'email'=> $row['emailid'],
+            'phoneno'=> $row['phoneno'],
             
         ];
 
@@ -193,12 +193,12 @@ if (isset($_POST['Onspot_newuser'])) {
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = ''; // Your Gmail
-                $mail->Password   = ''; // Gmail App Password
+                $mail->Username   = 'trenz2k25@gmail.com'; // Your Gmail
+                $mail->Password   = 'ikoximjgvynasved'; // Gmail App Password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
 
-                $mail->setFrom('@gmail.com', 'Event Team');
+                $mail->setFrom('trenz2k25@gmail.com', 'Trenz2k25');
                 $mail->addAddress($email); // Send mail to registered user
 
                 $mail->isHTML(true);
