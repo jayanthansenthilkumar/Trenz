@@ -23,10 +23,10 @@ if (isset($_POST['Add_newuser'])) {
         // File Upload
         $idcardName = $_FILES['Idcard']['name'];
         $idcardTmp = $_FILES['Idcard']['tmp_name'];
-        move_uploaded_file($idcardTmp, "idcard/" . $idcardName);
+        move_uploaded_file($idcardTmp, "assets/idcard/" . $idcardName);
         $paymentProofName = $_FILES['paymentProof']['name'];
         $paymentProofTmp = $_FILES['paymentProof']['tmp_name'];
-        move_uploaded_file($paymentProofTmp, "paymentupload/" . $paymentProofName);
+        move_uploaded_file($paymentProofTmp, "assets/payment/" . $paymentProofName);
 
         $checkQuery = "SELECT COUNT(*) AS total FROM events WHERE regno = '$regNumber'";
         $checkResult = mysqli_query($conn, $checkQuery);

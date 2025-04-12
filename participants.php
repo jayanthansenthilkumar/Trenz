@@ -373,8 +373,8 @@ $result2 = mysqli_query($conn, $sql2);
                         $('#payment-date').text(response.data.date);
                         $('#payment-participant-Email').text(response.data.email);
                         $('#payment-participant-phone').text(response.data.phoneno);
-                        $('#IdImage').attr('src', 'idcard/' + response.data.idcard);
-                        $('#PaymentImage').attr('src', 'paymentupload/' + response.data.paymentproof);
+                        $('#IdImage').attr('src', 'assets/idcard/' + response.data.idcard);
+                        $('#PaymentImage').attr('src', 'assets/payment/' + response.data.paymentproof);
                         $('#payment-modal').show();
                     } else {
                         alert('No Data Found');
