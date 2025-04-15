@@ -66,36 +66,54 @@ include "db.php";
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
-        $query = "SELECT * FROM login WHERE userid = '$username' AND password = '$password'";
-        $result = mysqli_query($conn, $query);
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION['username'] = $username;
-            
-            $_SESSION['role'] = $row['role'];
-        
-        if ($_SESSION['role']  == 1) {
-            header("Location: adminDashboard.php");
-        }
-        else  {
-            header("Location: admin.php");
-        }
-        
-        exit();
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    include 'db_connection.php'; // Include your DB connection here if needed
+    session_start(); // Make sure session is started
 
-        } else {
-            echo "<script>alert('Invalid Username or Password. Please try again.'); window.location.href='coordinator.php';</script>";
-        }
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    $query = "SELECT * FROM login WHERE userid = '$username' AND password = '$password'";
+    $result = mysqli_query($conn, $query);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = $row['role'];
+
+        // Show success SweetAlert
+        $redirectPage = ($_SESSION['role'] == 1) ? 'adminDashboard.php' : 'admin.php';
+
+        echo "
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Login Successful!',
+                text: 'Welcome $username',
+                
+            }).then(() => {
+                window.location.href = '$redirectPage';
+            });
+        </script>";
     } else {
-
-        exit();
+        echo "
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Login Failed',
+                text: 'Invalid Username or Password. Please try again.',
+                confirmButtonText: 'Retry'
+            }).then(() => {
+                window.location.href = 'coordinator.php';
+            });
+        </script>";
     }
+} else {
+    exit();
+}
+?>
 
-    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
