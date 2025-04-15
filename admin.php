@@ -80,21 +80,6 @@ include "db.php";
         
         if ($_SESSION['role']  == 1) {
             header("Location: adminDashboard.php");
-            echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
-            Swal.fire({
-                title: 'Login Successful',
-                text: 'Welcome to the Dashboard!',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '$redirectURL';
-                }
-            });
-        </script>
-        ";
         }
         else  {
             header("Location: admin.php");
