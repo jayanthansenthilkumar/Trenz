@@ -97,7 +97,7 @@ $result2 = mysqli_query($conn, $sql2);
                 <div class="content-section">
                     <h2>Event Participants</h2>
                     <!-- Tab Navigation -->
-                    <div class="tabs-header">
+                    <div class="tabs-header" id="tabs-header">
                         <button class="tab-button active" data-tab="registered-tab">Registered Participants</button>
                         <button class="tab-button" data-tab="approved-tab">Approved Participants</button>
                         <button class="tab-button" data-tab="spot-registration-tab">Spot Registration</button>
@@ -407,8 +407,9 @@ $result2 = mysqli_query($conn, $sql2);
                                 icon: "success"
                             });
                             
-
+                         
                             $('#registered-table').load(location.href + " #registered-table");
+                            $('#approved-table').load(location.href + " #approved-table");
                             
                         }
                     }
