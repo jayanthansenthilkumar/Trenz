@@ -110,23 +110,100 @@
                     <div class="section-divider"></div>
                 </div>
                 <div class="events-container">
-                    <div class="event-card technical">
-                        <img src="./assets/images/tech.png" alt="Code Combat Challenge" class="event-card-image">
+                    <div class="event-card">
+                        <div class="event-image-container">
+                            <img src="./assets/images/coding.png" alt="Web Designing" class="event-card-image">
+                            <a href="rules.php?event=webdesigning" class="rules-btn">Rules</a>
+                        </div>
                         <div class="event-content">
                             <div class="event-details">
-                                <h3>Technical Events</h3>                        
-                                <p class="event-description">Compete in our flagship coding competition featuring challenging algorithmic problems and real-world scenarios.</p>
-                                <a href="techevents.html" class="event-btn">View Events <i class="ri-arrow-right-line"></i></a>
+                                <h3>UI/UX Web Crafting</h3>                        
+                                <p class="event-description">Showcase your creative and technical skills by designing responsive and aesthetic websites in this competitive challenge.</p>
+                                <a href="register.php?event=webdesigning" class="event-btn">Register Now <i class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="event-card non-technical">
-                        <img src="./assets/images/nontech.png" alt="Creative Arts Festival" class="event-card-image">
+                    
+                    <div class="event-card">
+                        <div class="event-image-container">
+                            <img src="./assets/images/startup.jpg" alt="Startup Idea" class="event-card-image">
+                            <a href="rules.php?event=startupidea" class="rules-btn">Rules</a>
+                        </div>
                         <div class="event-content">
                             <div class="event-details">
-                                <h3>Non-Technical Events</h3>
-                                <p class="event-description">Showcase your artistic talents through photography, painting, and digital art competitions.</p>
-                                <a href="nontechevents.html" class="event-btn">View Events <i class="ri-arrow-right-line"></i></a>
+                                <h3>Startup Idea</h3>
+                                <p class="event-description">Present your innovative business concepts and solutions to real-world problems in front of industry experts and potential investors.</p>
+                                <a href="register.php?event=startupidea" class="event-btn">Register Now <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image-container">
+                            <img src="./assets/images/appdev.avif" alt="App Development" class="event-card-image">
+                            <a href="rules.php?event=appdev" class="rules-btn">Rules</a>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>App Development</h3>
+                                <p class="event-description">Build functional and innovative mobile applications that solve specific challenges while demonstrating your development expertise.</p>
+                                <a href="register.php?event=appdev" class="event-btn">Register Now <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image-container">
+                            <img src="./assets/images/trackthebug.png" alt="Track the Bug" class="event-card-image">
+                            <a href="rules.php?event=debugging" class="rules-btn">Rules</a>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Track the Bug (Debugging)</h3>
+                                <p class="event-description">Test your problem-solving skills by identifying and fixing bugs in code snippets against the clock in this technical challenge.</p>
+                                <a href="register.php?event=debugging" class="event-btn">Register Now <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image-container">
+                            <img src="./assets/images/reversecoding.webp" alt="Reverse Coding" class="event-card-image">
+                            <a href="rules.php?event=reversecoding" class="rules-btn">Rules</a>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Reverse Coding</h3>
+                                <p class="event-description">Analyze program outputs and work backwards to create algorithms that produce those outputs in this mind-bending coding challenge.</p>
+                                <a href="register.php?event=reversecoding" class="event-btn">Register Now <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image-container">
+                            <img src="./assets/images/codehunt.png" alt="Coding Treasure Hunt" class="event-card-image">
+                            <a href="rules.php?event=codinghunt" class="rules-btn">Rules</a>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Code Hunt</h3>
+                                <p class="event-description">Embark on an exciting adventure combining coding challenges and puzzle-solving to find hidden treasures across digital landscapes.</p>
+                                <a href="register.php?event=codinghunt" class="event-btn">Register Now <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image-container">
+                            <img src="./assets/images/resume.webp" alt="Resume Making" class="event-card-image">
+                            <a href="rules.php?event=resumemaking" class="rules-btn">Rules</a>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Resume Making</h3>
+                                <p class="event-description">Learn the art of crafting standout resumes and compete to create the most professional and effective CV that catches recruiters' attention.</p>
+                                <a href="register.php?event=resumemaking" class="event-btn">Register Now <i class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
                     </div>
@@ -136,8 +213,155 @@
         </div>
     </div>
     
+    <!-- Rules Modal -->
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Event Rules</h2>
+            <div id="modalContent">
+                <!-- Rules content will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+    
     <!-- Particles.js library -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
+    
+    <script>
+        // Rules modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('rulesModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.querySelector('.close-modal');
+            
+            // Event rules data
+            const eventRules = {
+                webdesigning: {
+                    title: "UI/UX Web Crafting Rules",
+                    content: `
+                        <ol>
+                            <li>Teams of 1-2 members are allowed.</li>
+                            <li>Participants must create a responsive website based on the given theme.</li>
+                            <li>The website should have at least 3 pages.</li>
+                            <li>Time limit: 3 hours.</li>
+                            <li>Participants can use any framework or library.</li>
+                            <li>Pre-built templates are not allowed.</li>
+                            <li>Judging will be based on design, responsiveness, functionality, and creativity.</li>
+                        </ol>
+                    `
+                },
+                startupidea: {
+                    title: "Startup Idea Rules",
+                    content: `
+                        <ol>
+                            <li>Teams of 2-4 members are allowed.</li>
+                            <li>Prepare a pitch deck (10-15 slides).</li>
+                            <li>Each team will get 5 minutes for presentation and 3 minutes for Q&A.</li>
+                            <li>Ideas should be original and innovative.</li>
+                            <li>Include business model, target market, and financial projections.</li>
+                            <li>Judging will be based on innovation, feasibility, market potential, and presentation.</li>
+                        </ol>
+                    `
+                },
+                appdev: {
+                    title: "App Development Rules",
+                    content: `
+                        <ol>
+                            <li>Teams of 1-3 members are allowed.</li>
+                            <li>Create a mobile application based on the given theme.</li>
+                            <li>Time limit: 8 hours (across 2 days).</li>
+                            <li>Participants can use any platform (Android/iOS) and any programming language.</li>
+                            <li>Basic functionality must be working in the final submission.</li>
+                            <li>Judging will be based on UI/UX, functionality, innovation, and code quality.</li>
+                        </ol>
+                    `
+                },
+                debugging: {
+                    title: "Track the Bug (Debugging) Rules",
+                    content: `
+                        <ol>
+                            <li>Individual participation only.</li>
+                            <li>Participants will be given code snippets with bugs to fix.</li>
+                            <li>Time limit: 2 hours.</li>
+                            <li>Languages: C, C++, Java, Python, JavaScript.</li>
+                            <li>Three rounds of increasing difficulty.</li>
+                            <li>Judging based on number of bugs fixed and time taken.</li>
+                            <li>Internet access is not allowed during the competition.</li>
+                        </ol>
+                    `
+                },
+                reversecoding: {
+                    title: "Reverse Coding Rules",
+                    content: `
+                        <ol>
+                            <li>Individual participation only.</li>
+                            <li>Participants will be given input and output examples without showing the code.</li>
+                            <li>They must deduce the algorithm and implement it.</li>
+                            <li>Time limit: 2.5 hours.</li>
+                            <li>Languages: C, C++, Java, Python, JavaScript.</li>
+                            <li>Judging based on accuracy and efficiency of the solution.</li>
+                        </ol>
+                    `
+                },
+                codinghunt: {
+                    title: "Code Hunt Rules",
+                    content: `
+                        <ol>
+                            <li>Teams of 2 members are allowed.</li>
+                            <li>A series of coding and logical puzzles that lead to the next clue.</li>
+                            <li>Time limit: 3 hours.</li>
+                            <li>Use of search engines is allowed but sharing answers is prohibited.</li>
+                            <li>Teams must solve all puzzles to complete the hunt.</li>
+                            <li>Winners determined by time taken to complete all challenges.</li>
+                        </ol>
+                    `
+                },
+                resumemaking: {
+                    title: "Resume Making Rules",
+                    content: `
+                        <ol>
+                            <li>Individual participation only.</li>
+                            <li>Create a professional resume based on a given fictitious profile.</li>
+                            <li>Time limit: 1.5 hours.</li>
+                            <li>Participants can use any design tools or templates.</li>
+                            <li>Judging based on design, organization, content relevance, and professionalism.</li>
+                            <li>The final resume must be submitted as a PDF file.</li>
+                        </ol>
+                    `
+                }
+            };
+            
+            // Add click event listeners to all rules buttons
+            document.querySelectorAll('.rules-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Extract event type from href attribute
+                    const url = new URL(this.href);
+                    const eventType = url.searchParams.get('event');
+                    
+                    if (eventRules[eventType]) {
+                        modalTitle.textContent = eventRules[eventType].title;
+                        modalContent.innerHTML = eventRules[eventType].content;
+                        modal.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Close modal when clicking the X
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside the modal content
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+``` 

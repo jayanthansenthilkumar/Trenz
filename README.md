@@ -1,2 +1,0 @@
-# Trenz
-Symposium Website
