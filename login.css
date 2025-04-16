@@ -1,0 +1,996 @@
+/* Login Page Styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Standardized Registration Card Styles - Replace conflicting declarations */
+.registration-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    margin: 30px auto;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Override for login section */
+.login-section .registration-card {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.login-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 450px; /* Further reduced from 480px */
+    padding: 20px 18px; /* Further reduced padding */
+    margin: 15px auto; /* Reduced margin */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 20px; /* Reduced from 30px */
+}
+
+.login-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Fixed input field styling for registration form */
+.input-with-icon {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-with-icon input,
+.select-with-icon select {
+    width: 100%;
+    padding: 14px 45px 14px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.input-with-icon i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: all 0.3s ease;
+}
+
+.input-with-icon input:focus,
+.select-with-icon select:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+    outline: none;
+    background-color: #fff;
+}
+
+.input-with-icon input:focus + i {
+    color: #4361ee;
+}
+
+.login-form .form-group {
+    margin-bottom: 12px; /* Further reduced from 16px */
+}
+
+.login-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.input-with-icon input:focus + i {
+    color: #4361ee;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px 15px; /* Further reduced from 12px */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.85rem; /* Further reduced */
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+    outline: none;
+    background-color: #fff;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.remember-me input[type="checkbox"] {
+    accent-color: #4361ee;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #4361ee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #3a56d4;
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4361ee;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-btn:hover {
+    background-color: #3a56d4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.25);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+/* Login Page Styles - Updated for split design */
+body.login-page {
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.split-login-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Left side - Login section */
+.login-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+}
+
+/* Right side - Brand section */
+.brand-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-content {
+    text-align: center;
+    z-index: 2;
+    padding: 40px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.brand-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #4361ee; /* Changed from white to match brand blue */
+    -webkit-text-fill-color: #4361ee;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.brand-content p {
+    font-size: 1.4rem;
+    color: #333; /* Changed from white to dark gray */
+    letter-spacing: 1px;
+}
+
+/* Updated particles for login page */
+body.login-page #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-color: #ffffff; /* Changed from #031b4e to white */
+}
+
+/* Updated login card for smaller size */
+.login-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 380px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Fix for input icon position */
+.input-with-icon i {
+    right: 15px;
+    left: auto;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    padding: 12px 45px 12px 15px;
+}
+
+/* Adding registration page specific styles */
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.login-footer a {
+    color: #4361ee;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+    color: #3a56d4;
+    text-decoration: underline;
+}
+
+/* Making the card slightly larger for registration form */
+.login-page .login-section .login-card {
+    max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    .login-page .login-section .login-card {
+        max-width: 95%;
+    }
+}
+
+/* Responsive design for split login page */
+@media (max-width: 992px) {
+    .split-login-container {
+        flex-direction: column;
+    }
+    
+    .brand-section {
+        height: 25vh; /* Reduced from 35vh to 25vh */
+    }
+    
+    .login-section {
+        height: 75vh; /* Increased from 65vh to 75vh to maintain full screen height */
+    }
+    
+    .brand-content h1 {
+        font-size: 3rem;
+    }
+    
+    .brand-content p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .split-login-container {
+        flex-direction: column; /* Changed from column-reverse to column */
+    }
+    
+    .brand-section {
+        height: 20vh; /* Even smaller on phones */
+    }
+    
+    .login-section {
+        height: 80vh; /* Larger login section on phones */
+    }
+    
+    .brand-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .back-btn {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Responsive Login Page */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+    
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        padding: 10px 15px 10px 40px;
+        font-size: 0.9rem;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .login-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Registration Card Styles - FIXED with correct implementation */
+.registration-card {
+    background: white;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px; /* Even smaller width */
+    padding: 15px 12px;
+    margin: 10px auto;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Override previous declarations */
+.login-section .registration-card {
+    max-width: 300px; /* Must match the value above */
+    margin: 10px auto;
+    padding: 15px 12px;
+}
+
+/* Smaller header with less space */
+.registration-card .login-header {
+    margin-bottom: 10px;
+}
+
+.registration-card .login-header h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.registration-card .section-divider {
+    width: 35px;
+    height: 3px;
+    margin-top: 5px;
+}
+
+/* Compact form components */
+.registration-form {
+    max-width: 100%;
+    font-size: 0.85rem;
+}
+
+.form-section-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 10px 0 20px;
+    color: #4361ee;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.form-section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #4361ee;
+    margin-top: 5px;
+}
+
+/* Override .form-group for registration form only */
+.registration-card .form-group {
+    margin-bottom: 18px;
+    position: relative;
+    width: 100%;
+}
+
+.registration-card .input-with-icon input,
+.registration-card .select-with-icon select {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    border-width: 1px;
+}
+
+.registration-card .input-with-icon i {
+    right: 10px;
+    font-size: 0.9rem;
+}
+
+/* Smaller QR code */
+.registration-card .qr-code-container {
+    margin: 8px 0 12px;
+    padding: 6px;
+}
+
+.registration-card .qr-code {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+    padding: 2px;
+}
+
+.registration-card .qr-code-container p {
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+/* Smaller tabs */
+.registration-card .tabs-navigation {
+    margin-bottom: 10px;
+}
+
+.registration-card .tab-btn {
+    padding: 6px 2px;
+    font-size: 0.7rem;
+}
+
+.registration-card .tab-btn i {
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+}
+
+/* More compact buttons */
+.registration-card .tab-buttons {
+    margin-top: 10px;
+    gap: 6px;
+}
+
+.registration-card .next-tab, 
+.registration-card .prev-tab {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+}
+
+/* Smaller file upload */
+.registration-card .file-upload .upload-button {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+}
+
+.registration-card .file-upload .upload-button i {
+    font-size: 0.9rem;
+}
+
+.registration-card .file-name {
+    font-size: 0.7rem;
+    margin-top: 2px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 350px) {
+    .registration-card {
+        max-width: 100%;
+        padding: 12px 10px;
+        margin: 8px auto;
+    }
+    
+    .tab-btn {
+        padding: 5px 2px;
+        font-size: 0.7rem;
+    }
+    
+    .tab-btn i {
+        font-size: 0.85rem;
+    }
+}
+
+/* Enhanced Registration Form Styles */
+.registration-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 420px; /* Further reduced from 450px */
+    padding: 40px 35px; /* Increased vertical padding */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    margin: 30px auto;
+    min-height: 650px; /* Further increased from 600px */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Remove conflicting declaration and keep consistent sizing */
+.login-section .registration-card {
+    max-width: 420px; /* Match the above value */
+    margin: 15px auto;
+}
+
+.registration-form {
+    max-width: 100%;
+}
+
+.registration-form label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.select-with-icon {
+    position: relative;
+}
+
+.select-with-icon select {
+    width: 100%;
+    padding: 12px 15px 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    color: #555;
+}
+
+.select-with-icon i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #aaa;
+}
+
+.select-with-icon select:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+    outline: none;
+    background-color: #fff;
+}
+
+.file-upload {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.upload-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background-color: #f8f9fa;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    width: 100%;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.upload-button i {
+    color: #4361ee;
+    font-size: 1.2rem;
+}
+
+.upload-button span {
+    color: #666;
+    font-weight: 500;
+}
+
+.file-upload:hover .upload-button {
+    background-color: #eef2ff;
+    border-color: #4361ee;
+}
+
+.file-name {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.qr-code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 30px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.qr-code {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: white;
+}
+
+.qr-code-container p {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+.login-section .registration-card {
+    max-width: 520px; /* Reduced from 550px */
+    margin: 15px auto; /* Added more margin for better spacing */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .login-section .registration-card {
+        padding: 30px 20px;
+        max-width: 95%;
+        min-height: auto;
+    }
+    
+    .qr-code {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Tab Navigation Enhancements */
+.tabs-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    width: 100%;
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 12px 5px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.tab-btn i {
+    font-size: 1.1rem;
+}
+
+.tab-btn.active {
+    background-color: #4361ee;
+    color: white;
+}
+
+.tab-btn:not(.active):hover {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: #4361ee;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.next-tab, .prev-tab {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.next-tab {
+    background-color: #4361ee;
+    color: white;
+    margin-left: auto;
+}
+
+.prev-tab {
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #ccc;
+}
+
+.next-tab:hover {
+    background-color: #3a56d4;
+    transform: translateX(2px);
+}
+
+.prev-tab:hover {
+    background-color: #f1f1f1;
+    transform: translateX(-2px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Make tab navigation responsive */
+@media (max-width: 576px) {
+    .tab-btn {
+        font-size: 0.8rem;
+        padding: 10px 2px;
+    }
+    
+    .tab-btn i {
+        font-size: 1rem;
+    }
+}
+
+/* Enhanced Form Group and Input Styling */
+.form-group {
+    margin-bottom: 18px;
+    position: relative;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.input-with-icon input,
+.select-with-icon select {
+    width: 100%;
+    padding: 14px 15px 14px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.input-with-icon input:focus,
+.select-with-icon select:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+    outline: none;
+    background-color: #fff;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: all 0.3s ease;
+}
+
+.input-with-icon input:focus + i,
+.select-with-icon select:focus + i {
+    color: #4361ee;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Input validation styling */
+.input-with-icon input.invalid,
+.select-with-icon select.invalid {
+    border-color: #ff5252;
+    box-shadow: 0 0 0 2px rgba(255, 82, 82, 0.1);
+    animation: shake 0.4s ease;
+}
+
+.invalid-feedback {
+    color: #ff5252;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.input-with-icon input.invalid ~ .invalid-feedback {
+    display: block;
+}
+
+/* Hover effect on inputs */
+.input-with-icon input:hover:not(:focus):not(.invalid),
+.select-with-icon select:hover:not(:focus):not(.invalid) {
+    border-color: #bdc3c7;
+    background-color: #f5f7fa;
+}
+
+/* Animation for invalid inputs */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+/* Form group transitions */
+.tab-content .form-group {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.tab-content .form-group:nth-child(2) { animation-delay: 0.05s; }
+.tab-content .form-group:nth-child(3) { animation-delay: 0.1s; }
+.tab-content .form-group:nth-child(4) { animation-delay: 0.15s; }
+.tab-content .form-group:nth-child(5) { animation-delay: 0.2s; }
+.tab-content .form-group:nth-child(6) { animation-delay: 0.25s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Placeholder styling */
+.input-with-icon input::placeholder {
+    color: #aaa;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.input-with-icon input:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* File upload button styling improvements */
+.file-upload .upload-button {
+    padding: 16px 20px;
+    background: linear-gradient(to right, #f8f9fa, #f0f2f5);
+    border: 2px dashed #ccc;
+}
+
+.file-upload:hover .upload-button {
+    background: linear-gradient(to right, #eef2ff, #f1f5ff);
+    border-color: #4361ee;
+}
+
+/* Add a subtle border accent to improve visual appeal */
+.registration-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #4361ee, #7dabff);
+    border-radius: 12px 12px 0 0;
+}
