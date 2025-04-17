@@ -161,7 +161,7 @@ include "db.php";
         $(document).on('submit', '#registrationForm', function(e) {
             e.preventDefault();
             var Formdata = new FormData(this);
-            Formdata.append("Add_newuser", true);
+            Formdata.append("Add_Intra_newuser", true);
             Swal.fire({
             title: 'Please Wait...',
             text: 'Submitting your form',

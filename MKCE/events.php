@@ -16,7 +16,7 @@ $CodeQuestcount = 0;
 $Buildcount = 0;
 
 
-$sql = "SELECT * FROM events";
+$sql = "SELECT * FROM intramkce";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_assoc($result)){

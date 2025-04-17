@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 $userid = $_SESSION['username'];
-$sql = "SELECT * FROM events  ";
+$sql = "SELECT * FROM intramkce  ";
 $result = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($result);
 $amount=250*$count;

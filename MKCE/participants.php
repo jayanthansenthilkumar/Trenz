@@ -7,15 +7,15 @@ if (!isset($_SESSION['username'])) {
 }
 $userid = $_SESSION['username'];
 
-$sql = "SELECT * FROM events Where status='0' ";
+$sql = "SELECT * FROM intramkce Where status='0' ";
 $result = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($result);
 
 
-$sql1 = "SELECT * FROM events Where status='1' ";
+$sql1 = "SELECT * FROM intramkce Where status='1' ";
 $result1 = mysqli_query($conn, $sql1);
 
-$sql2 = "SELECT * FROM events Where status='2' ";
+$sql2 = "SELECT * FROM intramkce Where status='2' ";
 $result2 = mysqli_query($conn, $sql2);
 ?>
 <!DOCTYPE html>
@@ -132,7 +132,6 @@ $result2 = mysqli_query($conn, $sql2);
                                         <th>Trenz ID</th>
                                         <th>Register Number</th>
                                         <th>Name</th>
-                                        <th>College Name</th>
                                         <th>Events</th>
                                         <th>Payment Details</th>
                                         <th>Action</th>
@@ -147,7 +146,6 @@ $result2 = mysqli_query($conn, $sql2);
                                             <td><?php echo $row['Trenzid']; ?></td>
                                             <td><?php echo $row['regno']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['collegename']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
                                             <td><button class="payment-btn" data-id="<?php echo $row['Trenzid']; ?>">View Payment</button>
                                             </td>
@@ -192,8 +190,9 @@ $result2 = mysqli_query($conn, $sql2);
                                 <thead>
                                     <tr>
                                         <th>Trenz ID</th>
+                                        <th>Register No</th>
                                         <th>Name</th>
-                                        <th>College Name</th>
+                                        <th>Department</th>
                                         <th>Events</th>
                                         <th>Payment Status</th>
 
@@ -206,8 +205,9 @@ $result2 = mysqli_query($conn, $sql2);
                                     ?>
                                         <tr>
                                             <td><?php echo $row['Trenzid']; ?></td>
+                                            <td><?php echo $row['regno']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['collegename']; ?></td>
+                                            <td><?php echo $row['depart']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
                                             <td><span class="status-badge completed">Paid</span></td>
 
@@ -247,12 +247,12 @@ $result2 = mysqli_query($conn, $sql2);
                         <div class="datatable-wrapper">
                             <table class="datatable" id="spot-registration-table">
                                 <thead>
-                                    <tr>
+                                <tr>
                                         <th>Trenz ID</th>
+                                        <th>Register No</th>
                                         <th>Name</th>
-                                        <th>College Name</th>
+                                        <th>Department</th>
                                         <th>Events</th>
-
                                         <th>Payment Status</th>
 
                                     </tr>
@@ -264,10 +264,10 @@ $result2 = mysqli_query($conn, $sql2);
                                     ?>
                                     <tr>
                                             <td><?php echo $row['Trenzid']; ?></td>
+                                            <td><?php echo $row['regno']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['collegename']; ?></td>
+                                            <td><?php echo $row['depart']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
-                                            
                                             <td><span class="status-badge completed">Paid</span></td>
 
                                         </tr>
@@ -324,10 +324,7 @@ $result2 = mysqli_query($conn, $sql2);
                                 <span class="info-label">Payment Date:</span>
                                 <span class="info-value" id="payment-date"></span>
                             </div>
-                            <div class="info-row">
-                                <span class="info-label">ID card:</span>
-                                <img src="" id="IdImage" alt="" width="150px" height="150px">
-                            </div>
+                            
                             <div class="info-row">
                                 <span class="info-label">Payment Proof:</span>
                                 <img src="" id="PaymentImage" alt="" width="150px" height="150px">
@@ -370,7 +367,6 @@ $result2 = mysqli_query($conn, $sql2);
                         $('#payment-date').text(response.data.date);
                         $('#payment-participant-Email').text(response.data.email);
                         $('#payment-participant-phone').text(response.data.phoneno);
-                        $('#IdImage').attr('src', 'assets/idcard/' + response.data.idcard);
                         $('#PaymentImage').attr('src', 'assets/payment/' + response.data.paymentproof);
                         $('#payment-modal').show();
                     } else {
