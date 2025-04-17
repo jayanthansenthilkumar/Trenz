@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2025 at 06:30 AM
+-- Generation Time: Apr 17, 2025 at 11:31 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,7 +37,6 @@ CREATE TABLE `events` (
   `collegename` longtext NOT NULL,
   `phoneno` varchar(255) NOT NULL,
   `events1` varchar(255) NOT NULL,
-  `events2` varchar(255) NOT NULL,
   `idcard` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `transactionid` varchar(255) DEFAULT NULL,
@@ -89,7 +88,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `login`
