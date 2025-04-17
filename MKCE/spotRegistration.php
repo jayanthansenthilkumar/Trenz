@@ -1,9 +1,14 @@
 <?php
-include "db.php";
+session_start();
+include('db.php'); // Include the database connection file  
+if (!isset($_SESSION['username'])) {
+    header("Location: admin.php");
+    exit();
+}
+$userid = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +19,26 @@ include "db.php";
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .back-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #1a2530;
+        }
+
+        .back-btn i {
+            margin-right: 5px;
+        }
+    </style>
 </head>
 
 <body class="login-page">
@@ -22,23 +47,20 @@ include "db.php";
         <div class="brand-section">
             <div class="brand-content">
                 <h1>Trenz'25</h1>
-                <p>Event Registration</p>
+                <p>Spot Registration</p>
             </div>
         </div>
         <div class="login-section">
             <div class="registration-card">
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                <a href="adminDashboard.php" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
                 <form id="registrationForm" enctype="multipart/form-data">
                     <div class="tabs-navigation">
                         <button type="button" class="tab-btn active" data-tab="personal-info">
-                            <i class="fas fa-user"></i> Personal Info
-                        </button>
-                        <button type="button" class="tab-btn" data-tab="payment-details">
-                            <i class="fas fa-credit-card"></i> Payment
+                            <i class="fas fa-user"></i> Spot Registration
                         </button>
                     </div>
                     <div class="tab-content active" id="personal-info">
-                        <h3 class="form-section-title">Personal Information</h3>
+                        <h3 class="form-section-title">Trenz'25 Spot Registration</h3>
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="name" name="name" placeholder="Full Name" required>
@@ -79,7 +101,7 @@ include "db.php";
                         <div class="form-group">
                             <div class="select-with-icon">
                                 <select id="event1" name="event1" required>
-                                    <option value="">Select Event</option>
+                                <option value="">Select Event</option>
                                     <option value="WebWeave">Web Weave</option>
                                     <option value="NextGenStart">NextGen Start</option>
                                     <option value="AppAthon">App Athon</option>
@@ -92,67 +114,7 @@ include "db.php";
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="Idcard">Upload ID card </label>
-                            <div class="file-upload">
-                                <input type="file" id="Idcard" name="Idcard" required>
-                                <div class="upload-button">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span>Choose File</span>
-                                </div>
-                                <p class="file-name1">No file chosen</p>
-                            </div>
-                        </div>
-
-
-
                         <div class="tab-buttons">
-                            <button type="button" class="next-tab primary-btn" data-next="payment-details">
-                                Continue <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="payment-details">
-                        <h3 class="form-section-title">Payment Details</h3>
-
-                        <div class="qr-code-container">
-                            <img src="" alt="Payment QR Code" class="qr-code">
-                            <p>Scan to pay ₹250 for registration</p>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="date" id="transactionDate" name="transactionDate" required>
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="transactionId" name="transactionId" placeholder="Transaction ID/Reference Number" required>
-                                <i class="fas fa-receipt"></i>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="paymentProof">Upload Payment Screenshot</label>
-                            <div class="file-upload">
-                                <input type="file" id="paymentProof" name="paymentProof" required>
-                                <div class="upload-button">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span>Choose File</span>
-                                </div>
-                                <p class="file-name">No file chosen</p>
-                            </div>
-                        </div>
-
-
-
-                        <div class="tab-buttons">
-                            <button type="button" class="prev-tab secondary-btn" data-prev="personal-info">
-                                <i class="fas fa-arrow-left"></i> Previous
-                            </button>
                             <button type="submit" class="login-btn primary-btn">
                                 <i class="fas fa-check-circle"></i> Complete Registration
                             </button>
@@ -162,7 +124,6 @@ include "db.php";
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -171,7 +132,7 @@ include "db.php";
         $(document).on('submit', '#registrationForm', function(e) {
             e.preventDefault();
             var Formdata = new FormData(this);
-            Formdata.append("Add_newuser", true);
+            Formdata.append("Onspot_newuser", true);
             Swal.fire({
             title: 'Please Wait...',
             text: 'Submitting your form',
@@ -180,7 +141,6 @@ include "db.php";
                 Swal.showLoading()
             }
         });
-
             $.ajax({
                 url: "backend.php",
                 method: "POST",
@@ -237,7 +197,5 @@ include "db.php";
             })
         });
     </script>
-
 </body>
-
 </html>

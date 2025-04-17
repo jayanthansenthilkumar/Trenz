@@ -58,18 +58,23 @@ include "db.php";
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="department" name="department" placeholder="Department" required>
-                                <i class="fas fa-graduation-cap"></i>
+                            <div class="select-with-icon">
+                            <select id="department" name="department" required>
+                            <option value="" disabled="" selected="">Select Department</option>
+                            <option value="AIDS">Artificial Intelligence and Data Science</option>
+                            <option value="AIML">Artificial Intelligence and Machine Learning</option>
+                            <option value="CSE">Computer Science Engineering</option>
+                            <option value="CSBS">Computer Science And Business Systems</option>
+                            <option value="ECE">Electronics &amp; Communication Engineering</option>
+                            <option value="EEE">Electrical &amp; Electronics Engineering</option>
+                            <option value="MECH">Mechanical Engineering</option>
+                            <option value="CIVIL">Civil Engineering</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="VLSI">Electronics Engineering (VLSI Design)</option>
+                        </select>
+                                <i class="fas fa-calendar-check"></i>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="college" name="college" placeholder="College Name" required>
-                                <i class="fas fa-university"></i>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
@@ -90,22 +95,7 @@ include "db.php";
                                 </select>
                                 <i class="fas fa-calendar-check"></i>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Idcard">Upload ID card </label>
-                            <div class="file-upload">
-                                <input type="file" id="Idcard" name="Idcard" required>
-                                <div class="upload-button">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span>Choose File</span>
-                                </div>
-                                <p class="file-name1">No file chosen</p>
-                            </div>
-                        </div>
-
-
-
+                        </div><br><br>
                         <div class="tab-buttons">
                             <button type="button" class="next-tab primary-btn" data-next="payment-details">
                                 Continue <i class="fas fa-arrow-right"></i>
@@ -118,7 +108,7 @@ include "db.php";
 
                         <div class="qr-code-container">
                             <img src="" alt="Payment QR Code" class="qr-code">
-                            <p>Scan to pay ₹250 for registration</p>
+                            <p>Scan to pay ₹200 for registration</p>
                         </div>
 
                         <div class="form-group">

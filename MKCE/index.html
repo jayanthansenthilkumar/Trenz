@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">            
+            <ul class="nav-links">
+                <li>
+                    <a href="#home">
+                        <i class="ri-home-5-fill icon"></i>
+                        <span class="link-name">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about">
+                        <i class="ri-information-line icon"></i>
+                        <span class="link-name">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#patrons">
+                        <i class="ri-shield-star-line icon"></i>
+                        <span class="link-name">Patrons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#events">
+                        <i class="ri-calendar-event-line icon"></i>
+                        <span class="link-name">Events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#sponsors">
+                        <i class="ri-group-line icon"></i>
+                        <span class="link-name">Sponsors</span>
+                    </a>
+                </li>                
+                <li>
+                    <a href="#contact">
+                        <i class="ri-contacts-line icon"></i>
+                        <span class="link-name">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Content area with hero section -->
+        <div class="content-area">
+            <div id="particles-js"></div>
+            <div class="hero-section" id="home">
+                <div class="hero-content">
+                    <h1>Welcome to Trenz'25</h1>
+                    <p>Discover the latest trends and connect with people around the world</p>
+                    <div class="hero-cta">
+                        <a href="#events" class="primary-btn">Get Started <i class="ri-arrow-right-line"></i></a>
+                        <a href="admin.php" class="secondary-btn">Event Admin</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="pin"></div>
+                    <div class="notice-content">
+                        <img src="./assets/images/trenz.jpg" alt="Trenz'25 Hero Image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- About Section -->
+            <div class="about-section" id="about">
+                <div class="section-header">
+                    <h2>About Trenz'25</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Connecting Minds, Creating Future</h3>
+                        <p>The Trenz'25 Symposium is an annual gathering of thought leaders, researchers, and industry professionals dedicated to exploring cutting-edge innovations and emerging trends across disciplines.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Speakers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1000+</span>
+                                <span class="stat-label">Attendees</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">25+</span>
+                                <span class="stat-label">Sessions</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="./assets/images/trenz.png" alt="Symposium Participants">
+                    </div>
+                </div>
+            </div>
+            <!-- End About Section -->
+            
+            <!-- Patrons Section -->
+            <div class="patrons-section" id="patrons">
+                <div class="section-header">
+                    <h2>Our Patrons</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="patrons-container">
+                    <div class="patron-card">
+                        <div class="patron-image">
+                            <img src="./assets/images/patron1.jpg" alt="Patron 1">
+                        </div>
+                        <div class="patron-details">
+                            <h3>Prof. John Doe</h3>
+                            <p class="patron-title">Chief Patron</p>
+                            <p class="patron-description">Distinguished professor with 20 years of experience in technology innovation and research.</p>
+                        </div>
+                    </div>
+                    <div class="patron-card">
+                        <div class="patron-image">
+                            <img src="./assets/images/patron2.jpg" alt="Patron 2">
+                        </div>
+                        <div class="patron-details">
+                            <h3>Dr. Jane Smith</h3>
+                            <p class="patron-title">Patron</p>
+                            <p class="patron-description">Leading expert in computer science and artificial intelligence with multiple industry recognitions.</p>
+                        </div>
+                    </div>
+                    <div class="patron-card">
+                        <div class="patron-image">
+                            <img src="./assets/images/patron3.jpg" alt="Patron 3">
+                        </div>
+                        <div class="patron-details">
+                            <h3>Mr. Robert Johnson</h3>
+                            <p class="patron-title">Industry Sponsor</p>
+                            <p class="patron-description">CEO of TechVision Inc., dedicated to supporting educational initiatives and technological advancement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Patrons Section -->
+            
+            <!-- Events Section -->
+            <div class="events-section" id="events">
+                <div class="section-header">
+                    <h2>Trenz'25 Events</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="events-container">
+                    <div class="event-card technical">
+                        <img src="./assets/images/webdesign.jpg" alt="Code Combat Challenge" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Web Weave</h3>                        
+                                <p class="event-description">Showcase your web development skills by creating responsive and innovative website designs.</p>
+                                <a href="web.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card non-technical">
+                        <img src="./assets/images/startup.avif" alt="Creative Arts Festival" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>NextGen Start</h3>
+                                <p class="event-description">Present your innovative startup ideas and business models to a panel of industry experts.</p>
+                                <a href="startup.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card technical">
+                        <img src="./assets/images/appdev.avif" alt="Code Combat Challenge" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>App Athon</h3>                        
+                                <p class="event-description">Design and develop mobile applications that solve real-world problems using cutting-edge technologies.</p>
+                                <a href="app.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card non-technical">
+                        <img src="./assets/images/coding.png" alt="Creative Arts Festival" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Error : 404 NOT FOUND</h3>
+                                <p class="event-description">Test your debugging skills by finding and fixing errors in complex code snippets under time pressure.</p>
+                                <a href="debugging.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card technical">
+                        <img src="./assets/images/reverse.webp" alt="Code Combat Challenge" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Code Rewind</h3>                        
+                                <p class="event-description">Compete in our flagship coding competition featuring challenging algorithmic problems and real-world scenarios.</p>
+                                <a href="coderewind.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card non-technical">
+                        <img src="./assets/images/codehunt.png" alt="Creative Arts Festival" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Code Quest</h3>
+                                <p class="event-description">Showcase your artistic talents through photography, painting, and digital art competitions.</p>
+                                <a href="codequest.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card non-technical">
+                        <img src="./assets/images/resume.png" alt="Code Combat Challenge" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Build a Resume</h3>                        
+                                <p class="event-description">Compete in our flagship coding competition featuring challenging algorithmic problems and real-world scenarios.</p>
+                                <a href="resumebuilding.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Events Section -->
+            
+            <!-- Sponsors Section -->
+            <div class="sponsors-section" id="sponsors">
+                <div class="section-header">
+                    <h2>Our Sponsors</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="sponsors-container">
+                    <div class="sponsor-tier gold">
+                        <h3 class="tier-title">Gold Sponsors</h3>
+                        <div class="sponsor-logos">
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor1.png" alt="Gold Sponsor 1">
+                                <p class="sponsor-name">TechCorp Inc.</p>
+                            </div>
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor2.png" alt="Gold Sponsor 2">
+                                <p class="sponsor-name">Innovate Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsor-tier silver">
+                        <h3 class="tier-title">Silver Sponsors</h3>
+                        <div class="sponsor-logos">
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor3.png" alt="Silver Sponsor 1">
+                                <p class="sponsor-name">Digital Systems Ltd.</p>
+                            </div>
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor4.png" alt="Silver Sponsor 2">
+                                <p class="sponsor-name">NextGen Technologies</p>
+                            </div>
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor5.png" alt="Silver Sponsor 3">
+                                <p class="sponsor-name">Cloud Platforms Co.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsor-tier bronze">
+                        <h3 class="tier-title">Bronze Sponsors</h3>
+                        <div class="sponsor-logos">
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor6.png" alt="Bronze Sponsor 1">
+                                <p class="sponsor-name">DevTools Inc.</p>
+                            </div>
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor7.png" alt="Bronze Sponsor 2">
+                                <p class="sponsor-name">Logic Systems</p>
+                            </div>
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor8.png" alt="Bronze Sponsor 3">
+                                <p class="sponsor-name">Future Tech</p>
+                            </div>
+                            <div class="sponsor-item">
+                                <img src="./assets/images/sponsor9.png" alt="Bronze Sponsor 4">
+                                <p class="sponsor-name">Creative Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Sponsors Section -->
+            
+            <!-- Contact Section -->
+            <div class="contact-section" id="contact">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="ri-map-pin-fill"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>123 University Avenue, Chennai, Tamil Nadu 600025</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="ri-mail-fill"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@trenz25.com">info@trenz25.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="ri-phone-fill"></i>
+                        </div>
+                        <h3>Contact</h3>
+                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="ri-calendar-event-fill"></i>
+                        </div>
+                        <h3>Event Days</h3>
+                        <p>March 15-17, 2025<br>9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Contact Section -->
+            
+            <!-- Footer Section -->
+            <div class="footer-section">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>About Trenz'25</h3>
+                        <p>A national level technical symposium bringing together innovative minds from across the country.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="ri-facebook-fill"></i></a>
+                            <a href="#"><i class="ri-twitter-fill"></i></a>
+                            <a href="#"><i class="ri-instagram-line"></i></a>
+                            <a href="#"><i class="ri-linkedin-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#events">Events</a></li>
+                            <li><a href="#sponsors">Sponsors</a></li>
+                            <li><a href="register.php">Register</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul class="footer-contact">
+                            <li><i class="ri-map-pin-line"></i> 123 University Avenue, Chennai</li>
+                            <li><i class="ri-mail-line"></i> info@trenz25.com</li>
+                            <li><i class="ri-phone-line"></i> +91 98765 43210</li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Subscribe</h3>
+                        <p>Stay updated with our newsletter</p>
+                        <form class="footer-subscribe">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit"><i class="ri-send-plane-fill"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>&copy; 2025 Trenz'25. All Rights Reserved.</p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Section -->
+        </div>
+    </div>
+    
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

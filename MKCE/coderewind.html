@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Rewind - Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .single-event-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .event-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .event-info {
+            padding: 30px 40px;
+        }
+        
+        .event-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        .meta-item i {
+            color: #4361ee;
+            font-size: 1.1rem;
+        }
+        
+        .event-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .event-rules {
+            background: rgba(67, 97, 238, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .event-rules h3 {
+            margin-bottom: 15px;
+            color: #4361ee;
+            font-size: 1.4rem;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .rules-list li:before {
+            content: "\ea4d";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+        }
+        
+        .event-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .register-btn {
+            background-color: #4361ee;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .register-btn:hover {
+            background-color: #3a56d4;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .event-banner {
+                height: 200px;
+            }
+            
+            .event-info {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.8rem;
+            }
+            
+            .event-meta {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="event-page">
+    <div class="events-section">
+        <div id="particles-js"></div>
+        <div class="section-header">
+            <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+            <h2>Code Rewind</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="single-event-container">
+            <img src="./assets/images/reverse.webp" alt="Code Rewind" class="event-banner">
+            
+            <div class="event-info">
+                <h1 class="event-title">Code Rewind - Reverse Engineering Challenge</h1>
+                
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <i class="ri-calendar-line"></i>
+                        <span>March 17, 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-time-line"></i>
+                        <span>9:00 AM - 2:00 PM</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-user-line"></i>
+                        <span>Individual/Team (max 2 members)</span>
+                    </div>
+                </div>
+                
+                <div class="event-rules">
+                    <h3>Rules & Guidelines</h3>
+                    <ul class="rules-list">
+                        <li>Participants can compete individually or in teams of maximum 2 members.</li>
+                        <li>The competition consists of multiple rounds with increasing difficulty levels.</li>
+                        <li>Participants will be provided with compiled programs/executables and must determine the original logic and recreate the source code.</li>
+                        <li>Solutions will be judged based on accuracy, code efficiency, and completion time.</li>
+                        <li>Languages supported: C, C++ and Python.</li>
+                        <li>Reverse engineering tools like decompilers are permitted, but with restrictions that will be announced before the event.</li>
+                        <li>Participants must explain their reverse engineering approach during the evaluation.</li>
+                        <li>Participants must bring their own laptops with necessary development environments pre-installed.</li>
+                        <li>Internet access will be limited to documentation references only.</li>
+                        <li>The judges' decision will be final and binding.</li>
+                    </ul>
+                </div>
+                
+                <div class="event-actions">
+                    <a href="register.php" class="register-btn">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="event-footer">
+        <p>© 2025 PrisolTech. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#"><i class="ri-twitter-line"></i></a>
+            <a href="#"><i class="ri-linkedin-box-line"></i></a>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
