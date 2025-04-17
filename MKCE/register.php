@@ -102,15 +102,21 @@ include "db.php";
                             </button>
                         </div>
                     </div>
-
                     <div class="tab-content" id="payment-details">
                         <h3 class="form-section-title">Payment Details</h3>
-
-                        <div class="qr-code-container">
+                        <!-- <div class="qr-code-container">
                             <img src="" alt="Payment QR Code" class="qr-code">
-                            <p>Scan to pay ₹200 for registration</p>
+                            <p>Scan to pay ₹250 for registration</p>
+                        </div> -->
+                        <div class="account-details-container">
+                            <h4>Bank Transfer Details</h4>
+                            <div class="account-info">
+                                <p><strong>Account Number:</strong> [ACCOUNT NUMBER HERE]</p>
+                                <p><strong>IFSC Code:</strong> [IFSC CODE HERE]</p>
+                                <p><strong>Amount:</strong> ₹250</p>
+                                <p><small>Please transfer the exact amount and save the transaction details</small></p>
+                            </div>
                         </div>
-
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="date" id="transactionDate" name="transactionDate" required>
@@ -136,9 +142,6 @@ include "db.php";
                                 <p class="file-name">No file chosen</p>
                             </div>
                         </div>
-
-
-
                         <div class="tab-buttons">
                             <button type="button" class="prev-tab secondary-btn" data-prev="personal-info">
                                 <i class="fas fa-arrow-left"></i> Previous
@@ -152,7 +155,6 @@ include "db.php";
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -227,7 +229,5 @@ include "db.php";
             })
         });
     </script>
-
 </body>
-
 </html>
