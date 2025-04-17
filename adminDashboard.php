@@ -113,24 +113,8 @@ $amount=250*$count;
                             <p class="stat-number"><?php echo $amount?></p>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-card-icon orange">
-                            <i class="ri-code-box-line"></i>
-                        </div>
-                        <div class="stat-card-info">
-                            <h3>Tech Event Count</h3>
-                            <p class="stat-number">4</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-card-icon green">
-                            <i class="ri-paint-brush-line"></i>
-                        </div>
-                        <div class="stat-card-info">
-                            <h3>Non-Tech Event Count</h3>
-                            <p class="stat-number">8</p>
-                        </div>
-                    </div>
+                    
+                    
                 </div>
 
                 <!-- End of Dashboard Content -->

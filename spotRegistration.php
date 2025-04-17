@@ -101,19 +101,14 @@ $userid = $_SESSION['username'];
                         <div class="form-group">
                             <div class="select-with-icon">
                                 <select id="event1" name="event1" required>
-                                    <option value="">Select Event 1</option>
-                                    <option value="Paperpresentation">Paper presentation</option>
-                                    <option value="Project">Project Presentation</option>
-                                    <option value="Technicalquiz">Technical Quiz</option>
-                                    <option value="Codingchallenge">Coding Challenge</option>
-                                    <option value="Dance">Dance</option>
-                                    <option value="IPLauction">IPL Auction</option>
-                                    <option value="Treasurehunt">Treasure Hunt</option>
-                                    <option value="Lyricalhunt">Lyrical Hunt</option>
-                                    <option value="Photography">Photography</option>
-                                    <option value="Esports">E-Sports</option>
-                                    <option value="Postermaking">Poster Making</option>
-                                    <option value="Mime">Mime</option>
+                                <option value="">Select Event</option>
+                                    <option value="WebWeave">Web Weave</option>
+                                    <option value="NextGenStart">NextGen Start</option>
+                                    <option value="AppAthon">App Athon</option>
+                                    <option value="Error404NOTFOUND">Error : 404 NOT FOUND</option>
+                                    <option value="CodeRewind">Code Rewind</option>
+                                    <option value="CodeQuest">Code Quest</option>
+                                    <option value="BuildaResume">Build a Resume</option>
                                 </select>
                                 <i class="fas fa-calendar-check"></i>
                             </div>
