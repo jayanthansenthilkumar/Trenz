@@ -112,7 +112,7 @@ include "db.php";
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="tab-content" id="payment-details">
                         <h3 class="form-section-title">Payment Details</h3>
                         <!-- <div class="qr-code-container">
@@ -122,8 +122,10 @@ include "db.php";
                         <div class="account-details-container">
                             <h4>Bank Transfer Details</h4>
                             <div class="account-info">
-                                <p><strong>Account Number:</strong> [ACCOUNT NUMBER HERE]</p>
-                                <p><strong>IFSC Code:</strong> [IFSC CODE HERE]</p>
+                                <p><strong>Account Number:</strong> 924010014781681</p>
+                                <p><strong>IFSC Code:</strong> UTIB0000123</p>
+                                <p><strong>Account Name:</strong> M.KUMARASAMY COLLEGE OF ENGINEERING - FE HOD AC</p>
+                                <p><strong>Bank Name:</strong> Karur Axis Bank</p>
                                 <p><strong>Amount:</strong> ₹250</p>
                                 <p><small>Please transfer the exact amount and save the transaction details</small></p>
                             </div>
