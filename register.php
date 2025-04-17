@@ -8,6 +8,7 @@ include "db.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration - Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="login.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,6 +27,7 @@ include "db.php";
         </div>
         <div class="login-section">
             <div class="registration-card">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
                 <form id="registrationForm" enctype="multipart/form-data">
                     <div class="tabs-navigation">
                         <button type="button" class="tab-btn active" data-tab="personal-info">
@@ -95,26 +97,6 @@ include "db.php";
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="select-with-icon">
-                                <select id="event2" name="event2" required>
-                                    <option value="">Select Event 2</option>
-                                    <option value="Paperpresentation">Paper presentation</option>
-                                    <option value="'Project">Project Presentation</option>
-                                    <option value="Technicalquiz">Technical Quiz</option>
-                                    <option value="Codingchallenge">Coding Challenge</option>
-                                    <option value="Dance">Dance</option>
-                                    <option value="IPLauction">IPL Auction</option>
-                                    <option value="Treasurehunt">Treasure Hunt</option>
-                                    <option value="Lyricalhunt">Lyrical Hunt</option>
-                                    <option value="Photography">Photography</option>
-                                    <option value="Esports">E-Sports</option>
-                                    <option value="Postermaking">Poster Making</option>
-                                    <option value="Mime">Mime</option>
-                                </select>
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label for="Idcard">Upload ID card </label>
                             <div class="file-upload">
