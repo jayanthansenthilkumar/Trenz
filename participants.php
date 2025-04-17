@@ -133,8 +133,7 @@ $result2 = mysqli_query($conn, $sql2);
                                         <th>Register Number</th>
                                         <th>Name</th>
                                         <th>College Name</th>
-                                        <th>Event 1</th>
-                                        <th>Event 2</th>
+                                        <th>Events</th>
                                         <th>Payment Details</th>
                                         <th>Action</th>
                                     </tr>
@@ -150,7 +149,6 @@ $result2 = mysqli_query($conn, $sql2);
                                             <td><?php echo $row['name']; ?></td>
                                             <td><?php echo $row['collegename']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
-                                            <td><?php echo $row['events2']; ?></td>
                                             <td><button class="payment-btn" data-id="<?php echo $row['Trenzid']; ?>">View Payment</button>
                                             </td>
                                             <td class="action-buttons">
@@ -196,8 +194,7 @@ $result2 = mysqli_query($conn, $sql2);
                                         <th>Trenz ID</th>
                                         <th>Name</th>
                                         <th>College Name</th>
-                                        <th>Event 1</th>
-                                        <th>Event 2</th>
+                                        <th>Events</th>
                                         <th>Payment Status</th>
 
                                     </tr>
@@ -212,7 +209,6 @@ $result2 = mysqli_query($conn, $sql2);
                                             <td><?php echo $row['name']; ?></td>
                                             <td><?php echo $row['collegename']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
-                                            <td><?php echo $row['events2']; ?></td>
                                             <td><span class="status-badge completed">Paid</span></td>
 
                                         </tr>
@@ -255,8 +251,8 @@ $result2 = mysqli_query($conn, $sql2);
                                         <th>Trenz ID</th>
                                         <th>Name</th>
                                         <th>College Name</th>
-                                        <th>Event 1</th>
-                                        <th>Event 2</th>
+                                        <th>Events</th>
+
                                         <th>Payment Status</th>
 
                                     </tr>
@@ -271,7 +267,7 @@ $result2 = mysqli_query($conn, $sql2);
                                             <td><?php echo $row['name']; ?></td>
                                             <td><?php echo $row['collegename']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
-                                            <td><?php echo $row['events2']; ?></td>
+                                            
                                             <td><span class="status-badge completed">Paid</span></td>
 
                                         </tr>

@@ -17,7 +17,7 @@ if (isset($_POST['Add_newuser'])) {
         $college = mysqli_real_escape_string($conn, $_POST['college']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $events1 = mysqli_real_escape_string($conn, $_POST['event1']);
-        $events2 = mysqli_real_escape_string($conn, $_POST['event2']);
+        
         $transactiondate = mysqli_real_escape_string($conn, $_POST['transactionDate']);
         $transactionid = mysqli_real_escape_string($conn, $_POST['transactionId']);
         // File Upload
@@ -40,7 +40,7 @@ if (isset($_POST['Add_newuser'])) {
             echo json_encode($res);
             exit;
         }
-        $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,events2,idcard,date,transactionid,transactionreceipt) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1', '$events2','$idcardName' ,'$transactiondate', '$transactionid', '$paymentProofName')";
+        $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,idcard,date,transactionid,transactionreceipt) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1','$idcardName' ,'$transactiondate', '$transactionid', '$paymentProofName')";
 
         if (mysqli_query($conn, $query)) {
             $last_id = mysqli_insert_id($conn); // Auto Increment ID
@@ -71,9 +71,9 @@ if (isset($_POST['Add_newuser'])) {
                 $mail->Subject = "Event Registration Confirmation";
                 $mail->Body    = "
                     Hello $name,<br><br>
+                    Your Trenzid: $custom_id<br>
                     You have successfully registered for the events:<br>
-                    1. $events1 <br>
-                    2. $events2 <br><br>
+                     $events1 <br>
                     Thank you for registering.<br><br>
                     Regards,<br>
                     Event Team";
@@ -159,8 +159,6 @@ if (isset($_POST['Onspot_newuser'])) {
         $college = mysqli_real_escape_string($conn, $_POST['college']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $events1 = mysqli_real_escape_string($conn, $_POST['event1']);
-        $events2 = mysqli_real_escape_string($conn, $_POST['event2']);
-        
         
         $checkQuery = "SELECT COUNT(*) AS total FROM events WHERE regno = '$regNumber'";
         $checkResult = mysqli_query($conn, $checkQuery);
@@ -174,7 +172,7 @@ if (isset($_POST['Onspot_newuser'])) {
             echo json_encode($res);
             exit;
         }
-        $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,events2,status) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1', '$events2','2')";
+        $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,status) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1','2')";
 
         if (mysqli_query($conn, $query)) {
             $last_id = mysqli_insert_id($conn); // Auto Increment ID
@@ -205,9 +203,10 @@ if (isset($_POST['Onspot_newuser'])) {
                 $mail->Subject = "Event Registration Confirmation";
                 $mail->Body    = "
                     Hello $name,<br><br>
+                    Your Trenzid: $custom_id<br>
                     You have successfully registered for the events:<br>
-                    1. $events1 <br>
-                    2. $events2 <br><br>
+                    $events1 <br>
+                    
                     Thank you for registering.<br><br>
                     Regards,<br>
                     Event Team";
