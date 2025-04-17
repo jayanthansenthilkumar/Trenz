@@ -80,18 +80,23 @@ $userid = $_SESSION['username'];
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="department" name="department" placeholder="Department" required>
-                                <i class="fas fa-graduation-cap"></i>
+                            <div class="select-with-icon">
+                            <select id="department" name="department" required>
+                            <option value="" disabled="" selected="">Select Department</option>
+                            <option value="AIDS">Artificial Intelligence and Data Science</option>
+                            <option value="AIML">Artificial Intelligence and Machine Learning</option>
+                            <option value="CSE">Computer Science Engineering</option>
+                            <option value="CSBS">Computer Science And Business Systems</option>
+                            <option value="ECE">Electronics &amp; Communication Engineering</option>
+                            <option value="EEE">Electrical &amp; Electronics Engineering</option>
+                            <option value="MECH">Mechanical Engineering</option>
+                            <option value="CIVIL">Civil Engineering</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="VLSI">Electronics Engineering (VLSI Design)</option>
+                        </select>
+                                <i class="fas fa-calendar-check"></i>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="college" name="college" placeholder="College Name" required>
-                                <i class="fas fa-university"></i>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
