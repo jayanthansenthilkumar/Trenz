@@ -13,6 +13,7 @@ html, body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden; /* Prevent horizontal scrolling */
     overflow-y: scroll; /* Allow vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
 }
@@ -396,14 +397,15 @@ body::-webkit-scrollbar {
 .about-image img {
     width: 100%;
     max-width: 450px;
-    height: 200px; /* Reduced from 250px */
+    height: auto; /* Change from fixed height to auto for better responsiveness */
+    max-height: 200px; /* Add maximum height while maintaining aspect ratio */
     display: block;
     margin: 0 auto;
     border-radius: 12px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
     background: #ffffff;
-    object-fit: contain; /* Added to maintain aspect ratio */
+    object-fit: contain;
 }
 
 .about-why-attend {
@@ -641,6 +643,87 @@ body::-webkit-scrollbar {
     
     .objective-list li i, .why-attend-list li i {
         font-size: 1rem;
+    }
+    
+    .registration-card {
+        padding: 25px 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-image img {
+        max-height: 160px;
+    }
+    
+    .about-why-attend {
+        padding: 12px;
+    }
+    
+    .event-card {
+        max-width: 100%;
+    }
+    
+    .event-card img {
+        height: 160px;
+    }
+    
+    .sidebar .nav-links .icon {
+        font-size: 15px;
+    }
+    
+    .sidebar .nav-links .link-name {
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    
+    .about-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .about-objectives h4, .about-why-attend h4 {
+        font-size: 1rem;
+    }
+    
+    .about-image img {
+        max-height: 140px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.7rem;
+    }
+    
+    .about-objectives, .about-why-attend {
+        padding: 10px;
+    }
+    
+    .objective-list li, .why-attend-list li {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+    }
+    
+    .objective-list li i, .why-attend-list li i {
+        font-size: 0.9rem;
+    }
+    
+    .sidebar .nav-links .icon {
+        font-size: 14px;
+    }
+    
+    .sidebar .nav-links .link-name {
+        font-size: 6px;
     }
 }
 

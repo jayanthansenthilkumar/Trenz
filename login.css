@@ -211,6 +211,8 @@ body.login-page {
     height: 100vh;
     position: relative;
     z-index: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Left side - Login section */
@@ -993,4 +995,71 @@ body.login-page #particles-js {
     height: 5px;
     background: linear-gradient(to right, #4361ee, #7dabff);
     border-radius: 12px 12px 0 0;
+}
+
+/* Better mobile responsiveness for very small screens */
+@media (max-width: 375px) {
+    .registration-card {
+        padding: 20px 12px;
+    }
+    
+    .login-section .registration-card {
+        max-width: 100%;
+    }
+    
+    .brand-content h1 {
+        font-size: 2rem;
+    }
+    
+    .brand-content p {
+        font-size: 1rem;
+    }
+    
+    .tab-btn {
+        padding: 8px 4px;
+        font-size: 0.7rem;
+    }
+    
+    .form-section-title {
+        font-size: 1.1rem;
+    }
+    
+    .input-with-icon input,
+    .select-with-icon select {
+        padding: 10px 30px 10px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .next-tab, .prev-tab {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .registration-card {
+        padding: 15px 10px;
+    }
+    
+    .brand-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .input-with-icon input,
+    .select-with-icon select {
+        padding: 8px 30px 8px 8px;
+    }
+    
+    .upload-button {
+        padding: 10px;
+    }
+    
+    .tab-buttons {
+        gap: 8px;
+    }
+    
+    .next-tab, .prev-tab {
+        padding: 7px 10px;
+        font-size: 0.75rem;
+    }
 }
