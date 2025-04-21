@@ -69,8 +69,8 @@ include "db.php";
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    include 'db_connection.php'; // Include your DB connection here if needed
-    session_start(); // Make sure session is started
+    include 'db.php'; 
+    session_start();
 
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
