@@ -69,110 +69,13 @@ if (isset($_POST['Add_newuser'])) {
 
                 $mail->isHTML(true);
                 $mail->Subject = "Event Registration Confirmation";
-                $mail->Body = '
-                <html>
-                <head>
-                    <style>
-                    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-
-                    body {
-                        margin: 0;
-                        padding: 0;
-                        background-color: #f5f7fa;
-                        font-family: "Poppins", sans-serif;
-                    }
-
-                    .container {
-                        max-width: 650px;
-                        background: #ffffff;
-                        margin: 40px auto;
-                        border-radius: 10px;
-                        padding: 40px;
-                        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-                    }
-
-                    h2 {
-                        color: #333;
-                        margin-bottom: 10px;
-                    }
-
-                    p {
-                        color: #555;
-                        font-size: 15px;
-                        line-height: 1.6;
-                    }
-
-                    .highlight {
-                        color: #111;
-                        font-weight: 600;
-                    }
-
-                    .events-list {
-                        background: #f1f5ff;
-                        padding: 10px 15px;
-                        border-radius: 5px;
-                        margin-top: 5px;
-                        color: #000;
-                    }
-
-                    .info-box {
-                        background-color: #fff6e5;
-                        border-left: 4px solid #ffc107;
-                        padding: 15px;
-                        margin: 25px 0;
-                        border-radius: 6px;
-                        font-size: 14px;
-                    }
-
-                    .footer {
-                        font-size: 13px;
-                        color: #888;
-                        margin-top: 40px;
-                        text-align: center;
-                    }
-
-                    .btn {
-                        display: inline-block;
-                        background-color: #0056b3;
-                        color: #fff !important;
-                        padding: 10px 20px;
-                        text-decoration: none;
-                        border-radius: 6px;
-                        margin-top: 20px;
-                        font-weight: 600;
-                        font-size: 14px;
-                    }
-                    </style>
-                </head>
-                <body>
-                    <div class="container">
-                    <h2>Welcome, <span class="highlight">$name</span>! 🎉</h2>
-                    <p>We\'re thrilled to confirm your registration for <strong>Trenzid</strong>.</p>
-
-                    <p><strong>Your Unique Trenzid ID:</strong><br>
-                    <span class="highlight">$custom_id</span></p>
-
-                    <p><strong>Events You have Registered For:</strong></p>
-                    <div class="events-list">
-                        $events1
-                    </div><br>
-
-                    <div class="info-box">
-                        <strong>Reminder:</strong> Please reach the event venue 20 minutes before your first session starts. Bring a valid ID and your confirmation email.
-                    </div>
-
-                    <p>Looking forward to seeing your enthusiasm and energy. Be ready to explore, engage, and excel!</p>
-
-                    <a href="https://trenz.prisoltech.com" class="btn">Visit Site</a>
-
-                    <div class="footer">
-                        <p>Need help? Reach us at <a href="mailto:trenz2k25@gmail.com">trenz2k25@gmail.com</a><br>
-                        or call +91 97918 52116</p>
-                        <p>Trenz2k25 Event Team</p>
-                    </div>
-                    </div>
-                </body>
-                </html>';
+                $mail->Body = "Hello $name,<br><br>
+                    Your Trenzid: $custom_id<br>
+                    You have successfully registered for the events:<br>
+                     $events1 <br><br>
+                    Thank you for registering.<br><br>
+                    Regards,<br><br>
+                    Event Team";
 
                 $mail->send();
 
@@ -297,110 +200,13 @@ if (isset($_POST['Onspot_newuser'])) {
 
                 $mail->isHTML(true);
                 $mail->Subject = "Event Registration Confirmation";
-                $mail->Body = '
-                <html>
-                <head>
-                    <style>
-                    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-
-                    body {
-                        margin: 0;
-                        padding: 0;
-                        background-color: #f5f7fa;
-                        font-family: "Poppins", sans-serif;
-                    }
-
-                    .container {
-                        max-width: 650px;
-                        background: #ffffff;
-                        margin: 40px auto;
-                        border-radius: 10px;
-                        padding: 40px;
-                        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-                    }
-
-                    h2 {
-                        color: #333;
-                        margin-bottom: 10px;
-                    }
-
-                    p {
-                        color: #555;
-                        font-size: 15px;
-                        line-height: 1.6;
-                    }
-
-                    .highlight {
-                        color: #111;
-                        font-weight: 600;
-                    }
-
-                    .events-list {
-                        background: #f1f5ff;
-                        padding: 10px 15px;
-                        border-radius: 5px;
-                        margin-top: 5px;
-                        color: #000;
-                    }
-
-                    .info-box {
-                        background-color: #fff6e5;
-                        border-left: 4px solid #ffc107;
-                        padding: 15px;
-                        margin: 25px 0;
-                        border-radius: 6px;
-                        font-size: 14px;
-                    }
-
-                    .footer {
-                        font-size: 13px;
-                        color: #888;
-                        margin-top: 40px;
-                        text-align: center;
-                    }
-
-                    .btn {
-                        display: inline-block;
-                        background-color: #0056b3;
-                        color: #fff !important;
-                        padding: 10px 20px;
-                        text-decoration: none;
-                        border-radius: 6px;
-                        margin-top: 20px;
-                        font-weight: 600;
-                        font-size: 14px;
-                    }
-                    </style>
-                </head>
-                <body>
-                    <div class="container">
-                    <h2>Welcome, <span class="highlight">$name</span>! 🎉</h2>
-                    <p>We\'re thrilled to confirm your registration for <strong>Trenzid</strong>.</p>
-
-                    <p><strong>Your Unique Trenzid ID:</strong><br>
-                    <span class="highlight">$custom_id</span></p>
-
-                    <p><strong>Events You have Registered For:</strong></p>
-                    <div class="events-list">
-                        $events1
-                    </div><br>
-
-                    <div class="info-box">
-                        <strong>Reminder:</strong> Please reach the event venue 20 minutes before your first session starts. Bring a valid ID and your confirmation email.
-                    </div>
-
-                    <p>Looking forward to seeing your enthusiasm and energy. Be ready to explore, engage, and excel!</p>
-
-                    <a href="https://trenz.prisoltech.com" class="btn">Visit Site</a>
-
-                    <div class="footer">
-                        <p>Need help? Reach us at <a href="mailto:trenz2k25@gmail.com">trenz2k25@gmail.com</a><br>
-                        or call +91 97918 52116</p>
-                        <p>Trenz2k25 Event Team</p>
-                    </div>
-                    </div>
-                </body>
-                </html>';
+                $mail->Body = "Hello $name,<br><br>
+                    Your Trenzid: $custom_id<br>
+                    You have successfully registered for the events:<br>
+                     $events1 <br><br>
+                    Thank you for registering.<br><br>
+                    Regards,<br><br>
+                    Event Team";
 
                 $mail->send();
 
