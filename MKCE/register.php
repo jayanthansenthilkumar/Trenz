@@ -115,7 +115,7 @@ include "db.php";
                                 <p><strong>IFSC Code:</strong> UTIB0000123</p>
                                 <p><strong>Account Name:</strong> M.KUMARASAMY COLLEGE OF ENGINEERING - FE HOD AC</p>
                                 <p><strong>Bank Name:</strong> Karur Axis Bank</p>
-                                <p><strong>Amount:</strong> ₹250</p>
+                                <p><strong>Amount:</strong> ₹200</p>
                                 <p><small>Please transfer the exact amount and save the transaction details</small></p>
                             </div>
                         </div>
