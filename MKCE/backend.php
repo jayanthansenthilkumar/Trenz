@@ -151,10 +151,10 @@ if (isset($_POST['Add_Intra_newuser'])) {
                     <p><strong>Events You have Registered For:</strong></p>
                     <div class="events-list">
                         $events1
-                    </div>
+                    </div><br>
 
                     <div class="info-box">
-                        ⏰ <strong>Reminder:</strong> Please reach the event venue 15 minutes before your first session starts. Bring a valid ID and your confirmation email.
+                        <strong>Reminder:</strong> Please reach the event venue 20 minutes before your first session starts. Bring a valid ID and your confirmation email.
                     </div>
 
                     <p>Looking forward to seeing your enthusiasm and energy. Be ready to explore, engage, and excel!</p>
@@ -163,8 +163,8 @@ if (isset($_POST['Add_Intra_newuser'])) {
 
                     <div class="footer">
                         <p>Need help? Reach us at <a href="mailto:trenz2k25@gmail.com">trenz2k25@gmail.com</a><br>
-                        or call +91-98765-43210</p>
-                        <p>— Trenzid Event Team</p>
+                        or call +91 97918 52116</p>
+                        <p>Trenz2k25 Event Team</p>
                     </div>
                     </div>
                 </body>
