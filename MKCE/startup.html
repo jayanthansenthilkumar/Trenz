@@ -80,10 +80,12 @@
         }
         
         .rules-list li {
-            padding: 10px 0;
+            padding: 12px 0;
             padding-left: 30px;
             position: relative;
-            line-height: 1.5;
+            line-height: 1.6;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            margin-bottom: 5px;
         }
         
         .rules-list li:before {
@@ -92,32 +94,138 @@
             position: absolute;
             left: 0;
             color: #4361ee;
+            font-size: 18px;
         }
         
+        .sub-points {
+            padding-left: 0;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 25px;
+        }
+        
+        .sub-points ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sub-points ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .sub-points ul li:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            font-size: 14px;
+            color: #4361ee;
+        }
+        
+        .judging-criteria {
+            background: rgba(67, 97, 238, 0.08);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 25px;
+            box-shadow: 0 3px 8px rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .criteria-item {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-item:last-child {
+            border-bottom: none;
+        }
+        
+        .criteria-item:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 16px;
+        }
+        
+        .round-title {
+            font-weight: 600;
+            color: #4361ee;
+            margin-bottom: 5px;
+        }
+        
+        /* Enhanced event-actions styles */
         .event-actions {
             display: flex;
             justify-content: center;
             margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
         }
         
+        .event-actions:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(67, 97, 238, 0.8);
+            border-radius: 3px;
+        }
+        
+        /* Enhanced register button styles */
         .register-btn {
-            background-color: #4361ee;
+            background: linear-gradient(135deg, #4361ee, #3a56d4);
             color: white;
             border: none;
-            padding: 12px 30px;
-            font-size: 1rem;
+            padding: 14px 35px;
+            font-size: 1.05rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
         
         .register-btn:hover {
-            background-color: #3a56d4;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+        
+        .register-btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        
+        .register-btn:hover:after {
+            transform: scale(1.2);
+            opacity: 0;
         }
         
         @media (max-width: 768px) {
@@ -135,6 +243,12 @@
             
             .event-meta {
                 gap: 15px;
+            }
+            
+            .sub-points,
+            .judging-criteria {
+                margin-left: 0;
+                width: 100%;
             }
         }
     </style>
@@ -157,30 +271,63 @@
                 <div class="event-meta">
                     <div class="meta-item">
                         <i class="ri-calendar-line"></i>
-                        <span>March 17, 2025</span>
+                        <span>April 30, 2025</span>
                     </div>
                     <div class="meta-item">
                         <i class="ri-time-line"></i>
-                        <span>9:00 AM - 5:00 PM</span>
+                        <span>9:00 AM - 4:00 PM</span>
                     </div>
                     <div class="meta-item">
                         <i class="ri-user-line"></i>
-                        <span>Teams (2-4 members)</span>
+                        <span>Teams (1-4 members)</span>
                     </div>
                 </div>
                 
                 <div class="event-rules">
                     <h3>Rules & Guidelines</h3>
                     <ul class="rules-list">
-                        <li>Teams must consist of 2-4 members to participate.</li>
-                        <li>Each team will have 5 minutes to pitch their idea followed by a 3-minute Q&A session.</li>
-                        <li>Presentations should include: problem statement, solution, market analysis, business model, and implementation plan.</li>
-                        <li>Teams must submit a one-page executive summary 3 days before the event.</li>
-                        <li>Ideas will be judged on innovation, feasibility, market potential, scalability, and presentation quality.</li>
-                        <li>Participants must bring their own laptops for presentations.</li>
-                        <li>Teams are encouraged to bring prototypes or demos if available.</li>
-                        <li>The top 3 teams will receive mentorship opportunities and potential seed funding.</li>
-                        <li>The judges' decision will be final and binding.</li>
+                        <li>Name of the Event: <strong>NEXTGEN START-Start Up Ideas</strong></li>
+                        <li><strong>Event Overview:</strong> Participants will ignite the spirit of innovation and entrepreneurship among young minds by showcasing cutting-edge startup ideas that can revolutionize industries and improve lives.</li>
+                        <li>Participation Format: 
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Team Participation – Maximum of (1-4) members per team.</li>
+                                    <li>All team members must be registered before the event begins.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>Event Structure:
+                            <div class="sub-points">
+                                <p class="round-title">Round 1: Idea Ignition round</p>
+                                <ul>
+                                    <li>Present a startup idea using PowerPoint and explain its views based on your innovation and creativity.</li>
+                                </ul>
+                                <p class="round-title">Round 2: Concept Crystallization</p>
+                                <ul>
+                                    <li>Based on their concepts delivered, situation based questions can be asked based on their ideas proposed.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>Judging Criteria:
+                            <div class="judging-criteria">
+                                <ul class="criteria-list">
+                                    <li class="criteria-item">Innovation</li>
+                                    <li class="criteria-item">Market potential</li>
+                                    <li class="criteria-item">Feasibility</li>
+                                    <li class="criteria-item">Presentation</li>
+                                    <li class="criteria-item">Communication</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>General Rules:
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Each team will have a specific time limit to explain their ideas.</li>
+                                    <li>Ideas must be realistically implementable with current or near-future technology.</li>
+                                    <li>Top-performing teams will be selected based on score and accuracy of two rounds.</li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 

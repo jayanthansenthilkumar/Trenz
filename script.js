@@ -563,4 +563,45 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Patrons section horizontal scrolling
+    const patronsContainer = document.querySelector('.patrons-container');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    if (patronsContainer && prevBtn && nextBtn) {
+        // Calculate scroll amount based on card width + gap
+        const scrollAmount = 380; // Card width (350px) + gap (30px)
+        
+        prevBtn.addEventListener('click', () => {
+            patronsContainer.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            patronsContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Show/hide buttons based on scroll position
+        patronsContainer.addEventListener('scroll', () => {
+            // Check if we can scroll left
+            prevBtn.style.opacity = patronsContainer.scrollLeft > 0 ? '1' : '0.5';
+            
+            // Check if we can scroll right
+            const maxScrollLeft = patronsContainer.scrollWidth - patronsContainer.clientWidth;
+            nextBtn.style.opacity = patronsContainer.scrollLeft < maxScrollLeft - 10 ? '1' : '0.5';
+        });
+        
+        // Initialize button states
+        setTimeout(() => {
+            prevBtn.style.opacity = '0.5'; // Start with prev button disabled
+            const maxScrollLeft = patronsContainer.scrollWidth - patronsContainer.clientWidth;
+            nextBtn.style.opacity = maxScrollLeft > 10 ? '1' : '0.5';
+        }, 100);
+    }
 });
