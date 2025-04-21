@@ -80,10 +80,28 @@
         }
         
         .rules-list li {
-            padding: 10px 0;
+            padding: 12px 0;
             padding-left: 30px;
             position: relative;
-            line-height: 1.5;
+            line-height: 1.6;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            margin-bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+        
+        .rules-list li strong {
+            display: inline-block;
+            min-width: 140px;
+            color: #333;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .rules-list li div,
+        .rules-list li span {
+            flex: 1 1 calc(100% - 160px);
         }
         
         .rules-list li:before {
@@ -92,32 +110,258 @@
             position: absolute;
             left: 0;
             color: #4361ee;
+            font-size: 18px;
+        }
+        
+        .sub-points {
+            padding-left: 0;
+            margin-top: 8px;
+            width: 100%;
+            margin-left: 140px;
+            border-left: 2px solid rgba(67, 97, 238, 0.2);
+            padding-left: 15px;
+        }
+        
+        .sub-points ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sub-points ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: none;
+            margin-bottom: 0;
+            transition: transform 0.2s ease;
+        }
+        
+        .sub-points ul li:hover {
+            transform: translateX(5px);
+        }
+        
+        .sub-points ul li:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            font-size: 14px;
+            color: #4361ee;
+        }
+        
+        .sub-points p {
+            margin: 10px 0 5px 0;
+            color: #4361ee;
+            font-weight: 500;
+        }
+        
+        .round-container {
+            margin-bottom: 12px;
+            background: rgba(67, 97, 238, 0.03);
+            border-radius: 8px;
+            padding: 8px 12px;
+            border-left: 3px solid rgba(67, 97, 238, 0.4);
+            transition: all 0.2s ease;
+        }
+        
+        .round-container:hover {
+            background: rgba(67, 97, 238, 0.06);
+            transform: translateX(3px);
+        }
+        
+        .round-title {
+            font-weight: 600;
+            color: #4361ee;
+            margin: 0 0 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .round-title i {
+            font-size: 18px;
+        }
+        
+        .evaluation-criteria, .disqualification-criteria {
+            background: rgba(67, 97, 238, 0.08);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(67, 97, 238, 0.1);
+        }
+        
+        .evaluation-criteria:before {
+            content: "Evaluation";
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: white;
+            padding: 0 10px;
+            font-size: 14px;
+            color: #4361ee;
+            font-weight: 500;
+            border-radius: 4px;
+        }
+        
+        .disqualification-criteria {
+            background: rgba(255, 107, 107, 0.05);
+            border-left: 3px solid rgba(255, 107, 107, 0.4);
+        }
+        
+        .disqualification-criteria:before {
+            content: "Disqualification";
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: white;
+            padding: 0 10px;
+            font-size: 14px;
+            color: #ff6b6b;
+            font-weight: 500;
+            border-radius: 4px;
+        }
+        
+        .disqualification-criteria ul li:before {
+            color: #ff6b6b;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            color: #333;
+            margin: 15px 0 8px 0;
+            padding-left: 10px;
+            border-left: 3px solid #4361ee;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .section-title:hover {
+            transform: translateX(3px);
+            color: #4361ee;
+        }
+        
+        .section-title::before {
+            content: "\ec4f";  /* Document icon */
+            font-family: "remixicon";
+            font-size: 18px;
+            color: #4361ee;
+        }
+        
+        /* Animation for rounds */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated-item {
+            animation: fadeIn 0.4s ease forwards;
+        }
+        
+        .animated-item:nth-child(1) { animation-delay: 0.1s; }
+        .animated-item:nth-child(2) { animation-delay: 0.2s; }
+        .animated-item:nth-child(3) { animation-delay: 0.3s; }
+        
+        /* Enhanced register button */
+        .register-btn {
+            background: linear-gradient(135deg, #4361ee, #3a56d4);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin: 0 auto;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+        
+        .register-btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        
+        .register-btn:hover:after {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+        
+        .register-btn::before {
+            font-family: "remixicon";
+            font-size: 18px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+        }
+        
+        .register-btn:hover::before {
+            opacity: 1;
+            width: 24px;
+            transform: translateX(5px);
+        }
+        
+        /* Subtle pulse animation for the register button */
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3); }
+            50% { box-shadow: 0 4px 20px rgba(67, 97, 238, 0.5); }
+            100% { box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3); }
+        }
+        
+        .register-btn {
+            animation: pulse 2s infinite;
+        }
+        
+        .register-btn:hover {
+            animation: none;
         }
         
         .event-actions {
             display: flex;
             justify-content: center;
+            align-items: center;
             margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
+            width: 100%;
+            text-align: center;
         }
         
-        .register-btn {
-            background-color: #4361ee;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .register-btn:hover {
-            background-color: #3a56d4;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        .event-actions:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(67, 97, 238, 0.8);
+            border-radius: 3px;
         }
         
         @media (max-width: 768px) {
@@ -135,6 +379,20 @@
             
             .event-meta {
                 gap: 15px;
+            }
+            
+            .rules-list li {
+                flex-direction: column;
+            }
+            
+            .rules-list li strong {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .sub-points {
+                margin-left: 0;
+                width: 100%;
             }
         }
     </style>
@@ -157,7 +415,7 @@
                 <div class="event-meta">
                     <div class="meta-item">
                         <i class="ri-calendar-line"></i>
-                        <span>March 17, 2025</span>
+                        <span>April 30, 2025</span>
                     </div>
                     <div class="meta-item">
                         <i class="ri-time-line"></i>
@@ -172,21 +430,74 @@
                 <div class="event-rules">
                     <h3>Rules & Guidelines</h3>
                     <ul class="rules-list">
-                        <li>Participants can compete individually or in teams of maximum 2 members.</li>
-                        <li>The competition consists of multiple rounds with increasing difficulty levels.</li>
-                        <li>Participants will be provided with compiled programs/executables and must determine the original logic and recreate the source code.</li>
-                        <li>Solutions will be judged based on accuracy, code efficiency, and completion time.</li>
-                        <li>Languages supported: C, C++ and Python.</li>
-                        <li>Reverse engineering tools like decompilers are permitted, but with restrictions that will be announced before the event.</li>
-                        <li>Participants must explain their reverse engineering approach during the evaluation.</li>
-                        <li>Participants must bring their own laptops with necessary development environments pre-installed.</li>
-                        <li>Internet access will be limited to documentation references only.</li>
-                        <li>The judges' decision will be final and binding.</li>
+                        <li><strong>Name of the Event:</strong> Reverse Coding</li>
+                        
+                        <li><strong>Event Overview:</strong> Reverse Coding tests your analytical skills and deep understanding of programming logic. Participants are given output scenarios or logic-based puzzles, and they must reconstruct the code that produces the given result. It's a battle of reasoning under time pressure.</li>
+                        
+                        <li><strong>Participation Format:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Individual Event</li>
+                                    <li>Open to all students with basic programming knowledge</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Event Structure:</strong>
+                            <div class="sub-points">
+                                <p class="section-title">Number of Rounds: 3</p>
+                                <div class="round-container animated-item">
+                                    <p class="round-title"><i class="ri-code-s-slash-line"></i> Round 1: Easy-level logic</p>
+                                    <ul>
+                                        <li>Focus on basic programming constructs</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="round-container animated-item">
+                                    <p class="round-title"><i class="ri-braces-line"></i> Round 2: Medium complexity with conditions/loops</p>
+                                    <ul>
+                                        <li>Incorporates conditional statements and loop structures</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="round-container animated-item">
+                                    <p class="round-title"><i class="ri-code-box-line"></i> Round 3: High-level logic involving patterns, data structures, or algorithms</p>
+                                    <ul>
+                                        <li>Advanced programming concepts and algorithms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Clarification on Tools and Rules:</strong>
+                            <div class="sub-points">
+                                <p class="section-title">Technical Requirements</p>
+                                <ul>
+                                    <li>Languages Allowed: C, C++, Python</li>
+                                    <li>No Internet Access (except standard documentation if permitted by the organizers)</li>
+                                </ul>
+                                
+                                <div class="evaluation-criteria">
+                                    <ul>
+                                        <li>Logical Accuracy</li>
+                                        <li>Code Efficiency</li>
+                                        <li>Output Correctness</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="disqualification-criteria">
+                                    <ul>
+                                        <li>Plagiarism or code sharing</li>
+                                        <li>Use of disallowed external tools</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="event-actions">
-                    <a href="register.php" class="register-btn">Register Now</a>
+                    <a href="register.php" class="register-btn"><i class="ri-user-add-line"></i> Register Now</a>
                 </div>
             </div>
         </div>

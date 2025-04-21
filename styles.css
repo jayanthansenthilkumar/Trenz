@@ -13,6 +13,7 @@ html, body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden; /* Prevent horizontal scrolling */
     overflow-y: scroll; /* Allow vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
 }
@@ -383,10 +384,39 @@ body::-webkit-scrollbar {
     margin: 0; /* Removed auto margin */
 }
 
+/* About Image and Why Attend Styling */
 .about-image {
     flex: 1;
-    display: block; /* Change from flex to block */
-    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    background: none; /* Removed transparent background */
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto; /* Change from fixed height to auto for better responsiveness */
+    max-height: 200px; /* Add maximum height while maintaining aspect ratio */
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    background: #ffffff;
+    object-fit: contain;
+}
+
+.about-why-attend {
+    width: 100%;
+    max-width: 450px;
+    border-left: 4px solid #ff6b6b;
+    background: #ffffff; /* Changed from semi-transparent to solid white */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
+    transition: all 0.3s ease;
 }
 
 .about-text h3 {
@@ -406,8 +436,11 @@ body::-webkit-scrollbar {
 .about-stats {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 20px;
     flex-wrap: wrap;
+    background: rgba(67, 97, 238, 0.05);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .stat-item {
@@ -439,6 +472,287 @@ body::-webkit-scrollbar {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: transparent;
+}
+
+/* About Objectives and Why Attend Styling - Updated for horizontal layout */
+.about-info-container {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.about-objectives, .about-why-attend {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.about-objectives {
+    border-left: 4px solid #4361ee;
+}
+
+.about-why-attend {
+    border-left: 4px solid #ff6b6b;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.about-objectives:hover, .about-why-attend:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.about-objectives h4, .about-why-attend h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    position: relative;
+    display: inline-block;
+}
+
+.about-objectives h4 {
+    color: #4361ee;
+}
+
+.about-why-attend h4 {
+    color: #ff6b6b;
+}
+
+.about-objectives h4::after, .about-why-attend h4::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+}
+
+.about-objectives h4::after {
+    background: #4361ee;
+}
+
+.about-why-attend h4::after {
+    background: #ff6b6b;
+}
+
+.objective-list, .why-attend-list {
+    list-style: none;
+    padding: 0;
+}
+
+.objective-list li, .why-attend-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.objective-list li i, .why-attend-list li i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.objective-list li i {
+    color: #4361ee;
+}
+
+.why-attend-list li i {
+    color: #ff6b6b;
+}
+
+/* Responsive adjustments for new about content */
+@media (max-width: 1024px) {
+    .about-image {
+        padding-top: 20px;
+    }
+    
+    .about-why-attend {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .about-text, .about-image {
+        width: 100%;
+    }
+    
+    .about-image {
+        margin-top: 30px;
+    }
+    
+    .about-image img {
+        width: 100%;
+        max-width: 300px;
+        height: 170px; /* Reduced for mobile view */
+        margin: 0 auto;
+        display: block;
+        border-radius: 12px;
+        border-width: 0;
+    }
+    
+    .about-why-attend, .about-image img {
+        max-width: 100%;
+    }
+    
+    .about-objectives, .about-why-attend {
+        padding: 15px;
+    }
+    
+    .objective-list li, .why-attend-list li {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .about-section {
+        padding: 40px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content {
+        gap: 15px;
+    }
+    
+    .about-image {
+        margin-top: 20px;
+    }
+    
+    .about-objectives h4, .about-why-attend h4 {
+        font-size: 1.1rem;
+    }
+    
+    .objective-list li, .why-attend-list li {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+    
+    .objective-list li i, .why-attend-list li i {
+        font-size: 1rem;
+    }
+    
+    .registration-card {
+        padding: 25px 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-image img {
+        max-height: 160px;
+    }
+    
+    .about-why-attend {
+        padding: 12px;
+    }
+    
+    .event-card {
+        max-width: 100%;
+    }
+    
+    .event-card img {
+        height: 160px;
+    }
+    
+    .sidebar .nav-links .icon {
+        font-size: 15px;
+    }
+    
+    .sidebar .nav-links .link-name {
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    
+    .about-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .about-objectives h4, .about-why-attend h4 {
+        font-size: 1rem;
+    }
+    
+    .about-image img {
+        max-height: 140px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.7rem;
+    }
+    
+    .about-objectives, .about-why-attend {
+        padding: 10px;
+    }
+    
+    .objective-list li, .why-attend-list li {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+    }
+    
+    .objective-list li i, .why-attend-list li i {
+        font-size: 0.9rem;
+    }
+    
+    .sidebar .nav-links .icon {
+        font-size: 14px;
+    }
+    
+    .sidebar .nav-links .link-name {
+        font-size: 6px;
+    }
+}
+
+/* Responsive adjustments for new about content */
+@media (max-width: 768px) {
+    .objective-list li, .why-attend-list li {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .about-objectives, .about-why-attend {
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    .about-objectives h4, .about-why-attend h4 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .about-image img {
+        max-width: 500px;
+        width: 100%;
+        height: 220px; /* Adjusted for desktop view */
+        border-radius: 12px;
+        border-width: 0;
+    }
 }
 
 /* Custom Scrollbar Styling - Complete removal */
@@ -915,6 +1229,7 @@ html {
     .about-image img {
         width: 100%;
         max-width: 300px;
+        height: 170px; /* Reduced for mobile view */
         margin: 0 auto;
         display: block;
         border-radius: 12px;
@@ -961,6 +1276,24 @@ html {
 
     .events-section {
         padding: 60px 20px;
+    }
+
+    .patron-contact {
+        /* Keep in row layout, but adjust the spacing */
+        flex-direction: row;
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .contact-link {
+        /* Make buttons more compact but still touchable */
+        width: auto;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .contact-link i {
+        font-size: 1rem;
     }
 }
 
@@ -1021,7 +1354,7 @@ html {
     .about-image img {
         max-width: 500px;
         width: 100%;
-        height: auto;
+        height: 220px; /* Adjusted for desktop view */
         border-radius: 12px;
         border-width: 0; /* Remove border completely */
     }
@@ -1115,12 +1448,29 @@ body.event-page {
     background-color: rgba(240, 242, 245, 0.7);
 }
 
+.patrons-scroll-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
 .patrons-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
     gap: 30px;
-    margin-top: 50px;
+    padding: 10px 5px 30px;
+    width: 100%;
+    /* Add space for scrollbar to avoid content jumping */
+    margin-bottom: 5px;
+}
+
+.patrons-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .patron-card {
@@ -1128,8 +1478,8 @@ body.event-page {
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 100%;
-    max-width: 350px;
+    width: 350px;
+    min-width: 350px;
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -1180,14 +1530,141 @@ body.event-page {
     line-height: 1.6;
 }
 
+.patron-contact {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-link.phone {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: #4361ee;
+    border: 1px solid rgba(67, 97, 238, 0.2);
+}
+
+.contact-link.whatsapp {
+    background-color: rgba(37, 211, 102, 0.1);
+    color: #25D366;
+    border: 1px solid rgba(37, 211, 102, 0.2);
+}
+
+.contact-link.phone:hover {
+    background-color: #4361ee;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.contact-link.whatsapp:hover {
+    background-color: #25D366;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.contact-link i {
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .patron-contact {
+        /* Keep in row layout, but adjust the spacing */
+        flex-direction: row;
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .contact-link {
+        /* Make buttons more compact but still touchable */
+        width: auto;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .contact-link i {
+        font-size: 1rem;
+    }
+}
+
+/* Scroll buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: #4361ee;
+    color: white;
+}
+
+.prev-btn {
+    left: -20px;
+}
+
+.next-btn {
+    right: -20px;
+}
+
+.scroll-btn i {
+    font-size: 24px;
+}
+
 /* Responsive styles for patrons section */
 @media (max-width: 768px) {
     .patrons-section {
         padding: 60px 20px;
     }
     
+    .patrons-container {
+        padding: 10px 0 20px;
+    }
+    
     .patron-card {
-        max-width: 100%;
+        min-width: 280px;
+        width: 280px;
+    }
+    
+    .patron-image {
+        height: 200px;
+    }
+    
+    .scroll-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .prev-btn {
+        left: -10px;
+    }
+    
+    .next-btn {
+        right: -10px;
     }
 }
 

@@ -175,13 +175,13 @@
             var Formdata = new FormData(this);
             Formdata.append("Add_newuser", true);
             Swal.fire({
-            title: 'Please Wait...',
-            text: 'Submitting your form',
-            allowOutsideClick: false,
-            didOpen: () => {
-                Swal.showLoading()
-            }
-        });
+                title: 'Please Wait...',
+                text: 'Submitting your form',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            });
 
             $.ajax({
                 url: "backend.php",
@@ -190,53 +190,76 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    var res = jQuery.parseJSON(response);
-                    console.log(res);
+                    // Safely try to parse JSON response
+                    try {
+                        var res = JSON.parse(response);
+                        console.log(res);
 
-                    if (res.status == 200) {
-                        Swal.close();
-                        swal.fire({
-                            title: "Event Registered Successfully!",
-                            text: "Your ID is: " + res.trenzid,
-                            icon: "success",
-                            button: "Okay",
-                        });
+                        if (res.status == 200) {
+                            Swal.close();
+                            swal.fire({
+                                title: "Event Registered Successfully!",
+                                text: "Your ID is: " + res.trenzid,
+                                icon: "success",
+                                button: "Okay",
+                            });
 
-                        $('#registrationForm')[0].reset();
-                    } else if (res.status == 201) {
+                            $('#registrationForm')[0].reset();
+                        } else if (res.status == 201) {
+                            Swal.close();
+                            swal.fire({
+                                title: "Error!",
+                                text: "Registered Successfully but Mail not Sent!",
+                                icon: "error",
+                                button: "Okay",
+                            });
+
+                            $('#registrationForm')[0].reset();
+                        }
+                        else if (res.status == 400) {
+                            Swal.close();
+                            swal.fire({
+                                title: "Error!",
+                                text: "Registration limit for Your Register number",
+                                icon: "error",
+                                button: "Okay",
+                            });
+
+                            $('#registrationForm')[0].reset();
+                        }
+                        else if (res.status == 500) {
+                            Swal.close();
+                            swal.fire({
+                                title: "Error!",
+                                text: "Something went wrong!",
+                                icon: "error",
+                                button: "Okay",
+                            });
+                        }
+                    } catch (e) {
+                        // Handle JSON parse error
+                        console.error("JSON Parse Error:", e);
+                        console.log("Raw Response:", response);
                         Swal.close();
-                        swal.fire({
-                            title: "Error!",
-                            text: "Registered Successfully but Mail not Sent!",
+                        Swal.fire({
+                            title: "Server Error",
+                            text: "The server returned an invalid response. Please try again later or contact support.",
                             icon: "error",
                             button: "Okay",
                         });
-
-                        $('#registrationForm')[0].reset();
                     }
-                    else if (res.status == 400) {
-                        Swal.close();
-                        swal.fire({
-                            title: "Error!",
-                            text: "Registration limit for Your Register number",
-                            icon: "error",
-                            button: "Okay",
-                        });
-
-                        $('#registrationForm')[0].reset();
-                    }
-
-                     else if (res.status == 500) {
-                        Swal.close();
-                        swal.fire({
-                            title: "Error!",
-                            text: "Something went wrong!",
-                            icon: "error",
-                            button: "Okay",
-                        });
-                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error:", error);
+                    Swal.close();
+                    Swal.fire({
+                        title: "Connection Error",
+                        text: "Could not connect to the server. Please check your internet connection and try again.",
+                        icon: "error",
+                        button: "Okay",
+                    });
                 }
-            })
+            });
         });
     </script>
 

@@ -80,10 +80,28 @@
         }
         
         .rules-list li {
-            padding: 10px 0;
+            padding: 12px 0;
             padding-left: 30px;
             position: relative;
-            line-height: 1.5;
+            line-height: 1.6;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            margin-bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+        
+        .rules-list li strong {
+            display: inline-block;
+            min-width: 140px;
+            color: #333;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .rules-list li div,
+        .rules-list li span {
+            flex: 1 1 calc(100% - 160px);
         }
         
         .rules-list li:before {
@@ -92,32 +110,132 @@
             position: absolute;
             left: 0;
             color: #4361ee;
+            font-size: 18px;
+        }
+        
+        .sub-points {
+            padding-left: 0;
+            margin-top: 8px;
+            width: 100%;
+            margin-left: 140px;
+            border-left: 2px solid rgba(67, 97, 238, 0.2);
+            padding-left: 15px;
+        }
+        
+        .sub-points ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sub-points ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: none;
+            margin-bottom: 0;
+            transition: transform 0.2s ease;
+        }
+        
+        .sub-points ul li:hover {
+            transform: translateX(5px);
+        }
+        
+        .sub-points ul li:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            font-size: 14px;
+            color: #4361ee;
+        }
+        
+        .round-container {
+            margin-bottom: 15px;
+            background: rgba(67, 97, 238, 0.03);
+            border-radius: 8px;
+            padding: 12px 15px;
+            border-left: 3px solid rgba(67, 97, 238, 0.4);
+            transition: all 0.2s ease;
+        }
+        
+        .round-container:hover {
+            background: rgba(67, 97, 238, 0.06);
+            transform: translateX(3px);
+        }
+        
+        .round-title {
+            font-weight: 600;
+            color: #4361ee;
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .round-title i {
+            font-size: 18px;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            color: #333;
+            margin: 15px 0 8px 0;
+            padding-left: 10px;
+            border-left: 3px solid #4361ee;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            transition: all 0.3s ease;
         }
         
         .event-actions {
             display: flex;
             justify-content: center;
+            align-items: center;
             margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .event-actions:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(67, 97, 238, 0.8);
+            border-radius: 3px;
         }
         
         .register-btn {
-            background-color: #4361ee;
+            background: linear-gradient(135deg, #4361ee, #3a56d4);
             color: white;
             border: none;
-            padding: 12px 30px;
-            font-size: 1rem;
+            padding: 14px 35px;
+            font-size: 1.05rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin: 0 auto;
         }
         
         .register-btn:hover {
-            background-color: #3a56d4;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
         }
         
         @media (max-width: 768px) {
@@ -135,6 +253,20 @@
             
             .event-meta {
                 gap: 15px;
+            }
+            
+            .rules-list li {
+                flex-direction: column;
+            }
+            
+            .rules-list li strong {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .sub-points {
+                margin-left: 0;
+                width: 100%;
             }
         }
     </style>
@@ -157,37 +289,81 @@
                 <div class="event-meta">
                     <div class="meta-item">
                         <i class="ri-calendar-line"></i>
-                        <span>March 17, 2025</span>
+                        <span>April 30, 2025</span>
                     </div>
                     <div class="meta-item">
                         <i class="ri-time-line"></i>
-                        <span>10:00 AM - 3:00 PM</span>
+                        <span>09:00 AM - 4:00 PM</span>
                     </div>
                     <div class="meta-item">
                         <i class="ri-user-line"></i>
-                        <span>Teams of 2-3 members</span>
+                        <span>Teams of 2 members</span>
                     </div>
                 </div>
                 
                 <div class="event-rules">
                     <h3>Rules & Guidelines</h3>
                     <ul class="rules-list">
-                        <li>Teams must consist of 2-3 members from the same institution.</li>
-                        <li>The treasure hunt will have multiple checkpoints, each with a unique coding challenge.</li>
-                        <li>To proceed to the next checkpoint, teams must solve the current challenge correctly.</li>
-                        <li>Challenges may involve algorithms, data structures, cryptography, or logical puzzles.</li>
-                        <li>Languages supported: Python, Java, JavaScript, and C++.</li>
-                        <li>Each team will receive a digital map with initial clues at the start of the event.</li>
-                        <li>Teams can use their own laptops and development environments.</li>
-                        <li>Internet access will be limited to official documentation websites only.</li>
-                        <li>Teams found sharing solutions with others will be disqualified.</li>
-                        <li>Winners will be determined based on completion time and accuracy of solutions.</li>
-                        <li>The judges' decision will be final and binding.</li>
+                        <li><strong>Name of the Event:</strong> Code Quest</li>
+                        
+                        <li><strong>Event Overview:</strong> Code Quest is an exciting two-round event that blends the thrill of a treasure hunt with the depth of technical knowledge. Participants will first compete in a technical quiz that tests their coding logic, algorithmic thinking, and analytical skills. Qualifying teams will then move to a fast-paced treasure hunt where they decode clues, solve programming challenges, and race to the finish. It's the perfect combination of brainpower, teamwork, and tech-savvy adventure.</li>
+                        
+                        <li><strong>Participation Format:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Team Participation Only – Maximum of 2 members per team</li>
+                                    <li>All team members must be registered before the event begins</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Event Structure:</strong>
+                            <div class="sub-points">
+                                <div class="round-container">
+                                    <p class="round-title"><i class="ri-questionnaire-line"></i> Round 1: Technical Quiz</p>
+                                    <ul>
+                                        <li>A written/online quiz focused on:
+                                            <ul style="margin-top: 5px; margin-left: 20px;">
+                                                <li>Coding logic</li>
+                                                <li>Algorithmic thinking</li>
+                                                <li>Programming puzzles</li>
+                                                <li>Pattern recognition</li>
+                                            </ul>
+                                        </li>
+                                        <li>Format: Multiple Choice Questions, Short Code Snippets, and Logical Riddles</li>
+                                        <li>Duration: 30–45 minutes</li>
+                                        <li>Top-performing teams will be shortlisted for the next round based on score and accuracy</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="round-container">
+                                    <p class="round-title"><i class="ri-treasure-map-line"></i> Round 2: Coding Treasure Hunt</p>
+                                    <ul>
+                                        <li>Qualified teams will proceed to a multi-stage treasure hunt</li>
+                                        <li>Each stage involves solving code-based clues, logic challenges, or decoding encrypted tasks</li>
+                                        <li>Correct answers will unlock the next clue or location</li>
+                                        <li>Teams must complete all stages to reach the final treasure</li>
+                                        <li>Duration: 1.5 to 2 hours</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li><strong>General Rules:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Teams must not collaborate with other teams</li>
+                                    <li>All clues and answers must be derived on the spot — no pre-coded templates allowed</li>
+                                    <li>Tampering with clues or other teams' progress will lead to disqualification</li>
+                                    <li>Judges' decisions are final and binding</li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="event-actions">
-                    <a href="register.php" class="register-btn">Register Your Team</a>
+                    <a href="register.php" class="register-btn">Register Now</a>
                 </div>
             </div>
         </div>
@@ -207,4 +383,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-``` 
