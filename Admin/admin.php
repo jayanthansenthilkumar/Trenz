@@ -84,7 +84,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['role'] = $row['role'];
 
         // Show success SweetAlert
-        $redirectPage = ($_SESSION['role'] == 1) ? 'adminDashboard.php' : 'admin.php';
+        $redirectPage = ($_SESSION['role'] == 0) ? 'superDashboard.php' : 'admin.php';
+        
+        
 
         echo "
         <script>

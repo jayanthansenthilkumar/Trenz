@@ -52,7 +52,7 @@ $userid = $_SESSION['username'];
         </div>
         <div class="login-section">
             <div class="registration-card">
-                <a href="adminDashboard.php" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+                <a href="superDashboard.php" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
                 <form id="registrationForm" enctype="multipart/form-data">
                     <div class="tabs-navigation">
                         <button type="button" class="tab-btn active" data-tab="personal-info">

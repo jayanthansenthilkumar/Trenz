@@ -84,6 +84,9 @@ while($row = mysqli_fetch_assoc($result)){
                             <a href="superEvents.php"><i class="ri-calendar-event-line"></i> Events</a>
                         </li>
                         <li>
+                            <a href="manageAdmin.php"><i class="ri-user-star-line"></i>Manage Admin</a>
+                        </li>
+                        <li>
                             <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
                         </li>
                         <li>

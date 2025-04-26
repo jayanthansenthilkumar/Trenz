@@ -7,9 +7,12 @@ if (!isset($_SESSION['username'])) {
 }
 $userid = $_SESSION['username'];
 $sql = "SELECT * FROM events  ";
+$sql2= "SELECT * FROM intramkce ";
 $result = mysqli_query($conn, $sql);
+$result2 = mysqli_query($conn, $sql2);
 $count = mysqli_num_rows($result);
-$amount=250*$count;
+$count2 = mysqli_num_rows($result2);
+$amount=250*$count+250*$count2;
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +44,12 @@ $amount=250*$count;
                             <a href="#"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="superEvents.php"><i class="ri-calendar-event-line"></i> Events</a>
+                            <a href="superEvents.php"><i class="ri-user-star-line"></i>Events</a>
                         </li>
+                        <li>
+                            <a href="manageAdmin.php"><i class="ri-user-star-line"></i>Manage Admin</a>
+                        </li>
+                        
                         <li>
                             <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
                         </li>
@@ -116,7 +123,7 @@ $amount=250*$count;
                         </div>
                         <div class="stat-card-info">
                             <h3>Intercollege</h3>
-                            <p class="stat-number">0</p>
+                            <p class="stat-number"><?php echo $count?></p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -125,7 +132,7 @@ $amount=250*$count;
                         </div>
                         <div class="stat-card-info">
                             <h3>Intracollege</h3>
-                            <p class="stat-number">0</p>
+                            <p class="stat-number"><?php echo $count2?></p>
                         </div>
                     </div>
                 </div>
