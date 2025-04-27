@@ -34,7 +34,7 @@ include "db.php";
                     <div class="section-divider"></div>
                 </div>
                 
-                <form id="adminLoginForm" method="POST" action="admin.php">
+                <form id="adminLoginForm" method="POST" action="index.php">
                     <div class="form-group">
                         <!-- <label for="username">Username</label> -->
                         <div class="input-with-icon">
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['role'] = $row['role'];
 
         // Show success SweetAlert
-        $redirectPage = ($_SESSION['role'] == 0) ? 'superDashboard.php' : 'admin.php';
+        $redirectPage = ($_SESSION['role'] == 0) ? 'superDashboard.php' : 'index.php';
         
         
 
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 text: 'Invalid Username or Password. Please try again.',
                 confirmButtonText: 'Retry'
             }).then(() => {
-                window.location.href = 'admin.php';
+                window.location.href = 'index.php';
             });
         </script>";
     }

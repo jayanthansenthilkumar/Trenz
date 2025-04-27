@@ -2,7 +2,7 @@
 session_start();
 include('db.php'); // Include the database connection file  
 if (!isset($_SESSION['username'])) {
-    header("Location: admin.php");
+    header("Location: index.php");
     exit();
 }
 $userid = $_SESSION['username'];

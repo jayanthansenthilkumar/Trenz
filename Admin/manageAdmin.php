@@ -2,7 +2,7 @@
 session_start();
 include('db.php'); // Include the database connection file  
 if (!isset($_SESSION['username'])) {
-    header("Location: admin.php");
+    header("Location: index.php");
     exit();
 }
 $userid = $_SESSION['username'];
@@ -185,10 +185,63 @@ $result = mysqli_query($conn, $sql);
             box-shadow: none;
         }
         
+        /* Action buttons container */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        /* Excel button styling */
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* PDF button styling */
+        .btn-danger-light {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-danger-light:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        
         @media (max-width: 768px) {
-            .btn-danger {
+            .btn-danger, .btn-success, .btn-danger-light {
                 padding: 0.4rem 0.75rem;
                 font-size: 0.85rem;
+            }
+            
+            .action-buttons {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -257,7 +310,15 @@ $result = mysqli_query($conn, $sql);
                 <div class="content-section">
                     <div class="content-section-header">
                         <h2>Manage Admins</h2>
-                        <button type="button" class="btn-primary" id="addAdminBtn">Add new user</button>
+                        <div class="action-buttons">
+                            <button type="button" class="btn-success" id="downloadExcelBtn">
+                                <i class="ri-file-excel-line"></i> Excel
+                            </button>
+                            <button type="button" class="btn-danger-light" id="downloadPdfBtn">
+                                <i class="ri-file-pdf-line"></i> PDF
+                            </button>
+                            <button type="button" class="btn-primary" id="addAdminBtn">Add new user</button>
+                        </div>
                     </div>
                     
                     <!-- Simple Table for Admins -->
@@ -265,10 +326,10 @@ $result = mysqli_query($conn, $sql);
                         <table class="simple-table" id="admins-table">
                             <thead>
                                 <tr>
-                                    <th>S.no</th>
+                                    <th>S. No</th>
                                     <th>Name</th>
-                                    <th>Phonenumber</th>
-                                    <th>Userid</th>
+                                    <th>Phone Number</th>
+                                    <th>User ID</th>
                                     <th>Password</th>
                                     <th>Action</th>
                                 </tr>
@@ -346,6 +407,8 @@ $result = mysqli_query($conn, $sql);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
     <script>
         // Custom modal functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -447,6 +510,93 @@ $result = mysqli_query($conn, $sql);
                         }
                     }
                 });
+            }
+        });
+
+        // Excel Export functionality with proper error handling
+        document.getElementById('downloadExcelBtn').addEventListener('click', function() {
+            try {
+                // Get the table
+                const table = document.getElementById('admins-table');
+                
+                // Create workbook and worksheet
+                const wb = XLSX.utils.book_new();
+                
+                // Create a modified version of the table data without the Action column
+                const headers = Array.from(table.querySelectorAll('thead th')).slice(0, 5).map(th => th.textContent);
+                const data = Array.from(table.querySelectorAll('tbody tr')).map(row => 
+                    Array.from(row.querySelectorAll('td')).slice(0, 5).map(cell => cell.textContent.trim())
+                );
+                
+                // Combine headers and data
+                const exportData = [headers, ...data];
+                
+                // Create a worksheet from the filtered data
+                const ws = XLSX.utils.aoa_to_sheet(exportData);
+                
+                // Add worksheet to workbook
+                XLSX.utils.book_append_sheet(wb, ws, 'Admins');
+                
+                // Generate Excel file
+                const today = new Date();
+                const date = today.toISOString().split('T')[0]; // YYYY-MM-DD format
+                const filename = `Trenz_Admins_${date}.xlsx`;
+                
+                // Save the file
+                XLSX.writeFile(wb, filename);
+            } catch(e) {
+                console.error('Excel export error:', e);
+                alert('Failed to export Excel. Please try again.');
+            }
+        });
+        
+        // PDF Export functionality with proper error handling
+        document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+            try {
+                // Get the table data
+                const table = document.getElementById('admins-table');
+                const rows = Array.from(table.querySelectorAll('tbody tr'));
+                
+                // Create PDF document
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                // Add title to PDF
+                doc.setFontSize(18);
+                doc.text('Trenz Admin Users', 14, 22);
+                
+                // Add date
+                const today = new Date();
+                const date = today.toISOString().split('T')[0];
+                doc.setFontSize(11);
+                doc.text(`Generated on: ${date}`, 14, 30);
+                
+                // Convert table to array of arrays for autotable, excluding the Action column
+                const headerData = Array.from(table.querySelectorAll('thead th'))
+                    .slice(0, 5) // Get only the first 5 columns (exclude Action)
+                    .map(th => th.textContent);
+                    
+                const bodyData = rows.map(row => 
+                    Array.from(row.querySelectorAll('td'))
+                    .slice(0, 5) // Get only the first 5 columns (exclude Action)
+                    .map(cell => cell.textContent.trim())
+                );
+                
+                // Generate table in PDF
+                doc.autoTable({
+                    head: [headerData],
+                    body: bodyData,
+                    startY: 35,
+                    styles: { fontSize: 10, cellPadding: 3 },
+                    headStyles: { fillColor: [37, 99, 235] }, // Blue header
+                    margin: { top: 35 }
+                });
+                
+                // Save the PDF
+                doc.save(`Trenz_Admins_${date}.pdf`);
+            } catch(e) {
+                console.error('PDF export error:', e);
+                alert('Failed to export PDF. Please try again.');
             }
         });
     </script>
