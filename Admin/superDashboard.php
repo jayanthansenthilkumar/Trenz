@@ -12,6 +12,7 @@ $result = mysqli_query($conn, $sql);
 $result2 = mysqli_query($conn, $sql2);
 $count = mysqli_num_rows($result);
 $count2 = mysqli_num_rows($result2);
+$total = $count + $count2;
 $amount=250*$count+250*$count2;
 ?>
 
@@ -100,7 +101,7 @@ $amount=250*$count+250*$count2;
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Registration</h3>
-                            <p class="stat-number"><?php echo $count?></p>
+                            <p class="stat-number"><?php echo $total?></p>
                         </div>
                     </div>
                     <div class="stat-card">

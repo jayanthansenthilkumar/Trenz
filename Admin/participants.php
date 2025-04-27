@@ -8,10 +8,14 @@ if (!isset($_SESSION['username'])) {
 $userid = $_SESSION['username'];
 $sql = "SELECT * FROM events WHERE status IN (1, 2)";
 $result = mysqli_query($conn, $sql);
-$sql1 = "SELECT * FROM events Where status='1' ";
+
+$sql1 = "SELECT * FROM intramkce WHERE status IN (1, 2)";
 $result1 = mysqli_query($conn, $sql1);
-$sql2 = "SELECT * FROM events Where status='2' ";
-$result2 = mysqli_query($conn, $sql2);
+
+// $sql1 = "SELECT * FROM events Where status='1' ";
+// $result1 = mysqli_query($conn, $sql1);
+// $sql2 = "SELECT * FROM events Where status='2' ";
+// $result2 = mysqli_query($conn, $sql2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,7 +103,6 @@ $result2 = mysqli_query($conn, $sql2);
                         <div class="tabs-header" id="tabs-header">
                             <button class="tab-button active" data-tab="registered-tab">Intercollege</button>
                             <button class="tab-button" data-tab="approved-tab">Intracollege</button>
-                            <button class="tab-button" data-tab="spot-registration-tab">All Participants</button>
                         </div>
                         <!-- Registered Participants Tab -->
                         <div id="registered-tab" class="tab-content active">
@@ -156,16 +159,12 @@ $result2 = mysqli_query($conn, $sql2);
                                             ?>
                                                 <tr>
                                                     <td><?php echo $row['Trenzid']; ?></td>
-                                                    <td><?php echo $row['regno']; ?></td>
                                                     <td><?php echo $row['name']; ?></td>
+                                                    <td><?php echo $row['regno']; ?></td>
+                                                    <td><?php echo $row['phoneno']; ?></td>
+                                                    <td><?php echo $row['emailid']; ?></td>
                                                     <td><?php echo $row['collegename']; ?></td>
                                                     <td><?php echo $row['events1']; ?></td>
-
-                                                    </td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-icon accept userapprove" value="<?php echo $row['id']; ?>"><i class="ri-check-line"></i></button>
-                                                        <!-- <button class="btn-icon reject"><i class="ri-close-line"></i></button> -->
-                                                    </td>
                                                 </tr>
                                             <?php
                                                 $s++;
@@ -212,7 +211,6 @@ $result2 = mysqli_query($conn, $sql2);
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="datatable-wrapper">
                                     <table class="datatable" id="approved-table">
                                         <thead>
@@ -234,82 +232,11 @@ $result2 = mysqli_query($conn, $sql2);
                                                 <tr>
                                                     <td><?php echo $row['Trenzid']; ?></td>
                                                     <td><?php echo $row['name']; ?></td>
-                                                    <td><?php echo $row['collegename']; ?></td>
+                                                    <td><?php echo $row['regno']; ?></td>
+                                                    <td><?php echo $row['phoneno']; ?></td>
+                                                    <td><?php echo $row['emailid']; ?></td>
+                                                    <td><?php echo $row['depart']; ?></td>
                                                     <td><?php echo $row['events1']; ?></td>
-                                                    <td><span class="status-badge completed">Paid</span></td>
-
-                                                </tr>
-                                            <?php
-                                                $s++;
-                                            }
-                                            ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Spot Registration Tab -->
-                        <div id="spot-registration-tab" class="tab-content">
-                            <div class="tab-container">
-                                <div class="tab-header-container">
-                                    <div class="tab-header-content">
-                                        <h3 class="tab-title">All Participants</h3>
-                                        <div class="tab-actions">
-                                            <button class="action-btn filter-btn" id="filter-btn-all"><i class="ri-filter-3-line"></i> Filter</button>
-                                            <button class="action-btn export-btn pdf-btn" id="export-pdf-all"><i class="ri-file-pdf-line"></i> PDF</button>
-                                            <button class="action-btn export-btn excel-btn" id="export-excel-all"><i class="ri-file-excel-line"></i> Excel</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="datatable-controls">
-                                    <div class="controls-row">
-                                        <div class="datatable-length">
-                                            <label>
-                                                Show
-                                                <select>
-                                                    <option value="10">10</option>
-                                                    <option value="25">25</option>
-                                                    <option value="50">50</option>
-                                                    <option value="100">100</option>
-                                                </select>
-                                                entries
-                                            </label>
-                                        </div>
-                                        <div class="datatable-filter">
-                                            <label>
-                                                Search:
-                                                <input type="search" placeholder="Enter keywords...">
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="datatable-wrapper">
-                                    <table class="datatable" id="spot-registration-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Trenz ID</th>
-                                                <th>Name</th>
-                                                <th>Register No</th>
-                                                <th>Phone No</th>
-                                                <th>Email</th>
-                                                <th>College/Dept</th>
-                                                <th>Event</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $s = 1;
-                                            while ($row = mysqli_fetch_array($result2)) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $row['Trenzid']; ?></td>
-                                                    <td><?php echo $row['name']; ?></td>
-                                                    <td><?php echo $row['collegename']; ?></td>
-                                                    <td><?php echo $row['events1']; ?></td>
-
-                                                    <td><span class="status-badge completed">Paid</span></td>
-
                                                 </tr>
                                             <?php
                                                 $s++;
