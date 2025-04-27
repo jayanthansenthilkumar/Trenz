@@ -22,7 +22,7 @@ $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_assoc($result)){
     
     $events = [$row['events1']];  // Add more if you have
-    
+
     foreach($events as $event){
         switch($event){
             case 'WebWeave':
@@ -45,9 +45,7 @@ while($row = mysqli_fetch_assoc($result)){
                 break;
             case 'BuildaResume':
                 $Buildcount++;
-                break;
-            
-            
+                break;    
         }
     }
 }
@@ -119,7 +117,6 @@ while($row = mysqli_fetch_assoc($result)){
                     </div>
                 </div>
             </header>
-
             <!-- Dashboard Content -->
             <div class="dashboard-content">
                 <!-- Tabs Section -->
