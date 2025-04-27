@@ -132,14 +132,14 @@ $result2 = mysqli_query($conn, $sql2);
                             <div class="datatable-wrapper">
                                 <table class="datatable" id="registered-table">
                                     <thead>
-                                        <tr>
+                                    <tr>
                                             <th>Trenz ID</th>
-                                            <th>Register Number</th>
                                             <th>Name</th>
-                                            <th>College Name</th>
-                                            <th>Events</th>
-
-                                            <th>Action</th>
+                                            <th>Register Number</th>
+                                            <th>Phone Number</th>
+                                            <th>Email</th>
+                                            <th>College</th>
+                                            <th>Event</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -194,12 +194,14 @@ $result2 = mysqli_query($conn, $sql2);
                             <div class="datatable-wrapper">
                                 <table class="datatable" id="approved-table">
                                     <thead>
-                                        <tr>
+                                    <tr>
                                             <th>Trenz ID</th>
                                             <th>Name</th>
-                                            <th>College Name</th>
-                                            <th>Events</th>
-                                            <th>Payment Status</th>
+                                            <th>Register Number</th>
+                                            <th>Phone Number</th>
+                                            <th>Email</th>
+                                            <th>Department</th>
+                                            <th>Event</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -253,11 +255,11 @@ $result2 = mysqli_query($conn, $sql2);
                                         <tr>
                                             <th>Trenz ID</th>
                                             <th>Name</th>
-                                            <th>College Name</th>
-                                            <th>Events</th>
-
-                                            <th>Payment Status</th>
-
+                                            <th>Register Number</th>
+                                            <th>Phone Number</th>
+                                            <th>Email</th>
+                                            <th>College/Dept</th>
+                                            <th>Event</th>
                                         </tr>
                                     </thead>
                                     <tbody>
