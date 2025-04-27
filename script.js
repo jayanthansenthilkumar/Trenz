@@ -563,7 +563,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
     // Patrons section horizontal scrolling
     const patronsContainer = document.querySelector('.patrons-container');
     const prevBtn = document.querySelector('.prev-btn');
