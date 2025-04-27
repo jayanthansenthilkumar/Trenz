@@ -44,14 +44,13 @@ $amount=250*$count+250*$count2;
                             <a href="#"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="superEvents.php"><i class="ri-user-star-line"></i>Events</a>
+                            <a href="manageAdmin.php"><i class="ri-admin-line"></i> Manage Admin</a>
                         </li>
                         <li>
-                            <a href="manageAdmin.php"><i class="ri-user-star-line"></i>Manage Admin</a>
+                            <a href="superEvents.php"><i class="ri-calendar-event-line"></i> Events</a>
                         </li>
-                        
                         <li>
-                            <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
+                            <a href="participants.php"><i class="ri-group-line"></i> Participants</a>
                         </li>
                     </ul>
                 </nav>
@@ -94,8 +93,7 @@ $amount=250*$count+250*$count2;
                 </div>
                 
                 <!-- Stats Cards -->
-                                <!-- Stats Cards -->
-                                <div class="stats-container">
+                <div class="stats-container">
                     <div class="stat-card">
                         <div class="stat-card-icon blue">
                             <i class="ri-user-add-line"></i>

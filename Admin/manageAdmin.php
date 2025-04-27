@@ -253,7 +253,7 @@ $result = mysqli_query($conn, $sql);
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h2>Trenz</h2>
-                <span class="admin-label">Events</span>
+                <span class="admin-label">Superadmin</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
                     <i class="ri-menu-line"></i>
                 </button>
@@ -264,14 +264,14 @@ $result = mysqli_query($conn, $sql);
                         <li>
                             <a href="superDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
-                        <li>
-                            <a href="superEvents.php"><i class="ri-user-star-line"></i>Events</a>
-                        </li>
                         <li class="active">
-                            <a href="manageAdmin.php"><i class="ri-user-star-line"></i>Manage Admin</a>
+                            <a href="#"><i class="ri-admin-line"></i> Manage Admin</a>
                         </li>
                         <li>
-                            <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
+                            <a href="superEvents.php"><i class="ri-calendar-event-line"></i> Events</a>
+                        </li>
+                        <li>
+                            <a href="participants.php"><i class="ri-group-line"></i> Participants</a>
                         </li>
                     </ul>
                 </nav>
@@ -287,13 +287,9 @@ $result = mysqli_query($conn, $sql);
                     <input type="text" placeholder="Search participants, events...">
                 </div>
                 <div class="header-actions">
-                    <button class="message-btn">
-                        <i class="ri-mail-line"></i>
-                        <span class="badge">0</span>
-                    </button>
                     <div class="user-dropdown">
-                        <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
-                        <span><?php echo $userid ?></span>
+                        <img src="https://ui-avatars.com/api/?name=Jayanthan+Senthilkumar&background=2563eb&color=fff" alt="Event Admin">
+                        <span>Super Admin</span>
                         <i class="ri-arrow-down-s-line"></i>
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
