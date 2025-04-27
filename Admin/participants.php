@@ -10,7 +10,6 @@ $userid = $_SESSION['username'];
 //Inter college
 $sql = "SELECT * FROM events WHERE status IN (1, 2)";
 $result = mysqli_query($conn, $sql);
-
 $sql1 = "SELECT * FROM events Where status='1' ";
 $result1 = mysqli_query($conn, $sql1);
 $sql2 = "SELECT * FROM events Where status='2' ";
@@ -104,9 +103,9 @@ $result2 = mysqli_query($conn, $sql2);
                         <h2>Event Participants</h2>
                         <!-- Tab Navigation -->
                         <div class="tabs-header" id="tabs-header">
-                            <button class="tab-button active" data-tab="registered-tab">All Participants</button>
-                            <button class="tab-button" data-tab="approved-tab">Approved Participants</button>
-                            <button class="tab-button" data-tab="spot-registration-tab">Spot Registration</button>
+                            <button class="tab-button active" data-tab="registered-tab">Intercollege</button>
+                            <button class="tab-button" data-tab="approved-tab">Intracollege</button>
+                            <button class="tab-button" data-tab="spot-registration-tab">All Participants</button>
                         </div>
                         <!-- Registered Participants Tab -->
                         <div id="registered-tab" class="tab-content active">
