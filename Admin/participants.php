@@ -12,10 +12,6 @@ $result = mysqli_query($conn, $sql);
 $sql1 = "SELECT * FROM intramkce WHERE status IN (1, 2)";
 $result1 = mysqli_query($conn, $sql1);
 
-// $sql1 = "SELECT * FROM events Where status='1' ";
-// $result1 = mysqli_query($conn, $sql1);
-// $sql2 = "SELECT * FROM events Where status='2' ";
-// $result2 = mysqli_query($conn, $sql2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
