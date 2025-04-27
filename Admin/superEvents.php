@@ -7,48 +7,81 @@ if (!isset($_SESSION['username'])) {
 }
 $userid = $_SESSION['username'];
 
-$Webcount= 0;
-$NextGencount = 0;
-$Appcount = 0;
-$Errorcount = 0;
-$Codecount= 0;
-$CodeQuestcount = 0;
-$Buildcount = 0;
 
+
+$Webcount = $NextGencount = $Appcount = $Errorcount = $Codecount = $CodeQuestcount = $Buildcount = 0;
 
 $sql = "SELECT * FROM events";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_assoc($result)){
-    
-    $events = [$row['events1']];  // Add more if you have
+    $event = $row['events1'];
 
-    foreach($events as $event){
-        switch($event){
-            case 'WebWeave':
-                $Webcount++;
-                break;
-            case 'NextGenStart':
-                $NextGencount++;
-                break;
-            case 'AppAthon':
-                $Appcount++;
-                break;
-            case 'Error404NOTFOUND':
-                $Errorcount++;
-                break;
-            case 'CodeRewind':
-                $Codecount++;
-                break;
-            case 'CodeQuest':
-                $CodeQuestcount++;
-                break;
-            case 'BuildaResume':
-                $Buildcount++;
-                break;    
-        }
+    switch($event){
+        case 'WebWeave':
+            $Webcount++;
+            break;
+        case 'NextGenStart':
+            $NextGencount++;
+            break;
+        case 'AppAthon':
+            $Appcount++;
+            break;
+        case 'Error404NOTFOUND':
+            $Errorcount++;
+            break;
+        case 'CodeRewind':
+            $Codecount++;
+            break;
+        case 'CodeQuest':
+            $CodeQuestcount++;
+            break;
+        case 'BuildaResume':
+            $Buildcount++;
+            break;    
     }
 }
+
+$Webcounts = $NextGencounts = $Appcounts = $Errorcounts = $Codecounts = $CodeQuestcounts = $Buildcounts = 0;
+
+$sql2 = "SELECT * FROM intramkce";
+$result1 = mysqli_query($conn, $sql2);
+
+while($row1 = mysqli_fetch_assoc($result1)){
+  
+
+    $event = $row1['events1'];
+    echo $event;
+
+    switch($event){
+        case 'WebWeave':
+            $Webcounts++;
+            break;
+        case 'NextGenStart':
+            $NextGencounts++;
+            break;
+        case 'AppAthon':
+            $Appcounts++;
+            break;
+        case 'Error404NOTFOUND':
+            $Errorcounts++;
+            break;
+        case 'CodeRewind':
+            $Codecounts++;
+            break;
+        case 'CodeQuest':
+            $CodeQuestcounts++;
+            break;
+        case 'BuildaResume':
+            $Buildcounts++;
+            break;    
+    }
+}
+
+// Now you have all counts ready
+
+?>
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -243,7 +276,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>WebWeave</h4>
-                                    <p class="stat-number"><?php echo $Webcount?></p>
+                                    <p class="stat-number"><?php echo $Webcounts?></p>
                                 </div>
                             </div>
                             <div class="stat-card">
@@ -252,7 +285,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>NextGen Start</h4>
-                                    <p class="stat-number"><?php echo $NextGencount?></p>
+                                    <p class="stat-number"><?php echo $NextGencounts?></p>
                                 </div>
                             </div>
                             <div class="stat-card">
@@ -261,7 +294,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>App Athon</h4>
-                                    <p class="stat-number"><?php echo $Appcount ?></p>
+                                    <p class="stat-number"><?php echo $Appcounts ?></p>
                                 </div>
                             </div>
                             <div class="stat-card">
@@ -270,7 +303,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Error : 404</h4>
-                                    <p class="stat-number"><?php echo $Errorcount ?></p>
+                                    <p class="stat-number"><?php echo $Errorcounts ?></p>
                                 </div>
                             </div>
                             <div class="stat-card">
@@ -279,7 +312,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Code Rewind</h4>
-                                    <p class="stat-number"><?php echo $Codecount ?></p>
+                                    <p class="stat-number"><?php echo $Codecounts ?></p>
                                 </div>
                             </div>
                             <div class="stat-card">
@@ -288,7 +321,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Code Quest</h4>
-                                    <p class="stat-number"><?php echo $CodeQuestcount ?></p>
+                                    <p class="stat-number"><?php echo $CodeQuestcounts ?></p>
                                 </div>
                             </div>
                             <div class="stat-card">
@@ -297,7 +330,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Build a Resume</h4>
-                                    <p class="stat-number"><?php echo $Buildcount ?></p>
+                                    <p class="stat-number"><?php echo $Buildcounts ?></p>
                                 </div>
                             </div>
                         </div>
