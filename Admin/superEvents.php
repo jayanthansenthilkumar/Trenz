@@ -69,7 +69,7 @@ while($row = mysqli_fetch_assoc($result)){
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h2>Trenz</h2>
-                <span class="admin-label">Events</span>
+                <span class="admin-label">Superadmin</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
                     <i class="ri-menu-line"></i>
                 </button>
@@ -88,9 +88,6 @@ while($row = mysqli_fetch_assoc($result)){
                         </li>
                         <li>
                             <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
-                        </li>
-                        <li>
-                            <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
                         </li>
                     </ul>
                 </nav>
@@ -161,7 +158,7 @@ while($row = mysqli_fetch_assoc($result)){
                                         <i class="ri-error-warning-line"></i>
                                     </div>
                                     <div class="stat-card-info">
-                                        <h4>Error : 404 NOT FOUND</h4>
+                                        <h4>Error : 404</h4>
                                         <p class="stat-number"><?php echo $Errorcount ?></p>
                                     </div>
                                 </div>

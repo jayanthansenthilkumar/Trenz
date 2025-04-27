@@ -42,7 +42,7 @@ $result2 = mysqli_query($conn, $sql2);
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h2>Trenz</h2>
-                <span class="admin-label">Events</span>
+                <span class="admin-label">Superadmin</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
                     <i class="ri-menu-line"></i>
                 </button>
@@ -62,9 +62,6 @@ $result2 = mysqli_query($conn, $sql2);
 
                         <li class="active">
                             <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
-                        </li>
-                        <li>
-                            <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
                         </li>
                     </ul>
                 </nav>

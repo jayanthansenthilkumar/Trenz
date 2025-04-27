@@ -22,7 +22,7 @@ include "db.php";
         <div class="brand-section">
             <div class="brand-content">
                 <h1>Trenz'25</h1>
-                <p>Administrative Portal</p>
+                <p>Super Admin</p>
             </div>
         </div>
         
@@ -30,7 +30,7 @@ include "db.php";
         <div class="login-section">
             <div class="login-card">
                 <div class="login-header">
-                    <h2>Admin Login</h2>
+                    <h2>SuperAdmin Login</h2>
                     <div class="section-divider"></div>
                 </div>
                 
