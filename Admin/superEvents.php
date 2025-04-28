@@ -51,7 +51,6 @@ while($row1 = mysqli_fetch_assoc($result1)){
   
 
     $event = $row1['events1'];
-    echo $event;
 
     switch($event){
         case 'WebWeave':
