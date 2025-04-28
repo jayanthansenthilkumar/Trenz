@@ -9,6 +9,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assistant.css">
+    <style>
+        /* Active link styling - Fixed with proper color values */
+        .sidebar .nav-links li.active {
+            background-color: #4361ee; /* Using direct color instead of var(--primary-color) */
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-links li.active a {
+            color: #fff;
+        }
+
+        .sidebar .nav-links li.active a .icon {
+            color: #fff;
+        }
+
+        /* Hover effect */
+        .sidebar .nav-links li:hover {
+            background-color: rgba(67, 97, 238, 0.1); /* Using rgba value directly */
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -435,5 +457,71 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
     <script src="assistant.js"></script>
+    <script>
+        // Navigation active state handler
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all sections that have IDs defined
+            const sections = document.querySelectorAll(".hero-section, .about-section, .patrons-section, .events-section, .sponsors-section, .contact-section");
+            
+            // IntersectionObserver configuration
+            const observerOptions = {
+                root: null, // viewport is used as the root
+                rootMargin: "0px 0px -30% 0px", // negative bottom margin to trigger earlier
+                threshold: 0.1 // 10% of the item must be visible
+            };
+            
+            // Create a mapping of section IDs to navigation links
+            const navLinks = {};
+            document.querySelectorAll('.sidebar .nav-links li a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const id = href.substring(1);
+                    navLinks[id] = link.parentElement;
+                }
+            });
+            
+            // Callback executed when observed element enters or exits viewport
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    // Get the element's ID
+                    const id = entry.target.getAttribute('id');
+                    
+                    // Check if we have a matching nav link
+                    if (navLinks[id]) {
+                        if (entry.isIntersecting) {
+                            // Remove active class from all nav items first
+                            document.querySelectorAll('.sidebar .nav-links li').forEach(item => {
+                                item.classList.remove('active');
+                            });
+                            
+                            // Add active class to the current nav item
+                            navLinks[id].classList.add('active');
+                        }
+                    }
+                });
+            };
+            
+            // Create the observer
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            
+            // Observe all sections
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Also handle click events for smoother transitions
+            document.querySelectorAll('.sidebar .nav-links li a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Remove active class from all nav items
+                    document.querySelectorAll('.sidebar .nav-links li').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked item
+                    this.parentElement.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
