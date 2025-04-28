@@ -1,19 +1,19 @@
 <?php
 session_start();
-include('db.php'); // Include the database connection file  
+include('db.php'); 
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
 }
 $userid = $_SESSION['username'];
-$sql = "SELECT * FROM events  ";
-$sql2= "SELECT * FROM intramkce ";
+$sql = "SELECT * FROM events";
+$sql2= "SELECT * FROM intramkce";
 $result = mysqli_query($conn, $sql);
 $result2 = mysqli_query($conn, $sql2);
 $count = mysqli_num_rows($result);
 $count2 = mysqli_num_rows($result2);
 $total = $count + $count2;
-$amount=250*$count+250*$count2;
+$amount=250*$count+200*$count2;
 ?>
 
 <!DOCTYPE html>
@@ -132,7 +132,6 @@ $amount=250*$count+250*$count2;
                         </div>
                     </div>
                 </div>
-                <!-- End of Dashboard Content -->
             </div>
         </main>
     </div>
