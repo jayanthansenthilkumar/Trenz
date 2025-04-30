@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - CODE REWIND</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/leaderboard.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">Leaderboard</h1>
+        
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Hackerrank Points</th>
+                    <th>Detected Points</th>
+                    <th>Fairness Points</th>
+                    <th>Total Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in leaderboard_data %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    {% if user.username != 'code_rewind_admin' %}
+                    <td>{{ user.username }}</td>
+                    {% endif %}
+
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.hacker_rank_points if user.hacker_rank_points else 0  }}</td>
+                    <td>{{ user.detected_points if user.detected_points else 0   }}</td>
+                    <td>{{ user.fairness_points }}</td>
+                    <td>{{ user.total_points or 0 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="back-button">
+            <a href="{{ url_for('user_dashboard') }}" class="btn">Back to Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html>

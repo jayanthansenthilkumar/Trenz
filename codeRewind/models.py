@@ -1,0 +1,15 @@
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(150), unique=True, nullable=False)
+    username = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    team_members = db.Column(db.String(300))
+    is_admin = db.Column(db.Boolean, default=False)
+    fairness = db.Column(db.Integer, default=1000)
+    fairness_points = db.Column(db.Integer, default=1000)
+    last_updated_time = db.Column(db.DateTime, nullable=True)
+    hacker_rank_points = db.Column(db.Integer, default=0)
+    detected_points = db.Column(db.Integer, default=0)  
+    isOpen = db.Column(db.Integer, default=0)

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Rewind Admin Page</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+<h1>Code Rewind- Admin Dashboard</h1>
+<h2>Delete Users</h2>
+        <!-- Delete User Form -->
+        <ul>
+            {% for user in users %}
+                <form action="{{ url_for('delete_user') }}" method="POST" style="display:inline;">
+                    <input type="hidden" name="user_id" value="{{ user.id }}">
+                    {% if not user.is_admin %}
+                        <span> {{ user.username }} ({{ user.email }}) ({{ user.fairness_points }}) ({{ user.id }}) </span>
+                        <button type="submit">Delete</button>
+                    {% endif %}
+                    <br />
+                </form>
+            {% endfor %}
+        </ul>
+    
+        <hr>
+    
+        <!-- Reduce Fairness Points Form -->
+        <h2>Reduce Fairness Points</h2>
+        <form action="{{ url_for('reduce_points') }}" method="POST">
+            <label>User ID:</label>
+            <input type="text" name="user_id" required><br>
+    
+            <label>Points to Reduce:</label>
+            <input type="number" name="points" required><br>
+    
+            <button type="submit">Reduce Points</button>
+        </form>
+    
+        <hr>
+    
+        <!-- Update All Users' Fairness Points Form -->
+        <h2>Update All Users' Fairness Points</h2>
+        <form action="{{ url_for('update_all_fairness_points') }}" method="POST">
+            <button type="submit">Update All Users' Fairness Points</button>
+        </form>
+    
+        <hr>
+    
+        <!-- Users Table -->
+        <h2>All Users</h2>
+        <table border="1" style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Fairness Points</th>
+                    <th>Hackerrank Points</th>
+                    <th>Detucted Points</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.fairness_points or 1000 }}</td>
+                        <td>{{ user.hacker_rank_points }}</td>
+                        <td>{{ user.detected_points }}</td>
+                        <td>
+                            {% if not user.is_admin %}
+                                <form action="{{ url_for('update_fairness_points') }}" method="POST" style="display:inline;">
+                                    <input type="hidden" name="user_id" value="{{ user.id }}">
+                                    <button type="submit">Update Fairness Points</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        <hr>
+    
+        <!-- Logout Link -->
+        <div class="container">
+            <h2>Upload CSV to Update HackerRank Points</h2>
+    
+            <!-- Form for CSV Upload -->
+            <form action="{{ url_for('admin_upload') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="csv_file" accept=".csv" required>
+                <button type="submit">Upload CSV</button>
+            </form>
+    
+        </div>
+        <!-- <span id="highestBidder_get"></span> -->
+
+        <p>Start of bid </p>
+        <button onclick="openBid()">Open Auction</button>
+
+        <form action="{{ url_for('bid_detected_points') }}" method="POST">
+            <input type="text" name="bid_user_id" id="highestBidder_get" hidden>
+            <input type="text" name="bid_user_bid" id="highestBid_get" hidden>
+            <button type="submit">Close Auction</button>
+        </form>
+        <input name="auction" id="auctionInput" /><br /><br /><br /><br />
+
+        
+        <p>Open/close Auction</p>
+        <form action="{{ url_for('dummyupdate') }}" method="GET">
+            <button type="submit">Close Auction Update</button>
+        </form>
+
+        <a href="{{ url_for('logout') }}">Logout</a>
+
+        <input id="m" />
+        <input id="k" />
+        <input id="c" />
+        <input id="e" />
+        <button onclick="link()">Link</button>
+        <script>
+        var socket = io();
+            function openBid(){
+                var auctionInput = document.getElementById("auctionInput").value
+                socket.emit('auction_bid', { auctionInput });
+            }
+            socket.on('bid_update', function(data) {
+                document.getElementById("highestBidder_get").value = data.highest_bidder_id;
+                document.getElementById("highestBid_get").value = data.highest_bid;
+            });
+            function link(){
+                var m = document.getElementById("m").value
+                var k = document.getElementById("k").value
+                var c = document.getElementById("c").value
+                var e = document.getElementById("e").value
+                socket.emit('linkUpdate', { m,k,c,e });
+            }
+        </script>
+</body>
+</html>
+    

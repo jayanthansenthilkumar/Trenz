@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    gap: 50px;
+  }
+  
+  .card {
+    width: 220px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.6s ease;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+  }
+  
+  /* Flip animation */
+  @keyframes flip {
+    0%   { transform: rotateY(0); }
+    100% { transform: rotateY(180deg); }
+  }
+  
+  .rotate {
+    animation: flip 0.6s ease-in-out;
+  }
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 30px 50px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  }
+  
+  .popup-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #2c5364;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .card.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    filter: grayscale(100%);
+  }
+  @keyframes explode {
+    0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  
+  .card.explode::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 280px;
+    background: radial-gradient(circle, #ffdd57 10%, transparent 70%);
+    border-radius: 50%;
+    animation: explode 0.6s ease-out forwards;
+    z-index: 5;
+  }
+  .card.nuke {
+    z-index: 10;
+    animation: nuke-blast 1.2s ease-in-out forwards;
+  }
+  
+  @keyframes nuke-blast {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    30% {
+      transform: scale(3) rotate(10deg);
+      box-shadow: 0 0 50px 30px rgba(255, 255, 0, 0.6);
+    }
+    60% {
+      transform: scale(3) rotate(-10deg);
+      box-shadow: 0 0 100px 60px rgba(255, 69, 0, 0.8);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      box-shadow: none;
+    }
+  }
+  
+    
+  
+  

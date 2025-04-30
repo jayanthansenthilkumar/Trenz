@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - CODE REWIND</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <!-- Left: Credentials Table -->
+            <div class="user-info">
+                <table>
+                    <tr>
+                        <td><strong>Email:</strong> {{ user.email }}</td>
+                        <td><strong>Is Admin:</strong> {{ 'Yes' if user.is_admin else 'No' }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Username:</strong> {{ user.username }}</td>
+                        <td><strong>Team Members:</strong> {{ user.team_members or "No team members assigned" }}</td>
+                    </tr>
+                    <tr>
+                        <td>Fairness Points:{{user.fairness_points}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Center: CODE REWIND Title -->
+            <div class="title">
+                <h1>CODE REWIND</h1>
+            </div>
+
+            <!-- Right: Logout Button -->
+            <div class="logout-section">
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <p class="description">
+                It's a coding contest where your skills of logical reasoning, coding under timing pressure, challenges, and on-spot ideation will be tested.<b>Use of internet is allowed only to view syntax</b>
+            </p>
+        </div>
+
+
+
+               <!-- NEW Leaderboard Section -->
+               <div class="main-content">
+                <p class="description">
+                    View the Leader Board
+                </p>
+            </div>
+            <div class="open-button-section">
+                <button class="open-btn" onclick="leaderboard()">Open</button>
+            </div>
+            <!-- End of Leaderboard Section -->
+    
+        </div>
+    
+
+        <div class="main-content">
+            <p class="description">
+                Open to play cards
+
+            </p>
+        </div>
+        <div class="open-button-section">
+            <button class="open-btn" onclick="cards()">Open</button>
+        </div>
+
+        <div class="main-content">
+            <p class="description">
+                It's a bidding time
+            </p>
+        </div>
+        <div class="open-button-section">
+            {% if user.isOpen == 1 %}
+                <button class="open-btn" onclick="bid()">Open</button>
+            {% else %}
+                <button class="open-btn" disabled>Closed</button>
+            {% endif %}
+        </div>
+        
+
+        <script>
+            function cards() {
+                window.location.href = "indexcards";
+            }
+            function bid() {
+                window.location.href = "bids";
+            }
+            function leaderboard() {
+                window.location.href = "leaderboard";
+            }
+            // socket.on('auction_status_changed', (data) => {
+            //     if (data.isOpen === 0) {
+            //         // Redirect user when auction is closed
+            //         window.location.href = "/user_dashboard";
+            //     }
+            // });
+        </script>
+        
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rotating Royal Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="card m"><img src="{{ url_for('static', filename='images/m.png') }}" alt="M" /></div>
+    <div class="card k"><img src="{{ url_for('static', filename='images/k.png') }}" alt="K" /></div>
+    <div class="card c"><img src="{{ url_for('static', filename='images/c.png') }}" alt="C" /></div>
+    <div class="card e"><img src="{{ url_for('static', filename='images/e.png') }}" alt="E" /></div>
+  </div>
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span id="popup-message"></span>
+      <div style="margin-top: 20px;">
+        <button id="choose-btn">Choose</button>
+        <button onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
