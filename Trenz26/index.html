@@ -7,28 +7,29 @@
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="assistant.css">
+    <link rel="stylesheet" href="styles.css?v=2.0">
+    <link rel="stylesheet" href="assistant.css?v=2.0">
     <style>
-        /* Active link styling - Fixed with proper color values */
+        /* Active link styling - Updated with new gradient colors */
         .sidebar .nav-links li.active {
-            background-color: #4361ee; /* Using direct color instead of var(--primary-color) */
-            border-radius: 6px;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+            border-radius: 12px !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.5) !important;
         }
 
         .sidebar .nav-links li.active a {
-            color: #fff;
+            color: #fff !important;
         }
 
         .sidebar .nav-links li.active a .icon {
-            color: #fff;
+            color: #fff !important;
         }
 
-        /* Hover effect */
+        /* Hover effect - Updated */
         .sidebar .nav-links li:hover {
-            background-color: rgba(67, 97, 238, 0.1); /* Using rgba value directly */
-            border-radius: 6px;
+            background: rgba(240, 147, 251, 0.2) !important;
+            border-radius: 12px !important;
         }
     </style>
 </head>
