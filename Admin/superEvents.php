@@ -87,10 +87,10 @@ while($row1 = mysqli_fetch_assoc($result1)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trenz'25</title>
+    <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* Tab styling */
@@ -142,23 +142,23 @@ while($row1 = mysqli_fetch_assoc($result1)){
                 <h2>Trenz</h2>
                 <span class="admin-label">Superadmin</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
-                    <i class="ri-menu-line"></i>
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
             <div class="sidebar-content">
                 <nav class="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="superDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
+                            <a href="superDashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="manageAdmin.php"><i class="ri-admin-line"></i> Manage Admin</a>
+                            <a href="manageAdmin.php"><i class="fas fa-user-shield"></i> Manage Admin</a>
                         </li>
                         <li class="active">
-                            <a href="#"><i class="ri-calendar-event-line"></i> Events</a>
+                            <a href="#"><i class="fas fa-calendar-alt"></i> Events</a>
                         </li>
                         <li>
-                            <a href="participants.php"><i class="ri-group-line"></i> Participants</a>
+                            <a href="participants.php"><i class="fas fa-users"></i> Participants</a>
                         </li>
                     </ul>
                 </nav>
@@ -169,18 +169,18 @@ while($row1 = mysqli_fetch_assoc($result1)){
             <!-- Header -->
             <header class="header">
                 <div class="search-bar">
-                    <i class="ri-search-line"></i>
+                    <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search events, participants...">
                 </div>
                 <div class="header-actions">
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Jayanthan+Senthilkumar&background=2563eb&color=fff" alt="Event Admin">
                         <span>Super Admin</span>
-                        <i class="ri-arrow-down-s-line"></i>
+                        <i class="fas fa-chevron-down"></i>
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+                                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -200,7 +200,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                         <div class="stats-container">
                             <div class="stat-card">
                                 <div class="stat-card-icon blue">
-                                    <i class="ri-code-box-line"></i>
+                                    <i class="fas fa-code"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>WebWeave</h4>
@@ -209,7 +209,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon purple">
-                                    <i class="ri-rocket-2-line"></i>
+                                    <i class="fas fa-rocket"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>NextGen Start</h4>
@@ -218,7 +218,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon orange">
-                                    <i class="ri-apps-2-line"></i>
+                                    <i class="fas fa-mobile-alt"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>App Athon</h4>
@@ -227,7 +227,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon red">
-                                    <i class="ri-error-warning-line"></i>
+                                    <i class="fas fa-bug"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Error : 404</h4>
@@ -236,7 +236,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon teal">
-                                    <i class="ri-code-s-slash-line"></i>
+                                    <i class="fas fa-laptop-code"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Code Rewind</h4>
@@ -245,7 +245,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon indigo">
-                                    <i class="ri-questionnaire-line"></i>
+                                    <i class="fas fa-question-circle"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Code Quest</h4>
@@ -254,7 +254,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon green">
-                                    <i class="ri-file-paper-2-line"></i>
+                                    <i class="fas fa-file-alt"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Build a Resume</h4>
@@ -271,7 +271,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                         <div class="stats-container">
                             <div class="stat-card">
                                 <div class="stat-card-icon blue">
-                                    <i class="ri-code-box-line"></i>
+                                    <i class="fas fa-code"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>WebWeave</h4>
@@ -280,7 +280,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon purple">
-                                    <i class="ri-rocket-2-line"></i>
+                                    <i class="fas fa-rocket"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>NextGen Start</h4>
@@ -289,7 +289,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon orange">
-                                    <i class="ri-apps-2-line"></i>
+                                    <i class="fas fa-mobile-alt"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>App Athon</h4>
@@ -298,7 +298,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon red">
-                                    <i class="ri-error-warning-line"></i>
+                                    <i class="fas fa-bug"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Error : 404</h4>
@@ -307,7 +307,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon teal">
-                                    <i class="ri-code-s-slash-line"></i>
+                                    <i class="fas fa-laptop-code"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Code Rewind</h4>
@@ -316,7 +316,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon indigo">
-                                    <i class="ri-questionnaire-line"></i>
+                                    <i class="fas fa-question-circle"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Code Quest</h4>
@@ -325,7 +325,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
                             </div>
                             <div class="stat-card">
                                 <div class="stat-card-icon green">
-                                    <i class="ri-file-paper-2-line"></i>
+                                    <i class="fas fa-file-alt"></i>
                                 </div>
                                 <div class="stat-card-info">
                                     <h4>Build a Resume</h4>

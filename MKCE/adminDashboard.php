@@ -20,7 +20,7 @@ $amount=250*$count;
     <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="admin-dashboard">
@@ -31,23 +31,23 @@ $amount=250*$count;
                 <h2>Trenz</h2>
                 <span class="admin-label">Events</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
-                    <i class="ri-menu-line"></i>
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
             <div class="sidebar-content">
                 <nav class="sidebar-menu">
                     <ul>
                         <li class="active">
-                            <a href="#"><i class="ri-dashboard-line"></i> Dashboard</a>
+                            <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="events.php"><i class="ri-calendar-event-line"></i> Events</a>
+                            <a href="events.php"><i class="fas fa-calendar-alt"></i> Events</a>
                         </li>
                         <li>
-                            <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
+                            <a href="participants.php"><i class="fas fa-users"></i> Participants</a>
                         </li>
                         <li>
-                            <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
+                            <a href="spotRegistration.php"><i class="fas fa-user-plus"></i> Spot Registration</a>
                         </li>
                     </ul>
                 </nav>
@@ -59,22 +59,22 @@ $amount=250*$count;
             <!-- Header -->
             <header class="header">
                 <div class="search-bar">
-                    <i class="ri-search-line"></i>
+                    <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search events, participants...">
                 </div>
                 <div class="header-actions">
                     <button class="message-btn">
-                        <i class="ri-mail-line"></i>
+                        <i class="fas fa-envelope"></i>
                         <span class="badge">5</span>
                     </button>
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
                         <span>Admin</span>
-                        <i class="ri-arrow-down-s-line"></i>
+                        <i class="fas fa-chevron-down"></i>
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+                                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ $amount=250*$count;
                 <div class="stats-container">
                     <div class="stat-card">
                         <div class="stat-card-icon blue">
-                            <i class="ri-user-add-line"></i>
+                            <i class="fas fa-user-plus"></i>
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Registration</h3>
@@ -106,7 +106,7 @@ $amount=250*$count;
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-icon purple">
-                            <i class="ri-money-dollar-circle-line"></i>
+                            <i class="fas fa-indian-rupee-sign"></i>
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Amount</h3>

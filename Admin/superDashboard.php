@@ -21,10 +21,10 @@ $amount=250*$count+200*$count2;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trenz'25</title>
+    <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="admin-dashboard">
@@ -35,23 +35,23 @@ $amount=250*$count+200*$count2;
                 <h2>Trenz</h2>
                 <span class="admin-label">Superadmin</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
-                    <i class="ri-menu-line"></i>
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
             <div class="sidebar-content">
                 <nav class="sidebar-menu">
                     <ul>
                         <li class="active">
-                            <a href="#"><i class="ri-dashboard-line"></i> Dashboard</a>
+                            <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="manageAdmin.php"><i class="ri-admin-line"></i> Manage Admin</a>
+                            <a href="manageAdmin.php"><i class="fas fa-user-shield"></i> Manage Admin</a>
                         </li>
                         <li>
-                            <a href="superEvents.php"><i class="ri-calendar-event-line"></i> Events</a>
+                            <a href="superEvents.php"><i class="fas fa-calendar-alt"></i> Events</a>
                         </li>
                         <li>
-                            <a href="participants.php"><i class="ri-group-line"></i> Participants</a>
+                            <a href="participants.php"><i class="fas fa-users"></i> Participants</a>
                         </li>
                     </ul>
                 </nav>
@@ -63,18 +63,18 @@ $amount=250*$count+200*$count2;
             <!-- Header -->
             <header class="header">
                 <div class="search-bar">
-                    <i class="ri-search-line"></i>
+                    <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search events, participants...">
                 </div>
                 <div class="header-actions">
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Jayanthan+Senthilkumar&background=2563eb&color=fff" alt="Event Admin">
                         <span>Super Admin</span>
-                        <i class="ri-arrow-down-s-line"></i>
+                        <i class="fas fa-chevron-down"></i>
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+                                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ $amount=250*$count+200*$count2;
                 <div class="stats-container">
                     <div class="stat-card">
                         <div class="stat-card-icon blue">
-                            <i class="ri-user-add-line"></i>
+                            <i class="fas fa-user-plus"></i>
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Registration</h3>
@@ -106,7 +106,7 @@ $amount=250*$count+200*$count2;
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-icon purple">
-                            <i class="ri-money-dollar-circle-line"></i>
+                            <i class="fas fa-indian-rupee-sign"></i>
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Amount</h3>
@@ -115,7 +115,7 @@ $amount=250*$count+200*$count2;
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-icon green">
-                            <i class="ri-team-line"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <div class="stat-card-info">
                             <h3>Intercollege</h3>
@@ -124,7 +124,7 @@ $amount=250*$count+200*$count2;
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-icon orange">
-                            <i class="ri-building-line"></i>
+                            <i class="fas fa-building"></i>
                         </div>
                         <div class="stat-card-info">
                             <h3>Intracollege</h3>

@@ -19,10 +19,10 @@ $result1 = mysqli_query($conn, $sql1);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trenz'25</title>
+    <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -43,23 +43,23 @@ $result1 = mysqli_query($conn, $sql1);
                 <h2>Trenz</h2>
                 <span class="admin-label">Superadmin</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
-                    <i class="ri-menu-line"></i>
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
             <div class="sidebar-content">
                 <nav class="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="superDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
+                            <a href="superDashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="manageAdmin.php"><i class="ri-admin-line"></i> Manage Admin</a>
+                            <a href="manageAdmin.php"><i class="fas fa-user-shield"></i> Manage Admin</a>
                         </li>
                         <li>
-                            <a href="superEvents.php"><i class="ri-calendar-event-line"></i> Events</a>
+                            <a href="superEvents.php"><i class="fas fa-calendar-alt"></i> Events</a>
                         </li>
                         <li class="active">
-                            <a href="#"><i class="ri-group-line"></i> Participants</a>
+                            <a href="#"><i class="fas fa-users"></i> Participants</a>
                         </li>
                     </ul>
                 </nav>
@@ -71,18 +71,18 @@ $result1 = mysqli_query($conn, $sql1);
             <!-- Header -->
             <header class="header">
                 <div class="search-bar">
-                    <i class="ri-search-line"></i>
+                    <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search participants, events...">
                 </div>
                 <div class="header-actions">
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Jayanthan+Senthilkumar&background=2563eb&color=fff" alt="Event Admin">
                         <span>Super Admin</span>
-                        <i class="ri-arrow-down-s-line"></i>
+                        <i class="fas fa-chevron-down"></i>
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+                                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>

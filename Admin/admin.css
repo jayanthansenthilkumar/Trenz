@@ -356,10 +356,10 @@ button, input, select {
     font-size: 1rem;
 }
 
-/* Stats Cards */
+/* Stats Cards - Clean & Aligned */
 .stats-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
     margin-bottom: 1.5rem;
 }
@@ -372,18 +372,18 @@ button, input, select {
     display: flex;
     align-items: center;
     transition: var(--transition);
-    margin-bottom: 1rem;
+    border: 1px solid var(--bg-dark);
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-md);
 }
 
 .stat-card-icon {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
