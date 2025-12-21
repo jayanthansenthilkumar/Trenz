@@ -16,7 +16,7 @@ $CodeQuestcount = 0;
 $Buildcount = 0;
 
 
-$sql = "SELECT * FROM intramkce";
+$sql = "SELECT * FROM events";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_assoc($result)){
@@ -55,14 +55,20 @@ while($row = mysqli_fetch_assoc($result)){
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="admin-dashboard">
@@ -73,23 +79,23 @@ while($row = mysqli_fetch_assoc($result)){
                 <h2>Trenz</h2>
                 <span class="admin-label">Events</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
-                    <i class="fas fa-bars"></i>
+                    <i class="ri-menu-line"></i>
                 </button>
             </div>
             <div class="sidebar-content">
             <nav class="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="adminDashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="adminDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
                         <li  class="active">
-                            <a href="events.php"><i class="fas fa-calendar-alt"></i> Events</a>
+                            <a href="events.php"><i class="ri-calendar-event-line"></i> Events</a>
                         </li>
                         <li>
-                            <a href="participants.php"><i class="fas fa-users"></i> Participants</a>
+                            <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
                         </li>
                         <li>
-                            <a href="spotRegistration.php"><i class="fas fa-user-plus"></i> Spot Registration</a>
+                            <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
                         </li>
                     </ul>
                 </nav>
@@ -101,22 +107,22 @@ while($row = mysqli_fetch_assoc($result)){
             <!-- Header -->
             <header class="header">
                 <div class="search-bar">
-                    <i class="fas fa-search"></i>
+                    <i class="ri-search-line"></i>
                     <input type="text" placeholder="Search events, participants...">
                 </div>
                 <div class="header-actions">
                     <button class="message-btn">
-                        <i class="fas fa-envelope"></i>
+                        <i class="ri-mail-line"></i>
                         <span class="badge">5</span>
                     </button>
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
                         <span><?php echo $userid?></span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="ri-arrow-down-s-line"></i>
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -134,7 +140,7 @@ while($row = mysqli_fetch_assoc($result)){
                             <div class="stats-container">
                                 <div class="stat-card">
                                     <div class="stat-card-icon blue">
-                                        <i class="fas fa-code"></i>
+                                        <i class="ri-code-line"></i>
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>WebWeave</h4>
@@ -143,7 +149,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-card-icon purple">
-                                        <i class="fas fa-rocket"></i>
+                                        <i class="ri-ai-generate"></i>
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>NextGen Start</h4>
@@ -152,7 +158,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-card-icon orange">
-                                        <i class="fas fa-mobile-alt"></i>
+                                        <i class="ri-database-2-line"></i>
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>App Athon</h4>
@@ -161,7 +167,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-card-icon green">
-                                        <i class="fas fa-bug"></i>
+                                        <i class="ri-smartphone-line"></i>
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>Error : 404 NOT FOUND</h4>
@@ -170,7 +176,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-card-icon green">
-                                        <i class="fas fa-laptop-code"></i>
+                                        <i class="ri-smartphone-line"></i>
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>Code Rewind</h4>
@@ -179,7 +185,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-card-icon green">
-                                        <i class="fas fa-question-circle"></i>
+                                        <i class="ri-smartphone-line"></i>
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>Code Quest</h4>
@@ -188,7 +194,7 @@ while($row = mysqli_fetch_assoc($result)){
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-card-icon green">
-                                        <i class="fas fa-file-alt"></i>
+                                        <i class="ri-smartphone-line"></i>
                                     </div>
                                     <div class="stat-card-info">
                                         <h4>Build a Resume</h4>
@@ -203,6 +209,8 @@ while($row = mysqli_fetch_assoc($result)){
         </main>
     </div>
 
+    <div id="tsparticles"></div>
     <script src="script.js"></script>
+    <script src="animations.js"></script>
 </body>
 </html>

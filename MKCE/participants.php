@@ -7,19 +7,19 @@ if (!isset($_SESSION['username'])) {
 }
 $userid = $_SESSION['username'];
 
-$sql = "SELECT * FROM intramkce Where status='0' ";
+$sql = "SELECT * FROM events Where status='0' ";
 $result = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($result);
 
 
-$sql1 = "SELECT * FROM intramkce Where status='1' ";
+$sql1 = "SELECT * FROM events Where status='1' ";
 $result1 = mysqli_query($conn, $sql1);
 
-$sql2 = "SELECT * FROM intramkce Where status='2' ";
+$sql2 = "SELECT * FROM events Where status='2' ";
 $result2 = mysqli_query($conn, $sql2);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,13 @@ $result2 = mysqli_query($conn, $sql2);
     <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -42,23 +48,23 @@ $result2 = mysqli_query($conn, $sql2);
                 <h2>Trenz</h2>
                 <span class="admin-label">Events</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
-                    <i class="fas fa-bars"></i>
+                    <i class="ri-menu-line"></i>
                 </button>
             </div>
             <div class="sidebar-content">
                 <nav class="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="adminDashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="adminDashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="events.php"><i class="fas fa-calendar-alt"></i> Events</a>
+                            <a href="events.php"><i class="ri-calendar-event-line"></i> Events</a>
                         </li>
                         <li class="active">
-                            <a href="participants.php"><i class="fas fa-users"></i> Participants</a>
+                            <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
                         </li>
                         <li>
-                            <a href="spotRegistration.php"><i class="fas fa-user-plus"></i> Spot Registration</a>
+                            <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
                         </li>
                     </ul>
                 </nav>
@@ -70,22 +76,22 @@ $result2 = mysqli_query($conn, $sql2);
             <!-- Header -->
             <header class="header">
                 <div class="search-bar">
-                    <i class="fas fa-search"></i>
+                    <i class="ri-search-line"></i>
                     <input type="text" placeholder="Search participants, events...">
                 </div>
                 <div class="header-actions">
                     <button class="message-btn">
-                        <i class="fas fa-envelope"></i>
+                        <i class="ri-mail-line"></i>
                         <span class="badge"><?php echo $count?></span>
                     </button>
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
                         <span><?php echo $userid ?></span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="ri-arrow-down-s-line"></i>
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -132,6 +138,7 @@ $result2 = mysqli_query($conn, $sql2);
                                         <th>Trenz ID</th>
                                         <th>Register Number</th>
                                         <th>Name</th>
+                                        <th>College Name</th>
                                         <th>Events</th>
                                         <th>Payment Details</th>
                                         <th>Action</th>
@@ -146,12 +153,13 @@ $result2 = mysqli_query($conn, $sql2);
                                             <td><?php echo $row['Trenzid']; ?></td>
                                             <td><?php echo $row['regno']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['collegename']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
                                             <td><button class="payment-btn" data-id="<?php echo $row['Trenzid']; ?>">View Payment</button>
                                             </td>
                                             <td class="action-buttons">
-                                                <button class="btn-icon accept userapprove" value="<?php echo $row['id']; ?>"><i class="fas fa-check"></i></button>
-                                                <!-- <button class="btn-icon reject"><i class="fas fa-times"></i></button> -->
+                                                <button class="btn-icon accept userapprove" value="<?php echo $row['id']; ?>"><i class="ri-check-line"></i></button>
+                                                <!-- <button class="btn-icon reject"><i class="ri-close-line"></i></button> -->
                                             </td>
                                         </tr>
                                     <?php
@@ -190,9 +198,8 @@ $result2 = mysqli_query($conn, $sql2);
                                 <thead>
                                     <tr>
                                         <th>Trenz ID</th>
-                                        <th>Register No</th>
                                         <th>Name</th>
-                                        <th>Department</th>
+                                        <th>College Name</th>
                                         <th>Events</th>
                                         <th>Payment Status</th>
 
@@ -205,9 +212,8 @@ $result2 = mysqli_query($conn, $sql2);
                                     ?>
                                         <tr>
                                             <td><?php echo $row['Trenzid']; ?></td>
-                                            <td><?php echo $row['regno']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['depart']; ?></td>
+                                            <td><?php echo $row['collegename']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
                                             <td><span class="status-badge completed">Paid</span></td>
 
@@ -247,12 +253,12 @@ $result2 = mysqli_query($conn, $sql2);
                         <div class="datatable-wrapper">
                             <table class="datatable" id="spot-registration-table">
                                 <thead>
-                                <tr>
+                                    <tr>
                                         <th>Trenz ID</th>
-                                        <th>Register No</th>
                                         <th>Name</th>
-                                        <th>Department</th>
+                                        <th>College Name</th>
                                         <th>Events</th>
+
                                         <th>Payment Status</th>
 
                                     </tr>
@@ -264,10 +270,10 @@ $result2 = mysqli_query($conn, $sql2);
                                     ?>
                                     <tr>
                                             <td><?php echo $row['Trenzid']; ?></td>
-                                            <td><?php echo $row['regno']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['depart']; ?></td>
+                                            <td><?php echo $row['collegename']; ?></td>
                                             <td><?php echo $row['events1']; ?></td>
+                                            
                                             <td><span class="status-badge completed">Paid</span></td>
 
                                         </tr>
@@ -287,7 +293,7 @@ $result2 = mysqli_query($conn, $sql2);
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3>Payment Details</h3>
-                        <button class="modal-close"><i class="fas fa-times"></i></button>
+                        <button class="modal-close"><i class="ri-close-line"></i></button>
                     </div>
                     <div class="modal-body">
                         <div class="payment-info">
@@ -324,7 +330,10 @@ $result2 = mysqli_query($conn, $sql2);
                                 <span class="info-label">Payment Date:</span>
                                 <span class="info-value" id="payment-date"></span>
                             </div>
-                            
+                            <div class="info-row">
+                                <span class="info-label">ID card:</span>
+                                <img src="" id="IdImage" alt="" width="150px" height="150px">
+                            </div>
                             <div class="info-row">
                                 <span class="info-label">Payment Proof:</span>
                                 <img src="" id="PaymentImage" alt="" width="150px" height="150px">
@@ -367,6 +376,7 @@ $result2 = mysqli_query($conn, $sql2);
                         $('#payment-date').text(response.data.date);
                         $('#payment-participant-Email').text(response.data.email);
                         $('#payment-participant-phone').text(response.data.phoneno);
+                        $('#IdImage').attr('src', 'assets/idcard/' + response.data.idcard);
                         $('#PaymentImage').attr('src', 'assets/payment/' + response.data.paymentproof);
                         $('#payment-modal').show();
                     } else {
@@ -412,6 +422,8 @@ $result2 = mysqli_query($conn, $sql2);
 
         })
     </script>
+    <div id="tsparticles"></div>
+    <script src="animations.js"></script>
 </body>
 
 </html>

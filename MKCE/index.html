@@ -1,39 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assistant.css">
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    
     <style>
-        /* Active link styling - Simple colors */
+        /* Active link styling - Zoho Theme */
         .sidebar .nav-links li.active {
-            background: #2563eb;
-            border-radius: 10px;
+            background: var(--primary-color);
+            border-radius: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.25);
         }
 
         .sidebar .nav-links li.active a {
-            color: #fff;
+            color: var(--text-inverse);
         }
 
         .sidebar .nav-links li.active a .icon {
-            color: #fff;
+            color: var(--text-inverse);
         }
 
         /* Hover effect */
         .sidebar .nav-links li:hover {
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 10px;
+            background: rgba(231, 76, 60, 0.15);
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
+    <!-- tsParticles Container -->
+    <div id="tsparticles"></div>
+    
     <div class="container">
         <div class="sidebar">            
             <ul class="nav-links">
@@ -77,9 +93,8 @@
         </div>
         <!-- Content area with hero section -->
         <div class="content-area">
-            <div id="particles-js"></div>
             <div class="hero-section" id="home">
-                <div class="hero-content">
+                <div class="hero-content gsap-slide-left">
                     <h1>Welcome to Trenz'26</h1>
                     <p>Discover the latest trends and connect with people around the world</p>
                     <div class="hero-cta">
@@ -87,9 +102,9 @@
                         <a href="admin.php" class="secondary-btn">Event Admin</a>
                     </div>
                 </div>
-                <div class="hero-image">
+                <div class="hero-image gsap-slide-right">
                     <div class="pin"></div>
-                    <div class="notice-content">
+                    <div class="notice-content float-animation">
                         <img src="./assets/images/trenz.jpg" alt="Trenz'26 Hero Image">
                     </div>
                 </div>
@@ -101,7 +116,7 @@
                     <div class="section-divider"></div>
                 </div>
                 <div class="about-content">
-                    <div class="about-text">
+                    <div class="about-text gsap-fade-in">
                         <h3>Connecting Minds, Creating Future</h3>
                         <p>The Trenz'26 - An Intercollegiate Skill Fest is an annual gathering of thought leaders, researchers, and industry professionals dedicated to exploring cutting-edge innovations and emerging trends across disciplines.</p>
                         <div class="about-info-container">
@@ -400,53 +415,81 @@
             </div>
             <!-- End Contact Section -->
             
-            <!-- Footer Section -->
+            <!-- Footer Section - Enhanced Larger Footer -->
             <div class="footer-section">
+                <!-- Color Palette Display -->
+                <div class="footer-palette" id="color-palette">
+                    <div class="palette-item">
+                        <div class="palette-color primary"></div>
+                        <span class="palette-label">Primary</span>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-color secondary"></div>
+                        <span class="palette-label">Secondary</span>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-color accent"></div>
+                        <span class="palette-label">Accent</span>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-color warning"></div>
+                        <span class="palette-label">Warning</span>
+                    </div>
+                </div>
+                
                 <div class="footer-content">
                     <div class="footer-column">
                         <h3>About Trenz'26</h3>
-                        <p>A national level technical symposium bringing together innovative minds from across the country.</p>
+                        <p>A national level technical symposium bringing together innovative minds from across the country. Experience the future of technology and innovation.</p>
                         <div class="footer-social">
-                            <a href="#"><i class="ri-facebook-fill"></i></a>
-                            <a href="#"><i class="ri-twitter-fill"></i></a>
-                            <a href="#"><i class="ri-instagram-line"></i></a>
-                            <a href="#"><i class="ri-linkedin-fill"></i></a>
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                     <div class="footer-column">
                         <h3>Quick Links</h3>
                         <ul class="footer-links">
                             <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
+                            <li><a href="#about">About Us</a></li>
                             <li><a href="#events">Events</a></li>
                             <li><a href="#sponsors">Sponsors</a></li>
-                            <li><a href="register.php">Register</a></li>
+                            <li><a href="register.php">Register Now</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h3>Contact Us</h3>
                         <ul class="footer-contact">
-                            <li><i class="ri-map-pin-line"></i> MKCE KARUR</li>
-                            <li><i class="ri-mail-line"></i> trenz2k26@gmail.com</li>
-                            <li><i class="ri-phone-line"></i> +91 63856 50033</li>
+                            <li><i class="fas fa-map-marker-alt"></i> M. Kumarasamy College of Engineering, Karur, Tamil Nadu</li>
+                            <li><i class="fas fa-envelope"></i> trenz2k26@gmail.com</li>
+                            <li><i class="fas fa-phone-alt"></i> +91 63856 50033</li>
+                            <li><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</li>
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h3>Subscribe</h3>
-                        <p>Stay updated with our newsletter</p>
+                        <h3>Stay Connected</h3>
+                        <p>Subscribe to our newsletter for updates and announcements</p>
                         <form class="footer-subscribe">
                             <input type="email" placeholder="Enter your email">
-                            <button type="submit"><i class="ri-send-plane-fill"></i></button>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
                         </form>
+                        <!-- Theme Toggle -->
+                        <div class="theme-toggle-container">
+                            <span>Theme:</span>
+                            <div class="theme-toggle" id="theme-toggle" title="Toggle Dark/Light Mode"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
                     <div class="copyright">
-                        <p>&copy; 2026 Trenz'26. All Rights Reserved.</p>
+                        <p>&copy; 2026 Trenz'26 | M. Kumarasamy College of Engineering. All Rights Reserved.</p>
                     </div>
                     <div class="footer-bottom-links">
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms of Service</a>
+                        <a href="#">Code of Conduct</a>
                     </div>
                 </div>
             </div>
@@ -454,8 +497,8 @@
         </div>
     </div>
     
-    <!-- Particles.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Animation Scripts -->
+    <script src="animations.js"></script>
     <script src="script.js"></script>
     <script src="assistant.js"></script>
     <script>

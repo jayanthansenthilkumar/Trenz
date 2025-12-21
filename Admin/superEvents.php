@@ -83,7 +83,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,13 +91,19 @@ while($row1 = mysqli_fetch_assoc($result1)){
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* Tab styling */
         .tabs-navigation {
             display: flex;
             margin-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .tab-button {
@@ -107,12 +113,12 @@ while($row1 = mysqli_fetch_assoc($result1)){
             cursor: pointer;
             font-size: 16px;
             font-weight: 500;
-            color: #666;
+            color: var(--text-secondary);
             position: relative;
         }
         
         .tab-button.active {
-            color: #2563eb;
+            color: var(--primary-color);
         }
         
         .tab-button.active::after {
@@ -122,7 +128,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
             left: 0;
             width: 100%;
             height: 3px;
-            background: #2563eb;
+            background: var(--primary-color);
         }
         
         .tab-content {
@@ -359,5 +365,7 @@ while($row1 = mysqli_fetch_assoc($result1)){
             });
         });
     </script>
+    <div id="tsparticles"></div>
+    <script src="animations.js"></script>
 </body>
 </html>

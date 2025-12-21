@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Built a Resume - Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
         .single-event-container {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -31,7 +36,7 @@
         .event-title {
             font-size: 2.2rem;
             margin-bottom: 15px;
-            color: #333;
+            color: var(--text-primary);
         }
         
         .event-meta {
@@ -47,11 +52,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #666;
+            color: var(--text-secondary);
         }
         
         .meta-item i {
-            color: #4361ee;
+            color: var(--primary-color);
             font-size: 1.1rem;
         }
         
@@ -71,7 +76,7 @@
             padding-left: 30px;
             position: relative;
             line-height: 1.6;
-            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            border-bottom: 1px dashed rgba(231, 76, 60, 0.1);
             margin-bottom: 5px;
             display: flex;
             flex-wrap: wrap;
@@ -81,7 +86,7 @@
         .rules-list li strong {
             display: inline-block;
             min-width: 140px;
-            color: #333;
+            color: var(--text-primary);
             font-weight: 600;
             margin-right: 10px;
         }
@@ -97,7 +102,7 @@
             font-weight: 900;
             position: absolute;
             left: 0;
-            color: #4361ee;
+            color: var(--primary-color);
             font-size: 18px;
         }
         
@@ -106,7 +111,7 @@
             margin-top: 8px;
             width: 100%;
             margin-left: 140px;
-            border-left: 2px solid rgba(67, 97, 238, 0.2);
+            border-left: 2px solid rgba(231, 76, 60, 0.2);
             padding-left: 15px;
         }
         
@@ -133,15 +138,15 @@
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             font-size: 14px;
-            color: #4361ee;
+            color: var(--primary-color);
         }
         
         .section-title {
             font-weight: 600;
-            color: #333;
+            color: var(--text-primary);
             margin: 15px 0 8px 0;
             padding-left: 10px;
-            border-left: 3px solid #4361ee;
+            border-left: 3px solid var(--primary-color);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -155,7 +160,7 @@
             align-items: center;
             margin-top: 40px;
             padding: 20px 0;
-            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            border-top: 1px solid rgba(231, 76, 60, 0.1);
             position: relative;
             width: 100%;
             text-align: center;
@@ -169,7 +174,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: rgba(67, 97, 238, 0.8);
+            background: rgba(231, 76, 60, 0.8);
             border-radius: 3px;
         }
         
@@ -188,7 +193,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -197,7 +202,7 @@
         
         .register-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
         }
         
         @media (max-width: 768px) {
@@ -322,7 +327,8 @@
         </div>
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <div id="tsparticles"></div>
     <script src="script.js"></script>
+    <script src="animations.js"></script>
 </body>
 </html>

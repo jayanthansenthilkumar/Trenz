@@ -1,39 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Zoho-Inspired Dual Theme Variables */
+:root {
+    --primary-color: #e74c3c;
+    --primary-hover: #d44637;
+    --secondary-color: #3498db;
+    --accent-color: #27ae60;
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #5a6c7d;
+    --border-color: #e0e5eb;
+    --sidebar-bg: #2c3e50;
+}
+
+[data-theme="dark"] {
+    --primary-color: #e74c3c;
+    --primary-hover: #ec6b5e;
+    --secondary-color: #5dade2;
+    --accent-color: #2ecc71;
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #1f2937;
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --border-color: #2d3748;
+    --sidebar-bg: #0f0f1a;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    -ms-overflow-style: none; /* IE and Edge */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -ms-overflow-style: none;
 }
 
 html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: scroll; /* Allow vertical scrolling */
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 body {
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, and Opera */
+    display: none;
 }
 
 .container {
     display: flex;
     height: 100vh;
     width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling in container */
+    overflow-x: hidden;
 }
 
 /* Sidebar Styles */
@@ -41,7 +69,7 @@ body::-webkit-scrollbar {
     position: fixed;
     height: 50vh;
     width: 80px;
-    background: #212529;
+    background: var(--sidebar-bg);
     color: #fff;
     transition: all 0.3s ease;
     z-index: 100;
@@ -233,13 +261,13 @@ body::-webkit-scrollbar {
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .hero-content p {
     font-size: 1.2rem;
     line-height: 1.6;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 30px;
     max-width: 600px;
 }
@@ -250,7 +278,7 @@ body::-webkit-scrollbar {
 }
 
 .primary-btn, .secondary-btn {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 1rem;
     font-weight: 500;
     padding: 12px 24px;
@@ -260,27 +288,27 @@ body::-webkit-scrollbar {
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
-    text-decoration: none; /* Add this to remove underline */
+    text-decoration: none;
 }
 
 .primary-btn {
-    background-color: #4361ee;
+    background-color: var(--primary-color);
     color: white;
     border: none;
 }
 
 .primary-btn:hover {
-    background-color: #3a56d4;
+    background-color: var(--primary-hover);
 }
 
 .secondary-btn {
     background-color: transparent;
-    color: #4361ee;
-    border: 1px solid #4361ee;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 .secondary-btn:hover {
-    background-color: rgba(67, 97, 238, 0.1);
+    background-color: rgba(231, 76, 60, 0.1);
 }
 
 /* Hero Image as Pinned Notice */
@@ -294,12 +322,12 @@ body::-webkit-scrollbar {
 }
 
 .hero-image .notice-content {
-    background-color: #fff;
-    border-radius: 10px; /* Larger radius */
-    padding: 1px; /* Increased padding */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow */
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 1px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     transform: rotate(2deg);
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color);
     position: relative;
     max-width: 100%;
     transition: transform 0.3s ease;
@@ -350,14 +378,14 @@ body::-webkit-scrollbar {
 .section-header h2 {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 15px;
 }
 
 .section-divider {
     height: 4px;
     width: 60px;
-    background: #4361ee;
+    background: var(--primary-color);
     margin: 0 auto;
     border-radius: 2px;
 }
@@ -431,7 +459,7 @@ body::-webkit-scrollbar {
 .about-text p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 20px;
 }
 
@@ -440,7 +468,7 @@ body::-webkit-scrollbar {
     justify-content: space-between;
     margin-top: 20px;
     flex-wrap: wrap;
-    background: rgba(67, 97, 238, 0.05);
+    background: rgba(231, 76, 60, 0.05);
     padding: 20px;
     border-radius: 10px;
 }
@@ -455,7 +483,7 @@ body::-webkit-scrollbar {
 .stat-number {
     font-size: 2rem;
     font-weight: 600;
-    color: #4361ee;
+    color: var(--primary-color);
     margin-bottom: 5px;
 }
 
@@ -495,7 +523,7 @@ body::-webkit-scrollbar {
 }
 
 .about-objectives {
-    border-left: 4px solid #4361ee;
+    border-left: 4px solid var(--primary-color);
 }
 
 .about-why-attend {
@@ -518,7 +546,7 @@ body::-webkit-scrollbar {
 }
 
 .about-objectives h4 {
-    color: #4361ee;
+    color: var(--primary-color);
 }
 
 .about-why-attend h4 {
@@ -536,7 +564,7 @@ body::-webkit-scrollbar {
 }
 
 .about-objectives h4::after {
-    background: #4361ee;
+    background: var(--primary-color);
 }
 
 .about-why-attend h4::after {
@@ -565,7 +593,7 @@ body::-webkit-scrollbar {
 }
 
 .objective-list li i {
-    color: #4361ee;
+    color: var(--primary-color);
 }
 
 .why-attend-list li i {
@@ -797,17 +825,17 @@ html {
 }
 
 .event-card {
-    position: relative;  /* Add this to make absolute positioning work */
-    background: white;
+    position: relative;
+    background: var(--bg-secondary);
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 330px;  /* Reduced from 380px */
+    max-width: 330px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
 }
 
 .event-card:hover {
@@ -834,7 +862,7 @@ html {
 }
 
 .event-date {
-    background: #4361ee;
+    background: var(--primary-color);
     color: white;
     padding: 15px;
     border-radius: 10px;
@@ -861,9 +889,9 @@ html {
 }
 
 .event-details h3 {
-    font-size: 1.2rem;  /* Reduced from 1.3rem */
-    color: #333;
-    margin-bottom: 10px; /* Reduced from 15px */
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
     position: relative;
     display: inline-block;
 }
@@ -887,34 +915,34 @@ html {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #666;
+    color: var(--text-secondary);
     font-size: 0.9rem;
-    margin-bottom: 0;  /* Remove bottom margin since it's handled by event-meta */
+    margin-bottom: 0;
 }
 
 .event-description {
-    font-size: 0.85rem;  /* Reduced from 0.9rem */
-    color: #666;
-    margin: 8px 0;  /* Reduced from 10px */
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 8px 0;
     line-height: 1.6;
 }
 
 .event-btn {
-    display: block;  /* Changed from inline-flex to block */
-    width: fit-content;  /* Added to make button take only necessary width */
-    margin: 12px auto;  /* Reduced from 15px */
+    display: block;
+    width: fit-content;
+    margin: 12px auto;
     background: transparent;
-    color: #4361ee;
-    border: 2px solid #4361ee;
-    padding: 5px 14px;  /* Reduced from 6px 16px */
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 5px 14px;
     border-radius: 6px;
     font-weight: 500;
-    font-size: 0.85rem;  /* Reduced from 0.9rem */
+    font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.4s ease;
     align-items: center;
     gap: 8px;
-    text-decoration: none;  /* Ensure no underline on buttons */
+    text-decoration: none;
     position: relative;
     overflow: hidden;
 }
@@ -959,8 +987,8 @@ html {
 }
 
 .technical .event-type {
-    background-color: rgba(67, 97, 238, 0.1);
-    color: #4361ee;
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--primary-color);
 }
 
 .non-technical .event-type {
@@ -969,8 +997,8 @@ html {
 }
 
 .technical .event-btn {
-    border-color: #4361ee;
-    color: #4361ee;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .non-technical .event-btn {
@@ -979,7 +1007,7 @@ html {
 }
 
 .technical .event-btn:hover {
-    background: #4361ee;
+    background: var(--primary-color);
     color: white;
 }
 
@@ -993,7 +1021,7 @@ html {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
-    background: rgba(67, 97, 238, 0.05);
+    background: rgba(231, 76, 60, 0.05);
     border-radius: 8px;
     padding: 8px 12px;
 }
@@ -1005,12 +1033,12 @@ html {
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #4361ee;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--bg-secondary);
     padding: 8px 16px;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -1365,7 +1393,7 @@ html {
 /* Event Pages Specific Styles */
 body.event-page {
     min-height: 100vh;
-    background: #f0f2f5;
+    background: var(--bg-primary);
     padding-bottom: 40px;
 }
 
@@ -1384,10 +1412,10 @@ body.event-page {
 
 /* Footer Styles */
 .event-footer {
-    background: linear-gradient(to right, #212529, #343a40);
+    background: linear-gradient(to right, var(--sidebar-bg), #3a4a5e);
     color: #fff;
-    padding: 15px 30px;  /* Reduced padding */
-    margin-top: 40px;  /* Reduced from 60px */
+    padding: 15px 30px;
+    margin-top: 40px;
     position: relative;
     z-index: 1;
     display: flex;
@@ -1476,14 +1504,14 @@ body.event-page {
 }
 
 .patron-card {
-    background: white;
+    background: var(--bg-secondary);
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 350px;
     min-width: 350px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
 }
 
 .patron-card:hover {
@@ -1515,12 +1543,12 @@ body.event-page {
 
 .patron-details h3 {
     font-size: 1.3rem;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 8px;
 }
 
 .patron-title {
-    color: #4361ee;
+    color: var(--primary-color);
     font-weight: 500;
     font-size: 1rem;
     margin-bottom: 12px;
@@ -1528,7 +1556,7 @@ body.event-page {
 
 .patron-description {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -1553,9 +1581,9 @@ body.event-page {
 }
 
 .contact-link.phone {
-    background-color: rgba(67, 97, 238, 0.1);
-    color: #4361ee;
-    border: 1px solid rgba(67, 97, 238, 0.2);
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(231, 76, 60, 0.2);
 }
 
 .contact-link.whatsapp {
@@ -1565,7 +1593,7 @@ body.event-page {
 }
 
 .contact-link.phone:hover {
-    background-color: #4361ee;
+    background-color: var(--primary-color);
     color: white;
     transform: translateY(-3px);
 }
@@ -1621,7 +1649,7 @@ body.event-page {
 }
 
 .scroll-btn:hover {
-    background: #4361ee;
+    background: var(--primary-color);
     color: white;
 }
 
@@ -1825,7 +1853,7 @@ body.event-page {
 }
 
 .contact-card {
-    background: white;
+    background: var(--bg-secondary);
     border-radius: 12px;
     padding: 30px 25px;
     text-align: center;
@@ -1834,7 +1862,7 @@ body.event-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top: 4px solid #4361ee;
+    border-top: 4px solid var(--primary-color);
 }
 
 .contact-card:hover {
@@ -1848,7 +1876,7 @@ body.event-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(67, 97, 238, 0.1);
+    background: rgba(231, 76, 60, 0.1);
     border-radius: 50%;
     margin-bottom: 20px;
     transition: all 0.3s ease;
@@ -1856,11 +1884,11 @@ body.event-page {
 
 .card-icon i {
     font-size: 32px;
-    color: #4361ee;
+    color: var(--primary-color);
 }
 
 .contact-card:hover .card-icon {
-    background: #4361ee;
+    background: var(--primary-color);
 }
 
 .contact-card:hover .card-icon i {
@@ -1871,22 +1899,22 @@ body.event-page {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 15px;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .contact-card p {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
 .contact-card a {
-    color: #666;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .contact-card a:hover {
-    color: #4361ee;
+    color: var(--primary-color);
 }
 
 /* Responsive styles for contact section */
@@ -1906,7 +1934,7 @@ body.event-page {
 
 /* Footer Section Styling */
 .footer-section {
-    background: linear-gradient(to right, #212529, #343a40);
+    background: linear-gradient(to right, var(--sidebar-bg), #3a4a5e);
     color: #fff;
     padding: 60px 40px 0;
     position: relative;
@@ -1939,7 +1967,7 @@ body.event-page {
     bottom: 0;
     width: 40px;
     height: 3px;
-    background: #4361ee;
+    background: var(--primary-color);
 }
 
 .footer-column p {
@@ -1966,7 +1994,7 @@ body.event-page {
 }
 
 .footer-social a:hover {
-    background: #4361ee;
+    background: var(--primary-color);
     transform: translateY(-3px);
 }
 
@@ -2001,7 +2029,7 @@ body.event-page {
 
 .footer-contact i {
     font-size: 18px;
-    color: #4361ee;
+    color: var(--primary-color);
 }
 
 .footer-subscribe {
@@ -2024,7 +2052,7 @@ body.event-page {
 }
 
 .footer-subscribe button {
-    background: #4361ee;
+    background: var(--primary-color);
     border: none;
     color: white;
     padding: 0 15px;
@@ -2034,7 +2062,7 @@ body.event-page {
 }
 
 .footer-subscribe button:hover {
-    background: #3a56d4;
+    background: var(--primary-hover);
 }
 
 .footer-bottom {

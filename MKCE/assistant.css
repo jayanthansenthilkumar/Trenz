@@ -1,22 +1,22 @@
-/* Trenz'26 Assistant - Clean Design */
+/* Trenz'26 Assistant - Zoho-Inspired Dual Theme */
 .ai-assistant {
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 9999;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .assistant-button {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: #2563eb;
+    background: var(--primary-color, #e74c3c);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.35);
     transition: all 0.3s ease;
     animation: pulse 2s infinite;
     position: fixed;
@@ -28,7 +28,7 @@
 .assistant-button:hover {
     transform: scale(1.08);
     animation: none;
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.45);
 }
 
 .assistant-button i {
@@ -42,7 +42,7 @@
     right: 0;
     width: 360px;
     height: 500px;
-    background: #ffffff;
+    background: var(--bg-secondary, #ffffff);
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     overflow: hidden;
@@ -52,7 +52,7 @@
     transform: translateY(20px) scale(0.9);
     pointer-events: none;
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color, #e0e5eb);
 }
 
 .assistant-container.active {
@@ -402,13 +402,13 @@
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6);
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.6);
     }
     70% {
-        box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+        box-shadow: 0 0 0 15px rgba(231, 76, 60, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
     }
 }
 

@@ -1,4 +1,34 @@
-/* Login Page Styles - Trenz'26 Modern Design */
+/* Login Page Styles - Trenz'26 Zoho-Inspired Dual Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-color: #e74c3c;
+    --primary-hover: #d44637;
+    --secondary-color: #3498db;
+    --accent-color: #27ae60;
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #5a6c7d;
+    --text-light: #7f8c8d;
+    --border-color: #e0e5eb;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    --primary-color: #e74c3c;
+    --primary-hover: #ec6b5e;
+    --secondary-color: #5dade2;
+    --accent-color: #2ecc71;
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #1f2937;
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --text-light: #95a5a6;
+    --border-color: #2d3748;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
 .login-container {
     display: flex;
     justify-content: center;
@@ -7,25 +37,25 @@
     padding: 20px;
     position: relative;
     z-index: 1;
+    background: var(--bg-primary);
 }
 
 /* Standardized Registration Card Styles - Enhanced */
 .registration-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px var(--shadow-color);
     width: 100%;
     max-width: 520px;
     padding: 45px 40px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
     margin: 30px auto;
     min-height: 650px;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(10px);
 }
 
 /* Override for login section */
@@ -35,23 +65,22 @@
 }
 
 .login-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px var(--shadow-color);
     width: 100%;
     max-width: 460px;
     padding: 25px 22px;
     margin: 15px auto;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
 }
 
 .login-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 80px rgba(99, 102, 241, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px var(--shadow-color);
 }
 
 .login-header {
@@ -62,7 +91,7 @@
 .login-header h2 {
     font-size: 2rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-primary);
     margin-bottom: 18px;
 }
 
@@ -77,12 +106,13 @@
 .select-with-icon select {
     width: 100%;
     padding: 16px 50px 16px 18px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-color);
     border-radius: 12px;
     font-size: 0.95rem;
     transition: all 0.3s ease;
-    background: #f8fafc;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background: var(--bg-secondary);
+    box-shadow: 0 1px 3px var(--shadow-color);
+    color: var(--text-primary);
 }
 
 .input-with-icon i {
@@ -96,14 +126,14 @@
 
 .input-with-icon input:focus,
 .select-with-icon select:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
     outline: none;
-    background: #ffffff;
+    background: var(--bg-secondary);
 }
 
 .input-with-icon input:focus + i {
-    color: #2563eb;
+    color: var(--primary-color);
 }
 
 .login-form .form-group {
@@ -178,7 +208,7 @@
     padding: 16px;
     border: none;
     border-radius: 12px;
-    background: #2563eb;
+    background: var(--primary-color);
     color: white;
     font-size: 1.05rem;
     font-weight: 600;
@@ -188,13 +218,13 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.25);
 }
 
 .login-btn:hover {
-    background: #1d4ed8;
+    background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 6px 16px rgba(231, 76, 60, 0.35);
 }
 
 .login-btn:active {
@@ -978,13 +1008,13 @@ body.login-page #particles-js {
 /* File upload button styling improvements */
 .file-upload .upload-button {
     padding: 16px 20px;
-    background: #f8fafc;
-    border: 2px dashed #ccc;
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
 }
 
 .file-upload:hover .upload-button {
-    background: #eef2ff;
-    border-color: #2563eb;
+    background: rgba(231, 76, 60, 0.05);
+    border-color: var(--primary-color);
 }
 
 /* Add a subtle border accent to improve visual appeal */
@@ -995,7 +1025,7 @@ body.login-page #particles-js {
     left: 0;
     width: 100%;
     height: 5px;
-    background: #2563eb;
+    background: var(--primary-color);
     border-radius: 12px 12px 0 0;
 }
 

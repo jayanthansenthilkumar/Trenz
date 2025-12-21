@@ -6,21 +6,27 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 $userid = $_SESSION['username'];
-$sql = "SELECT * FROM intramkce  ";
+$sql = "SELECT * FROM events  ";
 $result = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($result);
 $amount=250*$count;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="admin-dashboard">
@@ -31,23 +37,23 @@ $amount=250*$count;
                 <h2>Trenz</h2>
                 <span class="admin-label">Events</span>
                 <button id="sidebar-toggle" class="sidebar-toggle">
-                    <i class="fas fa-bars"></i>
+                    <i class="ri-menu-line"></i>
                 </button>
             </div>
             <div class="sidebar-content">
                 <nav class="sidebar-menu">
                     <ul>
                         <li class="active">
-                            <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="#"><i class="ri-dashboard-line"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="events.php"><i class="fas fa-calendar-alt"></i> Events</a>
+                            <a href="events.php"><i class="ri-calendar-event-line"></i> Events</a>
                         </li>
                         <li>
-                            <a href="participants.php"><i class="fas fa-users"></i> Participants</a>
+                            <a href="participants.php"><i class="ri-user-star-line"></i> Participants</a>
                         </li>
                         <li>
-                            <a href="spotRegistration.php"><i class="fas fa-user-plus"></i> Spot Registration</a>
+                            <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
                         </li>
                     </ul>
                 </nav>
@@ -59,22 +65,22 @@ $amount=250*$count;
             <!-- Header -->
             <header class="header">
                 <div class="search-bar">
-                    <i class="fas fa-search"></i>
+                    <i class="ri-search-line"></i>
                     <input type="text" placeholder="Search events, participants...">
                 </div>
                 <div class="header-actions">
                     <button class="message-btn">
-                        <i class="fas fa-envelope"></i>
+                        <i class="ri-mail-line"></i>
                         <span class="badge">5</span>
                     </button>
                     <div class="user-dropdown">
                         <img src="https://ui-avatars.com/api/?name=Event+Admin&background=2563eb&color=fff" alt="Event Admin">
                         <span>Admin</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="ri-arrow-down-s-line"></i>
                         <!-- User dropdown menu -->
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                <li><a href="logout.php"><i class="ri-logout-box-r-line"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -97,7 +103,7 @@ $amount=250*$count;
                 <div class="stats-container">
                     <div class="stat-card">
                         <div class="stat-card-icon blue">
-                            <i class="fas fa-user-plus"></i>
+                            <i class="ri-user-add-line"></i>
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Registration</h3>
@@ -106,7 +112,7 @@ $amount=250*$count;
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-icon purple">
-                            <i class="fas fa-indian-rupee-sign"></i>
+                            <i class="ri-money-dollar-circle-line"></i>
                         </div>
                         <div class="stat-card-info">
                             <h3>Total Amount</h3>
@@ -122,6 +128,8 @@ $amount=250*$count;
         </main>
     </div>
 
+    <div id="tsparticles"></div>
     <script src="script.js"></script>
+    <script src="animations.js"></script>
 </body>
 </html>
