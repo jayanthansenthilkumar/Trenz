@@ -16,7 +16,7 @@ function createAssistantElements() {
                 <div class="assistant-header">
                     <div class="assistant-title">
                         <i class="ri-robot-line"></i>
-                        <span>Trenz Assistant</span>
+                        <span>Trenz'26 Assistant</span>
                     </div>
                     <div class="assistant-actions">
                         <button class="assistant-minimize" id="assistant-minimize">
@@ -31,7 +31,7 @@ function createAssistantElements() {
                     <div class="chat-messages" id="chat-messages">
                         <div class="message assistant-message">
                             <div class="message-content">
-                                <p>👋 Hi there! I'm your Trenz'25 assistant. How can I help you today?</p>
+                                <p>👋 Hi there! I'm your Trenz'26 assistant. How can I help you today?</p>
                             </div>
                         </div>
                     </div>
@@ -331,12 +331,12 @@ function initializeAssistant() {
         
         // Greetings
         if (userMessageLower.includes('hello') || userMessageLower.includes('hi') || userMessageLower.includes('hey')) {
-            return "Hello there! 👋 I'm your Trenz'25 assistant. I can help you with information about events, registration, schedules, or answer any questions about the symposium. What would you like to know?";
+            return "Hello there! 👋 I'm your Trenz'26 assistant. I can help you with information about events, registration, schedules, or answer any questions about the symposium. What would you like to know?";
         }
         
         // Events information
         if (userMessageLower.includes('event') || userMessageLower.includes('events')) {
-            return "Trenz'25 features 7 exciting events! 🎉\n\n" +
+            return "Trenz'26 features 7 exciting events! 🎉\n\n" +
                    "• Web Weave: Create responsive and innovative website designs\n" +
                    "• NextGen Start: Present your startup ideas to industry experts\n" +
                    "• App A thon: Develop mobile applications solving real-world problems\n" +
@@ -349,22 +349,22 @@ function initializeAssistant() {
         
         // Registration
         if (userMessageLower.includes('register') || userMessageLower.includes('registration') || userMessageLower.includes('sign up')) {
-            return "Registration for Trenz'25 is simple! 📝\n\n1. Choose the event(s) you're interested in\n2. Click on 'View Event' on the event card\n3. On the event page, click the 'Register Now' button\n4. Fill out the registration form\n5. Submit your details\n\nYou'll receive a confirmation email after successful registration. Need help with a specific event registration?";
+            return "Registration for Trenz'26 is simple! 📝\n\n1. Choose the event(s) you're interested in\n2. Click on 'View Event' on the event card\n3. On the event page, click the 'Register Now' button\n4. Fill out the registration form\n5. Submit your details\n\nYou'll receive a confirmation email after successful registration. Need help with a specific event registration?";
         }
         
         // Contact information (general)
         if (userMessageLower.includes('contact') || userMessageLower.includes('reach') || userMessageLower.includes('talk to')) {
-            return "You can reach the Trenz'25 team through:\n\n📧 Email: trenz2k25@gmail.com\n📱 Phone: +91 9791852116\n📍 Location: MKCE KARUR\n\nWould you like me to show you the contact details of our event coordinators? Just type 'Contact coordinators' and I'll provide their information with direct call and WhatsApp options.";
+            return "You can reach the Trenz'26 team through:\n\n📧 Email: trenz2k26@gmail.com\n📱 Phone: +91 9791852116\n📍 Location: MKCE KARUR\n\nWould you like me to show you the contact details of our event coordinators? Just type 'Contact coordinators' and I'll provide their information with direct call and WhatsApp options.";
         }
         
         // Date and time
         if (userMessageLower.includes('date') || userMessageLower.includes('when') || userMessageLower.includes('time') || userMessageLower.includes('schedule')) {
-            return "📅 Trenz'25 will be held on April 30, 2025 from 9:00 AM to 6:00 PM at MKCE KARUR. Make sure to mark your calendar! Is there a specific event schedule you'd like to know about?";
+            return "📅 Trenz'26 will be held on April 30, 2026 from 9:00 AM to 6:00 PM at MKCE KARUR. Make sure to mark your calendar! Is there a specific event schedule you'd like to know about?";
         }
         
         // Location
         if (userMessageLower.includes('location') || userMessageLower.includes('venue') || userMessageLower.includes('where')) {
-            return "📍 Trenz'25 will be held at MKCE KARUR (M. Kumarasamy College of Engineering).\n\nAddress: Thalavapalayam, Karur, Tamil Nadu 639113\n\nThe venue is well-equipped with all facilities needed for the technical events. Need directions or transportation information?";
+            return "📍 Trenz'26 will be held at MKCE KARUR (M. Kumarasamy College of Engineering).\n\nAddress: Thalavapalayam, Karur, Tamil Nadu 639113\n\nThe venue is well-equipped with all facilities needed for the technical events. Need directions or transportation information?";
         }
         
         // Transportation
@@ -403,7 +403,7 @@ function initializeAssistant() {
         
         // Prizes
         if (userMessageLower.includes('prize') || userMessageLower.includes('win') || userMessageLower.includes('award')) {
-            return "🏆 Trenz'25 offers exciting prizes for winners! Each event has its own prize structure, typically including:\n\n• First place: Cash prizes + Certificates + Potential internship opportunities\n• Second place: Cash prizes + Certificates\n• Third place: Merit certificates + Gift vouchers\n• Participation certificates for all contestants\n\nThe exact prize details will be announced at the event. Are you aiming for the top spot?";
+            return "🏆 Trenz'26 offers exciting prizes for winners! Each event has its own prize structure, typically including:\n\n• First place: Cash prizes + Certificates + Potential internship opportunities\n• Second place: Cash prizes + Certificates\n• Third place: Merit certificates + Gift vouchers\n• Participation certificates for all contestants\n\nThe exact prize details will be announced at the event. Are you aiming for the top spot?";
         }
         
         // Accommodation

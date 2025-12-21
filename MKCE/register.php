@@ -7,7 +7,7 @@ include "db.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration - Trenz'25</title>
+    <title>Registration - Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="login.css">
@@ -21,7 +21,7 @@ include "db.php";
     <div class="split-login-container">
         <div class="brand-section">
             <div class="brand-content">
-                <h1>Trenz'25</h1>
+                <h1>Trenz'26</h1>
                 <p>Event Registration</p>
             </div>
         </div>

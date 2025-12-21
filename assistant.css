@@ -1,3 +1,4 @@
+/* Trenz'26 Assistant - Modern Design */
 .ai-assistant {
     position: fixed;
     bottom: 30px;
@@ -7,48 +8,52 @@
 }
 
 .assistant-button {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #4361ee, #3a56d4);
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 5px 20px rgba(67, 97, 238, 0.4);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.45);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: pulse 2s infinite;
-    position: fixed;  /* Add fixed positioning */
-    bottom: 20px;    /* Move higher up from bottom */
-    right: 20px;      /* Move more to the right */
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 .assistant-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.12);
     animation: none;
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.55);
 }
 
 .assistant-button i {
     color: white;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 .assistant-container {
     position: absolute;
-    bottom: 80px;
+    bottom: 85px;
     right: 0;
-    width: 350px;
-    height: 500px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 380px;
+    height: 520px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.25);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     opacity: 0;
     transform: translateY(20px) scale(0.9);
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
 .assistant-container.active {
@@ -59,47 +64,50 @@
 
 /* Improved mobile view styles with better height handling */
 .assistant-header {
-    background: linear-gradient(135deg, #4361ee, #3a56d4);
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
     color: white;
-    padding: 15px 20px;
+    padding: 18px 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
 }
 
 .assistant-title {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 500;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 1.05rem;
 }
 
 .assistant-title i {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .assistant-actions {
     display: flex;
-    gap: 8px;
+    gap: 10px;
 }
 
 .assistant-actions button {
-    background: none;
+    background: rgba(255, 255, 255, 0.15);
     border: none;
     color: white;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .assistant-actions button:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
 .assistant-body {
@@ -153,9 +161,10 @@
 }
 
 .user-message .message-content {
-    background: #4361ee;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
     color: white;
     border-bottom-right-radius: 5px;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
 }
 
 .assistant-message .message-content {
@@ -185,7 +194,7 @@
 .chat-typing-indicator span {
     height: 8px;
     width: 8px;
-    background: #4361ee;
+    background: #6366f1;
     border-radius: 50%;
     display: inline-block;
     margin-right: 5px;
@@ -238,17 +247,18 @@
 }
 
 .chat-submit {
-    background: linear-gradient(135deg, #4361ee, #3a56d4);
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
     border: none;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .chat-submit i {
@@ -280,20 +290,24 @@
 
 .quick-question-btn {
     background: white;
-    border: 1px solid #e6e9f4;
+    border: 1px solid rgba(99, 102, 241, 0.15);
     border-radius: 18px;
-    padding: 8px 12px;
+    padding: 8px 14px;
     font-size: 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    color: #4361ee;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #6366f1;
     font-family: 'Poppins', sans-serif;
     flex-shrink: 0;
+    font-weight: 500;
 }
 
 .quick-question-btn:hover {
-    background: #eef0fc;
-    border-color: #4361ee;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    border-color: #6366f1;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 /* Coordinator contact cards with improved scrolling */
@@ -310,24 +324,26 @@
 }
 
 .coordinator-card {
-    background: #f7f9fc;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    border-left: 3px solid #4361ee;
-    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+    border-left: 3px solid #6366f1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
 }
 
 .coordinator-card:hover {
-    transform: translateX(2px);
-    background: #f0f2f9;
+    transform: translateX(4px);
+    background: rgba(99, 102, 241, 0.05);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15);
 }
 
 .coordinator-card.single {
-    border: 1px solid rgba(67, 97, 238, 0.2);
-    background: #f0f4ff;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(79, 70, 229, 0.05) 100%);
     padding: 15px;
+    border-left: 4px solid #6366f1;
 }
 
 .coordinator-name {
@@ -365,13 +381,15 @@
 }
 
 .call-action {
-    background: #e1eaff;
-    color: #4361ee;
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
 }
 
 .call-action:hover {
-    background: #4361ee;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .whatsapp-action {
@@ -393,13 +411,13 @@
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.7);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 15px rgba(67, 97, 238, 0);
+        box-shadow: 0 0 0 18px rgba(99, 102, 241, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
     }
 }
 
@@ -417,13 +435,13 @@
 
 .chat-messages::-webkit-scrollbar-thumb,
 .coordinator-contacts::-webkit-scrollbar-thumb {
-    background: #cfd7f9;
+    background: rgba(99, 102, 241, 0.3);
     border-radius: 10px;
 }
 
 .chat-messages::-webkit-scrollbar-thumb:hover,
 .coordinator-contacts::-webkit-scrollbar-thumb:hover {
-    background: #4361ee;
+    background: #6366f1;
 }
 
 /* Enhanced mobile responsiveness */

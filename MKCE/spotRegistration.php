@@ -12,7 +12,7 @@ $userid = $_SESSION['username'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration - Trenz'25</title>
+    <title>Registration - Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="login.css">
@@ -46,7 +46,7 @@ $userid = $_SESSION['username'];
     <div class="split-login-container">
         <div class="brand-section">
             <div class="brand-content">
-                <h1>Trenz'25</h1>
+                <h1>Trenz'26</h1>
                 <p>Spot Registration</p>
             </div>
         </div>
@@ -60,7 +60,7 @@ $userid = $_SESSION['username'];
                         </button>
                     </div>
                     <div class="tab-content active" id="personal-info">
-                        <h3 class="form-section-title">Trenz'25 Spot Registration</h3>
+                        <h3 class="form-section-title">Trenz'26 Spot Registration</h3>
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="name" name="name" placeholder="Full Name" required>

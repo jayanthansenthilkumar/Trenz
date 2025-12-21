@@ -59,7 +59,7 @@ while($row = mysqli_fetch_assoc($result)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trenz'25</title>
+    <title>Trenz'26</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="admin.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">

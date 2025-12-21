@@ -31,7 +31,7 @@ function createAssistantElements() {
                     <div class="chat-messages" id="chat-messages">
                         <div class="message assistant-message">
                             <div class="message-content">
-                                <p>👋 Hi there! I'm your Trenz'25 assistant. How can I help you today?</p>
+                                <p>👋 Hi there! I'm your Trenz'26 assistant. How can I help you today?</p>
                             </div>
                         </div>
                     </div>
@@ -331,12 +331,12 @@ function initializeAssistant() {
         
         // Greetings
         if (userMessageLower.includes('hello') || userMessageLower.includes('hi') || userMessageLower.includes('hey')) {
-            return "Hello there! 👋 I'm your Trenz'25 assistant. I can help you with information about events, registration, schedules, or answer any questions about the symposium. What would you like to know?";
+            return "Hello there! 👋 I'm your Trenz'26 assistant. I can help you with information about events, registration, schedules, or answer any questions about the symposium. What would you like to know?";
         }
         
         // Events information
         if (userMessageLower.includes('event') || userMessageLower.includes('events')) {
-            return "Trenz'25 features 7 exciting events! 🎉\n\n" +
+            return "Trenz'26 features 7 exciting events! 🎉\n\n" +
                    "• Web Weave: Create responsive and innovative website designs\n" +
                    "• NextGen Start: Present your startup ideas to industry experts\n" +
                    "• App A thon: Develop mobile applications solving real-world problems\n" +
@@ -349,22 +349,22 @@ function initializeAssistant() {
         
         // Registration
         if (userMessageLower.includes('register') || userMessageLower.includes('registration') || userMessageLower.includes('sign up')) {
-            return "Registration for Trenz'25 is simple! 📝\n\n1. Choose the event(s) you're interested in\n2. Click on 'View Event' on the event card\n3. On the event page, click the 'Register Now' button\n4. Fill out the registration form\n5. Submit your details\n\nYou'll receive a confirmation email after successful registration. Need help with a specific event registration?";
+            return "Registration for Trenz'26 is simple! 📝\n\n1. Choose the event(s) you're interested in\n2. Click on 'View Event' on the event card\n3. On the event page, click the 'Register Now' button\n4. Fill out the registration form\n5. Submit your details\n\nYou'll receive a confirmation email after successful registration. Need help with a specific event registration?";
         }
         
         // Contact information (general)
         if (userMessageLower.includes('contact') || userMessageLower.includes('reach') || userMessageLower.includes('talk to')) {
-            return "You can reach the Trenz'25 team through:\n\n📧 Email: trenz2k25@gmail.com\n📱 Phone: +91 9791852116\n📍 Location: MKCE KARUR\n\nWould you like me to show you the contact details of our event coordinators? Just type 'Contact coordinators' and I'll provide their information with direct call and WhatsApp options.";
+            return "You can reach the Trenz'26 team through:\n\n📧 Email: trenz2k26@gmail.com\n📱 Phone: +91 9791852116\n📍 Location: MKCE KARUR\n\nWould you like me to show you the contact details of our event coordinators? Just type 'Contact coordinators' and I'll provide their information with direct call and WhatsApp options.";
         }
         
         // Date and time
         if (userMessageLower.includes('date') || userMessageLower.includes('when') || userMessageLower.includes('time') || userMessageLower.includes('schedule')) {
-            return "📅 Trenz'25 will be held on April 30, 2025 from 9:00 AM to 6:00 PM at MKCE KARUR. Make sure to mark your calendar! Is there a specific event schedule you'd like to know about?";
+            return "📅 Trenz'26 will be held on April 30, 2026 from 9:00 AM to 6:00 PM at MKCE KARUR. Make sure to mark your calendar! Is there a specific event schedule you'd like to know about?";
         }
         
         // Location
         if (userMessageLower.includes('location') || userMessageLower.includes('venue') || userMessageLower.includes('where')) {
-            return "📍 Trenz'25 will be held at MKCE KARUR (M. Kumarasamy College of Engineering).\n\nAddress: Thalavapalayam, Karur, Tamil Nadu 639113\n\nThe venue is well-equipped with all facilities needed for the technical events. Need directions or transportation information?";
+            return "📍 Trenz'26 will be held at MKCE KARUR (M. Kumarasamy College of Engineering).\n\nAddress: Thalavapalayam, Karur, Tamil Nadu 639113\n\nThe venue is well-equipped with all facilities needed for the technical events. Need directions or transportation information?";
         }
         
         // Transportation
@@ -403,7 +403,7 @@ function initializeAssistant() {
         
         // Prizes
         if (userMessageLower.includes('prize') || userMessageLower.includes('win') || userMessageLower.includes('award')) {
-            return "🏆 Trenz'25 offers exciting prizes for winners! Each event has its own prize structure, typically including:\n\n• First place: Cash prizes + Certificates + Potential internship opportunities\n• Second place: Cash prizes + Certificates\n• Third place: Merit certificates + Gift vouchers\n• Participation certificates for all contestants\n\nThe exact prize details will be announced at the event. Are you aiming for the top spot?";
+            return "🏆 Trenz'26 offers exciting prizes for winners! Each event has its own prize structure, typically including:\n\n• First place: Cash prizes + Certificates + Potential internship opportunities\n• Second place: Cash prizes + Certificates\n• Third place: Merit certificates + Gift vouchers\n• Participation certificates for all contestants\n\nThe exact prize details will be announced at the event. Are you aiming for the top spot?";
         }
         
         // Accommodation
@@ -413,7 +413,7 @@ function initializeAssistant() {
         
         // Food
         if (userMessageLower.includes('food') || userMessageLower.includes('lunch') || userMessageLower.includes('refreshment')) {
-            return "🍽️ Food and refreshments during Trenz'25:\n\n• Morning refreshments (tea/coffee/snacks) will be available during registration\n• Lunch will be provided for all registered participants\n• Evening refreshments before the valedictory ceremony\n• Special food requirements (vegetarian/non-vegetarian/allergies) can be specified during registration\n\nAll meals are included in your registration fee - no additional charges!";
+            return "🍽️ Food and refreshments during Trenz'26:\n\n• Morning refreshments (tea/coffee/snacks) will be available during registration\n• Lunch will be provided for all registered participants\n• Evening refreshments before the valedictory ceremony\n• Special food requirements (vegetarian/non-vegetarian/allergies) can be specified during registration\n\nAll meals are included in your registration fee - no additional charges!";
         }
         
         // Team formation
@@ -423,60 +423,60 @@ function initializeAssistant() {
         
         // Internet/Wi-Fi
         if (userMessageLower.includes('wifi') || userMessageLower.includes('internet') || userMessageLower.includes('connection')) {
-            return "📶 Internet connectivity during Trenz'25:\n\n• High-speed Wi-Fi will be available throughout the venue\n• Network credentials will be provided at the registration desk\n• For coding competitions, a dedicated network with higher bandwidth is available\n• For certain competitions like ERROR: 404 NOT FOUND and Code Rewind, internet access may be restricted except for official documentation sites\n\nIf you experience any connectivity issues during the event, our technical team will be available to assist you.";
+            return "📶 Internet connectivity during Trenz'26:\n\n• High-speed Wi-Fi will be available throughout the venue\n• Network credentials will be provided at the registration desk\n• For coding competitions, a dedicated network with higher bandwidth is available\n• For certain competitions like ERROR: 404 NOT FOUND and Code Rewind, internet access may be restricted except for official documentation sites\n\nIf you experience any connectivity issues during the event, our technical team will be available to assist you.";
         }
         
         // Requirements
         if (userMessageLower.includes('bring') || userMessageLower.includes('laptop') || userMessageLower.includes('requirement')) {
-            return "💻 Items to bring to Trenz'25:\n\n• Your laptop with charged battery and charger\n• Required software pre-installed (specific to your event)\n• College ID card or government-issued ID proof\n• Registration confirmation email (printed or digital)\n• Notebook and pen for brainstorming\n• Water bottle (we promote eco-friendly practices)\n• Any specific tools mentioned in your event guidelines\n\nIt's advisable to bring a laptop sleeve or bag for protection. For software requirements specific to your chosen event, please check your event page or contact the respective event coordinator.";
+            return "💻 Items to bring to Trenz'26:\n\n• Your laptop with charged battery and charger\n• Required software pre-installed (specific to your event)\n• College ID card or government-issued ID proof\n• Registration confirmation email (printed or digital)\n• Notebook and pen for brainstorming\n• Water bottle (we promote eco-friendly practices)\n• Any specific tools mentioned in your event guidelines\n\nIt's advisable to bring a laptop sleeve or bag for protection. For software requirements specific to your chosen event, please check your event page or contact the respective event coordinator.";
         }
         
         // COVID/Health protocols
         if (userMessageLower.includes('covid') || userMessageLower.includes('health') || userMessageLower.includes('safety') || userMessageLower.includes('protocol')) {
-            return "🏥 Health and safety at Trenz'25:\n\n• Hand sanitizing stations will be available throughout the venue\n• Medical assistance desk for any health emergencies\n• Well-ventilated event spaces with proper distancing arrangements\n• Clean drinking water available at designated water stations\n• First-aid facilities available on campus\n\nYour safety is our priority. If you have any specific health concerns, please inform us during registration so we can make appropriate arrangements.";
+            return "🏥 Health and safety at Trenz'26:\n\n• Hand sanitizing stations will be available throughout the venue\n• Medical assistance desk for any health emergencies\n• Well-ventilated event spaces with proper distancing arrangements\n• Clean drinking water available at designated water stations\n• First-aid facilities available on campus\n\nYour safety is our priority. If you have any specific health concerns, please inform us during registration so we can make appropriate arrangements.";
         }
         
         // Dress code
         if (userMessageLower.includes('dress code') || userMessageLower.includes('clothing') || userMessageLower.includes('wear')) {
-            return "👔 Dress code for Trenz'25:\n\n• For participants: Smart casual or formal attire is recommended\n• College ID cards should be visible throughout the event\n• For the presentation rounds (especially for NextGen Start): Business formal attire is advised\n\nThere's no strict dress code, but we encourage professional attire as industry professionals and potential recruiters may be present at the event.";
+            return "👔 Dress code for Trenz'26:\n\n• For participants: Smart casual or formal attire is recommended\n• College ID cards should be visible throughout the event\n• For the presentation rounds (especially for NextGen Start): Business formal attire is advised\n\nThere's no strict dress code, but we encourage professional attire as industry professionals and potential recruiters may be present at the event.";
         }
         
         // College details
         if (userMessageLower.includes('mkce') || userMessageLower.includes('college') || userMessageLower.includes('institution')) {
-            return "🏫 About M. Kumarasamy College of Engineering (MKCE):\n\n• Established in 2000 and affiliated with Anna University\n• Accredited by NAAC with 'A++' Grade\n• Known for excellence in technical education and research\n• State-of-the-art infrastructure including advanced labs and auditoriums\n• The campus is spread over 70 acres with modern facilities\n\nMKCE is hosting Trenz'25 as part of its commitment to fostering technical innovation and skill development among students.";
+            return "🏫 About M. Kumarasamy College of Engineering (MKCE):\n\n• Established in 2000 and affiliated with Anna University\n• Accredited by NAAC with 'A++' Grade\n• Known for excellence in technical education and research\n• State-of-the-art infrastructure including advanced labs and auditoriums\n• The campus is spread over 70 acres with modern facilities\n\nMKCE is hosting Trenz'26 as part of its commitment to fostering technical innovation and skill development among students.";
         }
         
         // Department organizing
         if (userMessageLower.includes('department') || userMessageLower.includes('organizing')) {
-            return "🏢 Trenz'25 is organized by the Department of Computer Science and Engineering at MKCE in collaboration with the MKCE Student Technology Community.\n\nThe event has active participation from various technical clubs and student bodies with faculty mentors guiding the organization process. It's designed as a platform for students to showcase their technical skills, innovative thinking, and problem-solving abilities.";
+            return "🏢 Trenz'26 is organized by the Department of Computer Science and Engineering at MKCE in collaboration with the MKCE Student Technology Community.\n\nThe event has active participation from various technical clubs and student bodies with faculty mentors guiding the organization process. It's designed as a platform for students to showcase their technical skills, innovative thinking, and problem-solving abilities.";
         }
         
         // Certification
         if (userMessageLower.includes('certificate') || userMessageLower.includes('certification')) {
-            return "📜 Certification at Trenz'25:\n\n• All registered participants will receive a digital participation certificate\n• Winners will receive merit certificates mentioning their achievement\n• E-certificates will be sent to the email provided during registration within 7 days after the event\n• Physical certificates will be distributed during the valedictory ceremony for those present\n\nCertificates from Trenz are recognized for their value in academic portfolios and can be added to your resume as proof of technical participation.";
+            return "📜 Certification at Trenz'26:\n\n• All registered participants will receive a digital participation certificate\n• Winners will receive merit certificates mentioning their achievement\n• E-certificates will be sent to the email provided during registration within 7 days after the event\n• Physical certificates will be distributed during the valedictory ceremony for those present\n\nCertificates from Trenz are recognized for their value in academic portfolios and can be added to your resume as proof of technical participation.";
         }
         
         // Schedule
         if (userMessageLower.includes('agenda') || userMessageLower.includes('timeline') || userMessageLower.includes('programme')) {
-            return "📋 Trenz'25 Event Schedule (April 30, 2025):\n\n08:00 AM - 09:00 AM: Registration & Welcome Kit Distribution\n09:00 AM - 09:30 AM: Inaugural Ceremony\n09:30 AM - 12:30 PM: Morning Session Events\n12:30 PM - 01:30 PM: Lunch Break\n01:30 PM - 04:30 PM: Afternoon Session Events\n04:30 PM - 05:30 PM: Valedictory & Prize Distribution\n\nDetailed schedule for specific events will be shared with registered participants via email and will also be available at the registration desk.";
+            return "📋 Trenz'26 Event Schedule (April 30, 2026):\n\n08:00 AM - 09:00 AM: Registration & Welcome Kit Distribution\n09:00 AM - 09:30 AM: Inaugural Ceremony\n09:30 AM - 12:30 PM: Morning Session Events\n12:30 PM - 01:30 PM: Lunch Break\n01:30 PM - 04:30 PM: Afternoon Session Events\n04:30 PM - 05:30 PM: Valedictory & Prize Distribution\n\nDetailed schedule for specific events will be shared with registered participants via email and will also be available at the registration desk.";
         }
         
         // Registration Fees
         if (userMessageLower.includes('fee') || userMessageLower.includes('cost') || userMessageLower.includes('payment')) {
-            return "💰 Registration Fees for Trenz'25:\n\n• Individual Events: ₹200 per participant\n• Team Events: ₹150 per team member\n\nThe registration fee includes:\n- Participation in your chosen event\n- Welcome kit with event materials\n- Lunch and refreshments\n- Participation certificate\n\nPayment can be made online during registration or at the venue. Early bird discounts are available for registrations before April 15, 2025.";
+            return "💰 Registration Fees for Trenz'26:\n\n• Individual Events: ₹200 per participant\n• Team Events: ₹150 per team member\n\nThe registration fee includes:\n- Participation in your chosen event\n- Welcome kit with event materials\n- Lunch and refreshments\n- Participation certificate\n\nPayment can be made online during registration or at the venue. Early bird discounts are available for registrations before April 15, 2026.";
         }
         
         // Thanks
         if (userMessageLower.includes('thank') || userMessageLower.includes('thanks')) {
-            return "You're welcome! 😊 I'm glad I could help. Feel free to ask if you have any more questions about Trenz'25. I'm here to assist you 24/7. Wishing you a great experience at our tech symposium!";
+            return "You're welcome! 😊 I'm glad I could help. Feel free to ask if you have any more questions about Trenz'26. I'm here to assist you 24/7. Wishing you a great experience at our tech symposium!";
         }
         
         // Goodbye
         if (userMessageLower.includes('bye') || userMessageLower.includes('goodbye') || userMessageLower.includes('see you')) {
-            return "Goodbye! 👋 Thanks for chatting. Hope to see you at Trenz'25 on April 30! Feel free to return if you have more questions later. Have a great day!";
+            return "Goodbye! 👋 Thanks for chatting. Hope to see you at Trenz'26 on April 30! Feel free to return if you have more questions later. Have a great day!";
         }
         
         // Default response
-        return "Thanks for your question about Trenz'25! I'm here to help with information about our events, registration process, schedules, or any other details you might need. I can also connect you directly with our event coordinators. Could you please be a bit more specific about what you'd like to know, and I'll do my best to assist you?";
+        return "Thanks for your question about Trenz'26! I'm here to help with information about our events, registration process, schedules, or any other details you might need. I can also connect you directly with our event coordinators. Could you please be a bit more specific about what you'd like to know, and I'll do my best to assist you?";
     }
 }

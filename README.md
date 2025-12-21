@@ -1,6 +1,6 @@
-# Trenz'25 - Intercollegiate Skill Fest
+# Trenz'26 - Intercollegiate Skill Fest
 
-![Trenz'25 Logo](Trenz25/assets/images/trenz.png)
+![Trenz'26 Logo](Trenz26/assets/images/trenz.png)
 
 ## 📋 Table of Contents
 - [Overview](#overview)
@@ -20,7 +20,7 @@
 
 ## 🎯 Overview
 
-**Trenz'25** is a comprehensive web-based event management system for an Intercollegiate Skill Fest. The platform facilitates student registration, event management, payment verification, and participant tracking for various technical and non-technical competitions held at MKCE Karur.
+**Trenz'26** is a comprehensive web-based event management system for an Intercollegiate Skill Fest. The platform facilitates student registration, event management, payment verification, and participant tracking for various technical and non-technical competitions held at MKCE Karur.
 
 The symposium brings together thought leaders, researchers, and industry professionals to explore cutting-edge innovations and emerging trends across multiple disciplines including:
 - Web Development
@@ -30,9 +30,9 @@ The symposium brings together thought leaders, researchers, and industry profess
 - Startup Ideation
 - Resume Building
 
-**Event Date:** April 30, 2025  
+**Event Date:** April 30, 2026  
 **Venue:** MKCE Karur  
-**Contact:** trenz2k25@gmail.com | +91 6385650033
+**Contact:** trenz2k26@gmail.com | +91 6385650033
 
 ## ✨ Features
 
@@ -66,7 +66,7 @@ The symposium brings together thought leaders, researchers, and industry profess
 ```
 Trenz/
 │
-├── Trenz25/                          # Main event website (2025)
+├── Trenz26/                          # Main event website (2026)
 │   ├── index.html                    # Landing page
 │   ├── register.php                  # Participant registration
 │   ├── admin.php                     # Admin login
@@ -123,8 +123,8 @@ Trenz/
 │   │
 │   └── MKCE/                         # MKCE specific version
 │
-├── Trenz26/                          # Next year's template (2026)
-│   └── [Similar structure as Trenz25]
+├── Trenz27/                          # Next year's template (2027)
+│   └── [Similar structure as Trenz26]
 │
 └── Schema/
     └── trenz.sql                     # Database schema
@@ -287,7 +287,7 @@ app.config['SECRET_KEY'] = 'your_socket_secret_key'
 ### For Participants
 
 1. **Visit Website**
-   - Navigate to `http://localhost/Trenz/Trenz25/`
+   - Navigate to `http://localhost/Trenz/Trenz26/`
 
 2. **Browse Events**
    - Explore event details from the Events section
@@ -395,7 +395,7 @@ app.config['SECRET_KEY'] = 'your_socket_secret_key'
 
 ### Running Code Rewind
 ```bash
-cd Trenz25/codeRewind
+cd Trenz26/codeRewind
 python app.py
 # Access at http://localhost:5000
 ```
@@ -412,7 +412,7 @@ python app.py
 
 #### `events` Table
 - `id` - Primary key (Auto increment)
-- `Trenzid` - Unique participant ID (TRENZ25XXXX)
+- `Trenzid` - Unique participant ID (TRENZ26XXXX)
 - `name` - Participant name
 - `emailid` - Email address
 - `regno` - College registration number
@@ -546,9 +546,9 @@ Contributions are welcome! Please follow these steps:
 💬 [WhatsApp](https://wa.me/918438796113)
 
 ### Official Contact
-📧 **Email:** trenz2k25@gmail.com  
+📧 **Email:** trenz2k26@gmail.com  
 📍 **Location:** MKCE Karur  
-🌐 **Website:** http://localhost/Trenz/Trenz25/
+🌐 **Website:** http://localhost/Trenz/Trenz26/
 
 ## 🏢 Sponsors
 
@@ -561,7 +561,7 @@ Contributions are welcome! Please follow these steps:
 
 ## 📄 License
 
-This project is developed for **Trenz'25** - An Intercollegiate Skill Fest at MKCE Karur.
+This project is developed for **Trenz'26** - An Intercollegiate Skill Fest at MKCE Karur.
 
 ## 🙏 Acknowledgments
 
@@ -573,14 +573,14 @@ This project is developed for **Trenz'25** - An Intercollegiate Skill Fest at MK
 
 ## 📋 Event Information
 
-**Event Name:** Trenz'25 - An Intercollegiate Skill Fest  
-**Date:** April 30, 2025  
+**Event Name:** Trenz'26 - An Intercollegiate Skill Fest  
+**Date:** April 30, 2026  
 **Time:** 9:00 AM - 6:00 PM  
 **Venue:** MKCE Karur  
 **Registration:** Open  
 
 ---
 
-**Built with ❤️ by Trenz'25 Team**
+**Built with ❤️ by Trenz'26 Team**
 
 *Connecting Minds, Creating Future*
