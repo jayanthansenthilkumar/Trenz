@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assistant.css">
+    <style>
+        /* Active link styling - Fixed with proper color values */
+        .sidebar .nav-links li.active {
+            background-color: #4361ee; /* Using direct color instead of var(--primary-color) */
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-links li.active a {
+            color: #fff;
+        }
+
+        .sidebar .nav-links li.active a .icon {
+            color: #fff;
+        }
+
+        /* Hover effect */
+        .sidebar .nav-links li:hover {
+            background-color: rgba(67, 97, 238, 0.1); /* Using rgba value directly */
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">            
+            <ul class="nav-links">
+                <li>
+                    <a href="#home">
+                        <i class="ri-home-5-fill icon"></i>
+                        <span class="link-name">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about">
+                        <i class="ri-information-line icon"></i>
+                        <span class="link-name">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#patrons">
+                        <i class="ri-shield-star-line icon"></i>
+                        <span class="link-name">Leaders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#events">
+                        <i class="ri-calendar-event-line icon"></i>
+                        <span class="link-name">Events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#sponsors">
+                        <i class="ri-group-line icon"></i>
+                        <span class="link-name">Sponsors</span>
+                    </a>
+                </li>                
+                <li>
+                    <a href="#contact">
+                        <i class="ri-contacts-line icon"></i>
+                        <span class="link-name">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Content area with hero section -->
+        <div class="content-area">
+            <div id="particles-js"></div>
+            <div class="hero-section" id="home">
+                <div class="hero-content">
+                    <h1>Welcome to Trenz'25</h1>
+                    <p>Discover the latest trends and connect with people around the world</p>
+                    <div class="hero-cta">
+                        <a href="#events" class="primary-btn">Get Started <i class="ri-arrow-right-line"></i></a>
+                        <a href="admin.php" class="secondary-btn">Event Admin</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="pin"></div>
+                    <div class="notice-content">
+                        <img src="./assets/images/trenz.jpg" alt="Trenz'25 Hero Image">
+                    </div>
+                </div>
+            </div>
+            <!-- About Section -->
+            <div class="about-section" id="about">
+                <div class="section-header">
+                    <h2>About Trenz'25</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Connecting Minds, Creating Future</h3>
+                        <p>The Trenz'25 - An Intercollegiate Skill Fest is an annual gathering of thought leaders, researchers, and industry professionals dedicated to exploring cutting-edge innovations and emerging trends across disciplines.</p>
+                        <div class="about-info-container">
+                            <div class="about-objectives">
+                                <h4>Our Objectives</h4>
+                                <ul class="objective-list">
+                                    <li><i class="ri-check-line"></i> Strengthen coding, debugging, and app development skills through hands-on challenges</li>
+                                    <li><i class="ri-check-line"></i> Encourage innovative thinking in web design, application development, and startup ideation</li>
+                                    <li><i class="ri-check-line"></i> Foster teamwork through interactive problem-solving and coding competitions</li>
+                                    <li><i class="ri-check-line"></i> Inspire participants to develop original solutions and think entrepreneurially</li>
+                                    <li><i class="ri-check-line"></i> Provide practical exposure, aligning academic knowledge with real-world applications</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="./assets/images/trenz.png" alt="Symposium Participants">
+                        <div class="about-why-attend">
+                            <h4>Why You Should Attend</h4>
+                            <ul class="why-attend-list">
+                                <li><i class="ri-award-line"></i> Showcase your talent and make an impact</li>
+                                <li><i class="ri-gift-line"></i> Your skills could earn you real rewards</li>
+                                <li><i class="ri-team-line"></i> Meet innovators, creators, and future leaders</li>
+                                <li><i class="ri-file-list-3-line"></i> Build your professional portfolio</li>
+                                <li><i class="ri-briefcase-line"></i> Add real-world experience that recruiters value</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End About Section -->
+            <!-- Patrons Section -->
+            <div class="patrons-section" id="patrons">
+                <div class="section-header">
+                    <h2>Meet our Organizers</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="patrons-scroll-container">
+                    <button class="scroll-btn prev-btn"><i class="ri-arrow-left-s-line"></i></button>
+                    <div class="patrons-container">
+                        <div class="patron-card">
+                            <div class="patron-image">
+                                <img src="./assets/images/abbi.jpg" alt="Patron 5">
+                            </div>
+                            <div class="patron-details">
+                                <h3>Abbishek krishna T K</h3>
+                                <p class="patron-title">Organizer</p>
+                                <div class="patron-contact">
+                                    <a href="tel:+916385650033" class="contact-link phone"><i class="ri-phone-line"></i> Call</a>
+                                    <a href="https://wa.me/916385650033" class="contact-link whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patron-card">
+                            <div class="patron-image">
+                                <img src="./assets/images/deepak.jpg" alt="Patron 1">
+                            </div>
+                            <div class="patron-details">
+                                <h3>Deepak Rajan K</h3>
+                                <p class="patron-title">Organizer</p>
+                                <div class="patron-contact">
+                                    <a href="tel:+919791852116" class="contact-link phone"><i class="ri-phone-line"></i> Call</a>
+                                    <a href="https://wa.me/919487274363" class="contact-link whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patron-card">
+                            <div class="patron-image">
+                                <img src="./assets/images/mani.jpg" alt="Patron 2">
+                            </div>
+                            <div class="patron-details">
+                                <h3>Manikandan Prabhu C</h3>
+                                <p class="patron-title">Organizer</p>
+                                <div class="patron-contact">
+                                    <a href="tel:+917540006268" class="contact-link phone"><i class="ri-phone-line"></i> Call</a>
+                                    <a href="https://wa.me/917540006268" class="contact-link whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patron-card">
+                            <div class="patron-image">
+                                <img src="./assets/images/srivath.jpg" alt="Patron 3">
+                            </div>
+                            <div class="patron-details">
+                                <h3>Srivarth G P</h3>
+                                <p class="patron-title">Organizer</p>
+                                <div class="patron-contact">
+                                    <a href="tel:+918438796113" class="contact-link phone"><i class="ri-phone-line"></i> Call</a>
+                                    <a href="https://wa.me/918438796113" class="contact-link whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patron-card">
+                            <div class="patron-image">
+                                <img src="./assets/images/surya.jpg" alt="Patron 7">
+                            </div>
+                            <div class="patron-details">
+                                <h3>Surya S M</h3>
+                                <p class="patron-title">Organizer</p>
+                                <div class="patron-contact">
+                                    <a href="tel:+917708794789" class="contact-link phone"><i class="ri-phone-line"></i> Call</a>
+                                    <a href="https://wa.me/917708794789" class="contact-link whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patron-card">
+                            <div class="patron-image">
+                                <img src="./assets/images/ajay.jpg" alt="Patron 8">
+                            </div>
+                            <div class="patron-details">
+                                <h3>Ajay B N</h3>
+                                <p class="patron-title">Organizer</p>
+                                <div class="patron-contact">
+                                    <a href="tel:+917810024407" class="contact-link phone"><i class="ri-phone-line"></i> Call</a>
+                                    <a href="https://wa.me/917810024407" class="contact-link whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patron-card">
+                            <div class="patron-image">
+                                <img src="./assets/images/nishanth.jpg" alt="Patron 4">
+                            </div>
+                            <div class="patron-details">
+                                <h3>Nishanth Amuthan V</h3>
+                                <p class="patron-title">Organizer</p>
+                                <div class="patron-contact">
+                                    <a href="tel:+919342623353" class="contact-link phone"><i class="ri-phone-line"></i> Call</a>
+                                    <a href="https://wa.me/919342623353" class="contact-link whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patron-card">
+                            <div class="patron-image">
+                                <img src="./assets/images/bharathi.jpg" alt="Patron 6">
+                            </div>
+                            <div class="patron-details">
+                                <h3>Bharathi Dharshan S</h3>
+                                <p class="patron-title">Organizer</p>
+                                <div class="patron-contact">
+                                    <a href="tel:+919363873188" class="contact-link phone"><i class="ri-phone-line"></i> Call</a>
+                                    <a href="https://wa.me/919363873188" class="contact-link whatsapp"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="scroll-btn next-btn"><i class="ri-arrow-right-s-line"></i></button>
+                </div>
+            </div>
+            <!-- End Patrons Section -->
+            <!-- Events Section -->
+            <div class="events-section" id="events">
+                <div class="section-header">
+                    <h2>Trenz'25 Events</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="events-container">
+                    <div class="event-card technical">
+                        <img src="./assets/images/webdesign.jpg" alt="Code Combat Challenge" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Web Weave</h3>                        
+                                <p class="event-description">Showcase your web development skills by creating responsive and innovative website designs.</p>
+                                <a href="web.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card non-technical">
+                        <img src="./assets/images/startup.jpg" alt="Creative Arts Festival" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>NextGen Start</h3>
+                                <p class="event-description">Present your innovative startup ideas and business models to a panel of industry experts.</p>
+                                <a href="startup.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card technical">
+                        <img src="./assets/images/appdev.avif" alt="Code Combat Challenge" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>App A thon</h3>                        
+                                <p class="event-description">Design and develop mobile applications that solve real-world problems using cutting-edge technologies.</p>
+                                <a href="app.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card non-technical">
+                        <img src="./assets/images/coding.png" alt="Creative Arts Festival" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Error : 404 NOT FOUND</h3>
+                                <p class="event-description">Test your debugging skills by finding and fixing errors in complex code snippets under time pressure.</p>
+                                <a href="debugging.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card technical">
+                        <img src="./assets/images/reverse.webp" alt="Code Combat Challenge" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Code Rewind</h3>                        
+                                <p class="event-description">Compete in our flagship coding competition featuring challenging algorithmic problems and real-world scenarios.</p>
+                                <a href="coderewind.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card non-technical">
+                        <img src="./assets/images/codehunt.png" alt="Creative Arts Festival" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Code Quest</h3>
+                                <p class="event-description">Showcase your artistic talents through photography, painting, and digital art competitions.</p>
+                                <a href="codequest.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card non-technical">
+                        <img src="./assets/images/resume.png" alt="Code Combat Challenge" class="event-card-image">
+                        <div class="event-content">
+                            <div class="event-details">
+                                <h3>Build a Resume</h3>                        
+                                <p class="event-description">Compete in our flagship coding competition featuring challenging algorithmic problems and real-world scenarios.</p>
+                                <a href="resumebuilding.html" class="event-btn">View Event <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Events Section -->
+            <!-- Sponsors Section -->
+            <div class="sponsors-section" id="sponsors">
+                <div class="section-header">
+                    <h2>Our Sponsors</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="sponsors-container">
+                    <div class="sponsor-tier silver">
+                        <h3 class="tier-title">Principal Sponsor</h3>
+                        <div class="sponsor-logos">
+                            <div class="sponsor-item">
+                                <img src="./assets/images/trivasiya.png" alt="Silver Sponsor 1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsor-tier gold">
+                        <h3 class="tier-title">Gold Sponsors</h3>
+                        <div class="sponsor-logos">
+                            <div class="sponsor-item">
+                                <img src="./assets/images/6sport.png" alt="Gold Sponsor 1">
+                            </div>
+                            <div class="sponsor-item">
+                                <img src="./assets/images/trimp.png" alt="Gold Sponsor 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Sponsors Section -->
+            
+            <!-- Contact Section -->
+            <div class="contact-section" id="contact">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="ri-map-pin-fill"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>MKCE KARUR</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="ri-mail-fill"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:trenz2k25@gmail.com">trenz2k25@gmail.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="ri-phone-fill"></i>
+                        </div>
+                        <h3>Contact</h3>
+                        <p><a href="tel:+916385650033">+91 6385650033</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="ri-calendar-event-fill"></i>
+                        </div>
+                        <h3>Event Days</h3>
+                        <p>April 30, 2025<br>9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Contact Section -->
+            
+            <!-- Footer Section -->
+            <div class="footer-section">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>About Trenz'25</h3>
+                        <p>A national level technical symposium bringing together innovative minds from across the country.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="ri-facebook-fill"></i></a>
+                            <a href="#"><i class="ri-twitter-fill"></i></a>
+                            <a href="#"><i class="ri-instagram-line"></i></a>
+                            <a href="#"><i class="ri-linkedin-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#events">Events</a></li>
+                            <li><a href="#sponsors">Sponsors</a></li>
+                            <li><a href="register.php">Register</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul class="footer-contact">
+                            <li><i class="ri-map-pin-line"></i> MKCE KARUR</li>
+                            <li><i class="ri-mail-line"></i> trenz2k25@gmail.com</li>
+                            <li><i class="ri-phone-line"></i> +91 63856 50033</li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Subscribe</h3>
+                        <p>Stay updated with our newsletter</p>
+                        <form class="footer-subscribe">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit"><i class="ri-send-plane-fill"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>&copy; 2025 Trenz'25. All Rights Reserved.</p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Section -->
+        </div>
+    </div>
+    
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="assistant.js"></script>
+    <script>
+        // Navigation active state handler
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all sections that have IDs defined
+            const sections = document.querySelectorAll(".hero-section, .about-section, .patrons-section, .events-section, .sponsors-section, .contact-section");
+            
+            // IntersectionObserver configuration
+            const observerOptions = {
+                root: null, // viewport is used as the root
+                rootMargin: "0px 0px -30% 0px", // negative bottom margin to trigger earlier
+                threshold: 0.1 // 10% of the item must be visible
+            };
+            
+            // Create a mapping of section IDs to navigation links
+            const navLinks = {};
+            document.querySelectorAll('.sidebar .nav-links li a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const id = href.substring(1);
+                    navLinks[id] = link.parentElement;
+                }
+            });
+            
+            // Callback executed when observed element enters or exits viewport
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    // Get the element's ID
+                    const id = entry.target.getAttribute('id');
+                    
+                    // Check if we have a matching nav link
+                    if (navLinks[id]) {
+                        if (entry.isIntersecting) {
+                            // Remove active class from all nav items first
+                            document.querySelectorAll('.sidebar .nav-links li').forEach(item => {
+                                item.classList.remove('active');
+                            });
+                            
+                            // Add active class to the current nav item
+                            navLinks[id].classList.add('active');
+                        }
+                    }
+                });
+            };
+            
+            // Create the observer
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            
+            // Observe all sections
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Also handle click events for smoother transitions
+            document.querySelectorAll('.sidebar .nav-links li a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Remove active class from all nav items
+                    document.querySelectorAll('.sidebar .nav-links li').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked item
+                    this.parentElement.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

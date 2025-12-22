@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Pitch Competition - Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .single-event-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .event-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .event-info {
+            padding: 30px 40px;
+        }
+        
+        .event-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        .meta-item i {
+            color: #4361ee;
+            font-size: 1.1rem;
+        }
+        
+        .event-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .event-rules {
+            background: rgba(67, 97, 238, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .event-rules h3 {
+            margin-bottom: 15px;
+            color: #4361ee;
+            font-size: 1.4rem;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            margin-bottom: 5px;
+        }
+        
+        .rules-list li:before {
+            content: "\ea4d";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 18px;
+        }
+        
+        .sub-points {
+            padding-left: 0;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 25px;
+        }
+        
+        .sub-points ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sub-points ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .sub-points ul li:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            font-size: 14px;
+            color: #4361ee;
+        }
+        
+        .judging-criteria {
+            background: rgba(67, 97, 238, 0.08);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 25px;
+            box-shadow: 0 3px 8px rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .criteria-item {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-item:last-child {
+            border-bottom: none;
+        }
+        
+        .criteria-item:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 16px;
+        }
+        
+        .round-title {
+            font-weight: 600;
+            color: #4361ee;
+            margin-bottom: 5px;
+        }
+        
+        /* Enhanced event-actions styles */
+        .event-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
+        }
+        
+        .event-actions:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(67, 97, 238, 0.8);
+            border-radius: 3px;
+        }
+        
+        /* Enhanced register button styles */
+        .register-btn {
+            background: linear-gradient(135deg, #4361ee, #3a56d4);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+        
+        .register-btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        
+        .register-btn:hover:after {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .event-banner {
+                height: 200px;
+            }
+            
+            .event-info {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.8rem;
+            }
+            
+            .event-meta {
+                gap: 15px;
+            }
+            
+            .sub-points,
+            .judging-criteria {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="event-page">
+    <div class="events-section">
+        <div id="particles-js"></div>
+        <div class="section-header">
+            <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+            <h2>Startup Pitch Competition</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="single-event-container">
+            <img src="./assets/images/startup.avif" alt="Startup Pitch Competition" class="event-banner">
+            
+            <div class="event-info">
+                <h1 class="event-title">Startup Pitch Challenge 2025</h1>
+                
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <i class="ri-calendar-line"></i>
+                        <span>April 30, 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-time-line"></i>
+                        <span>9:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-user-line"></i>
+                        <span>Teams (1-4 members)</span>
+                    </div>
+                </div>
+                
+                <div class="event-rules">
+                    <h3>Rules & Guidelines</h3>
+                    <ul class="rules-list">
+                        <li>Name of the Event: <strong>NEXTGEN START-Start Up Ideas</strong></li>
+                        <li><strong>Event Overview:</strong> Participants will ignite the spirit of innovation and entrepreneurship among young minds by showcasing cutting-edge startup ideas that can revolutionize industries and improve lives.</li>
+                        <li>Participation Format: 
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Team Participation – Maximum of (1-4) members per team.</li>
+                                    <li>All team members must be registered before the event begins.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>Event Structure:
+                            <div class="sub-points">
+                                <p class="round-title">Round 1: Idea Ignition round</p>
+                                <ul>
+                                    <li>Present a startup idea using PowerPoint and explain its views based on your innovation and creativity.</li>
+                                </ul>
+                                <p class="round-title">Round 2: Concept Crystallization</p>
+                                <ul>
+                                    <li>Based on their concepts delivered, situation based questions can be asked based on their ideas proposed.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>Judging Criteria:
+                            <div class="judging-criteria">
+                                <ul class="criteria-list">
+                                    <li class="criteria-item">Innovation</li>
+                                    <li class="criteria-item">Market potential</li>
+                                    <li class="criteria-item">Feasibility</li>
+                                    <li class="criteria-item">Presentation</li>
+                                    <li class="criteria-item">Communication</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>General Rules:
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Each team will have a specific time limit to explain their ideas.</li>
+                                    <li>Ideas must be realistically implementable with current or near-future technology.</li>
+                                    <li>Top-performing teams will be selected based on score and accuracy of two rounds.</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-actions">
+                    <a href="register.php" class="register-btn">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="event-footer">
+        <p>© 2025 PrisolTech. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#"><i class="ri-twitter-line"></i></a>
+            <a href="#"><i class="ri-linkedin-box-line"></i></a>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

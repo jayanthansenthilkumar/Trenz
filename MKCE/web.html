@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Weave Event - Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .single-event-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .event-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .event-info {
+            padding: 30px 40px;
+        }
+        
+        .event-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        .meta-item i {
+            color: #4361ee;
+            font-size: 1.1rem;
+        }
+        
+        .event-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .event-rules {
+            background: rgba(67, 97, 238, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .event-rules h3 {
+            margin-bottom: 15px;
+            color: #4361ee;
+            font-size: 1.4rem;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            margin-bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+        
+        .rules-list li strong {
+            display: inline-block;
+            min-width: 140px;
+            color: #333;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .rules-list li div,
+        .rules-list li span {
+            flex: 1 1 calc(100% - 160px);
+        }
+        
+        .tool-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+            width: 100%;
+            margin-left: 140px;
+        }
+        
+        .judging-criteria {
+            background: rgba(67, 97, 238, 0.08);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 140px;
+            box-shadow: 0 3px 8px rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .criteria-item {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-item:last-child {
+            border-bottom: none;
+        }
+        
+        .criteria-item:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 16px;
+        }
+        
+        .rules-list .sub-item {
+            padding-left: 30px;
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .rules-list .sub-item:before {
+            content: "\ea52";
+            font-size: 14px;
+            left: 0;
+        }
+        
+        .event-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
+        }
+        
+        .event-actions:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(67, 97, 238, 0.8);
+            border-radius: 3px;
+        }
+        
+        .register-btn {
+            background: linear-gradient(135deg, #4361ee, #3a56d4);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .register-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        .register-btn:hover:before {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .event-banner {
+                height: 200px;
+            }
+            
+            .event-info {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.8rem;
+            }
+            
+            .event-meta {
+                gap: 15px;
+            }
+            
+            .rules-list li {
+                flex-direction: column;
+            }
+            
+            .rules-list li strong {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .tool-icons,
+            .judging-criteria {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 12px;
+            }
+            
+            .register-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="event-page">
+    <div class="events-section">
+        <div id="particles-js"></div>
+        <div class="section-header">
+            <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+            <h2>Web Weave Challenge</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="single-event-container">
+            <img src="./assets/images/webdesign.jpg" alt="Web Weave Challenge" class="event-banner">
+            
+            <div class="event-info">
+                <h1 class="event-title">Web Weave Challenge 2025</h1>
+                
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <i class="ri-calendar-line"></i>
+                        <span>April 30, 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-time-line"></i>
+                        <span>09:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-user-line"></i>
+                        <span>Individual/Team (max 2 members)</span>
+                    </div>
+                </div>
+                
+                <div class="event-rules">
+                    <h3>Rules & Guidelines</h3>
+                    <ul class="rules-list">
+                        <li><strong>Event Name:</strong> Web-Designing</li>
+                        <li><strong>Overview:</strong> Unleash your creativity and technical prowess in this web design competition where innovation meets functionality. Teams will design a complete website based on a theme of their choice, within the allotted time.</li>
+                        <li><strong>Team Format:</strong> 4 members per team</li>
+                        <li><strong>Eligibility:</strong> Open to all departments</li>
+                        <li><strong>Duration:</strong> 4 hours</li>
+                        <li><strong>Theme:</strong> Choose your own theme <br>(e.g., Portfolio, E-commerce, Educational, Non-profit, etc.)</li>
+                        <li><strong>Output Required:</strong> A complete static or dynamic website based on the selected theme</li>
+                        <li><strong>Tools Allowed:</strong> 
+                            <div class="tool-icons">
+                                <span class="tool-icon"><i class="ri-code-s-slash-line"></i> Visual Studio Code</span>
+                                <span class="tool-icon"><i class="ri-code-box-line"></i> Sublime Text</span>
+                                <span class="tool-icon"><i class="ri-layout-line"></i> Figma</span>
+                                <span class="tool-icon"><i class="ri-github-fill"></i> GitHub</span>
+                            </div>
+                        </li>
+                        <li><strong>AI Assistance:</strong> AI-based tools (like ChatGPT, GitHub Copilot) are allowed for ideation and code suggestions</li>
+                        <li><strong>Judging Criteria:</strong>
+                            <div class="judging-criteria">
+                                <ul class="criteria-list">
+                                    <li class="criteria-item">Creativity and Originality</li>
+                                    <li class="criteria-item">Responsiveness and Functionality</li>
+                                    <li class="criteria-item">Code Quality and Structure</li>
+                                    <li class="criteria-item">Aesthetic Design and User Experience</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-actions">
+                    <a href="register.php" class="register-btn">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="event-footer">
+        <p>© 2025 PrisolTech. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#"><i class="ri-twitter-line"></i></a>
+            <a href="#"><i class="ri-linkedin-box-line"></i></a>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

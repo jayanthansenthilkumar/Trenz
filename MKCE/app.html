@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Dev Pro Challenge - Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .single-event-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .event-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .event-info {
+            padding: 30px 40px;
+        }
+        
+        .event-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        .meta-item i {
+            color: #4361ee;
+            font-size: 1.1rem;
+        }
+        
+        .event-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .event-rules {
+            background: rgba(67, 97, 238, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .event-rules h3 {
+            margin-bottom: 15px;
+            color: #4361ee;
+            font-size: 1.4rem;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            margin-bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+        
+        .rules-list li strong {
+            display: inline-block;
+            min-width: 140px;
+            color: #333;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .rules-list li div,
+        .rules-list li span {
+            flex: 1 1 calc(100% - 160px);
+        }
+        
+        .rules-list li:before {
+            content: "\ea4d";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 18px;
+        }
+        
+        .sub-points {
+            padding-left: 0;
+            margin-top: 8px;
+            width: 100%;
+            margin-left: 140px;
+        }
+        
+        .sub-points ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sub-points ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .sub-points ul li:before {
+            content: "\ea52";
+            font-size: 14px;
+        }
+        
+        .sub-points p {
+            margin: 10px 0 5px 0;
+            color: #4361ee;
+            font-weight: 500;
+        }
+        
+        .judging-criteria {
+            background: rgba(67, 97, 238, 0.08);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 140px;
+            box-shadow: 0 3px 8px rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .criteria-item {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-item:last-child {
+            border-bottom: none;
+        }
+        
+        .criteria-item:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 16px;
+        }
+        
+        .event-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
+        }
+        
+        .event-actions:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(67, 97, 238, 0.8);
+            border-radius: 3px;
+        }
+        
+        .register-btn {
+            background: linear-gradient(135deg, #4361ee, #3a56d4);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .event-banner {
+                height: 200px;
+            }
+            
+            .event-info {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.8rem;
+            }
+            
+            .event-meta {
+                gap: 15px;
+            }
+            
+            .rules-list li {
+                flex-direction: column;
+            }
+            
+            .rules-list li strong {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .sub-points,
+            .judging-criteria {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="event-page">
+    <div class="events-section">
+        <div id="particles-js"></div>
+        <div class="section-header">
+            <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+            <h2>App Dev Pro Challenge</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="single-event-container">
+            <img src="./assets/images/appdev.avif" alt="App Dev Pro Challenge" class="event-banner">
+            
+            <div class="event-info">
+                <h1 class="event-title">App Dev Pro Challenge 2025</h1>
+                
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <i class="ri-calendar-line"></i>
+                        <span>April 30, 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-time-line"></i>
+                        <span>09:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-user-line"></i>
+                        <span>Individual/Team (max 2 members)</span>
+                    </div>
+                </div>
+                
+                <div class="event-rules">
+                    <h3>Rules & Guidelines</h3>
+                    <ul class="rules-list">
+                        <li><strong>Name of the Event:</strong> APP A THON</li>
+                        <li><strong>Event Overview:</strong> Participants will build a functional web application integrated with a database within the given time limit. The focus is on real-time problem-solving, effective database usage, and efficient coding practices.</li>
+                        
+                        <li><strong>Participation Format:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Team participation only — Maximum 2 members per team.</li>
+                                    <li>Each team can submit only one project.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Event Structure:</strong>
+                            <div class="sub-points">
+                                <p><em>Development Phase:</em></p>
+                                <ul>
+                                    <li>Teams will receive the problem statement/app theme on the spot at the start of the event</li>
+                                    <li>3 hours will be provided to build a complete web app with database integration.</li>
+                                </ul>
+                                <p><em>Demonstration Phase:</em></p>
+                                <ul>
+                                    <li>Each team will briefly present their app to the judges (5–7 minutes).</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>General Rules:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>All apps must be developed from scratch during the event duration.</li>
+                                    <li>Database integration is mandatory (e.g., MySQL, MongoDB, Firebase, PostgreSQL, etc.).</li>
+                                    <li>Any programming language, framework, or database technology can be used.</li>
+                                    <li>Use of online resources (documentation, libraries) is allowed. Pre-built projects/templates are not allowed.</li>
+                                    <li>Projects must be submitted within 3 hours. Late submissions will not be evaluated.</li>
+                                    <li>Teams must demonstrate the functionality of their web app live in front of the judges.</li>
+                                    <li>Respect towards organizers, judges, and fellow participants is expected at all times.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Technical Requirements:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>The app must run on a standard browser (e.g., Chrome, Firefox).</li>
+                                    <li>A working database backend must be demonstrated (insert, retrieve, update, delete operations).</li>
+                                    <li>Teams must submit their source code at the end of the event.</li>
+                                    <li>If hosting is not possible within the time, a local server demonstration is acceptable.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Judging Criteria:</strong>
+                            <div class="judging-criteria">
+                                <ul class="criteria-list">
+                                    <li class="criteria-item">Functionality and Working Model - 30%</li>
+                                    <li class="criteria-item">Database Design and Usage - 25%</li>
+                                    <li class="criteria-item">UI/UX (User Interface & Experience) - 20%</li>
+                                    <li class="criteria-item">Innovation and Creativity - 15%</li>
+                                    <li class="criteria-item">Code Quality and Structure - 10%</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Bonus Points:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Extra points for creative database structures (e.g., relational integrity, optimized queries).</li>
+                                    <li>Bonus for real-world applicability and scalability ideas.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Important Notes:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Maintain frequent local saves/backups — no excuses for data loss.</li>
+                                    <li>Focus on creating, innovating, and learning.</li>
+                                    <li>Stay calm, collaborate effectively, and code smart!</li>
+                                    <li>Judges' decisions will be final and binding.</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-actions">
+                    <a href="register.php" class="register-btn">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="event-footer">
+        <p>© 2025 PrisolTech. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#"><i class="ri-twitter-line"></i></a>
+            <a href="#"><i class="ri-linkedin-box-line"></i></a>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

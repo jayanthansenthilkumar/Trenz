@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built a Resume - Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .single-event-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .event-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .event-info {
+            padding: 30px 40px;
+        }
+        
+        .event-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        .meta-item i {
+            color: #4361ee;
+            font-size: 1.1rem;
+        }
+        
+        .event-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            margin-bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+        
+        .rules-list li strong {
+            display: inline-block;
+            min-width: 140px;
+            color: #333;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .rules-list li div,
+        .rules-list li span {
+            flex: 1 1 calc(100% - 160px);
+        }
+        
+        .rules-list li:before {
+            content: "\ea4d";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 18px;
+        }
+        
+        .sub-points {
+            padding-left: 0;
+            margin-top: 8px;
+            width: 100%;
+            margin-left: 140px;
+            border-left: 2px solid rgba(67, 97, 238, 0.2);
+            padding-left: 15px;
+        }
+        
+        .sub-points ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sub-points ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: none;
+            margin-bottom: 0;
+            transition: transform 0.2s ease;
+        }
+        
+        .sub-points ul li:hover {
+            transform: translateX(5px);
+        }
+        
+        .sub-points ul li:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            font-size: 14px;
+            color: #4361ee;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            color: #333;
+            margin: 15px 0 8px 0;
+            padding-left: 10px;
+            border-left: 3px solid #4361ee;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .event-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .event-actions:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(67, 97, 238, 0.8);
+            border-radius: 3px;
+        }
+        
+        .register-btn {
+            background: linear-gradient(135deg, #4361ee, #3a56d4);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin: 0 auto;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .event-banner {
+                height: 200px;
+            }
+            
+            .event-info {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.8rem;
+            }
+            
+            .event-meta {
+                gap: 15px;
+            }
+            
+            .rules-list li {
+                flex-direction: column;
+            }
+            
+            .rules-list li strong {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .sub-points {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="event-page">
+    <div class="events-section">
+        <div id="particles-js"></div>
+        <div class="section-header">
+            <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+            <h2>Built a Resume</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="single-event-container">
+            <img src="./assets/images/resume.png" alt="Built a Resume" class="event-banner">
+            
+            <div class="event-info">
+                <h1 class="event-title">Built a Resume - Professional CV Competition</h1>
+                
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <i class="ri-calendar-line"></i>
+                        <span>April 30, 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-time-line"></i>
+                        <span>09:00 AM - 04:00 PM</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-user-line"></i>
+                        <span>Individual Participation</span>
+                    </div>
+                </div>
+                
+                <div class="event-rules">
+                    <h3>Rules & Guidelines</h3>
+                    <ul class="rules-list">
+                        <li><strong>Name of the Event:</strong> Build a Resume</li>
+                        
+                        <li><strong>Event Overview:</strong> Build-A-Resume is a resume creation competition where participants will craft a professional resume on the spot using online tools. The competition is designed to test students' ability to present their skills and experiences effectively and professionally.</li>
+                        
+                        <li><strong>Participation Format:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Individual participation only</li>
+                                    <li>Resumes must be created during the event time using online or offline tools</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Event Structure:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Participants will be given a duration of 1.5 to 2 hours to create their resume from scratch</li>
+                                    <li>Resume can be created using online Platforms</li>
+                                    <li>At the end of the session, participants must export their resume in PDF format and submit it to the organizers</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Clarification on Tools and Rules:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Participants must be physically present at the event venue</li>
+                                    <li>Resume must be created during the event duration only</li>
+                                    <li>Pre-prepared or printed resumes are not allowed</li>
+                                    <li>Copying from sample resumes or using AI-generated content is prohibited</li>
+                                    <li>The resume must be created during the event timeframe</li>
+                                    <li>The resume should not exceed two page (for students/freshers) unless otherwise specified</li>
+                                    <li>File name format: FullName_Resume.pdf can be send to the email Id which will be shared in the venue</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-actions">
+                    <a href="register.php" class="register-btn"><i class="ri-file-user-line"></i> Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="event-footer">
+        <p>© 2025 PrisolTech. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#"><i class="ri-twitter-line"></i></a>
+            <a href="#"><i class="ri-linkedin-box-line"></i></a>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

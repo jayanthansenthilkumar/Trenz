@@ -1,0 +1,521 @@
+.ai-assistant {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    font-family: 'Poppins', sans-serif;
+}
+
+.assistant-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4361ee, #3a56d4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(67, 97, 238, 0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    position: fixed;  /* Add fixed positioning */
+    bottom: 20px;    /* Move higher up from bottom */
+    right: 20px;      /* Move more to the right */
+}
+
+.assistant-button:hover {
+    transform: scale(1.1);
+    animation: none;
+}
+
+.assistant-button i {
+    color: white;
+    font-size: 28px;
+}
+
+.assistant-container {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.assistant-container.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+/* Improved mobile view styles with better height handling */
+.assistant-header {
+    background: linear-gradient(135deg, #4361ee, #3a56d4);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.assistant-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.assistant-title i {
+    font-size: 20px;
+}
+
+.assistant-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.assistant-actions button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.assistant-actions button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.assistant-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background: #f7f9fc;
+    position: relative;
+    overflow: hidden; /* Prevent content overflow */
+    height: calc(100% - 110px); /* Subtract header and quick questions height */
+}
+
+/* Improved chat messages container with proper scrolling */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 15px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    max-height: calc(100% - 60px); /* Account for typing indicator and input */
+}
+
+.message {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message-content {
+    max-width: 85%;
+    border-radius: 18px;
+    padding: 10px 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-line;
+    word-wrap: break-word; /* Prevent long words from breaking layout */
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.user-message .message-content {
+    background: #4361ee;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.assistant-message .message-content {
+    background: white;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-bottom-left-radius: 5px;
+}
+
+/* Improved typing indicator */
+.chat-typing-indicator {
+    display: none;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    width: fit-content;
+    max-width: 85%;
+}
+
+.chat-typing-indicator.active {
+    display: flex;
+}
+
+.chat-typing-indicator span {
+    height: 8px;
+    width: 8px;
+    background: #4361ee;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    animation: typing 1s infinite;
+}
+
+.chat-typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.chat-typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+    margin-right: 0;
+}
+
+@keyframes typing {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}
+
+/* Fixed position for chat input to prevent scrolling issues */
+.chat-input-container {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 20px);
+    z-index: 2;
+    margin-top: auto;
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.chat-submit {
+    background: linear-gradient(135deg, #4361ee, #3a56d4);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.chat-submit i {
+    color: white;
+    font-size: 16px;
+}
+
+.chat-submit:hover {
+    transform: scale(1.1);
+}
+
+/* Improved quick questions with better horizontal scrolling on mobile */
+.quick-questions {
+    display: flex;
+    gap: 8px;
+    padding: 10px 15px;
+    background: #f0f2f9;
+    border-top: 1px solid #e6e9f4;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar on Firefox */
+    flex-shrink: 0;
+}
+
+.quick-questions::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on Chrome/Safari */
+}
+
+.quick-question-btn {
+    background: white;
+    border: 1px solid #e6e9f4;
+    border-radius: 18px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #4361ee;
+    font-family: 'Poppins', sans-serif;
+    flex-shrink: 0;
+}
+
+.quick-question-btn:hover {
+    background: #eef0fc;
+    border-color: #4361ee;
+}
+
+/* Coordinator contact cards with improved scrolling */
+.coordinator-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.coordinator-card {
+    background: #f7f9fc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 3px solid #4361ee;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.coordinator-card:hover {
+    transform: translateX(2px);
+    background: #f0f2f9;
+}
+
+.coordinator-card.single {
+    border: 1px solid rgba(67, 97, 238, 0.2);
+    background: #f0f4ff;
+    padding: 15px;
+}
+
+.coordinator-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.coordinator-title {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.coordinator-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.contact-action {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    gap: 5px;
+    flex-grow: 1;
+    justify-content: center;
+    min-width: 80px;
+}
+
+.call-action {
+    background: #e1eaff;
+    color: #4361ee;
+}
+
+.call-action:hover {
+    background: #4361ee;
+    color: white;
+}
+
+.whatsapp-action {
+    background: #e1f5e6;
+    color: #25d366;
+}
+
+.whatsapp-action:hover {
+    background: #25d366;
+    color: white;
+}
+
+.contact-note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(67, 97, 238, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
+    }
+}
+
+/* Improved scrollbar styling */
+.chat-messages::-webkit-scrollbar,
+.coordinator-contacts::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-track,
+.coordinator-contacts::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb,
+.coordinator-contacts::-webkit-scrollbar-thumb {
+    background: #cfd7f9;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover,
+.coordinator-contacts::-webkit-scrollbar-thumb:hover {
+    background: #4361ee;
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+    .assistant-button {
+        width: 50px;
+        height: 50px;
+        bottom: 80px;    /* Move even higher on mobile */
+        right: 10px;      /* Position more to the right on mobile */
+        z-index: 9999;    /* Ensure it stays on top of other elements */
+    }
+    
+    .assistant-button i {
+        font-size: 24px;
+    }
+    
+    .assistant-container {
+        width: 300px;
+        height: 450px;
+        bottom: 75px;
+        right: 0;
+        max-height: 80vh; /* Limit height on mobile */
+    }
+    
+    .assistant-container.active {
+        bottom: 80px;
+    }
+    
+    /* Make chat area more compact */
+    .assistant-body {
+        padding: 10px;
+    }
+    
+    .chat-messages {
+        max-height: calc(100% - 50px);
+    }
+    
+    /* Improve scrolling on mobile */
+    .chat-messages,
+    .coordinator-contacts {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Make quick questions horizontally scrollable */
+    .quick-questions {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px;
+        scrollbar-width: none; /* Hide scrollbar */
+        -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+    }
+    
+    .quick-questions::-webkit-scrollbar {
+        display: none; /* Hide scrollbar in Chrome/Safari */
+    }
+    
+    .quick-question-btn {
+        flex: 0 0 auto;
+        margin-right: 8px;
+    }
+    
+    /* Better spacing for coordinator contact cards */
+    .coordinator-card {
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+    
+    .coordinator-contacts {
+        max-height: 200px;
+    }
+    
+    /* Better touch targets for mobile */
+    .contact-action {
+        padding: 8px 12px;
+        min-width: 100px;
+        justify-content: center;
+    }
+    
+    /* Properly handle extremely small screens */
+    @media (max-width: 330px) {
+        .assistant-container {
+            width: 280px;
+            right: -5px;
+        }
+        
+        .assistant-title span {
+            font-size: 14px;
+        }
+        
+        .chat-input {
+            font-size: 14px;
+        }
+    }
+}

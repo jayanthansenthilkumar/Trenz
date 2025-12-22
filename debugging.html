@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERROR : 404 NOT FOUND - Trenz'25</title>
+    <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .single-event-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .event-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .event-info {
+            padding: 30px 40px;
+        }
+        
+        .event-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        .meta-item i {
+            color: #4361ee;
+            font-size: 1.1rem;
+        }
+        
+        .event-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .event-rules {
+            background: rgba(67, 97, 238, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .event-rules h3 {
+            margin-bottom: 15px;
+            color: #4361ee;
+            font-size: 1.4rem;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+            margin-bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+        
+        .rules-list li strong {
+            display: inline-block;
+            min-width: 140px;
+            color: #333;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .rules-list li div,
+        .rules-list li span {
+            flex: 1 1 calc(100% - 160px);
+        }
+        
+        .rules-list li:before {
+            content: "\ea4d";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 18px;
+        }
+        
+        .sub-points {
+            padding-left: 0;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 140px;
+            border-left: 2px solid rgba(67, 97, 238, 0.2);
+            padding-left: 15px;
+        }
+        
+        .sub-points ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sub-points ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: none;
+            margin-bottom: 0;
+            transition: transform 0.2s ease;
+        }
+        
+        .sub-points ul li:hover {
+            transform: translateX(5px);
+        }
+        
+        .sub-points ul li:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            font-size: 14px;
+            color: #4361ee;
+        }
+        
+        .round-title {
+            font-weight: 600;
+            color: #4361ee;
+            margin: 15px 0 8px 0;
+            padding: 5px 10px;
+            background: rgba(67, 97, 238, 0.08);
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .surprise-element {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.12), rgba(111, 134, 252, 0.15));
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-top: 10px;
+            box-shadow: 0 3px 10px rgba(67, 97, 238, 0.1);
+            border-left: 3px solid #4361ee;
+            position: relative;
+        }
+        
+        .surprise-element:before {
+            content: "\ea5d";
+            font-family: "remixicon";
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            font-size: 24px;
+            color: #4361ee;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 3px 8px rgba(67, 97, 238, 0.2);
+        }
+        
+        .surprise-element ul li:before {
+            content: "\eb56";
+        }
+        
+        .duration-icon {
+            display: inline-block;
+            margin-right: 5px;
+            color: #4361ee;
+        }
+        
+        .important-notes {
+            background: rgba(253, 235, 208, 0.3);
+            border-left: 3px solid #febb58;
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+        
+        .important-notes ul li:before {
+            content: "\ea78";
+            color: #febb58;
+        }
+        
+        .event-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
+        }
+        
+        .event-actions:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(67, 97, 238, 0.8);
+            border-radius: 3px;
+        }
+        
+        .register-btn {
+            background: linear-gradient(135deg, #4361ee, #3a56d4);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+        
+        .register-btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        
+        .register-btn:hover:after {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .event-banner {
+                height: 200px;
+            }
+            
+            .event-info {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.8rem;
+            }
+            
+            .event-meta {
+                gap: 15px;
+            }
+            
+            .rules-list li {
+                flex-direction: column;
+            }
+            
+            .rules-list li strong {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .sub-points,
+            .judging-criteria {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="event-page">
+    <div class="events-section">
+        <div id="particles-js"></div>
+        <div class="section-header">
+            <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+            <h2>ERROR : 404 NOT FOUND</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="single-event-container">
+            <img src="./assets/images/coding.png" alt="ERROR : 404 NOT FOUND" class="event-banner">
+            
+            <div class="event-info">
+                <h1 class="event-title">ERROR : 404 NOT FOUND - Bug Hunting Challenge</h1>
+                
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <i class="ri-calendar-line"></i>
+                        <span>April 30, 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-time-line"></i>
+                        <span>9:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="ri-user-line"></i>
+                        <span>Individual/Team (max 2 members)</span>
+                    </div>
+                </div>
+                
+                <div class="event-rules">
+                    <h3>Rules & Guidelines</h3>
+                    <ul class="rules-list">
+                        <li><strong>Name of the Event:</strong> Error 404: Not Found</li>
+                        
+                        <li><strong>Total Duration:</strong> <span class="duration-icon"><i class="ri-time-line"></i></span>2 Hours
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Round 1: Basic Round – 45 minutes</li>
+                                    <li>Break: 15 minutes</li>
+                                    <li>Round 2: Scenario-Based Round – 1 hour 30 minutes</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Participation Format:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Individual participation and Team participation (Maximum 2 members per team).</li>
+                                    <li>All participants will attempt both rounds.</li>
+                                    <li>There is no elimination between rounds.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>General Rules:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>The competition will be conducted in two continuous rounds.</li>
+                                    <li>All participants must attempt both rounds within the given time limits.</li>
+                                    <li>Use of online resources is allowed only for documentation or syntax reference.</li>
+                                    <li>Any form of plagiarism, collaboration, or code sharing will result in disqualification.</li>
+                                    <li>Final decisions regarding results and disputes rest with the organizing team.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Round Details:</strong>
+                            <div class="sub-points">
+                                <p class="round-title"><i class="ri-code-line"></i> Round 1: Basic Round</p>
+                                <ul>
+                                    <li>A warm-up round designed to assess core programming knowledge and logical thinking.</li>
+                                </ul>
+                                
+                                <p class="round-title"><i class="ri-terminal-box-line"></i> Round 2: Scenario-Based Round</p>
+                                <ul>
+                                    <li>This round will test real-world problem-solving skills. Participants are expected to apply structured logic, handle edge cases, and write clean, effective code.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Surprise Element!</strong>
+                            <div class="sub-points">
+                                <div class="surprise-element">
+                                    <ul>
+                                        <li>A bonus twist or challenge will be revealed midway through the event — stay alert and be ready! It may offer extra points or fun tasks to spice things up.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Scoring & Results:</strong>
+                            <div class="sub-points">
+                                <ul>
+                                    <li>Final scores will be based on performance in both rounds.</li>
+                                    <li>In case of a tie, factors such as submission time and code quality may be considered.</li>
+                                    <li>Results will be announced after a complete evaluation by the organizing team.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>Important Notes:</strong>
+                            <div class="sub-points">
+                                <div class="important-notes">
+                                    <ul>
+                                        <li>Participants are expected to manage time wisely across both rounds.</li>
+                                        <li>Judges' decision will be final.</li>
+                                        <li>Keep your code clean, readable, and well-commented for effective evaluation.</li>
+                                        <li>Have fun, stay focused, and be ready for surprises!</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-actions">
+                    <a href="register.php" class="register-btn">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="event-footer">
+        <p>© 2025 PrisolTech. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#"><i class="ri-twitter-line"></i></a>
+            <a href="#"><i class="ri-linkedin-box-line"></i></a>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
