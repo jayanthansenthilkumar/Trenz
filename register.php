@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -9,13 +9,16 @@
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="login-page">
-    <div id="particles-js"></div>
+    <div id="tsparticles"></div>
     <div class="split-login-container">
         <div class="brand-section">
             <div class="brand-content">
@@ -165,10 +168,10 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
+    <script src="animations.js"></script>
     <script>
         $(document).on('submit', '#registrationForm', function(e) {
             e.preventDefault();
@@ -197,43 +200,53 @@
 
                         if (res.status == 200) {
                             Swal.close();
-                            swal.fire({
+                            Swal.fire({
                                 title: "Event Registered Successfully!",
-                                text: "Your ID is: " + res.trenzid,
+                                text: "Your Trenz ID is: " + res.trenzid,
                                 icon: "success",
-                                button: "Okay",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
                             });
-
                             $('#registrationForm')[0].reset();
                         } else if (res.status == 201) {
                             Swal.close();
-                            swal.fire({
-                                title: "Error!",
-                                text: "Registered Successfully but Mail not Sent!",
-                                icon: "error",
-                                button: "Okay",
+                            Swal.fire({
+                                title: "Partial Success",
+                                text: "Registered Successfully but email notification failed. Please note your Trenz ID: " + res.trenzid,
+                                icon: "warning",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
                             });
-
                             $('#registrationForm')[0].reset();
                         }
                         else if (res.status == 400) {
                             Swal.close();
-                            swal.fire({
-                                title: "Error!",
-                                text: "Registration limit for Your Register number",
+                            Swal.fire({
+                                title: "Registration Limit Reached!",
+                                text: res.message,
                                 icon: "error",
-                                button: "Okay",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
                             });
-
-                            $('#registrationForm')[0].reset();
+                        }
+                        else if (res.status == 403) {
+                            Swal.close();
+                            Swal.fire({
+                                title: "Registration Disabled!",
+                                text: res.message,
+                                icon: "warning",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
+                            });
                         }
                         else if (res.status == 500) {
                             Swal.close();
-                            swal.fire({
+                            Swal.fire({
                                 title: "Error!",
-                                text: "Something went wrong!",
+                                text: res.message || "Something went wrong!",
                                 icon: "error",
-                                button: "Okay",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
                             });
                         }
                     } catch (e) {
@@ -245,7 +258,8 @@
                             title: "Server Error",
                             text: "The server returned an invalid response. Please try again later or contact support.",
                             icon: "error",
-                            button: "Okay",
+                            confirmButtonColor: '#e74c3c',
+                            confirmButtonText: "Okay",
                         });
                     }
                 },
@@ -256,7 +270,8 @@
                         title: "Connection Error",
                         text: "Could not connect to the server. Please check your internet connection and try again.",
                         icon: "error",
-                        button: "Okay",
+                        confirmButtonColor: '#e74c3c',
+                        confirmButtonText: "Okay",
                     });
                 }
             });

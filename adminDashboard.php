@@ -55,6 +55,9 @@ $amount=250*$count;
                         <li>
                             <a href="spotRegistration.php"><i class="ri-user-add-line"></i> Spot Registration</a>
                         </li>
+                        <li>
+                            <a href="settings.php"><i class="ri-settings-3-line"></i> Settings</a>
+                        </li>
                     </ul>
                 </nav>
             </div>

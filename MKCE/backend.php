@@ -8,44 +8,75 @@ use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
-if (isset($_POST['Add_Intra_newuser'])) {
+
+// Function to get setting value
+function getSetting($conn, $key, $default = null) {
+    $query = "SELECT setting_value FROM settings WHERE setting_key = '" . mysqli_real_escape_string($conn, $key) . "'";
+    $result = mysqli_query($conn, $query);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['setting_value'];
+    }
+    return $default;
+}
+
+if (isset($_POST['Add_newuser'])) {
     try {
+        // Check if registration is enabled
+        $registration_enabled = getSetting($conn, 'registration_enabled', '1');
+        if ($registration_enabled != '1') {
+            $res = [
+                'status' => 403,
+                'message' => 'Registration is currently disabled. Please try again later.'
+            ];
+            echo json_encode($res);
+            exit;
+        }
+        
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $regNumber = mysqli_real_escape_string($conn, $_POST['regNumber']);
         $dept = mysqli_real_escape_string($conn, $_POST['department']);
+        $college = mysqli_real_escape_string($conn, $_POST['college']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $events1 = mysqli_real_escape_string($conn, $_POST['event1']);
         
         $transactiondate = mysqli_real_escape_string($conn, $_POST['transactionDate']);
         $transactionid = mysqli_real_escape_string($conn, $_POST['transactionId']);
-       
+        
+        // File Upload
+        $idcardName = $_FILES['Idcard']['name'];
+        $idcardTmp = $_FILES['Idcard']['tmp_name'];
+        move_uploaded_file($idcardTmp, "assets/idcard/" . $idcardName);
         $paymentProofName = $_FILES['paymentProof']['name'];
         $paymentProofTmp = $_FILES['paymentProof']['tmp_name'];
         move_uploaded_file($paymentProofTmp, "assets/payment/" . $paymentProofName);
 
+        // Get maximum registration limit from settings
+        $max_registrations = intval(getSetting($conn, 'max_registrations_per_regno', '1'));
+        
         $checkQuery = "SELECT COUNT(*) AS total FROM events WHERE regno = '$regNumber'";
         $checkResult = mysqli_query($conn, $checkQuery);
         $row = mysqli_fetch_assoc($checkResult);
 
-        if ($row['total'] > 0) {
+        if ($row['total'] >= $max_registrations) {
             $res = [
                 'status' => 400,
-                'message' => 'Registration limit for Your Register number .'
+                'message' => 'Registration limit reached for your Register Number. Maximum allowed: ' . $max_registrations
             ];
             echo json_encode($res);
             exit;
         }
-        $query = "INSERT INTO intramkce (name,emailid,regno,depart,phoneno,events1,date,transactionid,transactionreceipt) VALUES ('$name', '$email', '$regNumber', '$dept', '$phone', '$events1' ,'$transactiondate', '$transactionid', '$paymentProofName')";
+        $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,idcard,date,transactionid,transactionreceipt) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1','$idcardName' ,'$transactiondate', '$transactionid', '$paymentProofName')";
 
         if (mysqli_query($conn, $query)) {
             $last_id = mysqli_insert_id($conn); // Auto Increment ID
 
-            $prefix = "TRZFE";   
+            $prefix = "TRENZ25";   
             $custom_id = $prefix . str_pad($last_id, 4, '0', STR_PAD_LEFT);  // Generate like TZ250001
 
             // Update trenzid
-            $updateQuery = "UPDATE intramkce SET Trenzid='$custom_id' WHERE id='$last_id'";
+            $updateQuery = "UPDATE events SET Trenzid='$custom_id' WHERE id='$last_id'";
             mysqli_query($conn, $updateQuery);
 
             // Mail Send
@@ -72,6 +103,7 @@ if (isset($_POST['Add_Intra_newuser'])) {
                     Thank you for registering.<br><br>
                     Regards,<br><br>
                     Event Team";
+
                 $mail->send();
 
                 $res = [
@@ -101,7 +133,7 @@ if (isset($_POST['Add_Intra_newuser'])) {
 if(isset($_GET['get_user'])) {
     $id = $_GET['id'];
 
-    $query = "SELECT * FROM intramkce WHERE Trenzid='$id'";
+    $query = "SELECT * FROM events WHERE Trenzid='$id'";
     $result = mysqli_query($conn, $query);
 
     if(mysqli_num_rows($result) > 0) {
@@ -112,6 +144,7 @@ if(isset($_GET['get_user'])) {
             'name'=> $row['name'],
             'transactionid'=> $row['transactionid'],
             'date'=> $row['date'],
+            'idcard'=> $row['idcard'],
             'paymentproof'=> $row['transactionreceipt'],
             'email'=> $row['emailid'],
             'phoneno'=> $row['phoneno'],
@@ -127,7 +160,7 @@ if(isset($_GET['get_user'])) {
 
 if (isset($_POST['approve_user'])) {
     $apid = mysqli_real_escape_string($conn, $_POST['ids']);
-    $sql = "UPDATE intramkce SET status ='1' WHERE id='$apid'";
+    $sql = "UPDATE events SET status ='1' WHERE id='$apid'";
     $res = mysqli_query($conn, $sql);
     if ($res) {
         mysqli_commit($conn);
@@ -145,35 +178,50 @@ if (isset($_POST['approve_user'])) {
 
 if (isset($_POST['Onspot_newuser'])) {
     try {
+        // Check if registration is enabled
+        $registration_enabled = getSetting($conn, 'registration_enabled', '1');
+        if ($registration_enabled != '1') {
+            $res = [
+                'status' => 403,
+                'message' => 'Registration is currently disabled. Please try again later.'
+            ];
+            echo json_encode($res);
+            exit;
+        }
+        
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $regNumber = mysqli_real_escape_string($conn, $_POST['regNumber']);
         $dept = mysqli_real_escape_string($conn, $_POST['department']);
+        $college = mysqli_real_escape_string($conn, $_POST['college']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $events1 = mysqli_real_escape_string($conn, $_POST['event1']);
+        
+        // Get maximum registration limit from settings
+        $max_registrations = intval(getSetting($conn, 'max_registrations_per_regno', '1'));
         
         $checkQuery = "SELECT COUNT(*) AS total FROM events WHERE regno = '$regNumber'";
         $checkResult = mysqli_query($conn, $checkQuery);
         $row = mysqli_fetch_assoc($checkResult);
 
-        if ($row['total'] > 0) {
+        if ($row['total'] >= $max_registrations) {
             $res = [
                 'status' => 400,
-                'message' => 'Registration limit for Your Register number .'
+                'message' => 'Registration limit reached for your Register Number. Maximum allowed: ' . $max_registrations
             ];
             echo json_encode($res);
             exit;
         }
-        $query = "INSERT INTO intramkce (name,emailid,regno,depart,phoneno,events1,status) VALUES ('$name', '$email', '$regNumber', '$dept', '$phone', '$events1','2')";
+        $query = "INSERT INTO events (name,emailid,regno,depart,collegename,phoneno,events1,status) VALUES ('$name', '$email', '$regNumber', '$dept', '$college', '$phone', '$events1','2')";
 
         if (mysqli_query($conn, $query)) {
             $last_id = mysqli_insert_id($conn); // Auto Increment ID
 
-            $prefix = "TRZFE";   
+            $prefix = "TRENZ25";   
             $custom_id = $prefix . str_pad($last_id, 4, '0', STR_PAD_LEFT);  // Generate like TZ250001
 
             // Update trenzid
-            $updateQuery = "UPDATE intramkce SET Trenzid='$custom_id' WHERE id='$last_id'";
+            $updateQuery = "UPDATE events SET Trenzid='$custom_id' WHERE id='$last_id'";
             mysqli_query($conn, $updateQuery);
 
             // Mail Send
@@ -200,6 +248,7 @@ if (isset($_POST['Onspot_newuser'])) {
                     Thank you for registering.<br><br>
                     Regards,<br><br>
                     Event Team";
+
                 $mail->send();
 
                 $res = [

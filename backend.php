@@ -8,8 +8,31 @@ use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
+
+// Function to get setting value
+function getSetting($conn, $key, $default = null) {
+    $query = "SELECT setting_value FROM settings WHERE setting_key = '" . mysqli_real_escape_string($conn, $key) . "'";
+    $result = mysqli_query($conn, $query);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['setting_value'];
+    }
+    return $default;
+}
+
 if (isset($_POST['Add_newuser'])) {
     try {
+        // Check if registration is enabled
+        $registration_enabled = getSetting($conn, 'registration_enabled', '1');
+        if ($registration_enabled != '1') {
+            $res = [
+                'status' => 403,
+                'message' => 'Registration is currently disabled. Please try again later.'
+            ];
+            echo json_encode($res);
+            exit;
+        }
+        
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $regNumber = mysqli_real_escape_string($conn, $_POST['regNumber']);
@@ -20,6 +43,7 @@ if (isset($_POST['Add_newuser'])) {
         
         $transactiondate = mysqli_real_escape_string($conn, $_POST['transactionDate']);
         $transactionid = mysqli_real_escape_string($conn, $_POST['transactionId']);
+        
         // File Upload
         $idcardName = $_FILES['Idcard']['name'];
         $idcardTmp = $_FILES['Idcard']['tmp_name'];
@@ -28,14 +52,17 @@ if (isset($_POST['Add_newuser'])) {
         $paymentProofTmp = $_FILES['paymentProof']['tmp_name'];
         move_uploaded_file($paymentProofTmp, "assets/payment/" . $paymentProofName);
 
+        // Get maximum registration limit from settings
+        $max_registrations = intval(getSetting($conn, 'max_registrations_per_regno', '1'));
+        
         $checkQuery = "SELECT COUNT(*) AS total FROM events WHERE regno = '$regNumber'";
         $checkResult = mysqli_query($conn, $checkQuery);
         $row = mysqli_fetch_assoc($checkResult);
 
-        if ($row['total'] > 0) {
+        if ($row['total'] >= $max_registrations) {
             $res = [
                 'status' => 400,
-                'message' => 'Registration limit for Your Register number .'
+                'message' => 'Registration limit reached for your Register Number. Maximum allowed: ' . $max_registrations
             ];
             echo json_encode($res);
             exit;
@@ -151,6 +178,17 @@ if (isset($_POST['approve_user'])) {
 
 if (isset($_POST['Onspot_newuser'])) {
     try {
+        // Check if registration is enabled
+        $registration_enabled = getSetting($conn, 'registration_enabled', '1');
+        if ($registration_enabled != '1') {
+            $res = [
+                'status' => 403,
+                'message' => 'Registration is currently disabled. Please try again later.'
+            ];
+            echo json_encode($res);
+            exit;
+        }
+        
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $regNumber = mysqli_real_escape_string($conn, $_POST['regNumber']);
@@ -159,14 +197,17 @@ if (isset($_POST['Onspot_newuser'])) {
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $events1 = mysqli_real_escape_string($conn, $_POST['event1']);
         
+        // Get maximum registration limit from settings
+        $max_registrations = intval(getSetting($conn, 'max_registrations_per_regno', '1'));
+        
         $checkQuery = "SELECT COUNT(*) AS total FROM events WHERE regno = '$regNumber'";
         $checkResult = mysqli_query($conn, $checkQuery);
         $row = mysqli_fetch_assoc($checkResult);
 
-        if ($row['total'] > 0) {
+        if ($row['total'] >= $max_registrations) {
             $res = [
                 'status' => 400,
-                'message' => 'Registration limit for Your Register number .'
+                'message' => 'Registration limit reached for your Register Number. Maximum allowed: ' . $max_registrations
             ];
             echo json_encode($res);
             exit;

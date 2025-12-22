@@ -59,6 +59,9 @@ $amount=250*$count+200*$count2;
                         <li>
                             <a href="participants.php"><i class="fas fa-users"></i> Participants</a>
                         </li>
+                        <li>
+                            <a href="settings.php"><i class="fas fa-cog"></i> Settings</a>
+                        </li>
                     </ul>
                 </nav>
             </div>

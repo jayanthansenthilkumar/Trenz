@@ -1,8 +1,6 @@
-<?php
-include "db.php";
-?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -11,13 +9,16 @@ include "db.php";
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="login-page">
-    <div id="particles-js"></div>
+    <div id="tsparticles"></div>
     <div class="split-login-container">
         <div class="brand-section">
             <div class="brand-content">
@@ -58,23 +59,18 @@ include "db.php";
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="select-with-icon">
-                            <select id="department" name="department" required>
-                            <option value="" disabled="" selected="">Select Department</option>
-                            <option value="AIDS">Artificial Intelligence and Data Science</option>
-                            <option value="AIML">Artificial Intelligence and Machine Learning</option>
-                            <option value="CSE">Computer Science Engineering</option>
-                            <option value="CSBS">Computer Science And Business Systems</option>
-                            <option value="ECE">Electronics &amp; Communication Engineering</option>
-                            <option value="EEE">Electrical &amp; Electronics Engineering</option>
-                            <option value="MECH">Mechanical Engineering</option>
-                            <option value="CIVIL">Civil Engineering</option>
-                            <option value="IT">Information Technology</option>
-                            <option value="VLSI">Electronics Engineering (VLSI Design)</option>
-                        </select>
-                                <i class="fas fa-calendar-check"></i>
+                            <div class="input-with-icon">
+                                <input type="text" id="department" name="department" placeholder="Department" required>
+                                <i class="fas fa-graduation-cap"></i>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="input-with-icon">
+                                <input type="text" id="college" name="college" placeholder="College Name" required>
+                                <i class="fas fa-university"></i>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
@@ -95,13 +91,29 @@ include "db.php";
                                 </select>
                                 <i class="fas fa-calendar-check"></i>
                             </div>
-                        </div><br><br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Idcard">Upload ID card </label>
+                            <div class="file-upload">
+                                <input type="file" id="Idcard" name="Idcard" required>
+                                <div class="upload-button">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Choose File</span>
+                                </div>
+                                <p class="file-name1">No file chosen</p>
+                            </div>
+                        </div>
+
+
+
                         <div class="tab-buttons">
                             <button type="button" class="next-tab primary-btn" data-next="payment-details">
                                 Continue <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
+
                     <div class="tab-content" id="payment-details">
                         <h3 class="form-section-title">Payment Details</h3>
                         <!-- <div class="qr-code-container">
@@ -115,7 +127,7 @@ include "db.php";
                                 <p><strong>IFSC Code:</strong> UTIB0000123</p>
                                 <p><strong>Account Name:</strong> M.KUMARASAMY COLLEGE OF ENGINEERING - FE HOD AC</p>
                                 <p><strong>Bank Name:</strong> Karur Axis Bank</p>
-                                <p><strong>Amount:</strong> ₹200</p>
+                                <p><strong>Amount:</strong> ₹250</p>
                                 <p><small>Please transfer the exact amount and save the transaction details</small></p>
                             </div>
                         </div>
@@ -125,14 +137,12 @@ include "db.php";
                                 <i class="fas fa-calendar"></i>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="input-with-icon">
                                 <input type="text" id="transactionId" name="transactionId" placeholder="Transaction ID/Reference Number" required>
                                 <i class="fas fa-receipt"></i>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label for="paymentProof">Upload Payment Screenshot</label>
                             <div class="file-upload">
@@ -157,23 +167,24 @@ include "db.php";
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
+    <script src="animations.js"></script>
     <script>
         $(document).on('submit', '#registrationForm', function(e) {
             e.preventDefault();
             var Formdata = new FormData(this);
-            Formdata.append("Add_Intra_newuser", true);
+            Formdata.append("Add_newuser", true);
             Swal.fire({
-            title: 'Please Wait...',
-            text: 'Submitting your form',
-            allowOutsideClick: false,
-            didOpen: () => {
-                Swal.showLoading()
-            }
-        });
+                title: 'Please Wait...',
+                text: 'Submitting your form',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            });
 
             $.ajax({
                 url: "backend.php",
@@ -182,54 +193,91 @@ include "db.php";
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    var res = jQuery.parseJSON(response);
-                    console.log(res);
+                    // Safely try to parse JSON response
+                    try {
+                        var res = JSON.parse(response);
+                        console.log(res);
 
-                    if (res.status == 200) {
+                        if (res.status == 200) {
+                            Swal.close();
+                            Swal.fire({
+                                title: "Event Registered Successfully!",
+                                text: "Your Trenz ID is: " + res.trenzid,
+                                icon: "success",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
+                            });
+                            $('#registrationForm')[0].reset();
+                        } else if (res.status == 201) {
+                            Swal.close();
+                            Swal.fire({
+                                title: "Partial Success",
+                                text: "Registered Successfully but email notification failed. Please note your Trenz ID: " + res.trenzid,
+                                icon: "warning",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
+                            });
+                            $('#registrationForm')[0].reset();
+                        }
+                        else if (res.status == 400) {
+                            Swal.close();
+                            Swal.fire({
+                                title: "Registration Limit Reached!",
+                                text: res.message,
+                                icon: "error",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
+                            });
+                        }
+                        else if (res.status == 403) {
+                            Swal.close();
+                            Swal.fire({
+                                title: "Registration Disabled!",
+                                text: res.message,
+                                icon: "warning",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
+                            });
+                        }
+                        else if (res.status == 500) {
+                            Swal.close();
+                            Swal.fire({
+                                title: "Error!",
+                                text: res.message || "Something went wrong!",
+                                icon: "error",
+                                confirmButtonColor: '#e74c3c',
+                                confirmButtonText: "Okay",
+                            });
+                        }
+                    } catch (e) {
+                        // Handle JSON parse error
+                        console.error("JSON Parse Error:", e);
+                        console.log("Raw Response:", response);
                         Swal.close();
-                        swal.fire({
-                            title: "Event Registered Successfully!",
-                            text: "Your ID is: " + res.trenzid,
-                            icon: "success",
-                            button: "Okay",
-                        });
-
-                        $('#registrationForm')[0].reset();
-                    } else if (res.status == 201) {
-                        Swal.close();
-                        swal.fire({
-                            title: "Error!",
-                            text: "Registered Successfully but Mail not Sent!",
+                        Swal.fire({
+                            title: "Server Error",
+                            text: "The server returned an invalid response. Please try again later or contact support.",
                             icon: "error",
-                            button: "Okay",
-                        });
-
-                        $('#registrationForm')[0].reset();
-                    }
-                    else if (res.status == 400) {
-                        Swal.close();
-                        swal.fire({
-                            title: "Error!",
-                            text: "Registration limit for Your Register number",
-                            icon: "error",
-                            button: "Okay",
-                        });
-
-                        $('#registrationForm')[0].reset();
-                    }
-
-                     else if (res.status == 500) {
-                        Swal.close();
-                        swal.fire({
-                            title: "Error!",
-                            text: "Something went wrong!",
-                            icon: "error",
-                            button: "Okay",
+                            confirmButtonColor: '#e74c3c',
+                            confirmButtonText: "Okay",
                         });
                     }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error:", error);
+                    Swal.close();
+                    Swal.fire({
+                        title: "Connection Error",
+                        text: "Could not connect to the server. Please check your internet connection and try again.",
+                        icon: "error",
+                        confirmButtonColor: '#e74c3c',
+                        confirmButtonText: "Okay",
+                    });
                 }
-            })
+            });
         });
     </script>
+
 </body>
+
 </html>
