@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration - Trenz'25</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,18 +14,19 @@
 </head>
 
 <body class="login-page">
-    <div id="particles-js"></div>
-    <div class="split-login-container">
-        <div class="brand-section">
-            <div class="brand-content">
-                <h1>Trenz'25</h1>
-                <p>Event Registration</p>
+    <div id="particles-js" class="particles-background"></div>
+    
+    <div class="registration-page-container">
+        <a href="index.html" class="back-btn-floating"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="content-wrapper">
+            <div class="branding-side">
+                <h1 class="main-title">Trenz'25</h1>
+                <p class="sub-title">Event Registration</p>
             </div>
-        </div>
-        <div class="login-section">
-            <div class="registration-card">
-                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                <form id="registrationForm" enctype="multipart/form-data">
+            
+            <div class="form-side">
+                <form id="registrationForm" class="registration-form-card" enctype="multipart/form-data">
                     <div class="tabs-navigation">
                         <button type="button" class="tab-btn active" data-tab="personal-info">
                             <i class="fas fa-user"></i> Personal Info
@@ -37,73 +37,78 @@
                     </div>
                     <div class="tab-content active" id="personal-info">
                         <h3 class="form-section-title">Personal Information</h3>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="name" name="name" placeholder="Full Name" required>
-                                <i class="fas fa-user"></i>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="email" id="email" name="email" placeholder="Email Address" required>
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="regNumber" name="regNumber" placeholder="Register Number"
-                                    required>
-                                <i class="fas fa-id-card"></i>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="department" name="department" placeholder="Department" required>
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="college" name="college" placeholder="College Name" required>
-                                <i class="fas fa-university"></i>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-                                <i class="fas fa-phone"></i>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="select-with-icon">
-                                <select id="event1" name="event1" required>
-                                    <option value="">Select Event</option>
-                                    <option value="WebWeave">Web Weave</option>
-                                    <option value="NextGenStart">NextGen Start</option>
-                                    <option value="AppAthon">App Athon</option>
-                                    <option value="Error404NOTFOUND">Error : 404 NOT FOUND</option>
-                                    <option value="CodeRewind">Code Rewind</option>
-                                    <option value="CodeQuest">Code Quest</option>
-                                    <option value="BuildaResume">Build a Resume</option>
-                                </select>
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Idcard">Upload ID card </label>
-                            <div class="file-upload">
-                                <input type="file" id="Idcard" name="Idcard" required>
-                                <div class="upload-button">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span>Choose File</span>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                                    <i class="fas fa-user"></i>
                                 </div>
-                                <p class="file-name1">No file chosen</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                                    <i class="fas fa-envelope"></i>
+                                </div>
                             </div>
                         </div>
 
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <input type="text" id="regNumber" name="regNumber" placeholder="Register Number" required>
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <input type="text" id="department" name="department" placeholder="Department" required>
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="form-row">
+                           <div class="form-group">
+                                <div class="input-with-icon">
+                                    <input type="text" id="college" name="college" placeholder="College Name" required>
+                                    <i class="fas fa-university"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="select-with-icon">
+                                    <select id="event1" name="event1" required>
+                                        <option value="">Select Event</option>
+                                        <option value="WebWeave">Web Weave</option>
+                                        <option value="NextGenStart">NextGen Start</option>
+                                        <option value="AppAthon">App Athon</option>
+                                        <option value="Error404NOTFOUND">Error : 404 NOT FOUND</option>
+                                        <option value="CodeRewind">Code Rewind</option>
+                                        <option value="CodeQuest">Code Quest</option>
+                                        <option value="BuildaResume">Build a Resume</option>
+                                    </select>
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <div class="file-upload">
+                                    <input type="file" id="Idcard" name="Idcard" required style="display:none;" onchange="document.querySelector('.file-name1').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
+                                    <div class="upload-button" onclick="document.getElementById('Idcard').click()">
+                                        <i class="fas fa-upload"></i>
+                                        <span>ID Card</span>
+                                    </div>
+                                    <p class="file-name1" style="display:none;">No file chosen</p>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="tab-buttons">
                             <button type="button" class="next-tab primary-btn" data-next="payment-details">
@@ -114,43 +119,40 @@
 
                     <div class="tab-content" id="payment-details">
                         <h3 class="form-section-title">Payment Details</h3>
-                        <!-- <div class="qr-code-container">
-                            <img src="" alt="Payment QR Code" class="qr-code">
-                            <p>Scan to pay ₹250 for registration</p>
-                        </div> -->
-                        <div class="account-details-container">
-                            <h4>Bank Transfer Details</h4>
-                            <div class="account-info">
-                                <p><strong>Account Number:</strong> 924010014781681</p>
-                                <p><strong>IFSC Code:</strong> UTIB0000123</p>
-                                <p><strong>Account Name:</strong> M.KUMARASAMY COLLEGE OF ENGINEERING - FE HOD AC</p>
-                                <p><strong>Bank Name:</strong> Karur Axis Bank</p>
+                        <div class="account-details-container" style="padding: 10px; background: #f8f9fa; border-radius: 8px; margin-bottom: 12px; font-size: 0.85rem;">
+                            <h4 style="margin-bottom: 8px; font-size: 0.95rem; color: #1a237e;">Bank Transfer Details</h4>
+                            <div class="account-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+                                <p><strong>Acc No:</strong> 924010014781681</p>
+                                <p><strong>IFSC:</strong> UTIB0000123</p>
+                                <p style="grid-column: span 2;"><strong>Name:</strong> M.KUMARASAMY COLLEGE OF ENGINEERING - FE HOD AC</p>
+                                <p><strong>Bank:</strong> Karur Axis Bank</p>
                                 <p><strong>Amount:</strong> ₹250</p>
-                                <p><small>Please transfer the exact amount and save the transaction details</small></p>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="date" id="transactionDate" name="transactionDate" required>
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <input type="text" id="transactionId" name="transactionId"
-                                    placeholder="Transaction ID/Reference Number" required>
-                                <i class="fas fa-receipt"></i>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="paymentProof">Upload Payment Screenshot</label>
-                            <div class="file-upload">
-                                <input type="file" id="paymentProof" name="paymentProof" required>
-                                <div class="upload-button">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span>Choose File</span>
+
+                        <div class="form-row">
+                             <div class="form-group">
+                                <div class="input-with-icon">
+                                    <input type="text" id="transactionId" name="transactionId" placeholder="Transaction ID" required>
+                                    <i class="fas fa-receipt"></i>
                                 </div>
-                                <p class="file-name">No file chosen</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <input type="date" id="transactionDate" name="transactionDate" required>
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                             <div class="file-upload">
+                                <input type="file" id="paymentProof" name="paymentProof" required style="display:none;" onchange="document.querySelector('.file-name').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
+                                <div class="upload-button" onclick="document.getElementById('paymentProof').click()">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Upload Payment Screenshot</span>
+                                </div>
+                                <p class="file-name" style="margin-top: 5px;">No file chosen</p>
                             </div>
                         </div>
                         <div class="tab-buttons">
@@ -164,13 +166,13 @@
                     </div>
                 </form>
             </div>
-        </div>
     </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
         $(document).on('submit', '#registrationForm', function (e) {
             e.preventDefault();

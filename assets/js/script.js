@@ -604,6 +604,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   // Event Data Configuration
   const eventsData = {
@@ -1174,4 +1175,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize
   loadEventDetails();
+});
+
+// Registration Form Tab Logic
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const nextBtns = document.querySelectorAll('.next-tab');
+    const prevBtns = document.querySelectorAll('.prev-tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    function switchTab(tabId) {
+        // Update tabs
+        tabBtns.forEach(btn => {
+            if(btn.dataset.tab === tabId) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Update content
+        tabContents.forEach(content => {
+            if(content.id === tabId) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+    }
+
+    // Tab buttons click
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tabId = this.dataset.tab;
+            switchTab(tabId);
+        });
+    });
+
+    // Next button click
+    nextBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const nextTabId = this.dataset.next;
+            const currentTab = this.closest('.tab-content');
+            
+            if (currentTab) {
+                const inputs = currentTab.querySelectorAll('input[required], select[required]');
+                const firstInvalid = Array.from(inputs).find(input => !input.checkValidity());
+                
+                if (firstInvalid) {
+                    firstInvalid.reportValidity();
+                    return;
+                }
+            }
+
+            switchTab(nextTabId);
+        });
+    });
+
+    // Previous button click
+    prevBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const prevTabId = this.dataset.prev;
+            switchTab(prevTabId);
+        });
+    });
 });

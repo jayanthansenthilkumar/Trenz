@@ -2092,4 +2092,989 @@ body.event-page {
     .footer-section {
         margin-bottom: 70px;
     }
+}/* Login Page Styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Standardized Registration Card Styles - Replace conflicting declarations */
+.registration-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.login-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.login-header h2 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Input group styling */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.input-group input:focus + i {
+    color: #4361ee;
+}
+
+/* Button styling */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-btn:hover {
+    background: #3a56d4;
+}
+
+/* Links */
+.login-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.login-links a {
+    color: #4361ee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-links a:hover {
+    color: #2a41c7;
+    text-decoration: underline;
+}
+
+/* Divider */
+.divider {
+    margin: 25px 0;
+    text-align: center;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #eee;
+}
+
+.divider span {
+    background: white;
+    padding: 0 10px;
+    color: #888;
+    font-size: 0.85rem;
+    position: relative;
+}
+
+/* Social Login */
+.social-login {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background: #f5f5f5;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+/* Back button */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #4361ee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .registration-card {
+        padding: 30px 20px;
+    }
+}
+
+/* Gemini Style Login Layout */
+.split-login-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.brand-section {
+    flex: 1;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    padding: 20px;
+}
+
+/* Add a subtle pattern overlay */
+.brand-section::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.5;
+}
+
+.brand-content {
+    text-align: center;
+    z-index: 2;
+}
+
+.brand-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.brand-content p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.login-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f2f5;
+    position: relative;
+    height: 100vh;
+    overflow-y: auto; /* Internal scroll only if needed on very small screens */
+}
+
+.registration-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 450px; /* Reduced width */
+    padding: 30px;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make the form area scrollable if height is restricted, but try to fit */
+#registrationForm {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 5px; /* Space for scrollbar */
+    scrollbar-width: thin;
+}
+
+#registrationForm::-webkit-scrollbar {
+    width: 4px;
+}
+
+#registrationForm::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    padding: 8px 12px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: fit-content;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    color: #1a237e;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+}
+
+/* Tabs */
+.tabs-navigation {
+    display: flex;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background-color: #f5f7fa;
+    padding: 4px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tab-btn.active {
+    background-color: white;
+    color: #1a237e;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-weight: 600;
+}
+
+/* Compact Form Styles */
+.form-section-title {
+    font-size: 1rem;
+    color: #1a237e;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 12px; /* Reduced margin */
+}
+
+/* Input Fields - Gemini Style */
+.input-with-icon input,
+.select-with-icon select {
+    width: 100%;
+    padding: 10px 12px 10px 12px; /* Compact padding */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+.input-with-icon input:focus,
+.select-with-icon select:focus {
+    border-color: #1a237e;
+    box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.1);
+    background-color: #fff;
+}
+
+/* Shared container styles */
+.input-with-icon,
+.select-with-icon {
+    position: relative;
+    width: 100%;
+}
+
+/* Icon positioning for both inputs and selects */
+.input-with-icon i,
+.select-with-icon i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 0.9rem;
+    pointer-events: none;
+    z-index: 1; /* Ensure icon stays on top */
+}
+
+/* Specific adjustment for select to prevent text overlapping icon */
+.select-with-icon select {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 35px; /* Space for icon */
+    cursor: pointer;
+}
+
+/* Two Column Layout Support */
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0; /* Let row handle margin if needed, or row gap */
+}
+
+/* Label styling if used */
+.form-group label {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* File Upload Compact */
+.file-upload .upload-button {
+    padding: 10px;
+    background: #f8f9fa;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.file-name1, .file-name {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 4px;
+    text-align: center;
+}
+
+/* Buttons */
+.tab-buttons {
+    margin-top: 20px;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    background: #1a237e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Decoration line */
+.registration-card::before {
+    display: none; /* Remove the top border for cleaner look */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .split-login-container {
+        flex-direction: column;
+        height: auto; 
+        min-height: 100vh;
+    }
+    
+    .brand-section {
+        flex: 0 0 120px;
+        padding: 15px;
+    }
+
+    .brand-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .login-section {
+        height: auto;
+        padding: 20px;
+        background: #fff;
+    }
+
+    .registration-card {
+        box-shadow: none;
+        padding: 0;
+        max-height: none;
+    }
+}
+
+/* Floating Back Button */
+.back-btn-floating {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.back-btn-floating:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-3px);
+    color: white;
+}
+
+/* New Registration Page Layout - Single Background */
+.login-page {
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+.particles-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.registration-page-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between; /* Split left and right */
+    align-items: center;
+    gap: 40px;
+}
+
+/* Floating Back Button - Updated Position */
+.back-btn-floating {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #4361ee;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    z-index: 100;
+    transition: all 0.3s ease;
+    border: 1px solid #eef2f6;
+}
+
+.back-btn-floating:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.15);
+    background: white;
+    color: #304ffe;
+}
+
+/* Left Branding Side */
+.branding-side {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Left align as per image */
+}
+
+.main-title {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #4361ee;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.sub-title {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 400; /* Lighter weight for contrast */
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+/* Right Form Side */
+.form-side {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Push to right */
+    max-width: 600px; /* Limit width */
+}
+
+.registration-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    width: 100%;
+    padding: 0; /* Let tabs handle top spacing */
+    overflow: hidden; /* For tabs rounded corners */
+    border: 1px solid #f0f0f0;
+}
+
+/* Tabs Styling - Match Image */
+.tabs-navigation {
+    display: flex;
+    background-color: #f8f9fa;
+    margin: 20px 20px 10px 20px;
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid #eef2f6;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tab-btn.active {
+    background-color: #4361ee; /* Blue Active */
+    color: white;
+    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+}
+
+.tab-content {
+    padding: 20px 30px 40px 30px;
+}
+
+.form-section-title {
+    font-size: 1.2rem;
+    color: #4361ee;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: none; /* Removed underline */
+}
+
+/* Form Inputs - Match Image (Light Gray, clean) */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.input-with-icon input,
+.select-with-icon select {
+    background-color: #f8f9fa; /* Light Gray Background */
+    border: 1px solid transparent; /* No visible border initially */
+    padding: 14px 15px 14px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.input-with-icon input:focus,
+.select-with-icon select:focus {
+    background-color: #fff;
+    border-color: #e0e0e0;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.input-with-icon input::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.input-with-icon i {
+    color: #adb5bd; /* Lighter icon color */
+}
+
+/* Continue Button - Right Aligned Pill */
+.tab-buttons {
+    display: flex;
+    justify-content: flex-end; /* Right align */
+    margin-top: 30px;
+}
+
+.primary-btn {
+    width: auto; /* Auto width */
+    min-width: 140px;
+    padding: 12px 30px;
+    border-radius: 50px; /* Pill shape */
+    background: #4361ee;
+    font-weight: 600;
+}
+
+.primary-btn:hover {
+    background: #304ffe;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+}
+
+.secondary-btn {
+    border-radius: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        padding-top: 60px; /* Space for back button */
+    }
+
+    .branding-side {
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+
+    .form-side {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Clean Registration Form Card Style */
+.registration-form-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+/* Fix for tabs */
+.tabs-navigation {
+    display: flex;
+    background-color: #f8f9fa;
+    margin: 20px 20px 10px 20px;
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid #eef2f6;
+}
+
+/* Ensure tab content doesn't overflow */
+.tab-content {
+    display: none;
+    padding: 20px 30px 30px 30px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Align Fields & Fix Height Discrepancies */
+
+/* Force standardized padding and height for all inputs */
+.input-with-icon input,
+.select-with-icon select,
+.file-upload .upload-button {
+    height: 54px; /* Fixed height for perfect alignment */
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    font-size: 0.9rem;
+    background-color: #f8f9fa;
+    border: none; /* No border by default like in image */
+    border-radius: 8px;
+}
+
+/* Ensure placeholder text is vertically centered in text inputs */
+.input-with-icon input,
+.select-with-icon select {
+    line-height: normal;
+}
+
+/* Specific fix for upload button content alignment */
+.file-upload .upload-button {
+    justify-content: center;
+    border: 1px dashed #ced4da; /* Distinctive border for upload */
+    background-color: #f8f9fa;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.2s;
+}
+
+.file-upload .upload-button:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+/* Ensure row gap matches image */
+.form-row {
+    gap: 20px; /* Increased gap */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 0; /* Let row handle vertical spacing via margin-bottom */
+}
+
+/* Icon positioning adjustments */
+.input-with-icon i, 
+.select-with-icon i {
+    right: 16px;
+    font-size: 1rem;
+    color: #a0a0a0;
+}
+
+/* Adjust file name display below upload button */
+.file-name1, .file-name {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #6c757d;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-upload {
+    position: relative; /* For absolute positioning of file name */
+    padding-bottom: 0;
+}
+
+/* Exact Branding Typography */
+.branding-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Default left align */
+}
+
+.main-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5.5rem; /* Larger */
+    font-weight: 700; /* Bold but clean */
+    color: #4361ee; /* Vibrant Blue */
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -2px; /* Tighter tracking */
+    text-transform: none; /* Ensure case matches */
+}
+
+.sub-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: #6c757d; /* Muted gray #6c757d or #666 */
+    font-weight: 400; /* Regular weight */
+    margin-top: 5px;
+    letter-spacing: 0px;
+}
+
+/* Responsive Scaling */
+@media (max-width: 900px) {
+    .branding-side {
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .main-title {
+        font-size: 4rem;
+    }
+    
+    .sub-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile Responsiveness for Form Fields */
+@media (max-width: 600px) {
+    /* Stack form fields vertically */
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .form-side {
+        padding: 0 10px;
+    }
+
+    .registration-form-card {
+        padding: 5px; /* Minimal padding on card to maximize space */
+    }
+    
+    .tab-content {
+        padding: 15px; /* Reduced padding inside tabs */
+    }
+
+    /* Adjust typography for mobile */
+    .main-title {
+        font-size: 3rem; /* Smaller title */
+        text-align: center;
+    }
+
+    .sub-title {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .branding-side {
+        padding: 20px 0; /* Vertical padding only */
+    }
+
+    /* Ensure inputs are still comfortable touch targets */
+    .input-with-icon input,
+    .select-with-icon select,
+    .file-upload .upload-button {
+        height: 50px; /* Slightly shorter but still easy to tap */
+        font-size: 0.95rem; /* Readable text */
+    }
+
+    .tab-btn {
+        padding: 10px 5px;
+        font-size: 0.85rem;
+    }
+    
+    .back-btn-floating {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 20px;
+        align-self: flex-start;
+        display: inline-flex;
+    }
+    
+    .registration-page-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 20px;
+        height: auto; /* Allow scrolling */
+    }
+    
+    .content-wrapper {
+        padding-top: 10px;
+    }
 }
