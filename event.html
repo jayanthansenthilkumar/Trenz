@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Built a Resume - Trenz'25</title>
+    <title>Event Details - Trenz'25</title>
     <link href="./assets/images/trenz.png" rel="icon" type="image/png" sizes="16x16">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
+        
         .event-banner {
             width: 100%;
             height: 300px;
@@ -60,6 +61,19 @@
             color: #555;
         }
         
+        .event-rules {
+            background: rgba(67, 97, 238, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .event-rules h3 {
+            margin-bottom: 15px;
+            color: #4361ee;
+            font-size: 1.4rem;
+        }
+        
         .rules-list {
             list-style-type: none;
             padding: 0;
@@ -98,14 +112,14 @@
             color: #4361ee;
             font-size: 18px;
         }
-        
+
+        /* Styles from other pages specific elements */
         .sub-points {
             padding-left: 0;
             margin-top: 8px;
             width: 100%;
             margin-left: 140px;
-            border-left: 2px solid rgba(67, 97, 238, 0.2);
-            padding-left: 15px;
+            /* Some pages differ, but this covers most */
         }
         
         .sub-points ul {
@@ -119,43 +133,65 @@
             position: relative;
             border-bottom: none;
             margin-bottom: 0;
-            transition: transform 0.2s ease;
-        }
-        
-        .sub-points ul li:hover {
-            transform: translateX(5px);
         }
         
         .sub-points ul li:before {
             content: "\ea52";
             font-family: "remixicon";
             font-size: 14px;
-            color: #4361ee;
+            color: #4361ee; /* Explicitly adding color here as it appeared in some css */
+            position: absolute; /* Ensuring positioning */
+            left: 0; 
         }
         
-        .section-title {
-            font-weight: 600;
-            color: #333;
-            margin: 15px 0 8px 0;
-            padding-left: 10px;
-            border-left: 3px solid #4361ee;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .sub-points p {
+            margin: 10px 0 5px 0;
+            color: #4361ee;
+            font-weight: 500;
+        }
+        
+        .judging-criteria {
+            background: rgba(67, 97, 238, 0.08);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            width: 100%;
+            margin-left: 140px;
+            box-shadow: 0 3px 8px rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .criteria-item {
+            padding: 8px 0 8px 25px;
             position: relative;
-            transition: all 0.3s ease;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.1);
+        }
+        
+        .criteria-item:last-child {
+            border-bottom: none;
+        }
+        
+        .criteria-item:before {
+            content: "\ea52";
+            font-family: "remixicon";
+            position: absolute;
+            left: 0;
+            color: #4361ee;
+            font-size: 16px;
         }
         
         .event-actions {
             display: flex;
             justify-content: center;
-            align-items: center;
             margin-top: 40px;
             padding: 20px 0;
             border-top: 1px solid rgba(67, 97, 238, 0.1);
             position: relative;
-            width: 100%;
-            text-align: center;
         }
         
         .event-actions:before {
@@ -181,52 +217,83 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            display: inline-block;
             box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 1;
-            margin: 0 auto;
+        }
+
+        /* Specific styles from codequest.html regarding rounds */
+        .round-container {
+            margin-bottom: 15px;
+            background: rgba(67, 97, 238, 0.03);
+            border-radius: 8px;
+            padding: 12px 15px;
+            border-left: 3px solid rgba(67, 97, 238, 0.4);
+            transition: all 0.2s ease;
         }
         
-        .register-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        .round-container:hover {
+            background: rgba(67, 97, 238, 0.06);
+            transform: translateX(3px);
+        }
+        
+        .round-title {
+            font-weight: 600;
+            color: #4361ee;
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Styles from web.html regarding tool icons */
+        .tool-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+            width: 100%;
+            margin-left: 140px;
+        }
+
+        /* Styles from debugging.html regarding surprise elements */
+        .surprise-element {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.12), rgba(111, 134, 252, 0.15));
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-top: 10px;
+            box-shadow: 0 3px 10px rgba(67, 97, 238, 0.1);
+            border-left: 3px solid #4361ee;
+            position: relative;
+        } 
+        
+        .important-notes {
+            background: rgba(253, 235, 208, 0.3);
+            border-left: 3px solid #febb58;
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated-item {
+            animation: fadeIn 0.4s ease forwards;
         }
         
         @media (max-width: 768px) {
-            .event-banner {
-                height: 200px;
-            }
-            
-            .event-info {
-                padding: 20px;
-            }
-            
-            .event-title {
-                font-size: 1.8rem;
-            }
-            
-            .event-meta {
-                gap: 15px;
-            }
-            
-            .rules-list li {
-                flex-direction: column;
-            }
-            
-            .rules-list li strong {
-                min-width: 100%;
-                margin-bottom: 5px;
-            }
-            
-            .sub-points {
-                margin-left: 0;
-                width: 100%;
-            }
+            .event-banner { height: 200px; }
+            .event-info { padding: 20px; }
+            .event-title { font-size: 1.8rem; }
+            .event-meta { gap: 15px; }
+            .rules-list li { flex-direction: column; }
+            .rules-list li strong { min-width: 100%; margin-bottom: 5px; }
+            .sub-points, .judging-criteria, .tool-icons { margin-left: 0; width: 100%; }
         }
     </style>
 </head>
@@ -235,75 +302,26 @@
         <div id="particles-js"></div>
         <div class="section-header">
             <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
-            <h2>Built a Resume</h2>
+            <h2 id="page-header-title">Event Details</h2>
             <div class="section-divider"></div>
         </div>
         
-        <div class="single-event-container">
-            <img src="./assets/images/resume.png" alt="Built a Resume" class="event-banner">
+        <div class="single-event-container" id="event-container">
+            <img src="" alt="Event Banner" class="event-banner" id="event-banner">
             
             <div class="event-info">
-                <h1 class="event-title">Built a Resume - Professional CV Competition</h1>
+                <h1 class="event-title" id="event-title">Loading...</h1>
                 
-                <div class="event-meta">
-                    <div class="meta-item">
-                        <i class="ri-calendar-line"></i>
-                        <span>April 30, 2025</span>
-                    </div>
-                    <div class="meta-item">
-                        <i class="ri-time-line"></i>
-                        <span>09:00 AM - 04:00 PM</span>
-                    </div>
-                    <div class="meta-item">
-                        <i class="ri-user-line"></i>
-                        <span>Individual Participation</span>
-                    </div>
+                <div class="event-meta" id="event-meta">
+                    <!-- Meta items will be injected here -->
                 </div>
                 
-                <div class="event-rules">
-                    <h3>Rules & Guidelines</h3>
-                    <ul class="rules-list">
-                        <li><strong>Name of the Event:</strong> Build a Resume</li>
-                        
-                        <li><strong>Event Overview:</strong> Build-A-Resume is a resume creation competition where participants will craft a professional resume on the spot using online tools. The competition is designed to test students' ability to present their skills and experiences effectively and professionally.</li>
-                        
-                        <li><strong>Participation Format:</strong>
-                            <div class="sub-points">
-                                <ul>
-                                    <li>Individual participation only</li>
-                                    <li>Resumes must be created during the event time using online or offline tools</li>
-                                </ul>
-                            </div>
-                        </li>
-                        
-                        <li><strong>Event Structure:</strong>
-                            <div class="sub-points">
-                                <ul>
-                                    <li>Participants will be given a duration of 1.5 to 2 hours to create their resume from scratch</li>
-                                    <li>Resume can be created using online Platforms</li>
-                                    <li>At the end of the session, participants must export their resume in PDF format and submit it to the organizers</li>
-                                </ul>
-                            </div>
-                        </li>
-                        
-                        <li><strong>Clarification on Tools and Rules:</strong>
-                            <div class="sub-points">
-                                <ul>
-                                    <li>Participants must be physically present at the event venue</li>
-                                    <li>Resume must be created during the event duration only</li>
-                                    <li>Pre-prepared or printed resumes are not allowed</li>
-                                    <li>Copying from sample resumes or using AI-generated content is prohibited</li>
-                                    <li>The resume must be created during the event timeframe</li>
-                                    <li>The resume should not exceed two page (for students/freshers) unless otherwise specified</li>
-                                    <li>File name format: FullName_Resume.pdf can be send to the email Id which will be shared in the venue</li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="event-rules" id="event-details-content">
+                    <!-- Rules and content will be injected here -->
                 </div>
                 
                 <div class="event-actions">
-                    <a href="register.php" class="register-btn"><i class="ri-file-user-line"></i> Register Now</a>
+                    <a href="register.php" class="register-btn">Register Now</a>
                 </div>
             </div>
         </div>

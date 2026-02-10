@@ -604,7 +604,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   // Event Data Configuration
   const eventsData = {
