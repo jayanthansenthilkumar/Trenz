@@ -610,10 +610,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const eventsData = {
     appdev: {
       title: "App Dev Pro Challenge",
-      headerTitle: "App Dev Pro Challenge 2025",
+      headerTitle: "App Dev Pro Challenge 2026",
       image: "./assets/images/appdev.avif",
       meta: [
-        { icon: "ri-calendar-line", text: "April 30, 2025" },
+        { icon: "ri-calendar-line", text: "April 30, 2026" },
         { icon: "ri-time-line", text: "09:00 AM - 4:00 PM" },
         { icon: "ri-user-line", text: "Individual/Team (max 2 members)" },
       ],
@@ -711,7 +711,7 @@ document.addEventListener("DOMContentLoaded", function () {
       headerTitle: "Code Quest - Coding Treasure Hunt Challenge",
       image: "./assets/images/codehunt.png",
       meta: [
-        { icon: "ri-calendar-line", text: "April 30, 2025" },
+        { icon: "ri-calendar-line", text: "April 30, 2026" },
         { icon: "ri-time-line", text: "09:00 AM - 4:00 PM" },
         { icon: "ri-user-line", text: "Teams of 2 members" },
       ],
@@ -781,7 +781,7 @@ document.addEventListener("DOMContentLoaded", function () {
       headerTitle: "Code Rewind - Reverse Engineering Challenge",
       image: "./assets/images/reverse.webp",
       meta: [
-        { icon: "ri-calendar-line", text: "April 30, 2025" },
+        { icon: "ri-calendar-line", text: "April 30, 2026" },
         { icon: "ri-time-line", text: "9:00 AM - 2:00 PM" },
         { icon: "ri-user-line", text: "Individual/Team (max 2 members)" },
       ],
@@ -875,7 +875,7 @@ document.addEventListener("DOMContentLoaded", function () {
       headerTitle: "ERROR : 404 NOT FOUND - Bug Hunting Challenge",
       image: "./assets/images/coding.png",
       meta: [
-        { icon: "ri-calendar-line", text: "April 30, 2025" },
+        { icon: "ri-calendar-line", text: "April 30, 2026" },
         { icon: "ri-time-line", text: "9:00 AM - 4:00 PM" },
         { icon: "ri-user-line", text: "Individual/Team (max 2 members)" },
       ],
@@ -970,7 +970,7 @@ document.addEventListener("DOMContentLoaded", function () {
       headerTitle: "Built a Resume - Professional CV Competition",
       image: "./assets/images/resume.png",
       meta: [
-        { icon: "ri-calendar-line", text: "April 30, 2025" },
+        { icon: "ri-calendar-line", text: "April 30, 2026" },
         { icon: "ri-time-line", text: "09:00 AM - 04:00 PM" },
         { icon: "ri-user-line", text: "Individual Participation" },
       ],
@@ -1018,10 +1018,10 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     startup: {
       title: "Startup Pitch Competition",
-      headerTitle: "Startup Pitch Challenge 2025",
+      headerTitle: "Startup Pitch Challenge 2026",
       image: "./assets/images/startup.avif",
       meta: [
-        { icon: "ri-calendar-line", text: "April 30, 2025" },
+        { icon: "ri-calendar-line", text: "April 30, 2026" },
         { icon: "ri-time-line", text: "9:00 AM - 4:00 PM" },
         { icon: "ri-user-line", text: "Teams (1-4 members)" },
       ],
@@ -1075,10 +1075,10 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     webdesign: {
       title: "Web Weave Challenge",
-      headerTitle: "Web Weave Challenge 2025",
+      headerTitle: "Web Weave Challenge 2026",
       image: "./assets/images/webdesign.jpg",
       meta: [
-        { icon: "ri-calendar-line", text: "April 30, 2025" },
+        { icon: "ri-calendar-line", text: "April 30, 2026" },
         { icon: "ri-time-line", text: "09:00 AM - 4:00 PM" },
         { icon: "ri-user-line", text: "Individual/Team (max 2 members)" },
       ],
@@ -1128,11 +1128,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("event-container");
     const pageHeaderTitle = document.getElementById("page-header-title");
 
+    if (!container || !pageHeaderTitle) return;
+
     if (eventId && eventsData[eventId]) {
       const data = eventsData[eventId];
 
       // Update Page Title
-      document.title = `${data.title} - Trenz'25`;
+      document.title = `${data.title} - Trenz'26`;
       pageHeaderTitle.textContent = data.title;
 
       // Update Banner
@@ -1158,7 +1160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data.rulesHTML;
     } else {
       // Handle 404 - Event Not Found
-      document.title = "Event Not Found - Trenz'25";
+      document.title = "Event Not Found - Trenz'26";
       pageHeaderTitle.textContent = "Event Not Found";
       container.innerHTML = `
                 <div class="event-info" style="text-align: center; padding: 50px;">

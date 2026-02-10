@@ -2969,7 +2969,8 @@ body.event-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Default left align */
+    align-items: center; /* Center aligned */
+    text-align: center; /* Text center */
 }
 
 .main-title {

@@ -17,7 +17,7 @@ if (isset($_POST['Add_newuser'])) {
         $college = mysqli_real_escape_string($conn, $_POST['college']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $events1 = mysqli_real_escape_string($conn, $_POST['event1']);
-        
+
         $transactiondate = mysqli_real_escape_string($conn, $_POST['transactionDate']);
         $transactionid = mysqli_real_escape_string($conn, $_POST['transactionId']);
         // File Upload
@@ -45,26 +45,26 @@ if (isset($_POST['Add_newuser'])) {
         if (mysqli_query($conn, $query)) {
             $last_id = mysqli_insert_id($conn); // Auto Increment ID
 
-            $prefix = "TRENZ25";   
-            $custom_id = $prefix . str_pad($last_id, 4, '0', STR_PAD_LEFT);  // Generate like TZ250001
+            $prefix = "TRENZ26";
+            $custom_id = $prefix . str_pad($last_id, 4, '0', STR_PAD_LEFT);  // Generate like TZ250001 (Note: Logic generates TZ25 prefix if variable is mostly used, but code says $prefix. Actually comment says TZ250001)
 
             // Update trenzid
             $updateQuery = "UPDATE events SET Trenzid='$custom_id' WHERE id='$last_id'";
             mysqli_query($conn, $updateQuery);
 
             // Mail Send
-            $mail = new PHPMailer(true);    
+            $mail = new PHPMailer(true);
 
             try {
                 $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com';
-                $mail->SMTPAuth   = true;
-                $mail->Username   = 'trenz2k25@gmail.com'; // Your Gmail
-                $mail->Password   = 'ikoximjgvynasved'; // Gmail App Password
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'trenz2k26@gmail.com'; // Your Gmail
+                $mail->Password = 'ikoximjgvynasved'; // Gmail App Password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port       = 587;
+                $mail->Port = 587;
 
-                $mail->setFrom('trenz2k25@gmail.com', 'Trenz2k25');
+                $mail->setFrom('trenz2k26@gmail.com', 'Trenz2k26');
                 $mail->addAddress($email); // Send mail to registered user
 
                 $mail->isHTML(true);
@@ -103,25 +103,25 @@ if (isset($_POST['Add_newuser'])) {
     }
 }
 
-if(isset($_GET['get_user'])) {
+if (isset($_GET['get_user'])) {
     $id = $_GET['id'];
 
     $query = "SELECT * FROM events WHERE Trenzid='$id'";
     $result = mysqli_query($conn, $query);
 
-    if(mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
 
         $data = [
-            'Trenzid'=> $row['Trenzid'],
-            'name'=> $row['name'],
-            'transactionid'=> $row['transactionid'],
-            'date'=> $row['date'],
-            'idcard'=> $row['idcard'],
-            'paymentproof'=> $row['transactionreceipt'],
-            'email'=> $row['emailid'],
-            'phoneno'=> $row['phoneno'],
-            
+            'Trenzid' => $row['Trenzid'],
+            'name' => $row['name'],
+            'transactionid' => $row['transactionid'],
+            'date' => $row['date'],
+            'idcard' => $row['idcard'],
+            'paymentproof' => $row['transactionreceipt'],
+            'email' => $row['emailid'],
+            'phoneno' => $row['phoneno'],
+
         ];
 
 
@@ -138,8 +138,7 @@ if (isset($_POST['approve_user'])) {
     if ($res) {
         mysqli_commit($conn);
         echo json_encode(['status' => 200]);
-    }
-    else {
+    } else {
         $res = [
             'status' => 500,
             'message' => 'Details Not Deleted'
@@ -158,7 +157,7 @@ if (isset($_POST['Onspot_newuser'])) {
         $college = mysqli_real_escape_string($conn, $_POST['college']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $events1 = mysqli_real_escape_string($conn, $_POST['event1']);
-        
+
         $checkQuery = "SELECT COUNT(*) AS total FROM events WHERE regno = '$regNumber'";
         $checkResult = mysqli_query($conn, $checkQuery);
         $row = mysqli_fetch_assoc($checkResult);
@@ -176,7 +175,7 @@ if (isset($_POST['Onspot_newuser'])) {
         if (mysqli_query($conn, $query)) {
             $last_id = mysqli_insert_id($conn); // Auto Increment ID
 
-            $prefix = "TRENZ25";   
+            $prefix = "TRENZ26";
             $custom_id = $prefix . str_pad($last_id, 4, '0', STR_PAD_LEFT);  // Generate like TZ250001
 
             // Update trenzid
@@ -188,14 +187,14 @@ if (isset($_POST['Onspot_newuser'])) {
 
             try {
                 $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com';
-                $mail->SMTPAuth   = true;
-                $mail->Username   = 'trenz2k25@gmail.com'; // Your Gmail
-                $mail->Password   = 'ikoximjgvynasved'; // Gmail App Password
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'trenz2k26@gmail.com'; // Your Gmail
+                $mail->Password = 'ikoximjgvynasved'; // Gmail App Password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port       = 587;
+                $mail->Port = 587;
 
-                $mail->setFrom('trenz2k25@gmail.com', 'Trenz2k25');
+                $mail->setFrom('trenz2k26@gmail.com', 'Trenz2k26');
                 $mail->addAddress($email); // Send mail to registered user
 
                 $mail->isHTML(true);
