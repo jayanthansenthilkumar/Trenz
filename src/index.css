@@ -671,6 +671,26 @@ a { text-decoration: none; color: inherit; }
 
 .select-with-icon select { appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-right: 35px; cursor: pointer; }
 
+/* Searchable Select Dropdown */
+.searchable-select { position: relative; width: 100%; }
+.searchable-select-dropdown {
+  position: absolute; top: 100%; left: 0; right: 0; z-index: 50;
+  max-height: 200px; overflow-y: auto;
+  background: var(--bg-secondary); border: 1.5px solid var(--border);
+  border-radius: 0 0 12px 12px; margin-top: -2px;
+  list-style: none; padding: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.searchable-select-dropdown li {
+  padding: 10px 14px; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-secondary); transition: background 0.15s;
+}
+.searchable-select-dropdown li:hover { background: rgba(217, 119, 6, 0.1); color: var(--text-primary); }
+.searchable-select-dropdown li.selected { background: rgba(217, 119, 6, 0.15); color: var(--accent); font-weight: 500; }
+.searchable-select-dropdown li.no-results { color: var(--text-muted); cursor: default; font-style: italic; }
+.searchable-select-dropdown::-webkit-scrollbar { width: 6px; }
+.searchable-select-dropdown::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
 .file-upload { position: relative; }
 
 .file-upload .upload-button {

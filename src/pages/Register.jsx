@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
@@ -14,6 +14,76 @@ const eventOptions = [
   { value: 'BuildaResume', label: 'Build a Resume' },
 ]
 
+function parseCsv(text) {
+  const lines = text.trim().split('\n')
+  const headers = lines[0].split(',').map(h => h.trim())
+  return lines.slice(1).map(line => {
+    const values = []
+    let current = ''
+    let inQuotes = false
+    for (const ch of line) {
+      if (ch === '"') { inQuotes = !inQuotes }
+      else if (ch === ',' && !inQuotes) { values.push(current.trim()); current = '' }
+      else { current += ch }
+    }
+    values.push(current.trim())
+    return Object.fromEntries(headers.map((h, i) => [h, values[i] || '']))
+  })
+}
+
+function SearchableSelect({ name, value, onChange, options, placeholder, icon }) {
+  const [query, setQuery] = useState('')
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+
+  const filtered = query.length >= 3
+    ? options.filter(opt => opt.label.toLowerCase().includes(query.toLowerCase()))
+    : []
+
+  const showDropdown = open && query.length >= 3
+
+  return (
+    <div className="searchable-select" ref={ref}>
+      <div className="input-with-icon">
+        <input
+          type="text"
+          placeholder={value || placeholder}
+          value={open ? query : value}
+          onFocus={() => { setOpen(true); setQuery('') }}
+          onChange={(e) => { setQuery(e.target.value); setOpen(true) }}
+          autoComplete="off"
+        />
+        <i className={icon}></i>
+      </div>
+      {showDropdown && (
+        <ul className="searchable-select-dropdown">
+          {filtered.length === 0 && <li className="no-results">No results found</li>}
+          {filtered.slice(0, 100).map((opt) => (
+            <li
+              key={opt.value}
+              className={opt.value === value ? 'selected' : ''}
+              onClick={() => {
+                onChange({ target: { name, value: opt.value } })
+                setQuery('')
+                setOpen(false)
+              }}
+            >
+              {opt.label}
+            </li>
+          ))}
+          {filtered.length > 100 && <li className="no-results">Type to narrow results...</li>}
+        </ul>
+      )}
+    </div>
+  )
+}
+
 function Register() {
   const [activeTab, setActiveTab] = useState('personal-info')
   const [form, setForm] = useState({
@@ -25,6 +95,30 @@ function Register() {
   const [paymentProof, setPaymentProof] = useState(null)
   const idCardRef = useRef(null)
   const paymentRef = useRef(null)
+
+  const [departments, setDepartments] = useState([])
+  const [colleges, setColleges] = useState([])
+
+  useEffect(() => {
+    fetch('/departments.csv')
+      .then(res => res.text())
+      .then(text => {
+        const rows = parseCsv(text)
+        setDepartments(rows.map(r => ({
+          value: `${r['Degree']} - ${r['Department Name']}`,
+          label: `${r['Degree']} - ${r['Department Name']}`,
+        })))
+      })
+    fetch('/college.csv')
+      .then(res => res.text())
+      .then(text => {
+        const rows = parseCsv(text)
+        setColleges(rows.map(r => {
+          const name = r['College Name'].replace(/\s*\(Id:.*?\)/, '')
+          return { value: name, label: name }
+        }))
+      })
+  }, [])
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -144,19 +238,27 @@ function Register() {
                       </div>
                     </div>
                     <div className="form-group">
-                      <div className="input-with-icon">
-                        <input type="text" name="department" placeholder="Department" value={form.department} onChange={handleChange} required />
-                        <i className="ri-graduation-cap-line"></i>
-                      </div>
+                      <SearchableSelect
+                        name="department"
+                        value={form.department}
+                        onChange={handleChange}
+                        options={departments}
+                        placeholder="Select Department"
+                        icon="ri-graduation-cap-line"
+                      />
                     </div>
                   </div>
 
                   <div className="form-row">
                     <div className="form-group">
-                      <div className="input-with-icon">
-                        <input type="text" name="college" placeholder="College Name" value={form.college} onChange={handleChange} required />
-                        <i className="ri-building-line"></i>
-                      </div>
+                      <SearchableSelect
+                        name="college"
+                        value={form.college}
+                        onChange={handleChange}
+                        options={colleges}
+                        placeholder="Select College"
+                        icon="ri-building-line"
+                      />
                     </div>
                     <div className="form-group">
                       <div className="input-with-icon">
